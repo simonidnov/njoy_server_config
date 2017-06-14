@@ -18,7 +18,7 @@ var app = {
     console.log('reload');
     app.infos.uuid = new Date().getTime();
     app.socket_callback = function(e){console.log(e);}
-    app.socket = io('http://localhost:3000', {
+    app.socket = io('http://192.168.0.10/:3000', {
       transports: ['websocket', 'xhr-polling']
     });
     app.socket.on('connect', function(e) {
