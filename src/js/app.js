@@ -5,6 +5,7 @@ var app = {
     regis : false,
     users : []
   },
+  ip:"http://192.168.0.10:3000",
   callback:null,
   socket :null,
   init:function(callback){
@@ -15,11 +16,18 @@ var app = {
 
   },
   init_socket : function(){
-    console.log('reload');
     app.infos.uuid = new Date().getTime();
     app.socket_callback = function(e){console.log(e);}
-    app.socket = io('http://192.168.0.10/:3000', {
+    app.socket = io(this.ip, {
       transports: ['websocket', 'xhr-polling']
+    });
+    app.socket.on('error', function(e) {
+      console.log('error');
+      app.callback({status:"error_socket", datas:e});
+    });
+    app.socket.on('connect_failed', function(e){
+      console.log('connect_failed');
+      app.callback({status:"connect_failed"});
     });
     app.socket.on('connect', function(e) {
       console.log('user connected ', e);
