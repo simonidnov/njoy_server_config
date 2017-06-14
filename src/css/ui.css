@@ -1,0 +1,207 @@
+.ui{
+  position: absolute;
+  z-index: 999999;
+  top:0;
+  left:0;
+  width: 100%;
+}
+.ui.full{
+  width:100%;
+  height:100%;
+  background-color:rgba(0,0,0,.4);
+}
+.ui .notification{
+  left:0;
+  right:0;
+  width:280px;
+  padding:20px;
+  border-radius:10px;
+  background-color:#FFF;
+  color:#333;
+  text-align: left;
+  position: absolute;
+  margin:auto;
+  min-height:40px;
+}
+.cross_close{
+  position: absolute;
+  right:10px;
+  top:10px;
+  cursor: pointer;
+}
+.ui .popin{
+}
+.panel-infos{
+  width:80%;
+  max-width: 500px;
+  left:0;
+  right:0;
+  padding:20px;
+  border-radius: 20px;
+  background-color: rgba(0,0,0,.1);
+  margin:auto;
+  margin-top:10px;
+  box-sizing: border-box;
+}
+.panel-infos .icon{
+  height:128px;
+  text-align: center;
+}
+.panel-infos .icon img{
+  height: 100%;
+}
+.panel-infos p{
+  color: #414042;
+  text-align: center;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.hyperlink{
+  color:#32ABDF;
+  border-bottom:1px solid #32ABDF;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 24px;
+  padding-bottom:3px;
+}
+.material-icons{
+  display:inline-table;
+}
+.md-18{
+  font-size: 18px;
+}
+.md-32{
+  font-size: 32px;
+}
+.md-64{
+  font-size: 64px;
+}
+.md-128{
+  font-size: 128px;
+}
+.md-256{
+  font-size: 256px;
+}
+
+
+.classic_button{
+  border: none;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 15px;
+    border-radius: 5px;
+    color: #FFF;
+    text-transform: uppercase;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin: 10px;
+    cursor: pointer;
+    outline: none !important;
+    background: #78A955;
+    line-height: 20px;
+}
+.classic_button:hover, .classic_button:focus{
+  background:#78A955;
+  outline: none;
+}
+.classic_button:disabled {
+  background:#CCCCCC;
+}
+.classic_button i{
+  margin-right:10px;
+  line-height:5px;
+  vertical-align:middle;
+}
+.njoy-green{
+  background-color:#78A955;
+}
+.njoy-tgreen{
+  color:#78A955;
+}
+.header-navbar{
+  top:50px;
+  height:45px;
+  width:100%;
+  position: absolute;
+  overflow: hidden;
+  background:#e1e2e1;
+  text-align: center;
+}
+.header-navbar ul{
+  max-width: 100%;
+  display: inline-table;
+  left:0;
+  right:0;
+  margin:auto;
+  margin:0;
+  padding:0;
+  top:0;
+}
+.header-navbar ul li{
+  display: inline-table;
+  list-style: none;
+  padding:0;
+  margin:0;
+  line-height: 45px;
+  font-size: 15px;
+  padding-left:10px;
+  padding-right:10px;
+  color:#CCC;
+  text-transform: uppercase;
+  height:45px;
+  cursor: pointer;
+}
+.header-navbar ul li.selected{
+  color:#78A955;
+}
+.header-navbar ul .select_bar{
+  background-color:#78A955;
+  height:3px;
+  position: absolute;
+  bottom:0;
+  min-width: 30px;
+  -webkit-transition: left .2s ease;
+  -moz-transition: left .2s ease;
+  -ms-transition: left .2s ease;
+  -o-transition: left .2s ease;
+  transition: left .2s ease;
+}
+
+.progress_bar{
+  width:90%;
+  left:0;
+  right:0;
+  margin:auto;
+  max-width: 550px;
+  margin-top:20px;
+}
+.progress_bar .status{
+  font-size: 17px;
+  line-height: 25px;
+  color:#939598;
+}
+.progress_bar .status{
+  font-size: 15px;
+  text-align: center;
+}
+
+.progress_bar .bar{
+  width:100%;
+  height:20px;
+  border-radius: 10px;
+  background-color:rgba(0,0,0,.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.progress_bar .bar .progress{
+  width:0%;
+  height:100%;
+  border-radius: 10px;
+  background-color:#78A955;
+  position: absolute;
+}

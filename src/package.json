@@ -1,0 +1,33 @@
+{
+  "name": "njoy-client",
+  "version": "1.0.0",
+  "description": "njoy client test sample connect",
+  "main": "index.js",
+  "scripts": {
+    "test": "start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "undefined"
+  },
+  "keywords": [
+    "njoy",
+    "client",
+    "test",
+    "sample",
+    "code",
+    "connexion"
+  ],
+  "author": "simon delamarre",
+  "license": "ISC",
+  "dependencies": {
+    "gsap": "^1.19.1",
+    "iscroll": "^5.2.0",
+    "jquery": "^3.2.1",
+    "material-design-icons": "^3.0.1",
+    "materialize-css": "^0.98.2",
+    "socket.io": "^1.7.3",
+    "underscore": "^1.8.3",
+    "uuid": "^3.0.1"
+  }
+}
