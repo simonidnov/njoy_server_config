@@ -34,6 +34,8 @@
 .panel-infos{
   width:80%;
   max-width: 500px;
+  max-height:50%;
+  overflow: hidden;
   left:0;
   right:0;
   padding:20px;
