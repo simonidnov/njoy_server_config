@@ -5,12 +5,20 @@ var app = {
     regis : false,
     users : []
   },
+  activities:null,
   ip:"http://192.168.0.10:3000",
   callback:null,
   socket :null,
   init:function(callback){
+    this.get_activities();
     this.callback = callback;
     this.init_socket();
+  },
+  get_activities : function(){
+    $.getJSON("activities.json", function(json) {
+        app.activities = json;
+        console.log("activities ::: ", json); // this will show the info it in firebug console
+    });
   },
   check_server : function(){
 
@@ -76,7 +84,6 @@ var app = {
       app.socket.emit('njoy', {status:"disconnect", user_name:app.infos.user_name, uuid:app.infos.uuid});
       //return 'Please press the Logout button to logout.';
     };
-
   },
   destroy:function(){
 

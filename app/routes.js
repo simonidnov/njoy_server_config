@@ -30,6 +30,10 @@ router.get('/dashboard', function(req, res){
   //res.render('views/index');
   res.sendFile('src/index.html', { root: path.join(__dirname, '../')});
 });
+router.get('/drawing', function(req, res){
+  //res.render('views/index');
+  res.sendFile('src/index.html', { root: path.join(__dirname, '../')});
+});
 router.get('/ressources', function(req, res){
   //res.render('views/index');
   res.sendFile('/ressources', { root: path.join(__dirname, '../')});

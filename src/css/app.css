@@ -79,7 +79,7 @@ main.app{
     -o-transform: translate3d(0,0,0);
     -ms-transform: translate3d(0,0,0);
 }
-main.app .screen{
+main.app .screen {
   position: absolute;
   top:0;
   left:0;

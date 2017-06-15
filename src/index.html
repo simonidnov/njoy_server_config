@@ -20,6 +20,30 @@
     </head>
     <body>
       <script>
+        function rgb2hex(rgb){
+         rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
+         return (rgb && rgb.length === 4) ? "#" +
+          ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) +
+          ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) +
+          ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
+        }
+        var colors = {
+            "purple":"#612B9B",
+            "green":"#44AC34",
+            "orange":"#FF821D",
+            "lighblue":"#33CAD2",
+            "pink":"#E41694",
+            "maroon":"#784217",
+            "grey":"#7D868B",
+            "red":"#DA0036",
+            "fblue":"#0095A7",
+            "yellow":"#FFCF00",
+            "dgreen":"#008274",
+            "sblue":"#465FC4",
+            "blue":"#042367",
+            "black":"#000000"
+        }
+
         document.ontouchmove = function(event){
             console.log(event);
             event.preventDefault();

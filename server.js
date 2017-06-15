@@ -9,7 +9,7 @@ var express = require('express'),
     ip_config = get_ip_config(),
     io = require('socket.io')(http),
     _ = require('underscore');
-require('jquery');
+$ = require('jquery');
 // routes the app
 //app.use('/', router);
 
@@ -118,7 +118,12 @@ function get_ip_config(){
   });
 }
 var users_activities = [];
-var animations = {
+var animations = null;
+
+
+//$.get('activities.json');
+/*
+{
   components:[
     {"type":"image", "file":"ressources/crazy_show_logo.svg", "label":"Logo crazy show"},
     {"type":"audio", "file":"ressources/.mp3", "label":"Jingle Crazy Show Audio"},
@@ -133,3 +138,4 @@ var animations = {
     {"type":"drawing", "label":"dessine", "description":"dessine moi un mouton"}
   ]
 }
+*/

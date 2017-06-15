@@ -1,0 +1,204 @@
+{
+  "activities":[
+    {
+      "label":"Crazy Show",
+      "thumb":"ressources/crazy_show_logo.svg",
+      "desc":"Application Crazy Show",
+      "datas":{},
+      "prerecquise":[
+        {"label":"installer les écrans", "checked":false},
+        {"label":"faire le pitch", "checked":false},
+        {"label":"Jouer la vidéo d'intro", "checked":false}
+      ],
+      "introduction":{"video":"", "audio":"", "pix":"ressources/crazy_show_logo.svg"},
+      "apps":[
+        {
+          "label":"Photomime",
+          "desc":"mimer des photos",
+          "datas":{},
+          "jingle":{"file":"ressources/video/Photomime.mp4", "type":"video", "event":null, "params":null},
+          "menu":[
+            {
+              "label":"theme 1",
+              "desc":"description du theme 1",
+              "components":{
+                "galery":[
+                  {"file":"ressources/jeux/photomime/dp1/image0.jpg", "desc":"", "label":"", "chrono":60, "datas":{}}
+                ]
+              }
+            },
+            {
+              "label":"theme 2",
+              "desc":"description du theme 2",
+              "components":{
+                "galery":[
+                  {"file":"ressources/jeux/photomime/dp2/image0.jpg", "desc":"", "label":"", "chrono":60, "datas":{}}
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "label":"ABC Story",
+          "desc":"",
+          "datas":{},
+          "jingle":{"file":"ressources/video/abc.mp4", "type":"video", "event":null, "params":null},
+          "menu":[
+            {
+              "label":"",
+              "desc":"",
+              "components":{
+                "playlist_audio":[
+                    {"label":"musique de fond", "desc":"", "datas":{}, "file":"ressources/jeux/abcstory/musique.mp3"}
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "label":"Juste Prix",
+          "desc":"",
+          "datas":{},
+          "jingle":{"file":"ressources/video/abc.mp4", "type":"video", "event":null, "params":null},
+          "menu":[
+            {
+              "label":"Série 1",
+              "desc":"série de produits 1, devinez le prix",
+              "components":{
+                "galery":[
+                    {"label":"image 0", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image0.png"},
+                    {"label":"image 1", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image1.png"},
+                    {"label":"image 2", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image2.png"},
+                    {"label":"image 3", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image3.png"},
+                    {"label":"image 4", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image4.png"},
+                    {"label":"image 5", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image5.png"},
+                    {"label":"image 6", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image6.png"},
+                    {"label":"image 7", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image7.png"},
+                    {"label":"image 8", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image8.png"}
+                ]
+              }
+            },
+            {
+              "label":"Série 2",
+              "desc":"série de produits 2, devinez le prix",
+              "components":{
+                "galery":[
+                    {"label":"image 0", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie2/image0.png"},
+                    {"label":"image 1", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie2/image1.png"},
+                    {"label":"image 2", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie2/image2.png"},
+                    {"label":"image 3", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie2/image3.png"},
+                    {"label":"image 4", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie2/image4.png"},
+                    {"label":"image 5", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie2/image5.png"},
+                    {"label":"image 6", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie2/image6.png"},
+                    {"label":"image 7", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie2/image7.png"},
+                    {"label":"image 8", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie2/image8.png"}
+                ]
+              }
+            },
+            {
+              "label":"Série 3",
+              "desc":"série de produits 3, devinez le prix",
+              "components":{
+                "galery":[
+                    {"label":"image 0", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie3/image0.png"},
+                    {"label":"image 1", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie3/image1.png"},
+                    {"label":"image 2", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie3/image2.png"},
+                    {"label":"image 3", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie3/image3.png"},
+                    {"label":"image 4", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie3/image4.png"},
+                    {"label":"image 5", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie3/image5.png"},
+                    {"label":"image 6", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie3/image6.png"},
+                    {"label":"image 7", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie3/image7.png"},
+                    {"label":"image 8", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie3/image8.png"}
+                ]
+              }
+            },
+            {
+              "label":"Série 4",
+              "desc":"série de produits 3, devinez le prix",
+              "components":{
+                "galery":[
+                    {"label":"image 0", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie4/image0.png"},
+                    {"label":"image 1", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie4/image1.png"},
+                    {"label":"image 2", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie4/image2.png"},
+                    {"label":"image 3", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie4/image3.png"},
+                    {"label":"image 4", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie4/image4.png"},
+                    {"label":"image 5", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie4/image5.png"},
+                    {"label":"image 6", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie4/image6.png"},
+                    {"label":"image 7", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie4/image7.png"},
+                    {"label":"image 8", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie4/image8.png"}
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "label":"AIR BAND",
+          "desc":"Créer un groupe de Air Band, le groupe doit immiter le groupe de musique diffusé en arrière plan",
+          "datas":{},
+          "jingle":{"file":"ressources/video/airband.m4v", "type":"video", "event":null, "params":null},
+          "menu":[
+            {
+              "label":"Clips vidéos",
+              "desc":"des clips vidéos à reconstituer en AIR BAND",
+              "components":{
+                "playlist_video":[
+                    {"label":"AIRBAND", "desc":"", "datas":{}, "file":"ressources/jeux/airband/airband.m4v"},
+                    {"label":"AIRBAND 2", "desc":"", "datas":{}, "file":"ressources/jeux/airband/airband2.m4v"}
+                ]
+              }
+            },
+            {
+              "label":"Playlist Audio",
+              "desc":"Reconstituer avec juste une musique",
+              "components":{
+                "playlist_video":[
+                    {"label":"AUDIO 1", "desc":"", "datas":{}, "file":"ressources/jeux/airband/air_band_1.mp3"},
+                    {"label":"AUDIO 2", "desc":"", "datas":{}, "file":"ressources/jeux/airband/air_band_2.mp3"}
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "label":"LET'S DANCE",
+          "desc":"créer des chorégraphies blabla",
+          "datas":{},
+          "jingle":{"file":"ressources/video/letsdance.m4v", "type":"video", "event":null, "params":null},
+          "menu":[
+            {
+              "label":"Clips vidéos",
+              "desc":"des clips vidéos à reconstituer en AIR BAND",
+              "components":{
+                "playlist_video":[
+                    {"label":"AIRBAND", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/special_video.m4v"}
+                ]
+              }
+            }
+          ]
+        }
+
+
+      ]
+    }
+  ],
+  "tools":{
+    "audio_playlist":{
+      "emotions":{
+        "label":"Émotions",
+        "desc":"Court samples audio pour rythmer les évènements, à lancer à tout instant !",
+        "playlist":[
+          {"label":"Applaudir", "file":"ressources/audio/applau.mp3"},
+          {"label":"Huer", "file":"ressources/audio/huee.mp3"},
+          {"label":"Rater", "file":"ressources/audio/rate.mp3"},
+          {"label":"Mauvaise réponse", "file":"ressources/audio/faux.mp3"},
+          {"label":"Bonne réponse", "file":"ressources/audio/bon.mp3"}
+        ]
+      },
+      "ambiances":{
+        "label":"Ambiance",
+        "desc":"Des musiques d'ambiance selon les humeurs pour combler les vides.",
+        "playlist":[]
+      }
+    }
+  }
+}
