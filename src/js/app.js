@@ -24,6 +24,7 @@ var app = {
 
   },
   init_socket : function(){
+    this.ip = window.location.origin;
     app.infos.uuid = new Date().getTime();
     app.socket_callback = function(e){console.log(e);}
     app.socket = io(this.ip, {

@@ -1,5 +1,5 @@
 <div class="screen">
-  <h1>REGIS</h1>
+  <!--<h1>REGIS</h1>
   <button id="video_button" class="classic_button">Video</button>
   <button id="play_video" class="classic_button">Play Video</button>
   <button id="pause_video" class="classic_button">Pause Video</button><br/>
@@ -9,5 +9,14 @@
   <button id="pause_audio" class="classic_button">Pause Audio</button>
   <button id="stop_audio" class="classic_button">Stop Audio</button><br/>
 
-  <button id="picture_button" class="classic_button">Display Picture</button><br/>
+  <button id="picture_button" class="classic_button">Display Picture</button><br/>-->
+  <ul class="app_list">
+  <% for(var i=0; i<app.activities.activities.length; i++){ %>
+    <li data-appid="<%= i %>">
+        <div class="thumb" style="background-image:url(<%= window.location.origin+'/'+app.activities.activities[i].thumb %>);"></div>
+        <h3><%= app.activities.activities[i].label %></h3>
+        <p><%= app.activities.activities[i].desc %></p>
+    </li>
+  <% } %>
+  </ul>
 </div>

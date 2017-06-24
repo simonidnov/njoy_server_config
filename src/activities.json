@@ -11,6 +11,26 @@
         {"label":"Jouer la vidéo d'intro", "checked":false}
       ],
       "introduction":{"video":"", "audio":"", "pix":"ressources/crazy_show_logo.svg"},
+      "tools":{
+        "audio_playlist":{
+          "emotions":{
+            "label":"Émotions",
+            "desc":"Court samples audio pour rythmer les évènements, à lancer à tout instant !",
+            "playlist":[
+              {"label":"Applaudir", "file":"ressources/audio/applau.mp3"},
+              {"label":"Huer", "file":"ressources/audio/huee.mp3"},
+              {"label":"Rater", "file":"ressources/audio/rate.mp3"},
+              {"label":"Mauvaise réponse", "file":"ressources/audio/faux.mp3"},
+              {"label":"Bonne réponse", "file":"ressources/audio/bon.mp3"}
+            ]
+          },
+          "ambiances":{
+            "label":"Ambiance",
+            "desc":"Des musiques d'ambiance selon les humeurs pour combler les vides.",
+            "playlist":[]
+          }
+        }
+      },
       "apps":[
         {
           "label":"Photomime",
@@ -23,7 +43,8 @@
               "desc":"description du theme 1",
               "components":{
                 "galery":[
-                  {"file":"ressources/jeux/photomime/dp1/image0.jpg", "desc":"", "label":"", "chrono":60, "datas":{}}
+                  {"file":"ressources/jeux/photomime/dp1/image0.jpg", "desc":"", "label":"", "chrono":60, "datas":{"price":"333"}},
+                  {"file":"ressources/jeux/photomime/dp1/image0.jpg", "desc":"", "label":"", "chrono":60, "datas":{"price":"333"}}
                 ]
               }
             },
@@ -161,7 +182,7 @@
         },
         {
           "label":"LET'S DANCE",
-          "desc":"créer des chorégraphies blabla",
+          "desc":"créer des chorégraphies",
           "datas":{},
           "jingle":{"file":"ressources/video/letsdance.m4v", "type":"video", "event":null, "params":null},
           "menu":[
@@ -176,29 +197,10 @@
             }
           ]
         }
-
-
       ]
+    },
+    {
+      "label":"Thomas"
     }
-  ],
-  "tools":{
-    "audio_playlist":{
-      "emotions":{
-        "label":"Émotions",
-        "desc":"Court samples audio pour rythmer les évènements, à lancer à tout instant !",
-        "playlist":[
-          {"label":"Applaudir", "file":"ressources/audio/applau.mp3"},
-          {"label":"Huer", "file":"ressources/audio/huee.mp3"},
-          {"label":"Rater", "file":"ressources/audio/rate.mp3"},
-          {"label":"Mauvaise réponse", "file":"ressources/audio/faux.mp3"},
-          {"label":"Bonne réponse", "file":"ressources/audio/bon.mp3"}
-        ]
-      },
-      "ambiances":{
-        "label":"Ambiance",
-        "desc":"Des musiques d'ambiance selon les humeurs pour combler les vides.",
-        "playlist":[]
-      }
-    }
-  }
+  ]
 }

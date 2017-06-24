@@ -5,8 +5,6 @@
     "display":true,
     "datas":{},
     "nav_left":[
-      {"label":"", "link":"/logout", "icon":"logout"},
-      {"label":"", "link":"/back", "icon":"back"}
     ],
     "nav_right":[
       {"label":"", "link":"/search", "icon":"search"}
