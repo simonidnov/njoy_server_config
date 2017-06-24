@@ -13,11 +13,11 @@ var login = {
             ui.display_error({"icon":"", "message":e.infos.message});
             return false;
           }
-          if(app.infos.regis){
+          //if(app.infos.regis){
             ui.navigate('/regis');
-          }else{
-            ui.navigate('/dashboard');
-          }
+          //}else{
+          //    ui.navigate('/dashboard');
+          //}
       }
       app.socket.emit('njoy', {status:"connect", user_name:app.infos.user_name, uuid:app.infos.uuid});
       console.log('connexion send waiting for response');

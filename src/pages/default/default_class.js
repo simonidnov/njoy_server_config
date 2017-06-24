@@ -1,5 +1,8 @@
 var default_class = {
   init:function(){
+      if(typeof app.infos.user_name !== "undefined" && typeof app.infos.uuid !== "undefined" && app.infos.user_name !== "" && app.infos.uuid !== ""){
+          app.socket.emit('njoy', {status:"disconnect", user_name:app.infos.user_name, uuid:app.infos.uuid});
+      }
     $('#ip_config').val(window.location.origin);
     $('#connect_button').off('click').on('click', function(){
       app.ip = $('#ip_config').val();

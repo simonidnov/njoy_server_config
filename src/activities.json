@@ -12,23 +12,23 @@
       ],
       "introduction":{"video":"", "audio":"", "pix":"ressources/crazy_show_logo.svg"},
       "tools":{
-        "audio_playlist":{
-          "emotions":{
-            "label":"Émotions",
-            "desc":"Court samples audio pour rythmer les évènements, à lancer à tout instant !",
-            "playlist":[
-              {"label":"Applaudir", "file":"ressources/audio/applau.mp3"},
-              {"label":"Huer", "file":"ressources/audio/huee.mp3"},
-              {"label":"Rater", "file":"ressources/audio/rate.mp3"},
-              {"label":"Mauvaise réponse", "file":"ressources/audio/faux.mp3"},
-              {"label":"Bonne réponse", "file":"ressources/audio/bon.mp3"}
-            ]
-          },
-          "ambiances":{
-            "label":"Ambiance",
-            "desc":"Des musiques d'ambiance selon les humeurs pour combler les vides.",
-            "playlist":[]
-          }
+        "emotions":{
+          "label":"Émotions",
+          "desc":"Court samples audio pour rythmer les évènements, à lancer à tout instant !",
+          "playlist":[
+            {"label":"Applaudir", "file":"ressources/audio/applau.mp3"},
+            {"label":"Huer", "file":"ressources/audio/huee.mp3"},
+            {"label":"Rater", "file":"ressources/audio/rate.mp3"},
+            {"label":"Mauvaise réponse", "file":"ressources/audio/faux.mp3"},
+            {"label":"Bonne réponse", "file":"ressources/audio/bon.mp3"}
+          ]
+        },
+        "ambiances":{
+          "label":"Ambiance",
+          "desc":"Des musiques d'ambiance selon les humeurs pour combler les vides.",
+          "playlist":[
+              {"label":"Applaudir", "file":"ressources/audio/applau.mp3"}
+          ]
         }
       },
       "apps":[
@@ -198,9 +198,6 @@
           ]
         }
       ]
-    },
-    {
-      "label":"Thomas"
     }
   ]
 }

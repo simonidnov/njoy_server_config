@@ -17,7 +17,6 @@ var app = {
   get_activities : function(){
     $.getJSON("activities.json", function(json) {
         app.activities = json;
-        console.log("activities ::: ", json); // this will show the info it in firebug console
     });
   },
   check_server : function(){
@@ -31,19 +30,15 @@ var app = {
       transports: ['websocket', 'xhr-polling']
     });
     app.socket.on('error', function(e) {
-      console.log('error');
       app.callback({status:"error_socket", datas:e});
     });
     app.socket.on('connect_failed', function(e){
-      console.log('connect_failed');
       app.callback({status:"connect_failed"});
     });
     app.socket.on('connect', function(e) {
-      console.log('user connected ', e);
       app.callback({status:"socket_connected"});
     });
     app.socket.on('njoy', function(datas) {
-      console.log('njoy : ', datas);
       switch(datas.status){
         case 'activities':
           app.infos.activities = datas.activities;
@@ -54,14 +49,11 @@ var app = {
       app.socket_callback(datas);
     });
     app.socket.on('njoy_'+app.infos.uuid, function(datas) {
-      console.log('login_success ', datas);
       switch(datas.status){
         case 'animations':
           break;
         case 'login_success':
-          console.log('datas.datas.users ', datas.datas.users);
           app.infos.users = datas.datas.users;
-          console.log("_.where(app.infos.users, {uuid:app.infos.uuid})[0].regis ", _.where(app.infos.users, {uuid:app.infos.uuid})[0].regis);
           if(_.where(app.infos.users, {uuid:app.infos.uuid})[0].regis !== "undefined" && _.where(app.infos.users, {uuid:app.infos.uuid})[0].regis === "true"){
             app.infos.regis = true;
           }

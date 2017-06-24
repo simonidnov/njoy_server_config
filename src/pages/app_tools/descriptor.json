@@ -1,11 +1,11 @@
 {
-  "label":"app_dashboard",
+  "label":"app_tools",
   "version":"0.0.1",
   "header":{
     "display":true,
     "datas":{},
     "nav_left":[
-      {"label":"", "link":"/regis", "icon":"back", "direction":"back"}
+      {"label":"", "link":"/app_dashboard", "icon":"back", "direction":"back"}
     ],
     "nav_right":[
       {"label":"", "link":"/search", "icon":"search"}
@@ -25,7 +25,7 @@
     "display":false,
     "type":"tabs",
     "datas":{
-      "control":"app_dashboard.tabs",
+      "control":"app_tools.tabs",
       "tabs":[
         {"label":"link 1", "link":"/link", "icon":""},
         {"label":"link 2", "link":"/link", "icon":""},
@@ -35,12 +35,12 @@
   },
   "content":{
     "display":true,
-    "uri":"app_dashboard.tmpl",
+    "uri":"app_tools.tmpl",
     "datas":{}
   },
-  "class":"app_dashboard",
+  "class":"app_tools",
   "dependencies":{
-    "css":["app_dashboard.css"],
+    "css":["app_tools.css"],
     "js":[]
   }
 }

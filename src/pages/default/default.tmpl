@@ -1,14 +1,18 @@
 <div class="screen">
-  <div class="panel-infos">
-    <div class="icon">
-      <!--<img src="img/cast.svg">-->
-      <i class="material-icons md-128 njoy-tgreen">airplay</i>
+  <div class="wrapper" id="screen_wrapper">
+    <div class="scroller">
+      <div class="panel-infos">
+        <div class="icon">
+          <!--<img src="img/cast.svg">-->
+          <i class="material-icons md-128 njoy-tgreen">airplay</i>
+        </div>
+        <form>
+          <input type="text" value="" id="ip_config"/>
+        </form>
+        <p>Pour commencer, veuillez vous connecter sur le réseau Wifi N’JOY après avoir sélectionné N’JOY dans vos paramètres WIFI cliquez sur connexion.</p>
+      </div>
+      <button id="connect_button" class="classic_button"><i class="material-icons md-18">wifi_tethering</i>Connexion</button><br/>
+      <a href="#" onclick="return false;" class="hyperlink">Accèder aux paramètres wifi de votre appareil</a>
     </div>
-    <form>
-      <input type="text" value="" id="ip_config"/>
-    </form>
-    <p>Pour commencer, veuillez vous connecter sur le réseau Wifi N’JOY après avoir sélectionné N’JOY dans vos paramètres WIFI cliquez sur connexion.</p>
-  </div>
-  <button id="connect_button" class="classic_button"><i class="material-icons md-18">wifi_tethering</i>Connexion</button><br/>
-  <a href="#" onclick="return false;" class="hyperlink">Accèder aux paramètres wifi de votre appareil</a>
+    </div>
 </div>

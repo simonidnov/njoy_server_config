@@ -21,7 +21,6 @@ var ui = {
             $('body').append('<div class="ui_layer" id="ui_layer"></div>');
         }
         if ($('#ui_templates').length === 0) {
-            console.log('load templates');
             $('body').append('<div class="ui_templates" id="ui_templates"></div>');
             $.get('views/ui/popin.tmpl', $.proxy(function(e) {
                 ui.templates.popin = _.template(e);
@@ -64,7 +63,6 @@ var ui = {
         $('#close_popin').on('click', function(){ui.close_popin();})
     },
     close_popin:function(e){
-        console.log('close popin ', e);
         TweenMax.to($('#popin_ui_content .popin'), .5, {top:"100%", opacity:0, ease:Back.easeIn});
         TweenMax.to($('#popin_ui_content'), .5, {opacity:0, delay:.5, onComplete:function(){
             $('#popin_ui_content').remove();
@@ -73,7 +71,9 @@ var ui = {
     },
     setListeners: function() {
         $('[data-navigate]').click(function(event) {
-            console.log('navigate');
+            if(typeof $(this).attr('data-direction') !== "undefined"){
+                ui.direction = $(this).attr('data-direction');
+            }
             ui.navigate($(this).attr('data-navigate'));
             event.preventDefault();
             return false;
@@ -97,7 +97,6 @@ var ui = {
                     {"label":"Déconnexion", class:"error"}
                 ]
             }, function(e){
-                console.log('closed ', e);
                 if(parseInt(e) === 1){
                     ui.navigate('/');
                 }
@@ -120,12 +119,11 @@ var ui = {
         //alert(this.page_params.page);
         (this.page_params.page === "") ? this.page_params.page = "default": this.page_params.page = this.page_params.page;
         /* get descriptor */
-        console.log('this.page_params ', '/pages/' + this.page_params.page + '/descriptor.json');
         $.get('/pages/' + this.page_params.page + '/descriptor.json', function(e) {
-            console.log(ui.page_params.page, ' ////////// ', e);
             ui.descriptor = e;
             /* load content template */
             $.get('pages/' + ui.page_params.page + '/' + ui.descriptor.content.uri, function(e) {
+                $('body').append('<div class="blocker"></div>');
                 ui.templates[ui.page_params.page] = _.template(e);
                 /* TODO create transitions */
                 //$('body main.app').html('');
@@ -146,27 +144,38 @@ var ui = {
                 /* load js class and dependencies */
                 for (var j = 0; j < ui.descriptor.dependencies.js.length; j++) {
                     $.getScript('pages/' + ui.page_params.page + '/' + ui.descriptor.dependencies.js[j], function(e) {
-                        console.log('script loaded');
                     });
                 }
                 /* load default page class then init there */
                 $.getScript('pages/' + ui.page_params.page + '/' + ui.descriptor.class + '.js', function(e) {
                     if ($('body main.app .screen').length > 1) {
-                        TweenMax.to($('body main.app .screen').first(), 1.5, {
-                            left: '-100%',
-                            ease: Power4.easeInOut
-                        });
-                        TweenMax.to($('body main.app .screen').last(), 1.5, {
+                        if(ui.direction === "back"){
+                            TweenMax.to($('body main.app .screen').first(), .5, {
+                                left: '100%',
+                                ease: Power4.easeInOut
+                            });
+                            TweenMax.set($('body main.app .screen').last(), {left:"-100%"});
+                        }else{
+                            TweenMax.to($('body main.app .screen').first(), .5, {
+                                left: '-100%',
+                                ease: Power4.easeInOut
+                            });
+                        }
+                        TweenMax.to($('body main.app .screen').last(), .5, {
                             left: '0%',
                             ease: Power4.easeInOut,
                             onComplete: function() {
                                 window[ui.descriptor.class].init();
                                 $('body main.app .screen').first().remove();
+                                ui.init_scroll_view();
+                                $('.blocker').remove();
                             }
-                        });
+                        }); 
+                        ui.direction = "";
                     } else {
                         $('body main.app .screen').last().css('left', '0%');
                         window[ui.descriptor.class].init();
+                        $('.blocker').remove();
                     }
                 });
                 /* setting header */
@@ -184,7 +193,7 @@ var ui = {
                     $('footer').css('bottom', '0px');
                 }
                 ui.setListeners();
-                ui.init_scroll_view();
+                
             });
         });
     },
@@ -207,6 +216,9 @@ var ui = {
             $('header .left_nav').remove();
             for(var i=0; i<ui.descriptor.header.nav_left.length; i++){
                 $('header').append('<div class="left_nav"><div class="head_button" data-navigate="'+ui.descriptor.header.nav_left[i].link+'"><div class="icon" style="background-image:url(img/'+ui.descriptor.header.nav_left[i].icon+'.svg);"></div><span>'+ui.descriptor.header.nav_left[i].label+'</span></div></div>');
+                if(typeof ui.descriptor.header.nav_left[i].direction !== "undefined"){
+                    $('[data-navigate="'+ui.descriptor.header.nav_left[i].link+'"]').attr('data-direction', ui.descriptor.header.nav_left[i].direction);
+                }
             }
         }
         if (!_.isUndefined(ui.descriptor.header.tab_bar) && ui.descriptor.header.tab_bar.length > 0) {
@@ -238,13 +250,13 @@ var ui = {
         }
     },
     init_scroll_view: function() {
-        setTimeout(function(){
+        //setTimeout(function(){
             $('.screen').css({'height':window.innerHeight-$('header').height(), "overflow":"hidden"});
             $('.screen .wrapper').css({'height':"100%", 'width':"100%", "overflow":"hidden"});
             $('.screen .wrapper .scroller').css({'display':"table", "width":"100%"});
             if($('.screen .wrapper .scroller').length === 1){
                 ui.page_scroll = new IScroll('#screen_wrapper',{mouseWheel:true, click: true});
             }
-        },500);
+        //},500);
     }
 }

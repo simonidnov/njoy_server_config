@@ -1,0 +1,28 @@
+<div class="screen app_tools">
+    <div class="wrapper" id="screen_wrapper">
+        <div class="scroller">
+            <div class="column tools">
+                <% for(var t=0; t<_.keys(app.selected_app.tools).length; t++){ %>
+                    <h3><%= app.selected_app.tools[_.keys(app.selected_app.tools)[t]].label %></h3>
+                    <% for(var k=0; k<_.keys(app.selected_app.tools[_.keys(app.selected_app.tools)[t]]).length; k++){ %>
+                        
+                    <% } %>
+                <% } %>
+            </div>
+            <div class="column">
+                <ul class="app_list">
+                <% for(var i=0; i<app.selected_app.apps.length; i++){ %>
+                    <li data-appid="<%= i %>">
+                        <h3><%= app.selected_app.apps[i].label %></h3>
+                        <p><%= app.selected_app.apps[i].desc %></p>
+                    </li>
+                <% } %>
+                </ul>
+            </div>
+            <div class="colum components">
+            </div>
+            <div class="colum display">
+            </div>
+        </div>
+    </div>
+</div>
