@@ -43,8 +43,8 @@
               "desc":"description du theme 1",
               "components":{
                 "galery":[
-                  {"file":"ressources/jeux/photomime/dp1/image0.jpg", "desc":"", "label":"", "chrono":60, "datas":{"price":"333"}},
-                  {"file":"ressources/jeux/photomime/dp1/image0.jpg", "desc":"", "label":"", "chrono":60, "datas":{"price":"333"}}
+                  {"file":"ressources/jeux/photomime/dp1/image0.jpg", "desc":"", "label":"", "chrono":60, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp1/image0.jpg", "desc":"", "label":"", "chrono":60, "datas":{}}
                 ]
               }
             },
@@ -66,8 +66,8 @@
           "jingle":{"file":"ressources/video/abc.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
-              "label":"",
-              "desc":"",
+              "label":"Musiques d'ambiance",
+              "desc":"choisissez d'une musique d'ambiance pour l'activité",
               "components":{
                 "playlist_audio":[
                     {"label":"musique de fond", "desc":"", "datas":{}, "file":"ressources/jeux/abcstory/musique.mp3"}
@@ -87,15 +87,15 @@
               "desc":"série de produits 1, devinez le prix",
               "components":{
                 "galery":[
-                    {"label":"image 0", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image0.png"},
-                    {"label":"image 1", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image1.png"},
-                    {"label":"image 2", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image2.png"},
-                    {"label":"image 3", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image3.png"},
-                    {"label":"image 4", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image4.png"},
-                    {"label":"image 5", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image5.png"},
-                    {"label":"image 6", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image6.png"},
-                    {"label":"image 7", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image7.png"},
-                    {"label":"image 8", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image8.png"}
+                    {"label":"image 0", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image0.png"},
+                    {"label":"image 1", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image1.png"},
+                    {"label":"image 2", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image2.png"},
+                    {"label":"image 3", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image3.png"},
+                    {"label":"image 4", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image4.png"},
+                    {"label":"image 5", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image5.png"},
+                    {"label":"image 6", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image6.png"},
+                    {"label":"image 7", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image7.png"},
+                    {"label":"image 8", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image8.png"}
                 ]
               }
             },
@@ -104,15 +104,15 @@
               "desc":"série de produits 2, devinez le prix",
               "components":{
                 "galery":[
-                    {"label":"image 0", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie2/image0.png"},
-                    {"label":"image 1", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie2/image1.png"},
-                    {"label":"image 2", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie2/image2.png"},
-                    {"label":"image 3", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie2/image3.png"},
-                    {"label":"image 4", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie2/image4.png"},
-                    {"label":"image 5", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie2/image5.png"},
-                    {"label":"image 6", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie2/image6.png"},
-                    {"label":"image 7", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie2/image7.png"},
-                    {"label":"image 8", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie2/image8.png"}
+                    {"label":"image 0", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie2/image0.png"},
+                    {"label":"image 1", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie2/image1.png"},
+                    {"label":"image 2", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie2/image2.png"},
+                    {"label":"image 3", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie2/image3.png"},
+                    {"label":"image 4", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie2/image4.png"},
+                    {"label":"image 5", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie2/image5.png"},
+                    {"label":"image 6", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie2/image6.png"},
+                    {"label":"image 7", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie2/image7.png"},
+                    {"label":"image 8", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie2/image8.png"}
                 ]
               }
             },
@@ -121,15 +121,15 @@
               "desc":"série de produits 3, devinez le prix",
               "components":{
                 "galery":[
-                    {"label":"image 0", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie3/image0.png"},
-                    {"label":"image 1", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie3/image1.png"},
-                    {"label":"image 2", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie3/image2.png"},
-                    {"label":"image 3", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie3/image3.png"},
-                    {"label":"image 4", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie3/image4.png"},
-                    {"label":"image 5", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie3/image5.png"},
-                    {"label":"image 6", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie3/image6.png"},
-                    {"label":"image 7", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie3/image7.png"},
-                    {"label":"image 8", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie3/image8.png"}
+                    {"label":"image 0", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie3/image0.png"},
+                    {"label":"image 1", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie3/image1.png"},
+                    {"label":"image 2", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie3/image2.png"},
+                    {"label":"image 3", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie3/image3.png"},
+                    {"label":"image 4", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie3/image4.png"},
+                    {"label":"image 5", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie3/image5.png"},
+                    {"label":"image 6", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie3/image6.png"},
+                    {"label":"image 7", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie3/image7.png"},
+                    {"label":"image 8", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie3/image8.png"}
                 ]
               }
             },
@@ -138,15 +138,15 @@
               "desc":"série de produits 3, devinez le prix",
               "components":{
                 "galery":[
-                    {"label":"image 0", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie4/image0.png"},
-                    {"label":"image 1", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie4/image1.png"},
-                    {"label":"image 2", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie4/image2.png"},
-                    {"label":"image 3", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie4/image3.png"},
-                    {"label":"image 4", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie4/image4.png"},
-                    {"label":"image 5", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie4/image5.png"},
-                    {"label":"image 6", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie4/image6.png"},
-                    {"label":"image 7", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie4/image7.png"},
-                    {"label":"image 8", "desc":"", "datas":{"price":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie4/image8.png"}
+                    {"label":"image 0", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie4/image0.png"},
+                    {"label":"image 1", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie4/image1.png"},
+                    {"label":"image 2", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie4/image2.png"},
+                    {"label":"image 3", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie4/image3.png"},
+                    {"label":"image 4", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie4/image4.png"},
+                    {"label":"image 5", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie4/image5.png"},
+                    {"label":"image 6", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie4/image6.png"},
+                    {"label":"image 7", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie4/image7.png"},
+                    {"label":"image 8", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie4/image8.png"}
                 ]
               }
             }

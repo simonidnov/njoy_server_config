@@ -20,9 +20,12 @@ var app_tools = {
             }, this));
             $('[data-appid]').on('click', function() {
                 console.log(app.selected_app.apps[parseInt($(this).attr('data-appid'))]);
+                app.selected_tool = app.selected_app.apps[parseInt($(this).attr('data-appid'))];
                 $('.column.components').html(app_tools.component_template(app.selected_app.apps[parseInt($(this).attr('data-appid'))]));
                 app_tools.set_events();
                 app_tools.components_scroll.refresh();
+                
+                ui.setListeners();
                 if(app_tools.is_mobile){
                     $('header .left_nav .head_button').off('click').on('click', function(e){
                         e.preventDefault();

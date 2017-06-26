@@ -70,13 +70,36 @@ var ui = {
         ui.popin_callBack(e);
     },
     setListeners: function() {
-        $('[data-navigate]').click(function(event) {
+        $('[data-navigate]').off('click').on('click', function(event) {
             if(typeof $(this).attr('data-direction') !== "undefined"){
                 ui.direction = $(this).attr('data-direction');
             }
             ui.navigate($(this).attr('data-navigate'));
             event.preventDefault();
             return false;
+        });
+        $('[data-action]').off('click').on('click', function(){
+            console.log('data-action');
+            switch($(this).attr('data-action')){
+                case 'cast':
+                    switch($(this).attr('data-type')){
+                        case 'video':
+                            app.socket.emit("njoy", {"status":"video", "file":$(this).attr('data-file')});
+                            break;
+                        case 'audio':
+                            app.socket.emit("njoy", {"status":"audio", "file":$(this).attr('data-file')});
+                            break;
+                        case 'picture':
+                            app.socket.emit("njoy", {"status":"picture", "file":$(this).attr('data-file')});
+                            break;
+                        case 'object':
+                            break;
+                    }
+                    break;
+                default:
+                    break;
+            }
+            //app.socket.emit("njoy", {"status":"video", "file":"ressources/1703_NJOY_ANIM_LOGO_FB.mp4"});
         });
     },
     navigate: function(url) {

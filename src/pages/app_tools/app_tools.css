@@ -124,6 +124,9 @@
     right: 10px;
     display: none;
     z-index: 999999;
+    background-image: url(../../img/tools_icon.svg);
+    background-position: center center;
+    background-size:80%;
 }
 
 @media screen and (max-width: 980px) {

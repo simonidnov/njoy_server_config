@@ -3,21 +3,23 @@
 <% if(typeof jingle !== "undefined"){ %> 
     <% if(jingle.type === "video"){ %>
         <div class="jingle">
-            <video controls data-action="cast" data-type="video" data-file="<%= app.ip+'/'+jingle.file %>">
+            <video controls>
                 Jouer la vidéo
                 <source src="<%= app.ip+'/'+jingle.file %>" type="video/mp4">
             </video>
-            <div class="cast_button">Diffuser le Jingle</div>
+            <div class="cast_button" data-action="cast" data-type="video" data-file="<%= jingle.file %>">Diffuser le Jingle</div>
         </div>
     <% } %>
 <% } %>
-<div class="tab_bar">
-    <ul>
-    <% for(var i=0; i<menu.length; i++){ %>
-        <li class="<% if(i===0){ %>selected<% } %>" id="<%= i %>"><%= menu[i].label %></li>
-    <% } %>
-    </ul>
-</div>
+<% if(menu.length > 1){ %>
+    <div class="tab_bar">
+        <ul>
+        <% for(var i=0; i<menu.length; i++){ %>
+            <li class="<% if(i===0){ %>selected<% } %>" id="<%= i %>"><%= menu[i].label %></li>
+        <% } %>
+        </ul>
+    </div>
+<% } %>
 <% for(var i=0; i<menu.length; i++){ %>
 <section class="section_tab" id="section_<%= i %>" style="<% if(i>=1){ %>display:none;<% } %>">
     <h3><%= menu[i].label %></h3>
@@ -30,7 +32,17 @@
                     <li class="picture_gallery">
                         <div class="pix" style="background-image:url(<%= app.ip+'/'+comp_datas[g].file %>);"></div>
                         <h3><%= comp_datas[g].label %></h3>
-                        <div class="cast_button">Diffuser</div>
+                        <% if(_.keys(comp_datas[g].datas).length > 0){ %>
+                            <ul class="datas_list">
+                                <% for(var d=0; d<_.keys(comp_datas[g].datas).length; d++){ %>
+                                    <li>
+                                        <div class="label"><%= _.keys(comp_datas[g].datas)[d] %> : </div>
+                                        <%= comp_datas[g].datas[_.keys(comp_datas[g].datas)[d]] %>
+                                    </li>
+                                <% } %>
+                            </ul>
+                        <% } %>
+                        <div class="cast_button" data-action="cast" data-type="picture" data-file="<%= comp_datas[g].file %>">Diffuser</div>
                     </li>
                 <% } %>
             </ul>
@@ -40,7 +52,7 @@
                     <li>
                         <video src="<%= app.ip+'/'+comp_datas[i].file %>" controls></video>
                         <span><%= comp_datas[i].label %></span>
-                        <div class="cast_button">Diffuser</div>
+                        <div class="cast_button" data-action="cast" data-type="video" data-file="<%= comp_datas[i].file %>">Diffuser</div>
                     </li>
                 <% } %>
             </ul>
@@ -50,7 +62,7 @@
                     <li>
                         <audio src="<%= app.ip+'/'+comp_datas[i].file %>" controls></audio>
                         <span><%= comp_datas[i].label %></span>
-                        <div class="cast_button">Diffuser</div>
+                        <div class="cast_button" data-action="cast" data-type="audio" data-file="<%= comp_datas[i].file %>">Diffuser</div>
                     </li>
                 <% } %>
             </ul>
@@ -68,7 +80,7 @@
                                 </li>
                             <% } %>
                         </ul>
-                        <div class="cast_button">Diffuser</div>
+                        <div class="cast_button" data-action="cast" data-type="object" data-menu="<%= i %>" data-component="<%= _.keys(menu[i].components)[c] %>" data-componentid="<%= q %>">Diffuser</div>
                     </li>
                 <% } %>
             </ul>
