@@ -1,11 +1,10 @@
 <div class="screen">
     <div class="wrapper" id="screen_wrapper">
         <div class="scroller">
-            <% if(typeof app.selected_app === "undefined"){app.selected_app = app.activities.activities[0] } %>
             <div class="picture" style="background-image:url()">
                 <!--<div class="video_big_button"></div>-->
-                <img src="<%= window.location.origin+'/'+app.selected_app.thumb %>" width="100%" height="auto"/>
-                <div class="cast_button"></div>
+                <img src="<%= app.ip+'/'+app.selected_app.thumb %>" width="100%" height="auto"/>
+                <div class="cast_button_top"></div>
             </div>
             <h2><%= app.selected_app.label %></h2>
             <p><%= app.selected_app.desc %></p>

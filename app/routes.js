@@ -10,34 +10,38 @@ router.get('/', function(req, res){
   //res.render('views/index');
   res.sendFile('src/index.html', { root: path.join(__dirname, '../')});
 });
-router.get('/checking_socket', function(req, res){
+router.get('/*', function(req, res){
+  //res.render('views/index');
+  res.sendFile('src/index.html', { root: path.join(__dirname, '../')});
+});
+/*router.get('/checking_socket', function(req, res){
   //res.render('views/index');
   res.sendFile('src/index.html', { root: path.join(__dirname, '../')});
 });
 router.get('/synchro', function(req, res){
   //res.render('views/index');
-  res.sendFile('src/index.html', { root: path.join(__dirname, '../')});
+  res.sendFile('src/index.html#synchro', { root: path.join(__dirname, '../')});
 });
 router.get('/login', function(req, res){
   //res.render('views/index');
-  res.sendFile('src/index.html', { root: path.join(__dirname, '../')});
+  res.sendFile('src/index.html#login', { root: path.join(__dirname, '../')});
 });
 router.get('/regis', function(req, res){
   //res.render('views/index');
-  res.sendFile('src/index.html', { root: path.join(__dirname, '../')});
+  res.sendFile('src/index.html#regis', { root: path.join(__dirname, '../')});
 });
 router.get('/dashboard', function(req, res){
   //res.render('views/index');
-  res.sendFile('src/index.html', { root: path.join(__dirname, '../')});
+  res.sendFile('src/index.html#dashboard', { root: path.join(__dirname, '../')});
 });
 router.get('/drawing', function(req, res){
   //res.render('views/index');
-  res.sendFile('src/index.html', { root: path.join(__dirname, '../')});
+  res.sendFile('src/index.html#drawing', { root: path.join(__dirname, '../')});
 });
 router.get('/ressources', function(req, res){
   //res.render('views/index');
   res.sendFile('/ressources', { root: path.join(__dirname, '../')});
-});
+});*/
 /*router.get('/login', function(req, res){
   res.sendFile('src/index.html', { root: path.join(__dirname, '../')});
 });*/

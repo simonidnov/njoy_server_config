@@ -11,8 +11,8 @@
         {"label":"Jouer la vidéo d'intro", "checked":false}
       ],
       "introduction":{"video":"", "audio":"", "pix":"ressources/crazy_show_logo.svg"},
-      "tools":{
-        "emotions":{
+      "tools":[
+        {
           "label":"Émotions",
           "desc":"Court samples audio pour rythmer les évènements, à lancer à tout instant !",
           "playlist":[
@@ -23,14 +23,14 @@
             {"label":"Bonne réponse", "file":"ressources/audio/bon.mp3"}
           ]
         },
-        "ambiances":{
+        {
           "label":"Ambiance",
           "desc":"Des musiques d'ambiance selon les humeurs pour combler les vides.",
           "playlist":[
-              {"label":"Applaudir", "file":"ressources/audio/applau.mp3"}
+              {"label":"Musique d'ambiance", "file":"ressources/audio/applau.mp3"}
           ]
         }
-      },
+      ],
       "apps":[
         {
           "label":"Photomime",
@@ -61,7 +61,7 @@
         },
         {
           "label":"ABC Story",
-          "desc":"",
+          "desc":"description de ABC stories",
           "datas":{},
           "jingle":{"file":"ressources/video/abc.mp4", "type":"video", "event":null, "params":null},
           "menu":[
@@ -78,7 +78,7 @@
         },
         {
           "label":"Juste Prix",
-          "desc":"",
+          "desc":"description du juste prix",
           "datas":{},
           "jingle":{"file":"ressources/video/abc.mp4", "type":"video", "event":null, "params":null},
           "menu":[
@@ -172,7 +172,7 @@
               "label":"Playlist Audio",
               "desc":"Reconstituer avec juste une musique",
               "components":{
-                "playlist_video":[
+                "playlist_audio":[
                     {"label":"AUDIO 1", "desc":"", "datas":{}, "file":"ressources/jeux/airband/air_band_1.mp3"},
                     {"label":"AUDIO 2", "desc":"", "datas":{}, "file":"ressources/jeux/airband/air_band_2.mp3"}
                 ]
@@ -192,6 +192,78 @@
               "components":{
                 "playlist_video":[
                     {"label":"AIRBAND", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/special_video.m4v"}
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "label":"FAMILLE EN BRONZE",
+          "desc":"Déclinaison 'une famille en or faire des propositions sur des thématiques...",
+          "datas":{},
+          "jingle":{"file":"ressources/video/familleenbronze.m4v", "type":"video", "event":null, "params":null},
+          "menu":[
+            {
+              "label":"4-6 ans",
+              "desc":"Des questions pour les plus jeunes de 4 à 6 ans",
+              "components":{
+                "quiz_component":[
+                    {
+                        "label":"En voiture", 
+                        "desc":"que dit un enfant en voiture ?", 
+                        "datas":{
+                            "chrono":60,
+                            "display":"screen",
+                            "display_response":"regis",
+                            "type":"golden_family"
+                        },
+                        "choices":["On est bientôt arrivé ?", "j'ai envie de faire pipi", "j'ai envie de vomir", "J'ai FAIM !"], 
+                        "response":"all"
+                    },
+                    {
+                        "label":"question 2", 
+                        "desc":"Description question 2", 
+                        "datas":{
+                            "chrono":60,
+                            "display":"screen",
+                            "display_response":"regis",
+                            "type":"golden_family"
+                        },
+                        "choices":["Choix 1", "Choix 2", "Choix 3", "Choix 4"], 
+                        "response":"all"
+                    }
+                ]
+              }
+            },
+            {
+              "label":"6-8 ans",
+              "desc":"Des questions pour les 6 à 8 ans",
+              "components":{
+                "quiz_component":[
+                    {
+                        "label":"question 4", 
+                        "desc":"description question 4", 
+                        "datas":{
+                            "chrono":60,
+                            "display":"screen",
+                            "display_response":"regis",
+                            "type":"golden_family"
+                        },
+                        "choices":["Choix 1", "Choix 2", "Choix 3", "Choix 4"], 
+                        "response":"all"
+                    },
+                    {
+                        "label":"question 3", 
+                        "desc":"description question 3", 
+                        "datas":{
+                            "chrono":60,
+                            "display":"screen",
+                            "display_response":"regis",
+                            "type":"golden_family"
+                        },
+                        "choices":["On est bientôt arrivé ?", "j'ai envie de faire pipi", "j'ai envie de vomir", "J'ai FAIM !"], 
+                        "response":"all"
+                    }
                 ]
               }
             }

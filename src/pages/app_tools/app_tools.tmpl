@@ -1,27 +1,48 @@
+<% if(typeof app.selected_app === "undefined"){app.selected_app = app.activities.activities[0] } %>
 <div class="screen app_tools">
-    <div class="wrapper" id="screen_wrapper">
+    <div class="open_tools_button" id="open_tools"></div>
+    <div class="wrapper" id="tools_scroll">
         <div class="scroller">
             <div class="column tools">
-                <% for(var t=0; t<_.keys(app.selected_app.tools).length; t++){ %>
-                    <h3><%= app.selected_app.tools[_.keys(app.selected_app.tools)[t]].label %></h3>
-                    <% for(var k=0; k<_.keys(app.selected_app.tools[_.keys(app.selected_app.tools)[t]]).length; k++){ %>
-                        
+                <% for(var t=0; t<app.selected_app.tools.length; t++){ %>
+                    <h3><%= app.selected_app.tools[t].label %></h3>
+                    <ul class="playlist_list">
+                    <% for(var k=0; k<app.selected_app.tools[t].playlist.length; k++){ %>
+                        <li data-action="cast" data-type="audio" data-file="<%= app.selected_app.tools[t].playlist[k].file %>">
+                            <img class="play_icon" src="img/play_icon.svg" width="40"/>
+                            <span class="label"><%= app.selected_app.tools[t].playlist[k].label %></span>
+                        </li>
                     <% } %>
+                    </ul>
                 <% } %>
             </div>
+        </div>
+    </div>
+    <div class="wrapper" id="apps_scroll">
+        <div class="scroller">
             <div class="column">
-                <ul class="app_list">
+                <% if(typeof app.selected_app.introduction.video !== "undefined" && app.selected_app.introduction.video !== ""){ %>
+                    <video data-action="cast" data-type="video" data-file="<%= app.selected_app.intro_video %>" class="video_preview" src="<%= app.selected_app.intro_video %>"/>
+                <% } %>
+                <div class="item_button intro">
+                    <div class="icon cast"><img src="img/cast.svg" width="50"/></div>
+                    <span>Jouer l'introduction</span>
+                </div>
+                <h3>Applications</h3>
+                <ul class="tools_list">
                 <% for(var i=0; i<app.selected_app.apps.length; i++){ %>
                     <li data-appid="<%= i %>">
-                        <h3><%= app.selected_app.apps[i].label %></h3>
+                        <h4><%= app.selected_app.apps[i].label %></h4>
                         <p><%= app.selected_app.apps[i].desc %></p>
                     </li>
                 <% } %>
                 </ul>
             </div>
-            <div class="colum components">
-            </div>
-            <div class="colum display">
+        </div>
+    </div>
+    <div class="wrapper" id="components_scroll">
+        <div class="scroller">
+            <div class="column components">
             </div>
         </div>
     </div>

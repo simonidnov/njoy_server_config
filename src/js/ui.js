@@ -176,6 +176,7 @@ var ui = {
                         $('body main.app .screen').last().css('left', '0%');
                         window[ui.descriptor.class].init();
                         $('.blocker').remove();
+                        ui.init_scroll_view();
                     }
                 });
                 /* setting header */
@@ -250,13 +251,11 @@ var ui = {
         }
     },
     init_scroll_view: function() {
-        //setTimeout(function(){
-            $('.screen').css({'height':window.innerHeight-$('header').height(), "overflow":"hidden"});
-            $('.screen .wrapper').css({'height':"100%", 'width':"100%", "overflow":"hidden"});
-            $('.screen .wrapper .scroller').css({'display':"table", "width":"100%"});
-            if($('.screen .wrapper .scroller').length === 1){
-                ui.page_scroll = new IScroll('#screen_wrapper',{mouseWheel:true, click: true});
-            }
-        //},500);
+        $('.screen').css({'height':window.innerHeight-$('header').height(), "overflow":"hidden"});
+        $('.screen .wrapper').css({'height':"100%", 'width':"100%", "overflow":"hidden"});
+        $('.screen .wrapper .scroller').css({'display':"table", "width":"100%"});
+        if($('.screen .wrapper .scroller').length === 1){
+            ui.page_scroll = new IScroll('#screen_wrapper',{mouseWheel:true, click: true});
+        }
     }
 }
