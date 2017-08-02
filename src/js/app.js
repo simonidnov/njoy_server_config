@@ -50,6 +50,7 @@ var app = {
             });
         });
         app.socket.on('njoy', function(datas) {
+            $('.over_motion').remove();
             switch (datas.status) {
                 case 'activities':
                     app.infos.activities = datas.activities;

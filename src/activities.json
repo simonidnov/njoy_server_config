@@ -3,12 +3,17 @@
     {
       "label":"Crazy Show",
       "thumb":"ressources/crazyshow/crazy_show_logo.svg",
+      "background":"ressources/crazyshow/crazy_show_logo.svg",
+      "tr":"",
+      "tl":"",
+      "tc":"",
+      "br":"",
+      "bl":"",
+      "bc":"",
       "desc":"Application Crazy Show",
       "datas":{},
       "prerecquise":[
-        {"label":"installer les écrans", "checked":false},
-        {"label":"faire le pitch", "checked":false},
-        {"label":"Jouer la vidéo d'intro", "checked":false}
+        {"label":"Lancer l'écran d'accueil", "checked":false}
       ],
       "introduction":{"video":"ressources/crazyshow/jingles/intro_crazy_show.mp4", "audio":"", "pix":"ressources/crazy_show_logo.svg"},
       "tools":[
@@ -16,37 +21,41 @@
           "label":"Émotions",
           "desc":"Court samples audio pour rythmer les évènements, à lancer à tout instant !",
           "playlist":[
-            {"label":"Applaudir", "file":"ressources/audio/applau.mp3"},
-            {"label":"Huer", "file":"ressources/audio/huee.mp3"},
-            {"label":"Rater", "file":"ressources/audio/rate.mp3"},
-            {"label":"Mauvaise réponse", "file":"ressources/audio/faux.mp3"},
-            {"label":"Bonne réponse", "file":"ressources/audio/bon.mp3"}
+            {"label":"Applaudir", "file":"ressources/audio/applau.mp3", "type":"FX", "data":"ressources/crazyshow/fx/regis_applau.svg"},
+            {"label":"Huer", "file":"ressources/audio/huee.mp3", "type":"FX", "data":"ressources/crazyshow/fx/regis_huer.svg"},
+            {"label":"Mauvaise réponse", "file":"ressources/audio/faux.mp3", "type":"FX", "data":"ressources/crazyshow/fx/regis_wrong.svg"},
+            {"label":"Bonne réponse", "file":"ressources/audio/bon.mp3", "type":"FX", "data":"ressources/crazyshow/fx/regis_good.svg"}
           ]
         },
         {
           "label":"Ambiance",
           "desc":"Des musiques d'ambiance selon les humeurs pour combler les vides.",
           "playlist":[
-              {"label":"Britney Spire", "file":"ressources/audio/ambiance/bitney.mp3"},
-              {"label":"Ray Charles", "file":"ressources/audio/ambiance/1.mp3"},
-              {"label":"Franck Sinatra", "file":"ressources/audio/ambiance/2.mp3"},
-              {"label":"Nate King Cole", "file":"ressources/audio/ambiance/3.mp3"},
-              {"label":"Louis Prima", "file":"ressources/audio/ambiance/4.mp3"},
-              {"label":"Nina Simone", "file":"ressources/audio/ambiance/5.mp3"},
-              {"label":"Amstrong", "file":"ressources/audio/ambiance/6.mp3"},
-              {"label":"Dinah Washington", "file":"ressources/audio/ambiance/7.mp3"},
-              {"label":"Marylin Monroe", "file":"ressources/audio/ambiance/8.mp3"},
-              {"label":"Dave Brubeck", "file":"ressources/audio/ambiance/9.mp3"},
-              {"label":"Dean Martin", "file":"ressources/audio/ambiance/10.mp3"}
+              {"label":"Britney Spire", "file":"ressources/audio/ambiance/bitney.mp3", "type":"audio"},
+              {"label":"Ray Charles", "file":"ressources/audio/ambiance/1.mp3", "type":"audio"},
+              {"label":"Franck Sinatra", "file":"ressources/audio/ambiance/2.mp3", "type":"audio"},
+              {"label":"Nate King Cole", "file":"ressources/audio/ambiance/3.mp3", "type":"audio"},
+              {"label":"Louis Prima", "file":"ressources/audio/ambiance/4.mp3", "type":"audio"},
+              {"label":"Nina Simone", "file":"ressources/audio/ambiance/5.mp3", "type":"audio"},
+              {"label":"Amstrong", "file":"ressources/audio/ambiance/6.mp3", "type":"audio"},
+              {"label":"Dinah Washington", "file":"ressources/audio/ambiance/7.mp3", "type":"audio"},
+              {"label":"Marylin Monroe", "file":"ressources/audio/ambiance/8.mp3", "type":"audio"},
+              {"label":"Dave Brubeck", "file":"ressources/audio/ambiance/9.mp3", "type":"audio"},
+              {"label":"Dean Martin", "file":"ressources/audio/ambiance/10.mp3", "type":"audio"}
           ]
         }
       ],
       "apps":[
         {
           "label":"Photomime",
-          "desc":"mimer des photos",
-          "icon":"ressources/crazyshow/habillage/photomime.png",
-          "logo":"ressources/crazyshow/habillage/crazyshow.png",
+          "desc":"Jeu de mime. Affichage des photos à l'écran. 1 enfant mime ce qu'il voit. 2 enfants dos à l'écran doivent trouver le mime",
+          "background":"ressources/crazyshow/jingles/photomime.svg",
+          "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
+          "tl":"",
+          "tc":"ressources/crazyshow/habillage/photomime.svg",
+          "br":"",
+          "bl":"",
+          "bc":"",
           "datas":{},
           "jingle":{"file":"ressources/crazyshow/jingles/photomime.mp4", "type":"video", "event":null, "params":null},
           "menu":[
@@ -55,24 +64,24 @@
               "desc":"Mimes pour les 3-6 ans",
               "components":{
                 "galery":[
-                  {"file":"ressources/crazyshow/Photomime/robots.jpg", "desc":"", "label":"Robot", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/smarthphone.jpg", "desc":"", "label":"Téléphone", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/chien.jpg", "desc":"", "label":"Chien", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/voiture.jpg", "desc":"", "label":"Voiture", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/ballon.jpg", "desc":"", "label":"Ballon", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/karate.jpg", "desc":"", "label":"Karate", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/peche.jpg", "desc":"", "label":"Pêche", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/arc.jpg", "desc":"", "label":"Tir a l'arc", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/epee.jpg", "desc":"", "label":"Epée", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/clown.jpg", "desc":"", "label":"Clown", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/guitar.jpg", "desc":"", "label":"Guitare", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/avion.jpg", "desc":"", "label":"Avion", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/moto.jpg", "desc":"", "label":"Moto", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/boxe.jpg", "desc":"", "label":"Boxe", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/lapin.jpg", "desc":"", "label":"Lapin", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/kangourou.jpg", "desc":"", "label":"Kangourou", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/flute.jpg", "desc":"", "label":"Flute", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/grenouille.jpg", "desc":"", "label":"Grenouille", "chronos":120, "datas":{}}
+                  {"file":"ressources/crazyshow/Photomime/robots.jpg", "desc":"", "label":"Robot", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/smarthphone.jpg", "desc":"", "label":"Téléphone", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/chien.jpg", "desc":"", "label":"Chien", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/voiture.jpg", "desc":"", "label":"Voiture", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/ballon.jpg", "desc":"", "label":"Ballon", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/karate.jpg", "desc":"", "label":"Karate", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/peche.jpg", "desc":"", "label":"Pêche", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/arc.jpg", "desc":"", "label":"Tir a l'arc", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/epee.jpg", "desc":"", "label":"Epée", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/clown.jpg", "desc":"", "label":"Clown", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/guitar.jpg", "desc":"", "label":"Guitare", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/avion.jpg", "desc":"", "label":"Avion", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/moto.jpg", "desc":"", "label":"Moto", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/boxe.jpg", "desc":"", "label":"Boxe", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/lapin.jpg", "desc":"", "label":"Lapin", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/kangourou.jpg", "desc":"", "label":"Kangourou", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/flute.jpg", "desc":"", "label":"Flute", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/grenouille.jpg", "desc":"", "label":"Grenouille", "chronos":30, "datas":{}}
                 ]
               }
             },
@@ -81,27 +90,27 @@
               "desc":"Mimes pour les 6-10 ans",
               "components":{
                 "galery":[
-                  {"file":"ressources/crazyshow/Photomime/banane.jpg", "desc":"", "label":"Banane", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/girafe.jpg", "desc":"", "label":"Girafe", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/helico.jpg", "desc":"", "label":"Helicoptere", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/pompier.jpg", "desc":"", "label":"Pompier", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/police.jpg", "desc":"", "label":"Policier", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/chapeau.jpg", "desc":"", "label":"Chapeau", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/vache.jpg", "desc":"", "label":"Vaches", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/aspirateur.jpg", "desc":"", "label":"aspirateur", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/lion.jpg", "desc":"", "label":"Lion", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/velo.jpg", "desc":"", "label":"Velo", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/pinguin.jpg", "desc":"", "label":"Pingouin", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/paillasson.jpg", "desc":"", "label":"Paillasson", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/pyramide.jpg", "desc":"", "label":"Pyramide", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/bouling.jpg", "desc":"", "label":"Bowling", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/parapluie.jpg", "desc":"", "label":"Parapluie", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/glaces.jpg", "desc":"", "label":"Glace", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/bouclier.jpg", "desc":"", "label":"Bouclier", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/siflet.jpg", "desc":"", "label":"Sifflet", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/crayon.jpg", "desc":"", "label":"Crayon", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/chanteur.jpg", "desc":"", "label":"Chanteur", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/danceuse.jpg", "desc":"", "label":"Danceuse", "chronos":120, "datas":{}}
+                  {"file":"ressources/crazyshow/Photomime/banane.jpg", "desc":"", "label":"Banane", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/girafe.jpg", "desc":"", "label":"Girafe", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/helico.jpg", "desc":"", "label":"Helicoptere", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/pompier.jpg", "desc":"", "label":"Pompier", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/police.jpg", "desc":"", "label":"Policier", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/chapeau.jpg", "desc":"", "label":"Chapeau", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/vache.jpg", "desc":"", "label":"Vaches", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/aspirateur.jpg", "desc":"", "label":"aspirateur", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/lion.jpg", "desc":"", "label":"Lion", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/velo.jpg", "desc":"", "label":"Velo", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/pinguin.jpg", "desc":"", "label":"Pingouin", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/paillasson.jpg", "desc":"", "label":"Paillasson", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/pyramide.jpg", "desc":"", "label":"Pyramide", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/bouling.jpg", "desc":"", "label":"Bowling", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/parapluie.jpg", "desc":"", "label":"Parapluie", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/glaces.jpg", "desc":"", "label":"Glace", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/bouclier.jpg", "desc":"", "label":"Bouclier", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/siflet.jpg", "desc":"", "label":"Sifflet", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/crayon.jpg", "desc":"", "label":"Crayon", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/chanteur.jpg", "desc":"", "label":"Chanteur", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/danceuse.jpg", "desc":"", "label":"Danceuse", "chronos":30, "datas":{}}
                 ]
               }
             },
@@ -110,28 +119,28 @@
               "desc":"Mimes pour les 12-16 ans",
               "components":{
                 "galery":[
-                  {"file":"ressources/crazyshow/Photomime/chevalier.jpg", "desc":"", "label":"Chevalier", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/caddy.jpg", "desc":"", "label":"Caddy", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/tondeuse.jpg", "desc":"", "label":"Tondeuse", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/hamburger.jpg", "desc":"", "label":"Hamburger", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/tronconneuse.jpg", "desc":"", "label":"Tronconeuse", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/lit.jpg", "desc":"", "label":"Lit", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/feu.jpg", "desc":"", "label":"Feu", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/poele.jpg", "desc":"", "label":"Poêle", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/boussole.jpg", "desc":"", "label":"Boussole", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/dromadaire.jpg", "desc":"", "label":"Dromadaire", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/crabe.jpg", "desc":"", "label":"Crabe", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/hache.jpg", "desc":"", "label":"Hache", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/bol.jpg", "desc":"", "label":"Bol", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/DJ.jpg", "desc":"", "label":"DJ", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/yoga.jpg", "desc":"", "label":"Yoga", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/accordeon.jpg", "desc":"", "label":"Achordéon", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/escalade.jpg", "desc":"", "label":"Escalade", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/militaire.jpg", "desc":"", "label":"Militaire", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/journaux.jpg", "desc":"", "label":"Journal", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/golf.jpg", "desc":"", "label":"Golf", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/tour_eiffel.jpg", "desc":"", "label":"Tour eiffel", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/parasole.jpg", "desc":"", "label":"Parasol", "chronos":120, "datas":{}}
+                  {"file":"ressources/crazyshow/Photomime/chevalier.jpg", "desc":"", "label":"Chevalier", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/caddy.jpg", "desc":"", "label":"Caddy", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/tondeuse.jpg", "desc":"", "label":"Tondeuse", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/hamburger.jpg", "desc":"", "label":"Hamburger", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/tronconneuse.jpg", "desc":"", "label":"Tronconeuse", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/lit.jpg", "desc":"", "label":"Lit", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/feu.jpg", "desc":"", "label":"Feu", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/poele.jpg", "desc":"", "label":"Poêle", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/boussole.jpg", "desc":"", "label":"Boussole", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/dromadaire.jpg", "desc":"", "label":"Dromadaire", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/crabe.jpg", "desc":"", "label":"Crabe", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/hache.jpg", "desc":"", "label":"Hache", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/bol.jpg", "desc":"", "label":"Bol", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/DJ.jpg", "desc":"", "label":"DJ", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/yoga.jpg", "desc":"", "label":"Yoga", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/accordeon.jpg", "desc":"", "label":"Achordéon", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/escalade.jpg", "desc":"", "label":"Escalade", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/militaire.jpg", "desc":"", "label":"Militaire", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/journaux.jpg", "desc":"", "label":"Journal", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/golf.jpg", "desc":"", "label":"Golf", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/tour_eiffel.jpg", "desc":"", "label":"Tour eiffel", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/parasole.jpg", "desc":"", "label":"Parasol", "chronos":30, "datas":{}}
                 ]
               }
             },
@@ -140,22 +149,22 @@
               "desc":"Mimes pour les 18+",
               "components":{
                 "galery":[
-                  {"file":"ressources/crazyshow/Photomime/tracteur.jpg", "desc":"", "label":"Tracteur", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/grue.jpg", "desc":"", "label":"Grue", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/lune.jpg", "desc":"", "label":"Lune", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/parachute.jpg", "desc":"", "label":"Parachute", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/rose.jpg", "desc":"", "label":"Rose", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/orage.jpg", "desc":"", "label":"Orage", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/ampoule.jpg", "desc":"", "label":"Ampoule", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/luge.jpg", "desc":"", "label":"Luge", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/toilette.jpg", "desc":"", "label":"Toilettes", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/rouleau_patisserie.jpg", "desc":"", "label":"Rouleau pâtisserie", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/ventouse.jpg", "desc":"", "label":"Ventouse", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/gyrophare.jpg", "desc":"", "label":"Gyrophare", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/cerf_volant.jpg", "desc":"", "label":"Cerf volant", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/roulette_casino.jpg", "desc":"", "label":"Roulette de casino", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/pissenlit.jpg", "desc":"", "label":"Pissenlit", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/feux_artifice.jpg", "desc":"", "label":"Feu d'artifice", "chronos":120, "datas":{}}
+                  {"file":"ressources/crazyshow/Photomime/tracteur.jpg", "desc":"", "label":"Tracteur", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/grue.jpg", "desc":"", "label":"Grue", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/lune.jpg", "desc":"", "label":"Lune", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/parachute.jpg", "desc":"", "label":"Parachute", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/rose.jpg", "desc":"", "label":"Rose", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/orage.jpg", "desc":"", "label":"Orage", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/ampoule.jpg", "desc":"", "label":"Ampoule", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/luge.jpg", "desc":"", "label":"Luge", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/toilette.jpg", "desc":"", "label":"Toilettes", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/rouleau_patisserie.jpg", "desc":"", "label":"Rouleau pâtisserie", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/ventouse.jpg", "desc":"", "label":"Ventouse", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/gyrophare.jpg", "desc":"", "label":"Gyrophare", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/cerf_volant.jpg", "desc":"", "label":"Cerf volant", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/roulette_casino.jpg", "desc":"", "label":"Roulette de casino", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/pissenlit.jpg", "desc":"", "label":"Pissenlit", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/feux_artifice.jpg", "desc":"", "label":"Feu d'artifice", "chronos":30, "datas":{}}
                 ]
               }
             },
@@ -164,23 +173,23 @@
               "desc":"Mimes spéciales Noël",
               "components":{
                 "galery":[
-                  {"file":"ressources/crazyshow/Photomime/cheminee.jpg", "desc":"", "label":"Cheminée", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/guirlande.jpg", "desc":"", "label":"Guirlande", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/clochette.jpg", "desc":"", "label":"Cloche", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/traineau.jpg", "desc":"", "label":"Traineau", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/bottes_noel.jpg", "desc":"", "label":"Botte", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/lutin.jpg", "desc":"", "label":"Lutin", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/skieur.jpg", "desc":"", "label":"Ski", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/sapin.jpg", "desc":"", "label":"Sapin", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/cadeaux.jpg", "desc":"", "label":"Cadeau", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/ange.jpg", "desc":"", "label":"Ange", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/pere_noel.jpg", "desc":"", "label":"Père-noël", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/gants.jpg", "desc":"", "label":"Gant", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/echarpe.jpg", "desc":"", "label":"Écharpe", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/etoile.jpg", "desc":"", "label":"Etoile", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/bonhomme_neige.jpg", "desc":"", "label":"Bonhomme de neige", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/bataille_neige.jpg", "desc":"", "label":"Bataille de boule de neige", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/igloo.jpg", "desc":"", "label":"Igloo", "chronos":120, "datas":{}}
+                  {"file":"ressources/crazyshow/Photomime/cheminee.jpg", "desc":"", "label":"Cheminée", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/guirlande.jpg", "desc":"", "label":"Guirlande", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/clochette.jpg", "desc":"", "label":"Cloche", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/traineau.jpg", "desc":"", "label":"Traineau", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/bottes_noel.jpg", "desc":"", "label":"Botte", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/lutin.jpg", "desc":"", "label":"Lutin", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/skieur.jpg", "desc":"", "label":"Ski", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/sapin.jpg", "desc":"", "label":"Sapin", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/cadeaux.jpg", "desc":"", "label":"Cadeau", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/ange.jpg", "desc":"", "label":"Ange", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/pere_noel.jpg", "desc":"", "label":"Père-noël", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/gants.jpg", "desc":"", "label":"Gant", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/echarpe.jpg", "desc":"", "label":"Écharpe", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/etoile.jpg", "desc":"", "label":"Etoile", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/bonhomme_neige.jpg", "desc":"", "label":"Bonhomme de neige", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/bataille_neige.jpg", "desc":"", "label":"Bataille de boule de neige", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/igloo.jpg", "desc":"", "label":"Igloo", "chronos":30, "datas":{}}
                 ]
               }
             },
@@ -189,20 +198,20 @@
               "desc":"Mimes spéciales Halloween",
               "components":{
                 "galery":[
-                  {"file":"ressources/crazyshow/Photomime/araignee.jpg", "desc":"", "label":"Araignée", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/sorciere.jpg", "desc":"", "label":"Sorcière", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/clochette.jpg", "desc":"", "label":"Cloche", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/chat.jpg", "desc":"", "label":"Chat", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/loup.jpg", "desc":"", "label":"Loup garou", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/vampire.jpg", "desc":"", "label":"Vampire", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/bougies.jpg", "desc":"", "label":"Bougie", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/squelette.jpgb", "desc":"", "label":"Squelette", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/bonbon.jpg", "desc":"", "label":"Bonbon", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/citrouille.jpg", "desc":"", "label":"Citrouille", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/chauve_souris.jpg", "desc":"", "label":"Chauve souris", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/prisonnier.jpg", "desc":"", "label":"Prisonnier", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/couteau.jpgs", "desc":"", "label":"Couteau", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/squelette.jpg", "desc":"", "label":"Squellete", "chronos":120, "datas":{}}
+                  {"file":"ressources/crazyshow/Photomime/araignee.jpg", "desc":"", "label":"Araignée", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/sorciere.jpg", "desc":"", "label":"Sorcière", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/clochette.jpg", "desc":"", "label":"Cloche", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/chat.jpg", "desc":"", "label":"Chat", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/loup.jpg", "desc":"", "label":"Loup garou", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/vampire.jpg", "desc":"", "label":"Vampire", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/bougies.jpg", "desc":"", "label":"Bougie", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/squelette.jpgb", "desc":"", "label":"Squelette", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/bonbon.jpg", "desc":"", "label":"Bonbon", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/citrouille.jpg", "desc":"", "label":"Citrouille", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/chauve_souris.jpg", "desc":"", "label":"Chauve souris", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/prisonnier.jpg", "desc":"", "label":"Prisonnier", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/couteau.jpgs", "desc":"", "label":"Couteau", "chronos":30, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/squelette.jpg", "desc":"", "label":"Squellete", "chronos":30, "datas":{}}
                 ]
               }
             }
@@ -210,18 +219,23 @@
         },
         {
           "label":"Dessiner c'est gagné",
-          "desc":"dessiner des trucs pour gagner des machins.",
-          "icon":"ressources/crazyshow/habillage/dessinercestgagne.svg",
-          "logo":"ressources/crazyshow/habillage/crazyshow.png",
+          "desc":"Dessin en live. Le dessin fait sur la tablette se dessine à l'écran. Il faut faire deviner le dessin en cours",
+          "background":"ressources/crazyshow/jingles/dessinercestgagne.svg",
+          "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
+          "tl":"",
+          "tc":"ressources/crazyshow/habillage/dessinercestgagne.svg",
+          "br":"",
+          "bl":"",
+          "bc":"",
           "datas":{},
           "jingle":{"file":"ressources/crazyshow/jingles/dessinercestgagne.mp4", "type":"video", "event":null, "params":null, "display_cover":true},
           "menu":[
             {
               "label":"Musiques d'ambiance",
-              "desc":"choisissez d'une musique d'ambiance pour l'activité",
+              "desc":"choisissez une musique d'ambiance pour l'activité",
               "components":{
                 "galery":[
-                    {"label":"squelette", "desc":"dessiner un squelette", "datas":{}, "action":"drawing", "action_label":"Dessiner", "chronos":120, "file":"ressources/crazyshow/Photomime/squelette.jpg"}
+                    {"label":"squelette", "desc":"dessiner un squelette", "datas":{}, "action":"drawing", "action_label":"Dessiner", "chronos":30, "file":"ressources/crazyshow/Photomime/squelette.jpg"}
                 ]
               }
             }
@@ -230,8 +244,13 @@
         {
           "label":"ABC Story",
           "desc":"description de ABC stories",
-          "icon":"ressources/crazyshow/habillage/abcstory.svg",
-          "logo":"ressources/crazyshow/habillage/crazyshow.png",
+          "background":"ressources/crazyshow/jingles/abcstory.svg",
+          "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
+          "tl":"",
+          "tc":"ressources/crazyshow/habillage/abcstory.svg",
+          "br":"",
+          "bl":"",
+          "bc":"",
           "datas":{},
           "jingle":{"file":"ressources/crazyshow/jingles/abcstory.mp4", "type":"video", "event":null, "params":null, "display_cover":true},
           "menu":[
@@ -248,9 +267,14 @@
         },
         {
           "label":"Juste Prix",
-          "desc":"description du juste prix",
-          "icon":"ressources/crazyshow/habillage/justeprix.png",
-          "logo":"ressources/crazyshow/habillage/crazyshow.png",
+          "desc":"4 enfants sur le plateau, chacun une ardoise et un feutre. Regis affiche des objets, les enfants doivent retrouver le prix (ils peuvent aller dans le public si besoin)",
+          "background":"ressources/crazyshow/jingles/justeprix.svg",
+          "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
+          "tl":"",
+          "tc":"ressources/crazyshow/habillage/justeprix.svg",
+          "br":"",
+          "bl":"",
+          "bc":"",
           "datas":{},
           "jingle":{"file":"ressources/crazyshow/jingles/justeprix.mp4", "type":"video", "event":null, "params":null, "display_cover":true},
           "menu":[
@@ -298,10 +322,15 @@
         },
         {
           "label":"AIR BAND",
-          "desc":"Créer un groupe de Air Band, le groupe doit immiter le groupe de musique diffusé en arrière plan",
+          "desc":"4 enfants sur le plateau qui forment un groupe composé : 1 chanteur, 1 guitariste, 1 pianiste, 1 batteur. Le groupe doit immiter le groupe de musique diffusé en arrière plan. A chaque transition les 4 enfants changent de place et prennent un autre role dans le groupe",
           "datas":{},
-          "icon":"ressources/crazyshow/habillage/airband.svg",
-          "logo":"ressources/crazyshow/habillage/crazyshow.png",
+          "background":"ressources/crazyshow/jingles/airband.svg",
+          "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
+          "tl":"",
+          "tc":"ressources/crazyshow/habillage/airband.svg",
+          "br":"",
+          "bl":"",
+          "bc":"",
           "jingle":{"file":"ressources/crazyshow/jingles/airband.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
@@ -328,9 +357,14 @@
         },
         {
           "label":"LET'S DANCE",
-          "desc":"créer des chorégraphies",
-          "icon":"ressources/crazyshow/habillage/letsdance.png",
-          "logo":"ressources/crazyshow/habillage/crazyshow.png",
+          "desc":"Battle de chorégraphie chacun son tour. 2 équipes en ligne sur le plateau. Chacune leur tour les équipes doivent danser synchro sur la musique, à chaque transition c'est l'autre équipe qui danse.",
+          "background":"ressources/crazyshow/jingles/letsdance.svg",
+          "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
+          "tl":"",
+          "tc":"ressources/crazyshow/habillage/letsdance.svg",
+          "br":"",
+          "bl":"",
+          "bc":"",
           "datas":{},
           "jingle":{"file":"ressources/crazyshow/jingles/letsdance.mp4", "type":"video", "event":null, "params":null},
           "menu":[
@@ -341,8 +375,7 @@
                 "playlist_video":[
                     {"label":"Video 1", "desc":"", "datas":{}, "file":"ressources/crazyshow/letsdance/video1.mp4"},
                     {"label":"Video 2", "desc":"", "datas":{}, "file":"ressources/crazyshow/letsdance/video2.mp4"},
-                    {"label":"Video 3", "desc":"", "datas":{}, "file":"ressources/crazyshow/letsdance/video3.mp4"},
-                    {"label":"Video 4", "desc":"", "datas":{}, "file":"ressources/crazyshow/letsdance/video4.mp4"}
+                    {"label":"Video 3", "desc":"", "datas":{}, "file":"ressources/crazyshow/letsdance/video3.mp4"}
                 ]
               }
             },
@@ -361,9 +394,14 @@
         },
         {
           "label":"FAMILLE EN BRONZE",
-          "desc":"Déclinaison 'une famille en or faire des propositions sur des thématiques...",
-          "icon":"ressources/crazyshow/habillage/familleenbronze.png",
-          "logo":"ressources/crazyshow/habillage/crazyshow.png",
+          "desc":"Jeu identique à une famille en or. Les enfants doivent trouver la réponse la plus populaire. Faire 2 équipes, les enfants répondent 1 VS 1 aux questions.",
+          "background":"ressources/crazyshow/jingles/familleenbronze.svg",
+          "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
+          "tl":"",
+          "tc":"ressources/crazyshow/habillage/familleenbronze.svg",
+          "br":"",
+          "bl":"",
+          "bc":"",
           "datas":{},
           "jingle":{"file":"ressources/crazyshow/jingles/familleenbronze.mp4", "type":"video", "event":null, "params":null},
           "menu":[
@@ -483,9 +521,14 @@
         },
         {
           "label":"CHABADA",
-          "desc":"chabada description de l'animation",
-          "icon":"ressources/crazyshow/habillage/chabada.png",
-          "logo":"ressources/crazyshow/habillage/crazyshow.png",
+          "desc":"les enfants sont en équipes, affichage d'un mot à l'écran, tour à tour les équipes doivent chanter une chanson contenant le mot.",
+          "background":"ressources/crazyshow/jingles/chabada.svg",
+          "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
+          "tl":"",
+          "tc":"ressources/crazyshow/habillage/chabada.svg",
+          "br":"",
+          "bl":"",
+          "bc":"",
           "datas":{},
           "jingle":{"file":"ressources/crazyshow/jingles/chabada.mp4", "type":"video", "event":null, "params":null},
           "menu":[
@@ -500,8 +543,13 @@
         {
           "label":"Repli Quiz",
           "desc":"repliquiz description de l'animation",
-          "icon":"ressources/crazyshow/habillage/repliquiz.png",
-          "logo":"ressources/crazyshow/habillage/crazyshow.png",
+          "background":"ressources/crazyshow/jingles/repliquiz.svg",
+          "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
+          "tl":"",
+          "tc":"ressources/crazyshow/habillage/repliquiz.svg",
+          "br":"",
+          "bl":"",
+          "bc":"",
           "datas":{},
           "jingle":{"file":"ressources/crazyshow/jingles/repliquiz.mp4", "type":"video", "event":null, "params":null},
           "menu":[
@@ -515,9 +563,14 @@
         },
         {
           "label":"Stop and Go",
-          "desc":"stop and go description de l'animation",
-          "icon":"ressources/crazyshow/habillage/stopandgo.png",
-          "logo":"ressources/crazyshow/habillage/crazyshow.png",
+          "desc":"C'est un karaoké, les enfants sur le plateau doivent chanter les paroles de la chaosn. A un moment, le son se coupe, c'est à eux de poursuivre, puis le son reprend.",
+          "background":"ressources/crazyshow/jingles/stopandgo.svg",
+          "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
+          "tl":"",
+          "tc":"ressources/crazyshow/habillage/stopandgo.svg",
+          "br":"",
+          "bl":"",
+          "bc":"",
           "datas":{},
           "jingle":{"file":"ressources/crazyshow/jingles/stopandgo.mp4", "type":"video", "event":null, "params":null},
           "menu":[
@@ -555,9 +608,14 @@
 
         {
           "label":"Blind Test",
-          "desc":"Blind Test description de l'animation",
-          "icon":"ressources/crazyshow/habillage/blindtest.png",
-          "logo":"ressources/crazyshow/habillage/crazyshow.png",
+          "desc":"Faire 2 équipes de part et d'autre du présentoire. buzzer au milieu. Quizz musical. Nom de l'artiste et titre de la chanson",
+          "background":"ressources/crazyshow/jingles/blindtest.svg",
+          "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
+          "tl":"",
+          "tc":"ressources/crazyshow/habillage/blindtest.svg",
+          "br":"",
+          "bl":"",
+          "bc":"",
           "datas":{},
           "jingle":{"file":"ressources/crazyshow/jingles/blindtest.mp4", "type":"video", "event":null, "params":null},
           "menu":[
@@ -643,9 +701,14 @@
         },
           {
           "label":"Chef d'Orchestre",
-          "desc":"Chef d'orchestre description de l'animation",
-          "icon":"ressources/crazyshow/habillage/chefdorchestre.png",
-          "logo":"ressources/crazyshow/habillage/crazyshow.png",
+          "desc":"pas encore de description",
+          "background":"ressources/crazyshow/jingles/chefdorchestre.svg",
+          "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
+          "tl":"",
+          "tc":"ressources/crazyshow/habillage/chefdorchestre.svg",
+          "br":"",
+          "bl":"",
+          "bc":"",
           "datas":{},
           "jingle":{"file":"ressources/crazyshow/jingles/chefdorchestre.mp4", "type":"video", "event":null, "params":null},
           "menu":[
@@ -663,9 +726,14 @@
         },
         {
           "label":"Tour en Folie",
-          "desc":"Tour en Folie Test description de l'animation",
-          "icon":"ressources/crazyshow/habillage/tourenfolie.png",
-          "logo":"ressources/crazyshow/habillage/crazyshow.png",
+          "desc":"l'enfant doit réaliser une tour de gobelet et la ranger le plus vite possible. Chrono afficher à l'écran.",
+          "background":"ressources/crazyshow/jingles/tourenfolie.svg",
+          "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
+          "tl":"",
+          "tc":"ressources/crazyshow/habillage/tourenfolie.svg",
+          "br":"",
+          "bl":"",
+          "bc":"",
           "datas":{},
           "jingle":{"file":"ressources/crazyshow/jingles/tourenfolie.mp4", "type":"video", "event":null, "params":null},
           "menu":[
@@ -684,9 +752,14 @@
         },
         {
           "label":"Cintre d'esprit",
-          "desc":"to complete",
-          "icon":"ressources/crazyshow/habillage/cintre_esprit.png",
-          "logo":"ressources/crazyshow/habillage/crazyshow.png",
+          "desc":"Par équipe de 2, un enfant donne les cintres, l'autre doit en un temps record les empiler par le milieu. Chrono affiché à l'écran",
+          "background":"ressources/crazyshow/jingles/cintre_esprit.svg",
+          "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
+          "tl":"",
+          "tc":"ressources/crazyshow/habillage/cintreesprit.svg",
+          "br":"",
+          "bl":"",
+          "bc":"",
           "datas":{},
           "jingle":{"file":"ressources/crazyshow/jingles/cintre_esprit.mp4", "type":"video", "event":null, "params":null},
           "menu":[
@@ -707,41 +780,48 @@
     },
     {
       "label":"ARCHEO DINO",
-      "thumb":"ressources/archeodino/archeodino_logo.svg",
+      "thumb":"ressources/archeodino/archeo_background.png",
       "desc":"Archeo Dino Playlist vidéo",
+      "background":"ressources/archeodino/archeo_background.png",
+      "tr":"",
+      "tl":"",
+      "tc":"",
+      "br":"",
+      "bl":"",
+      "bc":"",
       "datas":{},
       "prerecquise":[
         {"label":"Lancer l'introduction", "checked":false},
         {"label":"Se connecter sur le réseau NJOY", "checked":false}
       ],
-      "introduction":{"video":"", "audio":"", "pix":"ressources/archeodino/archeodino_logo.svg"},
+      "introduction":{"video":"", "audio":"", "pix":"ressources/archeodino/archeo_background.png"},
       "tools":[
         {
           "label":"Émotions",
           "desc":"Court samples audio pour rythmer les évènements, à lancer à tout instant !",
           "playlist":[
-            {"label":"Applaudir", "file":"ressources/audio/applau.mp3"},
-            {"label":"Huer", "file":"ressources/audio/huee.mp3"},
-            {"label":"Rater", "file":"ressources/audio/rate.mp3"},
-            {"label":"Mauvaise réponse", "file":"ressources/audio/faux.mp3"},
-            {"label":"Bonne réponse", "file":"ressources/audio/bon.mp3"}
+            {"label":"Applaudir", "file":"ressources/audio/applau.mp3", "type":"FX"},
+            {"label":"Huer", "file":"ressources/audio/huee.mp3", "type":"FX"},
+            {"label":"Rater", "file":"ressources/audio/rate.mp3", "type":"FX"},
+            {"label":"Mauvaise réponse", "file":"ressources/audio/faux.mp3", "type":"FX"},
+            {"label":"Bonne réponse", "file":"ressources/audio/bon.mp3", "type":"FX"}
           ]
         },
         {
           "label":"Ambiance",
           "desc":"Des musiques d'ambiance selon les humeurs pour combler les vides.",
           "playlist":[
-              {"label":"Britney Spire", "file":"ressources/audio/ambiance/bitney.mp3"},
-              {"label":"Ray Charles", "file":"ressources/audio/ambiance/1.mp3"},
-              {"label":"Franck Sinatra", "file":"ressources/audio/ambiance/2.mp3"},
-              {"label":"Nate King Cole", "file":"ressources/audio/ambiance/3.mp3"},
-              {"label":"Louis Prima", "file":"ressources/audio/ambiance/4.mp3"},
-              {"label":"Nina Simone", "file":"ressources/audio/ambiance/5.mp3"},
-              {"label":"Amstrong", "file":"ressources/audio/ambiance/6.mp3"},
-              {"label":"Dinah Washington", "file":"ressources/audio/ambiance/7.mp3"},
-              {"label":"Marylin Monroe", "file":"ressources/audio/ambiance/8.mp3"},
-              {"label":"Dave Brubeck", "file":"ressources/audio/ambiance/9.mp3"},
-              {"label":"Dean Martin", "file":"ressources/audio/ambiance/10.mp3"}
+              {"label":"Britney Spire", "file":"ressources/audio/ambiance/bitney.mp3", "type":"audio"},
+              {"label":"Ray Charles", "file":"ressources/audio/ambiance/1.mp3", "type":"audio"},
+              {"label":"Franck Sinatra", "file":"ressources/audio/ambiance/2.mp3", "type":"audio"},
+              {"label":"Nate King Cole", "file":"ressources/audio/ambiance/3.mp3", "type":"audio"},
+              {"label":"Louis Prima", "file":"ressources/audio/ambiance/4.mp3", "type":"audio"},
+              {"label":"Nina Simone", "file":"ressources/audio/ambiance/5.mp3", "type":"audio"},
+              {"label":"Amstrong", "file":"ressources/audio/ambiance/6.mp3", "type":"audio"},
+              {"label":"Dinah Washington", "file":"ressources/audio/ambiance/7.mp3", "type":"audio"},
+              {"label":"Marylin Monroe", "file":"ressources/audio/ambiance/8.mp3", "type":"audio"},
+              {"label":"Dave Brubeck", "file":"ressources/audio/ambiance/9.mp3", "type":"audio"},
+              {"label":"Dean Martin", "file":"ressources/audio/ambiance/10.mp3", "type":"audio"}
           ]
         }
       ],
@@ -749,8 +829,13 @@
         {
           "label":"Archeo Dino Part 1",
           "desc":"Playlist Vidéo Archeo Dino",
-          "icon":"ressources/archodino/habillage/archodino.png",
-          "logo":"ressources/archodino/habillage/archodino.png",
+          "background":"ressources/archeodino/archeo_background.png",
+          "tr":"",
+          "tl":"",
+          "tc":"",
+          "br":"",
+          "bl":"",
+          "bc":"",
           "datas":{},
           "jingle":{"file":"ressources/archeodino/video1_accueil.mp4", "type":"video", "event":null, "params":null},
           "menu":[
@@ -788,6 +873,13 @@
       "label":"LABO FOLIES",
       "thumb":"ressources/labofolies/labofolies_logo.png",
       "desc":"Labofolies Playlist vidéo",
+      "background":"ressources/labofolies/labofolies_decors.png",
+      "tr":"",
+      "tl":"",
+      "tc":"",
+      "br":"",
+      "bl":"",
+      "bc":"",
       "datas":{},
       "prerecquise":[
         {"label":"Lancer l'introduction", "checked":false},
@@ -799,28 +891,28 @@
           "label":"Émotions",
           "desc":"Court samples audio pour rythmer les évènements, à lancer à tout instant !",
           "playlist":[
-            {"label":"Applaudir", "file":"ressources/audio/applau.mp3"},
-            {"label":"Huer", "file":"ressources/audio/huee.mp3"},
-            {"label":"Rater", "file":"ressources/audio/rate.mp3"},
-            {"label":"Mauvaise réponse", "file":"ressources/audio/faux.mp3"},
-            {"label":"Bonne réponse", "file":"ressources/audio/bon.mp3"}
+            {"label":"Applaudir", "file":"ressources/audio/applau.mp3", "type":"FX"},
+            {"label":"Huer", "file":"ressources/audio/huee.mp3", "type":"FX"},
+            {"label":"Rater", "file":"ressources/audio/rate.mp3", "type":"FX"},
+            {"label":"Mauvaise réponse", "file":"ressources/audio/faux.mp3", "type":"FX"},
+            {"label":"Bonne réponse", "file":"ressources/audio/bon.mp3", "type":"FX"}
           ]
         },
         {
           "label":"Ambiance",
           "desc":"Des musiques d'ambiance selon les humeurs pour combler les vides.",
           "playlist":[
-              {"label":"Britney Spire", "file":"ressources/audio/ambiance/bitney.mp3"},
-              {"label":"Ray Charles", "file":"ressources/audio/ambiance/1.mp3"},
-              {"label":"Franck Sinatra", "file":"ressources/audio/ambiance/2.mp3"},
-              {"label":"Nate King Cole", "file":"ressources/audio/ambiance/3.mp3"},
-              {"label":"Louis Prima", "file":"ressources/audio/ambiance/4.mp3"},
-              {"label":"Nina Simone", "file":"ressources/audio/ambiance/5.mp3"},
-              {"label":"Amstrong", "file":"ressources/audio/ambiance/6.mp3"},
-              {"label":"Dinah Washington", "file":"ressources/audio/ambiance/7.mp3"},
-              {"label":"Marylin Monroe", "file":"ressources/audio/ambiance/8.mp3"},
-              {"label":"Dave Brubeck", "file":"ressources/audio/ambiance/9.mp3"},
-              {"label":"Dean Martin", "file":"ressources/audio/ambiance/10.mp3"}
+              {"label":"Britney Spire", "file":"ressources/audio/ambiance/bitney.mp3", "type":"audio"},
+              {"label":"Ray Charles", "file":"ressources/audio/ambiance/1.mp3", "type":"audio"},
+              {"label":"Franck Sinatra", "file":"ressources/audio/ambiance/2.mp3", "type":"audio"},
+              {"label":"Nate King Cole", "file":"ressources/audio/ambiance/3.mp3", "type":"audio"},
+              {"label":"Louis Prima", "file":"ressources/audio/ambiance/4.mp3", "type":"audio"},
+              {"label":"Nina Simone", "file":"ressources/audio/ambiance/5.mp3", "type":"audio"},
+              {"label":"Amstrong", "file":"ressources/audio/ambiance/6.mp3", "type":"audio"},
+              {"label":"Dinah Washington", "file":"ressources/audio/ambiance/7.mp3", "type":"audio"},
+              {"label":"Marylin Monroe", "file":"ressources/audio/ambiance/8.mp3", "type":"audio"},
+              {"label":"Dave Brubeck", "file":"ressources/audio/ambiance/9.mp3", "type":"audio"},
+              {"label":"Dean Martin", "file":"ressources/audio/ambiance/10.mp3", "type":"audio"}
           ]
         }
       ],
@@ -828,8 +920,13 @@
         {
           "label":"Discours du président",
           "desc":"to complete",
-          "icon":"ressources/labofolies/labofolies_decors.svg",
-          "logo":"ressources/labofolies/labofolies_decors.svg",
+          "background":"ressources/labofolies/labofolies_decors.png",
+          "tr":"",
+          "tl":"",
+          "tc":"",
+          "br":"",
+          "bl":"",
+          "bc":"",
           "datas":{},
           "jingle":{"file":"ressources/labofolies/discours_president/discours.mp4", "type":"video", "event":null, "params":null, "display_cover":false},
             "menu":[
@@ -847,8 +944,13 @@
         {
           "label":"Rencontrer le professeur",
           "desc":"to complete",
-          "icon":"ressources/labofolies/labofolies_decors.png",
-          "logo":"ressources/labofolies/labofolies_decors.png",
+          "background":"ressources/labofolies/labofolies_decors.png",
+          "tr":"",
+          "tl":"",
+          "tc":"",
+          "br":"",
+          "bl":"",
+          "bc":"",
           "datas":{},
           "jingle":{"file":"ressources/labofolies/rencontre_professeur/rencontre.mp4", "type":"video", "event":null, "params":null, "display_cover":false},
             "menu":[
@@ -866,8 +968,13 @@
         {
           "label":"Contacter le professeur",
           "desc":"to complete",
-          "icon":"ressources/labofolies/labofolies_decors.png",
-          "logo":"ressources/labofolies/labofolies_decors.png",
+          "background":"ressources/labofolies/labofolies_decors.png",
+          "tr":"",
+          "tl":"",
+          "tc":"",
+          "br":"",
+          "bl":"",
+          "bc":"",
           "datas":{},
           "jingle":{"file":"ressources/labofolies/contact_professeur/contact.mp4", "type":"video", "event":null, "params":null, "display_cover":false},
             "menu":[
@@ -885,8 +992,13 @@
         {
           "label":"Enigmes",
           "desc":"to complete",
-          "icon":"ressources/labofolies/labofolies_decors.png",
-          "logo":"ressources/labofolies/labofolies_decors.png",
+          "background":"ressources/labofolies/labofolies_decors.png",
+          "tr":"",
+          "tl":"",
+          "tc":"",
+          "br":"",
+          "bl":"",
+          "bc":"",
           "datas":{},
           "jingle":{"file":"ressources/labofolies/contact_professeur/contact.mp4", "type":"video", "event":null, "params":null, "display_cover":false},
             "menu":[
@@ -905,8 +1017,13 @@
         {
           "label":"Etat de folies",
           "desc":"to complete",
-          "icon":"ressources/labofolies/labofolies_decors.png",
-          "logo":"ressources/labofolies/labofolies_decors.png",
+          "background":"ressources/labofolies/labofolies_decors.png",
+          "tr":"",
+          "tl":"",
+          "tc":"",
+          "br":"",
+          "bl":"",
+          "bc":"",
           "datas":{},
           "jingle":{"file":"ressources/labofolies/contact_professeur/contact.mp4", "type":"video", "event":null, "params":null, "display_cover":false},
             "menu":[

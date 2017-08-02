@@ -186,7 +186,7 @@ video{
 
 /* ---------------- Quiz Component ------------------ */
 .quiz_component{
-    
+
 }
 .quiz_component li{
     width:100%;
@@ -216,6 +216,20 @@ video{
     box-sizing: border-box;
     margin:0;
     position: relative;
+}
+
+
+.over_motion{
+  width:100%;
+  height:100%;
+  margin:0;
+  padding: 0;
+  overflow: hidden;
+  border:none;
+  top:0;
+  left:0;
+  position: absolute;
+  z-index: 999;
 }
 @media screen and (max-width: 640px) {
     .quiz_component li{
