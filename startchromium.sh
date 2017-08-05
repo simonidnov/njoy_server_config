@@ -2,7 +2,9 @@
 #sleep 10
 killall chromium-browser
 export DISPLAY=:0
+#chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disable-session-crashed-bubble --incognito --kiosk --start-maximized http://10.3.141.1:3000/receptor
 chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disable-session-crashed-bubble --incognito --kiosk --start-maximized http://10.3.141.1:3000/receptor
+
 #chromium-browser --noerrdialogs --disable-infobars --disable-session-crashed-bubble --incognito --kiosk --start-maximized http://10.3.141.1:3000/receptor
 
 #chromium-browser --start-maximized --noerrdialogs --disable-infobars --disable-session-crashed-bubble --start-maximized http://10.3.141.1:3000/receptor
