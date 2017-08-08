@@ -207,7 +207,7 @@
               "label":"4-6 ans",
               "desc":"Des questions pour les plus jeunes de 4 à 6 ans",
               "components":{
-                "quiz_component":[
+                "golden_family":[
                     {
                         "label":"En voiture", 
                         "desc":"que dit un enfant en voiture ?", 

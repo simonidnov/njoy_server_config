@@ -72,15 +72,33 @@
                     <li>
                         <span><%= comp_datas[q].label %></span>
                         <p class="description"><%= comp_datas[q].desc %></p>
-                        <ul class="choices">
+                        <!--<ul class="choices">
                             <% for(var c=0; c<comp_datas[q].choices.length; c++){ %>
                                 <li>
                                     <%= comp_datas[q].choices[c] %>
                                     <div class="radio_ui" data-checked="false"></div>
                                 </li>
                             <% } %>
-                        </ul>
-                        <div class="cast_button" data-action="cast" data-type="object" data-menu="<%= i %>" data-component="<%= _.keys(menu[i].components)[c] %>" data-componentid="<%= q %>">Diffuser</div>
+                        </ul>-->
+                        <div class="cast_button" data-action="cast" data-type="object" data-menu="<%= i %>" data-component="quiz_component" data-componentid="<%= q %>">Diffuser</div>
+                    </li>
+                <% } %>
+            </ul>
+        <% }else if( _.keys(menu[i].components)[c] === "golden_family" ){ %>
+            <ul class="quiz_component">
+                <% for(var q=0; q<comp_datas.length; q++){ %>
+                    <li>
+                        <span><%= comp_datas[q].label %></span>
+                        <p class="description"><%= comp_datas[q].desc %></p>
+                        <!--<ul class="choices">
+                            <% for(var c=0; c<comp_datas[q].choices.length; c++){ %>
+                                <li>
+                                    <%= comp_datas[q].choices[c] %>
+                                    <div class="radio_ui" data-checked="false"></div>
+                                </li>
+                            <% } %>
+                        </ul>-->
+                        <div class="cast_button" data-action="cast" data-type="object" data-menu="<%= i %>" data-component="golden_family" data-componentid="<%= q %>">Diffuser</div>
                     </li>
                 <% } %>
             </ul>

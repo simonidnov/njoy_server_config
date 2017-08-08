@@ -93,6 +93,14 @@ var ui = {
                             app.socket.emit("njoy", {"status":"picture", "file":$(this).attr('data-file')});
                             break;
                         case 'object':
+                            app.socket.emit("njoy", {
+                                "status":"object", 
+                                "menu":$(this).attr('data-menu'), 
+                                "component":$(this).attr('data-component'), 
+                                "component_id":$(this).attr('data-componentid'),
+                                "tools":app.selected_tool
+                            });
+                            //,"selected_app":app.selected_app
                             break;
                     }
                     break;
@@ -107,6 +115,7 @@ var ui = {
         if(URIError === "app_dashboard"){
             app.selected_app = app.activities.activities[url.split('/')[1]];
         }*/
+        app.socket_callback = null;
         app.socket_callback = function(e) {
             console.log(e);
         }

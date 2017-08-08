@@ -7,7 +7,8 @@ var app = {
     },
     activities: null,
     ip: window.location.origin,
-    //"http://192.168.0.10:3000",
+    //ip:"http://192.168.0.10:3000",
+    //ip:"http://10.213.1.231:3000",
     callback: null,
     socket: null,
     init: function(callback) {
@@ -24,7 +25,7 @@ var app = {
 
     },
     init_socket: function() {
-        this.ip = window.location.origin;
+        //this.ip = window.location.origin;
         app.infos.uuid = new Date().getTime();
         app.socket_callback = function(e) {
             console.log(e);
