@@ -61,6 +61,9 @@ io.on('connection', function(socket){
         //console.log("datas.status ::::::: ", datas.status);
         switch(datas.status){
             case 'chrono_start':
+              omx.quit();
+              io.emit(call, {"status":"video_stopped"});
+              io.emit(call, {"status":"audio_stopped"});
               omx.open("http://10.3.141.1:3000/ressources/audio/attente_30s.mp3", omx_audio_options);
               omx.setVolume(app_volume);
               break;
