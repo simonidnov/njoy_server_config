@@ -48,6 +48,7 @@ var receptor = {
                       "background-image":"url("+e.datas.tools.background+")",
                       "background-size":"cover"
                     });
+                    $(".module").html('').empty();
                   }else{
                     $(".receptor").css({
                       "background-image":"url()",
