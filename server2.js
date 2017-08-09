@@ -415,13 +415,13 @@ function check_end_omx(){
 }
 function resetAudioProgressListener() {
   audio_is_playing = true;
-  /* PROGRESS FILL DOESNT WORK CORRECTLY
+  //PROGRESS FILL DOESNT WORK CORRECTLY
   omx.onProgress(function(track){ //subscribe for track updates (every second while not paused for now)
       console.log("onProgress position :: ", track.position);
       console.log("onProgress duration :: ", track.duration);
-      var percent = track.position / track.duration;
-      io.emit(call, {"status":"progress_video", "position":track.position, "duration":track.duration, "percent":percent});
-  });*/
+      //var percent = track.position / track.duration;
+      //io.emit(call, {"status":"progress_video", "position":track.position, "duration":track.duration, "percent":percent});
+  });
   playerTimer = setTimeout(function(){
     sendOmxAudioStatus();
   }, 500);
