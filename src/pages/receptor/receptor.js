@@ -70,7 +70,7 @@ var receptor = {
     create_component : function(datas){
       console.log('create_component ', datas);
       $('.receptor .module').css({'transform-origin':'50% 50%', 'overflow':'hidden', "width":window.innerWidth+"px", "height":window.innerHeight+"px", "border-radius":"0", "position":"relative"});
-        $('.chronos').remove();
+        //$('.chronos').remove();
         if(typeof receptor.chrono_sound !== "undefined"){
           receptor.chrono_sound.pause();
         }
@@ -273,7 +273,7 @@ var receptor = {
     },
     object_component : function(datas){
         console.log("object_component ", object_component);
-        $('.module').html('');
+        //$('.module').html('');
         $('.chronos').remove();
         TweenMax.killAll();
         //TweenMax.killAllTweens();
