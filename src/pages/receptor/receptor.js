@@ -80,7 +80,7 @@ var receptor = {
               delete this; // @sparkey reports that this did the trick (even though it makes no sense!)
               $(this).remove(); // this is probably what actually does the trick
           });
-          $(".module").empty();
+          //$(".module").empty();
         }
         $('.tr, .tc, .tl, .br, .bc, .bl').css('display', 'block');
         switch(datas.status){
