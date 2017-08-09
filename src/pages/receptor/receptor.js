@@ -278,7 +278,7 @@ var receptor = {
         //console.log(datas);
     },
     object_component : function(datas){
-        console.log("object_component ", object_component);
+        //console.log("object_component ", object_component);
         $('.chronos').remove();
         TweenMax.killAll();
         //TweenMax.killAllTweens();
