@@ -60,6 +60,10 @@ io.on('connection', function(socket){
 
         //console.log("datas.status ::::::: ", datas.status);
         switch(datas.status){
+            case 'FX':
+              omx.open("http://10.3.141.1:3000/"+datas.file, omx_audio_options);
+              omx.setVolume(app_volume);
+              break;
             case 'reboot':
               cp.exec("/home/pi/njoy/startchromium.sh", function(error, stdout, stderr) {
                 if (error !== null) {
