@@ -21,7 +21,8 @@ const express = require('express'),
       users_activities = [],
       animations = null,
       playerTimer = null,
-      app_volume = .5;
+      app_volume = .5,
+      is_on_seek = false;
 
 /* VIDEO INSTANCE */
 var omx = require('omx-interface'),
@@ -189,8 +190,14 @@ io.on('connection', function(socket){
                 io.emit(call, {"status":"video_volume", "volume":datas.volume});
                 break;
             case 'seek_video':
+                is_on_seek = true;
+                omx.pause();
                 omx.seek(datas.seek);
-                io.emit(call, {"status":"video_seek", "seek":datas.seek});
+                setTimeout(function(){
+                  io.emit(call, {"status":"video_seek", "seek":datas.seek});
+                  omx.play();
+                  is_on_seek = false;
+                },250);
                 break;
             case 'position_video':
                 omx.setPosition(datas.position);
@@ -258,8 +265,16 @@ io.on('connection', function(socket){
                 io.emit(call, {"status":"audio_volume", "volume":datas.volume});
                 break;
             case 'seek_audio':
+                is_on_seek = true;
+                omx.pause();
                 omx.seek(datas.seek);
-                io.emit(call, {"status":"audio_seek", "seek":datas.seek});
+                setTimeout(function(){
+                  io.emit(call, {"status":"audio_seek", "seek":datas.seek});
+                  omx.play();
+                  is_on_seek = false;
+                },250);
+                //omx.seek(datas.seek);
+                //io.emit(call, {"status":"audio_seek", "seek":datas.seek});
                 break;
             case 'position_audio':
                 omx.setPosition(datas.position);
@@ -428,19 +443,21 @@ function resetAudioProgressListener() {
 }
 function sendOmxAudioStatus() {
   if(audio_is_playing){
-    var audio_status = {
-      "status":"progress_audio",
-      "position":omx.getCurrentPosition(),
-      "duration":omx.getCurrentDuration(),
-      "volume":omx.getCurrentVolume()
-    };
-    if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition() >= omx.getCurrentDuration()){
-      io.emit("njoy", {"status":"stop_audio"});
-    }else{
-      io.emit("njoy", audio_status);
-      playerTimer = setTimeout(function(){
-        sendOmxAudioStatus();
-      }, 500);
+    if(!is_on_seek){
+      var audio_status = {
+        "status":"progress_audio",
+        "position":omx.getCurrentPosition(),
+        "duration":omx.getCurrentDuration(),
+        "volume":omx.getCurrentVolume()
+      };
+      if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition() >= omx.getCurrentDuration()){
+        io.emit("njoy", {"status":"stop_audio"});
+      }else{
+        io.emit("njoy", audio_status);
+        playerTimer = setTimeout(function(){
+          sendOmxAudioStatus();
+        }, 500);
+      }
     }
   }
 }
