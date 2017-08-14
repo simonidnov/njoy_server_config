@@ -1,3 +1,25 @@
+------------------------------- NOTES UPDATE RASPY FOR GEOFFREY ---------------------
+j'ai delete la souris 
+sudo nano /etc/lightdm/lightdm.conf
+xserver_command = X -nocursor
+
+j'ai dégagé le nodejs server dans l'autostart
+cd /home/pi/.config/lxsession/LXDE-pi/
+( pourtant il démarre toujorus mais mal )
+
+à priori on a un problème de display au lancement de chromium il faut faire :
+- export DISPLAY=:0
+- chromium-browser --noerrdialogs --disable-session-crashed-bubble --disable-infobars --kiosk http://10.3.141.1:3000/receptor
+(sinon je sais pas trop pourquoi le raspi ne sait pas sur quel display afficher le chromium en kiosk...)
+
+côté serveur je pige pas trop mais à priori c'est comme ci il était lancé plusieurs fois...
+à la mano je tape en sudoer uniquement :
+- sudo killall node
+- sudo killall nodejs
+- nodejs ./njoy/server.js
+(si on kill pas node et nodejs on à toujours la même erreur qu'au boot du raspi...)
+
+
 # njoy_server_config
 #1 Configuration du serveur node local et scripts pour création d'un hotspot wifi 
 #2 DOWNLOAD et install l'app desktop
