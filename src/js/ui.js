@@ -320,7 +320,11 @@ var ui = {
                     $(this).addClass('selected');
                     resizeTabNav();
                 });
-                ui.navbar_scroll = new IScroll('#header_navbar_wrapper');
+                ui.navbar_scroll = new IScroll('#header_navbar_wrapper',{
+                    mouseWheel:true, 
+                    click: true,
+                    useTransition: true
+                });
             }, this));
         }
     },
@@ -329,7 +333,11 @@ var ui = {
         $('.screen .wrapper').css({'height':"100%", 'width':"100%", "overflow":"hidden"});
         $('.screen .wrapper .scroller').css({'display':"table", "width":"100%"});
         if($('.screen .wrapper .scroller').length === 1){
-            ui.page_scroll = new IScroll('#screen_wrapper',{mouseWheel:true, click: true});
+            ui.page_scroll = new IScroll('#screen_wrapper',{
+                mouseWheel:true, 
+                click: true,
+                useTransition: true
+            });
         }
     }
 }
