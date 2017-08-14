@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
+path.join(__dirname, 'path/to/file')
+
 //require('jquery');
 //require('underscore');
 
