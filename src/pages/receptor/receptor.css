@@ -15,13 +15,71 @@ header{
     box-sizing: border-box;
     display:block;
 }
+/* ----------------- CHRONOS ------------------------- */
+.chronos{
+    position: absolute;
+    width:100%;
+}
+.chronos.fullscreen{
+    height:100%;
+}
+.chronos.bottom{
+    height:100px;
+    bottom:0;
+}
+.chronos.top{
+    height:100px;
+    top:0;
+}
+.chronos .counter{
+    color:#FFFFFF;
+    font-weight: bold;
+    position: absolute;
+    left:0;
+    bottom:0;
+    right:0;
+    margin:auto;
+    font-size: 20px;
+    padding:20px;
+    z-index: 9;
+    background-color:#000;
+    border-radius: 100%;
+    display: table;
+    width:100px;
+    height:100px;
+    text-align: center;
+}
+.chronos.fullscreen .counter{
+    font-size: 200px;
+}
+.chronos .timelap{
+    width:100%;
+    height:100%;
+    background-color:#E3E3E3;
+    position: relative;
+}
+.chronos .timelap .progress{
+    width:0%;
+    height:100%;
+    background-color:#333;
+}
+/* ----------------- PICTURE COMPONENT ------------------- */
+.picture_display{
+    width:100%;
+    height:100%;
+    background-color:#FFFFFF;
+    background-position: center center;
+    background-size: contain;
+    top:0;
+    left:0;
+}
+/* ----------------- golden_family ------------------- */
 .receptor .golden_family{
     max-width: 1080px;
     width:100%;
     left:0;
     right:0;
     top:0;
-    bottom:0;
     display:table;
     margin:auto;
     height:auto;
@@ -61,7 +119,8 @@ header{
     height:100%;
     background-color:#FF0000;
     border-radius: 10px;
-
+    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden;
     transform: perspective( 600px );
     transform-style: preserve-3d;
     transition: transform 1s;
@@ -79,8 +138,8 @@ header{
     border-radius: 10px;
     width:100%;
     box-sizing: border-box;
-    
-    backface-visibility: hidden;
+    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden;
     transform: perspective( 600px );
     transform-style: preserve-3d;
     transition: transform 1s;
@@ -91,4 +150,14 @@ header{
 }
 .receptor .golden_family ul.choices li.selected .back{
     transform: rotateX( 0deg );
+}
+
+/* --------------- MOTION CANVAS --------------- */
+.motion_canvas{
+    width:100%;
+    height:100%;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 999;
 }

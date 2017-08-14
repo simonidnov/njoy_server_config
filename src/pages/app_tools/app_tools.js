@@ -5,21 +5,23 @@ var app_tools = {
         setTimeout($.proxy(function() {
             this.tools_scroll = new IScroll('#tools_scroll', {
                 mouseWheel: true,
-                click: true
+                click: true,
+                useTransition: true
             });
             this.apps_scroll = new IScroll('#apps_scroll', {
                 mouseWheel: true,
-                click: true
+                click: true,
+                useTransition: true
             });
             this.components_scroll = new IScroll('#components_scroll', {
                 mouseWheel: true,
-                click: true
+                click: true,
+                useTransition: true
             });
             $.get('pages/app_tools/components.tmpl', $.proxy(function(e) {
                 this.component_template = _.template(e);
             }, this));
             $('[data-appid]').on('click', function() {
-                console.log(app.selected_app.apps[parseInt($(this).attr('data-appid'))]);
                 app.selected_tool = app.selected_app.apps[parseInt($(this).attr('data-appid'))];
                 $('.column.components').html(app_tools.component_template(app.selected_app.apps[parseInt($(this).attr('data-appid'))]));
                 app_tools.set_events();
@@ -43,6 +45,12 @@ var app_tools = {
                         ease:Power4.easeOut
                     });
                 }
+                /*$('[data-component="golden_family"]').on('click', function(){
+                    console.log('is golden family');
+                });
+                $('[data-type="response"]').on('click', function(){
+                    console.log('intercept hitted area');
+                });*/
             });
             $('#open_tools').on('click', function(){
                 if($('#tools_scroll').position().top !== 0){
@@ -53,6 +61,7 @@ var app_tools = {
                     TweenMax.to($('#tools_scroll'), .5, {top:"100%", ease:Power4.easeIn}); 
                 }
             });
+            
         }, this), 500);
         $(document).on('resize', function(){
             app_tools.resize();

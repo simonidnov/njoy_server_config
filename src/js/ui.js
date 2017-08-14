@@ -79,10 +79,34 @@ var ui = {
             return false;
         });
         $('[data-action]').off('click').on('click', function(){
-            console.log('data-action');
             switch($(this).attr('data-action')){
                 case 'cast':
-                    switch($(this).attr('data-type')){
+                    var status = {};
+                    if(typeof $(this).attr('data-type') !== "undefined"){
+                        status['status'] = $(this).attr('data-type');
+                    }
+                    if(typeof $(this).attr('data-file') !== "undefined"){
+                        status['file'] = $(this).attr('data-file');
+                    }
+                    if(typeof $(this).attr('data-menu') !== "undefined"){
+                        status['menu'] = $(this).attr('data-menu');
+                    }
+                    if(typeof $(this).attr('data-component') !== "undefined"){
+                        status['component'] = $(this).attr('data-component');
+                    }
+                    if(typeof $(this).attr('data-componentid') !== "undefined"){
+                        status['component_id'] = $(this).attr('data-componentid');
+                    }
+                    if(typeof $(this).attr('data-chronos') !== "undefined"){
+                        status['chronos'] = $(this).attr('data-chronos');
+                    }
+                    if(typeof $(this).attr('data-chronostype') !== "undefined"){
+                        status['chronos_type'] = $(this).attr('data-chronostype');
+                    }
+                    
+                    status['tools'] = app.selected_tool;
+                    app.socket.emit("njoy", status);
+                    /*switch($(this).attr('data-type')){
                         case 'video':
                             app.socket.emit("njoy", {"status":"video", "file":$(this).attr('data-file')});
                             break;
@@ -93,20 +117,38 @@ var ui = {
                             app.socket.emit("njoy", {"status":"picture", "file":$(this).attr('data-file')});
                             break;
                         case 'object':
-                            app.socket.emit("njoy", {
+                            status = {
                                 "status":"object", 
                                 "menu":$(this).attr('data-menu'), 
                                 "component":$(this).attr('data-component'), 
                                 "component_id":$(this).attr('data-componentid'),
                                 "tools":app.selected_tool
-                            });
+                            }
+                            
+                            app.socket.emit("njoy", status);
                             //,"selected_app":app.selected_app
                             break;
+                        case 'response':
+                            console.log('response');
+                            break;
+                    }*/
+                    $('.choices').css('display', 'none');
+                    if($(this).parent().find('.choices').length > 0){
+                        $(this).parent().find('.choices').css('display', 'block');
                     }
+                    break;
+                case 'response':
+                    $(this).addClass('checked');
+                    app.socket.emit("njoy", {
+                        "status":$(this).attr('data-type'), 
+                        "response":$(this).attr('data-id'), 
+                        "type":$(this).attr('data-type')
+                    });
                     break;
                 default:
                     break;
             }
+            app_tools.components_scroll.refresh();
             //app.socket.emit("njoy", {"status":"video", "file":"ressources/1703_NJOY_ANIM_LOGO_FB.mp4"});
         });
     },

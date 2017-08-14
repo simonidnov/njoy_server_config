@@ -42,7 +42,17 @@
                                 <% } %>
                             </ul>
                         <% } %>
-                        <div class="cast_button" data-action="cast" data-type="picture" data-file="<%= comp_datas[g].file %>">Diffuser</div>
+                        <ul class="choices" style="display:none;">
+                            <li>
+                                GAGNÉ
+                                <div id="0" class="radio_ui" data-checked="false" data-action="response" data-type="success"></div>
+                            </li>
+                            <li>
+                                PERDU
+                                <div id="1" class="radio_ui" data-checked="false" data-action="response" data-type="fail"></div>
+                            </li>
+                        </ul>
+                        <div class="cast_button" data-action="cast" data-type="picture" data-file="<%= comp_datas[g].file %>" data-chronos="<%= comp_datas[g].chronos %>">Diffuser</div>
                     </li>
                 <% } %>
             </ul>
@@ -72,14 +82,14 @@
                     <li>
                         <span><%= comp_datas[q].label %></span>
                         <p class="description"><%= comp_datas[q].desc %></p>
-                        <!--<ul class="choices">
+                        <ul class="choices" style="display:none;">
                             <% for(var c=0; c<comp_datas[q].choices.length; c++){ %>
                                 <li>
                                     <%= comp_datas[q].choices[c] %>
                                     <div class="radio_ui" data-checked="false"></div>
                                 </li>
                             <% } %>
-                        </ul>-->
+                        </ul>
                         <div class="cast_button" data-action="cast" data-type="object" data-menu="<%= i %>" data-component="quiz_component" data-componentid="<%= q %>">Diffuser</div>
                     </li>
                 <% } %>
@@ -87,18 +97,18 @@
         <% }else if( _.keys(menu[i].components)[c] === "golden_family" ){ %>
             <ul class="quiz_component">
                 <% for(var q=0; q<comp_datas.length; q++){ %>
-                    <li>
+                    <li id="question_<%= q %>" data-status="diffused">
                         <span><%= comp_datas[q].label %></span>
                         <p class="description"><%= comp_datas[q].desc %></p>
-                        <!--<ul class="choices">
+                        <ul class="choices" style="display:none;">
                             <% for(var c=0; c<comp_datas[q].choices.length; c++){ %>
                                 <li>
                                     <%= comp_datas[q].choices[c] %>
-                                    <div class="radio_ui" data-checked="false"></div>
+                                    <div id="choice_<%= c %>" class="radio_ui" data-checked="false" data-action="response" data-type="golden_family" data-id="<%= c %>"></div>
                                 </li>
                             <% } %>
-                        </ul>-->
-                        <div class="cast_button" data-action="cast" data-type="object" data-menu="<%= i %>" data-component="golden_family" data-componentid="<%= q %>">Diffuser</div>
+                        </ul>
+                        <div class="cast_button" data-action="cast" data-type="object" data-menu="<%= i %>" data-component="golden_family" data-componentid="<%= q %>" data-chronos="60" data-chronostype="bottom">Diffuser</div>
                     </li>
                 <% } %>
             </ul>
