@@ -74,7 +74,7 @@ main.app{
     height:100%;
     position:relative;
     color:#333;
-    overflow: scroll;
+    overflow: hidden;
     text-align: center;
     background-color:#ececec;
     transform: translate3d(0,0,0);
