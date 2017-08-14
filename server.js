@@ -34,7 +34,7 @@ router.get('/login', function(req, res){
 });*/
 app.get('*', function(req, res){
   console.log(req," ::: ",res);
-  res.sendFile('server/src/index.html', { root: path.join(__dirname, '../')});
+  res.sendFile('njoy/src/index.html', { root: path.join(__dirname, '../')});
 });
 app.listen(port, function(){
   console.log('app start listenning ', port);

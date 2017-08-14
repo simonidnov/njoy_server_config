@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 //path.join(__dirname, 'path/to/file');
-app.use(express.static("src/"));
+app.use(express.static("./src/"));
 //require('jquery');
 //require('underscore');
 
