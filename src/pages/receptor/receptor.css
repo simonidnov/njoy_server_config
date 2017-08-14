@@ -63,6 +63,22 @@ header{
     height:100%;
     background-color:#333;
 }
+/* ----------------- VIDEO DISPLAY ----------------------- */
+.video_display{
+    width:100%;
+    height:100%;
+    position: absolute;
+    top:0;
+    left:0;
+    background-color:#000000;
+}
+.video_display video{
+    width:100%;
+    height:100%;
+}
+.video_display video::-webkit-media-controls {
+    display:none !important;
+}
 /* ----------------- PICTURE COMPONENT ------------------- */
 .picture_display{
     width:100%;

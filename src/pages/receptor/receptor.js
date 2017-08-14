@@ -11,7 +11,9 @@ var receptor = {
         TweenMax.killAll();
         switch(datas.status){
             case "video":
-                $('.module').append('<div class="video_display"></div>');
+                $('.module').html('');
+                $('.chronos').remove();
+                $('.module').append('<div class="video_display"><video src="'+window.location.origin+'/'+datas.file+'" autoplay></video></div>');
                 console.log('play video');
                 break;
             case "playlist_video":
