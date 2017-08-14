@@ -62,8 +62,12 @@ form .line{
   margin-bottom:10px;
   text-align:center;
 }
+main{
+    overflow: hidden;
+}
 main.app{
   top:50px;
+    overflow: hidden;
   padding-bottom: 80px;
   left:0;
     width:100%;
