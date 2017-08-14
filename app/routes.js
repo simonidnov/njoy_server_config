@@ -10,21 +10,21 @@ module.exports = router;
 // create routes //
 router.get('/', function(req, res){
   //res.render('views/index');
-  //res.sendFile('src/index.html', { root: path.join(__dirname, '../')});
-  res.sendFile('/index.html');
+  res.sendFile('src/index.html', { root: path.join(__dirname, '../')});
+  //res.sendFile('/src/index.html');
 
 });
 router.get('/login', function(req, res){
   //res.render('views/index');
-  //res.sendFile('src/index.html', { root: path.join(__dirname, '../')});
-  res.sendFile('/index.html');
+  res.sendFile('src/index.html', { root: path.join(__dirname, '../')});
+  //res.sendFile('/src/index.html');
 
 });
-router.get('/*', function(req, res){
+//router.get('/*', function(req, res){
   //res.render('views/index');
   //res.sendFile('src/index.html', { root: path.join(__dirname, '../')});
-  res.sendFile('/index.html');
-});
+  //res.sendFile('/src/index.html');
+//});
 /*router.get('/checking_socket', function(req, res){
   //res.render('views/index');
   res.sendFile('src/index.html', { root: path.join(__dirname, '../')});
