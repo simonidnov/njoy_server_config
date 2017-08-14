@@ -10,11 +10,11 @@ module.exports = router;
 // create routes //
 router.get('/', function(req, res){
   //res.render('views/index');
-  res.sendFile('src/index.html', { root: path.join(__dirname, '../')});
+  res.sendFile(__dirname + 'src/index.html', { root: path.join(__dirname, '../')});
 });
 router.get('/*', function(req, res){
   //res.render('views/index');
-  res.sendFile('src/index.html', { root: path.join(__dirname, '../')});
+  res.sendFile(__dirname + 'src/index.html', { root: path.join(__dirname, '../')});
 });
 /*router.get('/checking_socket', function(req, res){
   //res.render('views/index');
