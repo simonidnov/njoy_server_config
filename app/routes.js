@@ -11,13 +11,13 @@ module.exports = router;
 router.get('/', function(req, res){
   //res.render('views/index');
   //res.sendFile('src/index.html', { root: path.join(__dirname, '../')});
-  res.sendFile(__dirname + '/src/index.html');
+  res.sendFile('./index.html');
 
 });
 router.get('/*', function(req, res){
   //res.render('views/index');
   //res.sendFile('src/index.html', { root: path.join(__dirname, '../')});
-  res.sendFile(__dirname + '/src/index.html');
+  res.sendFile('./index.html');
 });
 /*router.get('/checking_socket', function(req, res){
   //res.render('views/index');
