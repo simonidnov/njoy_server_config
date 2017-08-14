@@ -39,7 +39,7 @@ app.get('*', function(req, res){
 });
 app.listen(port, function(){
     console.log('app start listenning ', port);
-    cp.exec("chromium-browser --noerrdialogs --disable-session-crashed-bubble --disable-infobars --kiosk http://10.3.141.1:3000/", function(error, stdout, stderr) {
+    cp.exec("chromium-browser --noerrdialogs --disable-session-crashed-bubble --disable-infobars --kiosk http://10.3.141.1:3000/receptor", function(error, stdout, stderr) {
         console.log("stdout: " + stdout);
         console.log("stderr: " + stderr);
         if (error !== null) {
