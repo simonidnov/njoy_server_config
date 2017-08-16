@@ -43,6 +43,7 @@ var drawer = function(canvas_id){
   this.touchPos = {x:0, y:0};
   this.isMouseDown = false;
   this.currentShape = [];
+  createjs.Ticker.setFPS(20);
   createjs.Ticker.addEventListener("tick", $.proxy(function(){this.update();},this));
 }
 drawer.prototype.set_pencil = function(params){
