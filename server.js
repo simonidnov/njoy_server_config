@@ -36,11 +36,11 @@ router.get('/login', function(req, res){
 });
 */
 app.get('*', function(req, res){
-  console.log(req," ::: ",res);
+  //console.log(req," ::: ",res);
   res.sendFile('njoy/src/index.html', { root: path.join(__dirname, '../')});
 });
 app.listen(port, function(){
-    console.log('app start listenning ', port);
+    //console.log('app start listenning ', port);
     //--kiosk
     //--noerrdialogs --disable-session-crashed-bubble --disable-infobars --force-gpu-rasterization
     cp.exec("chromium-browser --noerrdialogs --disable-session-crashed-bubble --disable-infobars --force-gpu-rasterization --kiosk http://10.3.141.1:3000/receptor", function(error, stdout, stderr) {
@@ -82,18 +82,18 @@ io.on('connection', function(socket){
           break;
         case 'launch_content':
           stat.status = "launch_content";
-          console.log(datas);
+          //console.log(datas);
           break;
         default:
           stat = {"status":"default"};
           break;
     }
-    console.log('call ::: ', call, ' stat ', stat);
+    //console.log('call ::: ', call, ' stat ', stat);
     io.emit(call, {"status":stat.status, "infos":stat, "datas":datas});
 });
 });
 http.listen(3000, function(){
-  console.log('listening on *:3000');
+  //console.log('listening on *:3000');
 });
 /* OAUTH MANAGER */
 var login = function(datas){
