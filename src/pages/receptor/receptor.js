@@ -1,4 +1,6 @@
 var receptor = {
+    currentShape : [],
+    canvas :null,
     init:function(){
         /* on receive node_log print */
         app.socket_callback = $.proxy(function(e){
@@ -8,27 +10,43 @@ var receptor = {
         }, this);
     },
     create_component : function(datas){
-        TweenMax.killAll();
         switch(datas.status){
+            case "init_drawing":
+                $('.module').html('');
+                $('.chronos').remove();
+                TweenMax.killAll();
+                this.init_drawing(datas);
+                break;
+            case "drawing":
+                this.drawing(datas);
+                break;
+            case "drawing_point":
+                this.drawing_point(datas);
+                break;
             case "video":
                 $('.module').html('');
                 $('.chronos').remove();
+                TweenMax.killAll();
                 $('.module').append('<div class="video_display"><video src="'+window.location.origin+'/'+datas.file+'" autoplay></video></div>');
-                console.log('play video');
                 break;
             case "playlist_video":
                 $('.module').append('<div class="video_display"></div>');
+                TweenMax.killAll();
                 console.log('play video playlist');
                 break;
             case "audio":
-                $('.module').append('<div class="video_display"></div>');
+                $('.module').append('<div class="audio_display"></div>');
+                TweenMax.killAll();
                 console.log('play audio');
                 break;
             case "playlist_audio":
                 $('.module').append('<div class="audio_display"></div>');
+                TweenMax.killAll();
                 console.log('play audio playlist');
                 break;
             case "picture":
+                $('.module').html('');
+                TweenMax.killAll();
                 $('.module').append('<div class="picture_display"></div>');
                 $('.picture_display').css('background-image', 'url('+datas.file+')');
                 console.log('display picture');
@@ -57,14 +75,17 @@ var receptor = {
     object_component : function(datas){
         $('.module').html('');
         $('.chronos').remove();
+        TweenMax.killAll();
         //TweenMax.killAllTweens();
         switch (datas.component){
             case "quiz_component":
                 break;
             case "golden_family":
-                $('.module').append('<div class="golden_family"><h1>'+datas.tools.menu[datas.menu].components.golden_family[datas.component_id].label+'</h1><h3>'+datas.tools.menu[datas.menu].components.golden_family[datas.component_id].desc+'</h3><ul class="choices"></ul></div>');
-                for(var i=0; i<datas.tools.menu[datas.menu].components.golden_family[datas.component_id].choices.length; i++){
-                    $('.receptor .module .golden_family ul.choices').append('<li><div class="front"></div><div class="back">'+datas.tools.menu[datas.menu].components.golden_family[datas.component_id].choices[i]+"</div></li>");
+                //<h1>'+datas.tools.menu[datas.menu].components.golden_family[datas.component_id].label+'</h1>
+                $('.module').append('<div class="golden_family"><div class="content_choice"><h3>'+datas.tools.menu[datas.menu].components.golden_family[datas.component_id].desc+'</h3><ul class="choices"></ul></div></div>');
+                var LENGTH = datas.tools.menu[datas.menu].components.golden_family[datas.component_id].choices.length;
+                for(var i=0; i<LENGTH; i++){
+                    $('.receptor .module .golden_family ul.choices').append('<li><div class="front"></div><div class="back">'+datas.tools.menu[datas.menu].components.golden_family[datas.component_id].choices[i]+'<div class="points">'+((LENGTH*10)-(i*10))+'</div></div></li>');
                 }
                 /*
                 $('.receptor .module .golden_family ul.choices li').on('click', function(){
@@ -111,7 +132,102 @@ var receptor = {
         $('.module').append('<canvas class="motion_canvas" id="motion_canvas"></canvas');
         //alert('fail');
     },
+    init_drawing : function(datas){
+        /*
+        app.socket.emit("njoy", {
+          "status":"init_drawing",
+          "width":window.innerWidth,
+          "height":window.innerHeight
+        });
+        */
+        console.log('init_drawing');
+
+        $('.module').append('<canvas id="drawing" width="'+datas.width+'" height="'+datas.height+'"></canvas>');
+        //this.drawing_tool = new drawer("drawing", datas.width, datas.height);
+        this.canvas = document.getElementById("drawing");
+        // TODO REMOVE TEST SIZE
+        this.canvas.width = datas.width;
+        this.canvas.height = datas.height;
+
+        this.canvas.style.width = datas.width;
+        this.canvas.style.height = datas.height;
+        $('#canvas_id').css({
+          "width":$('body').width()+'px !important',
+          "height":$('body').height()+'px !important'
+        });
+
+        this.stage = new createjs.Stage("drawing");
+        this.stage.autoClear = true;
+        this.stage.update();
+
+        this.currentShape = [];
+        var s = new createjs.Shape();
+        this.currentShape[0] = s;
+        var g = s.graphics;
+
+        g.beginStroke("#000000");
+        this.stage.addChild(s);
+
+        //this.stage = new createjs.Stage("drawing");
+        this.stage.autoClear = true;
+        this.stage.update();
+    },
+    drawing_point:function(datas){
+        console.log('drawing_point');
+        var pt = new createjs.Point(datas.x, datas.y);
+    },
+    drawing : function(datas){
+      console.log('draw ', this.currentShape[this.currentShape.length-1].graphics);
+      /*
+      app.socket.emit("njoy", {
+        "status":"drawing",
+        "strokestyle":{
+          "size":this.pencil.size,
+          "styleH":this.pencil.styleH,
+          "styleW":this.pencil.styleW,
+        },
+        "type":"moveTo",
+        "curve":{
+          "oldX":this.oldX,
+          "oldY":this.oldY,
+          "oldMidX":this.oldMidX,
+          "oldMidY":this.oldMidY
+        }
+      });
+      */
+      this.currentShape[this.currentShape.length-1].graphics.setStrokeStyle(datas.strokestyle.size, datas.strokestyle.stylingW, datas.strokestyle.stylingH);
+      this.currentShape[this.currentShape.length-1].graphics.lineTo(datas.x, datas.y);
+      this.currentShape[this.currentShape.length-1].graphics.curveTo(datas.curve.oldX, datas.curve.oldY, datas.curve.oldMidX, datas.curve.oldMidY);
+      this.stage.update();
+    },
     destroy : function(){
         console.log('destroy receptor');
     }
+}
+
+var drawer = function(canvas_id, width, height){
+  this.canvas = document.getElementById(canvas_id);
+  // TODO REMOVE TEST SIZE
+  this.canvas.width = width;
+  this.canvas.height = height;
+
+  this.canvas.style.width = width;
+  this.canvas.style.height = height;
+  $('#canvas_id').css({
+    "width":$('body').width()+'px !important',
+    "height":$('body').height()+'px !important'
+  })
+  this.stage = new createjs.Stage(canvas_id);
+  this.stage.autoClear = true;
+  this.stage.update();
+
+  this.currentShape = [];
+  var s = new createjs.Shape();
+  this.currentShape[0] = s;
+  var g = s.graphics;
+
+  g.beginStroke("#000000");
+  this.stage.addChild(s);
+  /* TODO : on receive ticker from user update stage */
+  //createjs.Ticker.addEventListener("tick", $.proxy(function(){this.update();},this));
 }

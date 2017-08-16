@@ -1,6 +1,4 @@
 /*
-  TODO ::: GET DEVICE PIXEL ASPECT RATIO
-  TODO ::: DEFINE BASE CANVAS SIZE ON INIT
   TODO ::: SET EMITER NODE WEBSITE SOCKET THEN DISPLAY MULTISCREEN
 */
 
@@ -13,22 +11,32 @@ var drawing = {
     //app.socket.emit("njoy", {"status":"activities"});
     //ui.navigate('/drawing');
     this.drawing_tool = new drawer("drawer").init();
+    app.socket_callback = $.proxy(function(e){
+        console.log(e);
+    }, this);
+
+    app.socket.emit("njoy", {
+      "status":"init_drawing",
+      "width":window.innerWidth,
+      "height":window.innerHeight
+    });
   },
   destroy : function(){
-    console.log('destroy drawing');
   }
 }
 var drawer = function(canvas_id){
-  console.log('drawer created');
   this.canvas = document.getElementById(canvas_id);
   // TODO REMOVE TEST SIZE
+  this.canvas.width = window.innerWidth;
+  this.canvas.height = window.innerWidth;
+
   this.canvas.style.width = window.innerWidth;
   this.canvas.style.height = window.innerHeight;
   $('#canvas_id').css({
     "width":$('body').width()+'px !important',
     "height":$('body').height()+'px !important'
   })
-  this.pencil = {"color":"#000000", "size":2, "stylingW":"round", "stylingH":"round"};
+  this.pencil = {"color":"#000000", "size":10, "stylingW":"round", "stylingH":"round"};
   this.stage = new createjs.Stage(canvas_id);
   this.stage.autoClear = true;
   this.stage.update();
@@ -90,10 +98,25 @@ drawer.prototype.update = function() {
     if (this.isMouseDown) {
         if(this.touchPos !== null){
             var pt = new createjs.Point(this.touchPos.x, this.touchPos.y);
+            app.socket.emit("njoy", {
+              "status":"drawing_point",
+              "x":this.touchPos.x,
+              "y":this.touchPos.y
+            });
         }else{
             var pt = new createjs.Point(this.stage.mouseX, this.stage.mouseY);
+            app.socket.emit("njoy", {
+              "status":"drawing_point",
+              "x":this.touchPos.x,
+              "y":this.touchPos.y
+            });
         }
         var midPoint = new createjs.Point(this.oldX + pt.x>>1, this.oldY+pt.y>>1);
+        app.socket.emit("njoy", {
+          "status":"drawing_point",
+          "x":this.oldX + pt.x>>1,
+          "y":this.oldY+pt.y>>1
+        });
         if(typeof this.currentShape[this.currentShape.length-1] != "undefined"){
             this.currentShape[this.currentShape.length-1].graphics.setStrokeStyle(this.pencil.size, this.pencil.stylingW, this.pencil.stylingH);
             this.currentShape[this.currentShape.length-1].graphics.moveTo(midPoint.x, midPoint.y);
@@ -107,6 +130,23 @@ drawer.prototype.update = function() {
         this.stage.update();
 
         this._removed = [];
+        app.socket.emit("njoy", {
+          "status":"drawing",
+          "strokestyle":{
+            "size":this.pencil.size,
+            "styleH":this.pencil.styleH,
+            "styleW":this.pencil.styleW
+          },
+          "type":"moveTo",
+          "x":midPoint.x,
+          "y":midPoint.y,
+          "curve":{
+            "oldX":this.oldX,
+            "oldY":this.oldY,
+            "oldMidX":this.oldMidX,
+            "oldMidY":this.oldMidY
+          }
+        });
     }
     //this.set_active_tools();
 }

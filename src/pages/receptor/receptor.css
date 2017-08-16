@@ -16,6 +16,17 @@ header{
     box-sizing: border-box;
     display:block;
 }
+.receptor h1{
+  margin:10px;
+}
+.receptor h3{
+  padding:20px;
+  margin:0;
+  font-size: 30px;
+  font-weight: 100;
+  color:#FFF;
+ text-transform: uppercase;
+}
 /* ----------------- CHRONOS ------------------------- */
 .chronos{
     position: absolute;
@@ -92,15 +103,32 @@ header{
 }
 /* ----------------- golden_family ------------------- */
 .receptor .golden_family{
-    max-width: 1080px;
     width:100%;
+    height:100%;
     left:0;
     right:0;
     top:0;
     display:table;
     margin:auto;
-    height:auto;
     position: absolute;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ea13f2+0,171b91+51,2347db+100 */
+  background: #ea13f2; /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #ea13f2 0%, #171b91 51%, #2347db 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, #ea13f2 0%,#171b91 51%,#2347db 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #ea13f2 0%,#171b91 51%,#2347db 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ea13f2', endColorstr='#2347db',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+.receptor .golden_family .content_choice{
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  margin:auto;
+  display:table;
+  max-width: 1020px;
+  width: 90%;
+  padding-bottom:100px;
 }
 .receptor .golden_family ul.choices{
     margin:0;
@@ -116,12 +144,12 @@ header{
     position: relative;
     width:100%;
     height:80px;
-    margin-bottom:20px;
+    margin-bottom:5px;
     border-radius: 10px;
-    
-    background-color:#666;
+    border:none;
+    background-color:rgba(0,0,0,.5);
     /*transform: perspective( 600px );*/
-    
+
     -moz-box-shadow: inset 2px 2px 20px 2px rgba(0,0,0.4);
     -webkit-box-shadow: inset 2px 2px 20px 2px rgba(0,0,0.4);
     -o-box-shadow: inset 2px 2px 20px 2px rgba(0,0,0.4);
@@ -134,23 +162,40 @@ header{
     box-sizing: border-box;
     width:100%;
     height:100%;
-    background-color:#FF0000;
+    background-color:#000000;
     border-radius: 10px;
     -webkit-backface-visibility:hidden;
     backface-visibility:hidden;
     transform: perspective( 600px );
     transform-style: preserve-3d;
     transition: transform 1s;
+    top:0;
+    left:0;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2347db+0,171b91+51,ea13f2+100 */
+    background: #2347db; /* Old browsers */
+    background: -moz-linear-gradient(45deg, #2347db 0%, #171b91 51%, #ea13f2 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, #2347db 0%,#171b91 51%,#ea13f2 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, #2347db 0%,#171b91 51%,#ea13f2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2347db', endColorstr='#ea13f2',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    -moz-box-shadow: inset -5px -5px 20px 0px rgba(0,0,0,.5);
+    -webkit-box-shadow: inset -5px -5px 20px 0px rgba(0,0,0,.5);
+    -o-box-shadow: inset -5px -5px 20px 0px rgba(0,0,0,.5);
+    box-shadow: inset -5px -5px 20px 0px rgba(0,0,0,.5);
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=rgba(0,0,0,.5), Direction=315, Strength=20);
+
 }
 .receptor .golden_family ul.choices li .back{
     position: absolute;
-    padding:20px;
-    font-size: 40px;
+    padding:15px;
+    padding-left:25px;
+    padding-right:25px;
+    font-size: 3vw;
     text-transform: uppercase;
-    letter-spacing: 10px;
+    letter-spacing: 5px;
     float: left;
-    text-align: center;
-    color:#FFF000;
+    text-align: left;
+    color:#FFFFFF;
     background:#000000;
     border-radius: 10px;
     width:100%;
@@ -161,6 +206,25 @@ header{
     transform-style: preserve-3d;
     transition: transform 1s;
     transform: rotateX( 180deg );
+    top:0;
+    left:0;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3e48c1+0,19117f+51,1733a5+52,e821ef+99 */
+    background: #3e48c1; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #3e48c1 0%, #19117f 51%, #1733a5 52%, #e821ef 99%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #3e48c1 0%,#19117f 51%,#1733a5 52%,#e821ef 99%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #3e48c1 0%,#19117f 51%,#1733a5 52%,#e821ef 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e48c1', endColorstr='#e821ef',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    -moz-box-shadow: inset -5px -5px 20px 0px rgba(0,0,0,.5);
+    -webkit-box-shadow: inset -5px -5px 20px 0px rgba(0,0,0,.5);
+    -o-box-shadow: inset -5px -5px 20px 0px rgba(0,0,0,.5);
+    box-shadow: inset -5px -5px 20px 0px rgba(0,0,0,.5);
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=rgba(0,0,0,.5), Direction=315, Strength=20);
+
+}
+.receptor .golden_family ul.choices li .back .points{
+  float: right;
+  font-weight: bold;
 }
 .receptor .golden_family ul.choices li.selected .front{
     transform: rotateX( -180deg );
@@ -177,5 +241,5 @@ header{
     top:0;
     left:0;
     z-index: 999;
-    transform: transale3d(0,0,0); 
+    transform: transale3d(0,0,0);
 }
