@@ -43,7 +43,7 @@ app.listen(port, function(){
     console.log('app start listenning ', port);
     //--kiosk
     //--noerrdialogs --disable-session-crashed-bubble --disable-infobars --force-gpu-rasterization
-    cp.exec("chromium-browser --noerrdialogs --disable-session-crashed-bubble --disable-infobars --kiosk --force-gpu-rasterization http://10.3.141.1:3000/receptor", function(error, stdout, stderr) {
+    cp.exec("chromium-browser http://10.3.141.1:3000/receptor", function(error, stdout, stderr) {
         console.log("stdout: " + stdout);
         console.log("stderr: " + stderr);
         if (error !== null) {
