@@ -24,7 +24,8 @@ module.exports = router;
 //define static files
 app.use(express.static('./src'));
 // start server //
-/*router.get('/', function(req, res){
+/*
+router.get('/', function(req, res){
   //res.render('views/index');
   res.sendFile('src/index.html', { root: path.join(__dirname, '../')});
 });
@@ -32,7 +33,8 @@ router.get('/login', function(req, res){
   //res.render('views/index');
   console.log('login');
   res.sendFile('src/index.html', { root: path.join(__dirname, '../')});
-});*/
+});
+*/
 app.get('*', function(req, res){
   console.log(req," ::: ",res);
   res.sendFile('njoy/src/index.html', { root: path.join(__dirname, '../')});

@@ -62,11 +62,11 @@ drawer.prototype.create_events = function(){
           this.isMouseDown = true;
           var s = new createjs.Shape();
           if ("ontouchstart" in window) {
-              this.oldX = e.stageX;
-              this.oldY = e.stageY;
-              this.oldMidX = e.stageX;
-              this.oldMidY = e.stageY;
-              this.touchPos = {x:e.stageX, y:e.stageY};
+              this.oldX = evt.stageX;
+              this.oldY = evt.stageY;
+              this.oldMidX = evt.stageX;
+              this.oldMidY = evt.stageY;
+              this.touchPos = {x:evt.stageX, y:evt.stageY};
           }else{
               this.oldX = this.stage.mouseX;
               this.oldY = this.stage.mouseY;
@@ -82,6 +82,13 @@ drawer.prototype.create_events = function(){
           g.beginStroke(this.pencil.color);
           this.stage.addChild(s);
           this.currentShape[this.currentShape.length] = s;
+
+          app.socket.emit("njoy", {
+            "status":"drawing_point",
+            "x":this.oldX,
+            "y":this.oldY
+          });
+
         },this));
         this.stage.on("stagemousemove", $.proxy(function(evt){
           this.touchPos = {x:evt.stageX, y:evt.stageY};
@@ -98,25 +105,25 @@ drawer.prototype.update = function() {
     if (this.isMouseDown) {
         if(this.touchPos !== null){
             var pt = new createjs.Point(this.touchPos.x, this.touchPos.y);
-            app.socket.emit("njoy", {
+            /*app.socket.emit("njoy", {
               "status":"drawing_point",
               "x":this.touchPos.x,
               "y":this.touchPos.y
-            });
+            });*/
         }else{
             var pt = new createjs.Point(this.stage.mouseX, this.stage.mouseY);
-            app.socket.emit("njoy", {
+            /*app.socket.emit("njoy", {
               "status":"drawing_point",
               "x":this.touchPos.x,
               "y":this.touchPos.y
-            });
+            });*/
         }
         var midPoint = new createjs.Point(this.oldX + pt.x>>1, this.oldY+pt.y>>1);
-        app.socket.emit("njoy", {
+        /*app.socket.emit("njoy", {
           "status":"drawing_point",
           "x":this.oldX + pt.x>>1,
           "y":this.oldY+pt.y>>1
-        });
+        });*/
         if(typeof this.currentShape[this.currentShape.length-1] != "undefined"){
             this.currentShape[this.currentShape.length-1].graphics.setStrokeStyle(this.pencil.size, this.pencil.stylingW, this.pencil.stylingH);
             this.currentShape[this.currentShape.length-1].graphics.moveTo(midPoint.x, midPoint.y);

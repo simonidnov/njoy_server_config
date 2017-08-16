@@ -141,7 +141,6 @@ var receptor = {
         });
         */
         console.log('init_drawing');
-
         $('.module').append('<canvas id="drawing" width="'+datas.width+'" height="'+datas.height+'"></canvas>');
         //this.drawing_tool = new drawer("drawing", datas.width, datas.height);
         this.canvas = document.getElementById("drawing");
@@ -173,11 +172,37 @@ var receptor = {
         this.stage.update();
     },
     drawing_point:function(datas){
-        console.log('drawing_point');
-        var pt = new createjs.Point(datas.x, datas.y);
+        console.log('drawing_point with new shape then set oldX Y');
+        this.oldX = datas.x;
+        this.oldY = datas.y;
+        //var pt = new createjs.Point(datas.x, datas.y);
+        var s = new createjs.Shape();
+        this.currentShape[this.currentShape.length] = s;
+        var g = s.graphics;
+        g.beginStroke("#000000");
+        this.stage.addChild(s);
+        g.moveTo(datas.x, datas.y);
     },
     drawing : function(datas){
-      console.log('draw ', this.currentShape[this.currentShape.length-1].graphics);
+      /*if(typeof this.oldX === "undefined"){
+        this.oldX = datas.x;
+        this.oldY = datas.y;
+      }*/
+      //console.log('draw ', this.currentShape[this.currentShape.length-1].graphics);
+      var pt = new createjs.Point(datas.x, datas.y);
+      var midPoint = new createjs.Point(this.oldX + pt.x>>1, this.oldY+pt.y>>1);
+
+      if(typeof this.currentShape[this.currentShape.length-1] != "undefined"){
+          this.currentShape[this.currentShape.length-1].graphics.setStrokeStyle(datas.strokestyle.size, datas.strokestyle.stylingW, datas.strokestyle.stylingH);
+          this.currentShape[this.currentShape.length-1].graphics.moveTo(midPoint.x, midPoint.y);
+          this.currentShape[this.currentShape.length-1].graphics.curveTo(this.oldX, this.oldY, this.oldMidX, this.oldMidY);
+      }
+      this.oldX = pt.x;
+      this.oldY = pt.y;
+
+      this.oldMidX = midPoint.x;
+      this.oldMidY = midPoint.y;
+      this.stage.update();
       /*
       app.socket.emit("njoy", {
         "status":"drawing",
@@ -195,10 +220,29 @@ var receptor = {
         }
       });
       */
+
+      /*
+      if(typeof this.oldX === "undefined"){
+        this.oldX = datas.x;
+        this.oldY = datas.y;
+      }
       this.currentShape[this.currentShape.length-1].graphics.setStrokeStyle(datas.strokestyle.size, datas.strokestyle.stylingW, datas.strokestyle.stylingH);
-      this.currentShape[this.currentShape.length-1].graphics.lineTo(datas.x, datas.y);
+      //this.currentShape[this.currentShape.length-1].graphics.moveTo(this.oldX, this.oldY);
+      this.currentShape[this.currentShape.length-1].graphics.moveTo(datas.x, datas.y);
       this.currentShape[this.currentShape.length-1].graphics.curveTo(datas.curve.oldX, datas.curve.oldY, datas.curve.oldMidX, datas.curve.oldMidY);
-      this.stage.update();
+      this.oldX = datas.x;
+      this.oldY = datas.y;
+      */
+
+
+      //this.stage.update();
+      /*this.stage.clear();
+      if(typeof datas.shape !== "undefined"){
+        for(var i=0; i<datas.shape.length; i++){
+          this.stage.append(datas.shape[i]);
+        }
+      }*/
+      //this.stage.update();
     },
     destroy : function(){
         console.log('destroy receptor');

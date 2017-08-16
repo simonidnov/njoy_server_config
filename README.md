@@ -1,5 +1,5 @@
 ------------------------------- NOTES UPDATE RASPY FOR GEOFFREY ---------------------
-j'ai delete la souris 
+j'ai delete la souris
 sudo nano /etc/lightdm/lightdm.conf
 xserver_command = X -nocursor
 
@@ -21,7 +21,7 @@ côté serveur je pige pas trop mais à priori c'est comme ci il était lancé p
 
 
 # njoy_server_config
-#1 Configuration du serveur node local et scripts pour création d'un hotspot wifi 
+#1 Configuration du serveur node local et scripts pour création d'un hotspot wifi
 #2 DOWNLOAD et install l'app desktop
 #3 instructions à suivre pour l'app mobile et autres clients desktop ou web
 
@@ -42,7 +42,7 @@ git --version
 ------------------------------------- OSX LOCAL REPOSITORY ---------------------------
 
 create your local repository :
-cd /Users 
+cd /Users
 sudo mkdir Applications
 cd Applications/
 sudo mkdir njoy
@@ -89,7 +89,7 @@ TRY THE HOTSPOT AT http://192.168.0.10:3000
 
 ------------------------------------ CHECKING HOTSPOT ON ANOTHER DEVICE ---------------------
 
-Select the hotspot njoy on another device 
+Select the hotspot njoy on another device
 then try to accessing on http://192.168.0.10:3000
 
 ------------------------------------ DOWNLOAD NJOY DESKTOP BROADCAST APP --------------------
