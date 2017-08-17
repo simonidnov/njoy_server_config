@@ -209,27 +209,27 @@
               "components":{
                 "golden_family":[
                     {
-                        "label":"En voiture", 
-                        "desc":"que dit un enfant en voiture ?", 
+                        "label":"En voiture",
+                        "desc":"que dit un enfant en voiture ?",
                         "datas":{
                             "chrono":60,
                             "display":"screen",
                             "display_response":"regis",
                             "type":"golden_family"
                         },
-                        "choices":["On est bientôt arrivé ?", "j'ai envie de faire pipi", "j'ai envie de vomir", "J'ai FAIM !"], 
+                        "choices":["On est bientôt arrivé ?", "j'ai envie de faire pipi", "j'ai envie de vomir", "J'ai FAIM !"],
                         "response":"all"
                     },
                     {
-                        "label":"question 2", 
-                        "desc":"Description question 2", 
+                        "label":"question 2",
+                        "desc":"Description question 2",
                         "datas":{
                             "chrono":60,
                             "display":"screen",
                             "display_response":"regis",
                             "type":"golden_family"
                         },
-                        "choices":["Choix 1", "Choix 2", "Choix 3", "Choix 4"], 
+                        "choices":["Choix 1", "Choix 2", "Choix 3", "Choix 4"],
                         "response":"all"
                     }
                 ]
@@ -241,27 +241,27 @@
               "components":{
                 "quiz_component":[
                     {
-                        "label":"question 4", 
-                        "desc":"description question 4", 
+                        "label":"question 4",
+                        "desc":"description question 4",
                         "datas":{
                             "chrono":60,
                             "display":"screen",
                             "display_response":"regis",
                             "type":"golden_family"
                         },
-                        "choices":["Choix 1", "Choix 2", "Choix 3", "Choix 4"], 
+                        "choices":["Choix 1", "Choix 2", "Choix 3", "Choix 4"],
                         "response":"all"
                     },
                     {
-                        "label":"question 3", 
-                        "desc":"description question 3", 
+                        "label":"question 3",
+                        "desc":"description question 3",
                         "datas":{
                             "chrono":60,
                             "display":"screen",
                             "display_response":"regis",
                             "type":"golden_family"
                         },
-                        "choices":["On est bientôt arrivé ?", "j'ai envie de faire pipi", "j'ai envie de vomir", "J'ai FAIM !"], 
+                        "choices":["On est bientôt arrivé ?", "j'ai envie de faire pipi", "j'ai envie de vomir", "J'ai FAIM !"],
                         "response":"all"
                     }
                 ]

@@ -1,3 +1,8 @@
+/*
+  TODO the canvas siz doesn't reflect the device size !important NOTE : broadcast RATIO is 1920*1080
+  we need to rotate client canvas @ 90° only when thats vertical.
+  TODO #2 traces are broken check traces NOTE : if you make trace the next point draw line from the oldXY NOTE : unset there values doesn"t change anything.
+*/
 var receptor = {
     currentShape : [],
     canvas :null,
@@ -145,11 +150,18 @@ var receptor = {
         //this.drawing_tool = new drawer("drawing", datas.width, datas.height);
         this.canvas = document.getElementById("drawing");
         // TODO REMOVE TEST SIZE
-        this.canvas.width = datas.width;
+        /*this.canvas.width = datas.width;
         this.canvas.height = datas.height;
 
         this.canvas.style.width = datas.width;
-        this.canvas.style.height = datas.height;
+        this.canvas.style.height = datas.height;*/
+
+        this.canvas.width = datas.width;
+        this.canvas.height = datas.height;
+
+        this.canvas.style.width = window.innerWidth;
+        this.canvas.style.height = window.innerHeight;
+
         $('#canvas_id').css({
           "width":$('body').width()+'px !important',
           "height":$('body').height()+'px !important'
@@ -172,10 +184,12 @@ var receptor = {
         this.stage.update();
     },
     drawing_point:function(datas){
-        console.log('drawing_point with new shape then set oldX Y');
+        console.log('drawing_point with new shape then set oldX Y enstroke', datas.x );
         this.oldX = datas.x;
         this.oldY = datas.y;
         //var pt = new createjs.Point(datas.x, datas.y);
+        this.currentShape[this.currentShape.length-1].graphics.endStroke().endFill();
+        //this.currentShape[this.currentShape.length].graphics.endStroke();
         var s = new createjs.Shape();
         this.currentShape[this.currentShape.length] = s;
         var g = s.graphics;
@@ -184,14 +198,16 @@ var receptor = {
         g.moveTo(datas.x, datas.y);
     },
     drawing : function(datas){
-      /*if(typeof this.oldX === "undefined"){
+      /*
+      if(typeof this.oldX === "undefined"){
         this.oldX = datas.x;
         this.oldY = datas.y;
-      }*/
+      }
+      */
+      console.log(this.oldX);
       //console.log('draw ', this.currentShape[this.currentShape.length-1].graphics);
       var pt = new createjs.Point(datas.x, datas.y);
       var midPoint = new createjs.Point(this.oldX + pt.x>>1, this.oldY+pt.y>>1);
-
       if(typeof this.currentShape[this.currentShape.length-1] != "undefined"){
           this.currentShape[this.currentShape.length-1].graphics.setStrokeStyle(datas.strokestyle.size, datas.strokestyle.stylingW, datas.strokestyle.stylingH);
           this.currentShape[this.currentShape.length-1].graphics.moveTo(midPoint.x, midPoint.y);

@@ -17,6 +17,7 @@ var drawing = {
 
     app.socket.emit("njoy", {
       "status":"init_drawing",
+      "color":createjs.Graphics.getRGB(0,0,0),
       "width":window.innerWidth,
       "height":window.innerHeight
     });
@@ -32,10 +33,10 @@ var drawer = function(canvas_id){
 
   this.canvas.style.width = window.innerWidth;
   this.canvas.style.height = window.innerHeight;
-  $('#canvas_id').css({
+  /*$('#canvas_id').css({
     "width":$('body').width()+'px !important',
     "height":$('body').height()+'px !important'
-  })
+  });*/
   this.pencil = {"color":"#000000", "size":10, "stylingW":"round", "stylingH":"round"};
   this.stage = new createjs.Stage(canvas_id);
   this.stage.autoClear = true;
@@ -136,14 +137,15 @@ drawer.prototype.update = function() {
         this.oldMidX = midPoint.x;
         this.oldMidY = midPoint.y;
         this.stage.update();
-
+        console.log(this.pencil);
         this._removed = [];
         app.socket.emit("njoy", {
           "status":"drawing",
+          "color":createjs.Graphics.getRGB(0,0,0),
           "strokestyle":{
             "size":this.pencil.size,
-            "styleH":this.pencil.styleH,
-            "styleW":this.pencil.styleW
+            "stylingH":this.pencil.stylingH,
+            "stylingW":this.pencil.stylingW
           },
           "type":"moveTo",
           "x":midPoint.x,
