@@ -27,7 +27,16 @@
           "label":"Ambiance",
           "desc":"Des musiques d'ambiance selon les humeurs pour combler les vides.",
           "playlist":[
-              {"label":"Musique d'ambiance", "file":"ressources/audio/applau.mp3"}
+              {"label":"Ray Charles", "file":"ressources/audio/ambiance/1.mp3"},
+              {"label":"Franck Sinatra", "file":"ressources/audio/ambiance/2.mp3"},
+              {"label":"Nate King Cole", "file":"ressources/audio/ambiance/3.mp3"},
+              {"label":"Louis Prima", "file":"ressources/audio/ambiance/4.mp3"},
+              {"label":"Nina Simone", "file":"ressources/audio/ambiance/5.mp3"},
+              {"label":"Amstrong", "file":"ressources/audio/ambiance/6.mp3"},
+              {"label":"Dinah Washington", "file":"ressources/audio/ambiance/7.mp3"},
+              {"label":"Marylin Monroe", "file":"ressources/audio/ambiance/8.mp3"},
+              {"label":"Dave Brubeck", "file":"ressources/audio/ambiance/9.mp3"},
+              {"label":"Dean Martin", "file":"ressources/audio/ambiance/10.mp3"}
           ]
         }
       ],

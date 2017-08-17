@@ -40,9 +40,13 @@ var receptor = {
                 console.log('play video playlist');
                 break;
             case "audio":
-                $('.module').append('<div class="audio_display"></div>');
                 TweenMax.killAll();
-                console.log('play audio');
+                if(typeof this.audio !== "undefined"){
+                  this.audio.pause();
+                }
+                this.audio = new Audio(datas.file);
+                this.audio.play();
+                console.log('play audio http://10.213.1.231:3000/', datas.file);
                 break;
             case "playlist_audio":
                 $('.module').append('<div class="audio_display"></div>');

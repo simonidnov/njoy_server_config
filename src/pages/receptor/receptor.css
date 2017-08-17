@@ -95,6 +95,9 @@ header{
 .video_display video::-webkit-media-controls {
     display:none !important;
 }
+/* ----------------- AUDIO DISPLAY ----------------------- */
+.audio_display{
+}
 /* ----------------- PICTURE COMPONENT ------------------- */
 .picture_display{
     width: 100%;
