@@ -44,13 +44,6 @@ app.listen(port, function(){
     //--kiosk
     //--noerrdialogs --disable-session-crashed-bubble --disable-infobars --force-gpu-rasterization
     setTimeout(function(){
-      cp.exec("killall chromium-browser", function(error, stdout, stderr) {
-          console.log("killall chromium browser: " + stdout);
-          console.log("stderr: " + stderr);
-          if (error !== null) {
-              console.log("exec errror: " + error);
-          }
-      });
       cp.exec("chromium-browser --noerrdialogs --disable-session-crashed-bubble --disable-infobars --force-gpu-rasterization --kiosk http://10.3.141.1:3000/receptor", function(error, stdout, stderr) {
           console.log("stdout: " + stdout);
           console.log("stderr: " + stderr);
