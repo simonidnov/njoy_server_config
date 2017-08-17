@@ -55,7 +55,7 @@ app.listen(port, function(){
       //console.log('listening on *:3000');
       //cp.exec("killall chromium-browser", function(){console.log('chromium has been killed');});
       //--noerrdialogs --disable-session-crashed-bubble --disable-infobars --force-gpu-rasterization
-      cp.exec("/home/pi/stratchromium.sh", function(error, stdout, stderr) {
+      cp.exec("/home/pi/startchromium.sh", function(error, stdout, stderr) {
           console.log("stdout: " + stdout);
           console.log("stderr: " + stderr);
           if (error !== null) {
