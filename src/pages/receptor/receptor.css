@@ -9,6 +9,10 @@ header{
     width:100% !important;
     max-width:100% !important;
     height:100% !important;
+    background-image:url(../../img/logo.svg);
+    background-size: 50% auto;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 .receptor .module{
     width:100%;
