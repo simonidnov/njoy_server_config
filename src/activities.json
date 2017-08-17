@@ -191,7 +191,7 @@
               "desc":"des clips vidéos à reconstituer en AIR BAND",
               "components":{
                 "playlist_video":[
-                    {"label":"AIRBAND", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/special_video.mp4"},
+                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/special_video.mp4"},
                     {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
                 ]
               }

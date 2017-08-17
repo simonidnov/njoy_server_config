@@ -1,6 +1,6 @@
 <h2><%= label %></h2>
 <p class="app_description"><%= desc %></p>
-<% if(typeof jingle !== "undefined"){ %> 
+<% if(typeof jingle !== "undefined"){ %>
     <% if(jingle.type === "video"){ %>
         <div class="jingle">
             <video controls>
@@ -60,9 +60,9 @@
             <ul class="playlist_video">
                 <% for(var g=0; g<comp_datas.length; g++){ %>
                     <li>
-                        <video src="<%= app.ip+'/'+comp_datas[i].file %>" controls></video>
-                        <span><%= comp_datas[i].label %></span>
-                        <div class="cast_button" data-action="cast" data-type="video" data-file="<%= comp_datas[i].file %>">Diffuser</div>
+                        <video src="<%= app.ip+'/'+comp_datas[g].file %>" controls></video>
+                        <span><%= comp_datas[g].label %></span>
+                        <div class="cast_button" data-action="cast" data-type="video" data-file="<%= comp_datas[g].file %>">Diffuser</div>
                     </li>
                 <% } %>
             </ul>
