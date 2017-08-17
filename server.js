@@ -97,7 +97,8 @@ io.on('connection', function(socket){
 http.listen(3000, function(){
   //console.log('listening on *:3000');
   cp.exec("killall chromium-browser", function(){console.log('chromium has been killed');});
-  cp.exec("chromium-browser --noerrdialogs --disable-session-crashed-bubble --disable-infobars --force-gpu-rasterization --kiosk http://10.3.141.1:3000/receptor", function(error, stdout, stderr) {
+  //--noerrdialogs --disable-session-crashed-bubble --disable-infobars --force-gpu-rasterization
+  cp.exec("chromium-browser --kiosk http://10.3.141.1:3000/receptor", function(error, stdout, stderr) {
       console.log("stdout: " + stdout);
       console.log("stderr: " + stderr);
       if (error !== null) {
