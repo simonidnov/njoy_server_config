@@ -45,7 +45,7 @@ app.listen(port, function(){
     //--noerrdialogs --disable-session-crashed-bubble --disable-infobars --force-gpu-rasterization
     setTimeout(function(){
       cp.exec("killall chromium-browser", function(error, stdout, stderr) {
-          console.log("kill all whromium browser: " + stdout);
+          console.log("killall chromium browser: " + stdout);
           console.log("stderr: " + stderr);
           if (error !== null) {
               console.log("exec errror: " + error);
@@ -58,7 +58,7 @@ app.listen(port, function(){
               console.log("exec errror: " + error);
           }
       });
-    }, 5000);
+    }, 500);
 });
 /* socket io config default route */
 io.on('connection', function(socket){

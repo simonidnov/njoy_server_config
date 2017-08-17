@@ -5,6 +5,7 @@ xserver_command = X -nocursor
 
 DEAMON :
 /lib/systemd/system
+/home/pi/nodejsstartup.sh
 
 j'ai dégagé le nodejs server dans l'autostart
 cd /home/pi/.config/lxsession/LXDE-pi/
