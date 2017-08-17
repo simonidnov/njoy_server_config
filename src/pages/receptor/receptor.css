@@ -97,13 +97,14 @@ header{
 }
 /* ----------------- PICTURE COMPONENT ------------------- */
 .picture_display{
-    width:100%;
-    height:100%;
-    background-color:#FFFFFF;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
     background-position: center center;
-    background-size: contain;
-    top:0;
-    left:0;
+    background-size: 50% auto;
+    top: 0;
+    left: 0;
+    background-repeat: no-repeat;
 }
 /* ----------------- golden_family ------------------- */
 .receptor .golden_family{

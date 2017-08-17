@@ -32,7 +32,7 @@ var receptor = {
                 $('.module').html('');
                 $('.chronos').remove();
                 TweenMax.killAll();
-                $('.module').append('<div class="video_display"><video src="'+window.location.origin+'/'+datas.file+'" autoplay></video></div>');
+                $('.module').append('<div class="video_display"><video src="'+window.location.origin+'/'+datas.file+'" autoplay width="'+window.innerWidth+'px" height="'+window.innerHeight+'px"></video></div>');
                 break;
             case "playlist_video":
                 $('.module').append('<div class="video_display"></div>');
@@ -121,7 +121,9 @@ var receptor = {
         }});
     },
     success : function(){
-        $('.module').append('<canvas class="motion_canvas" id="motion_canvas"></canvas');
+        if($('.motion_canvas').length == 0){
+          $('.module').append('<canvas class="motion_canvas" id="motion_canvas"></canvas');
+        }
         if(typeof this.conf !== "undefined"){
             delete this.conf;
         }
