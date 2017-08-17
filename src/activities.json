@@ -184,14 +184,15 @@
           "label":"LET'S DANCE",
           "desc":"créer des chorégraphies",
           "datas":{},
-          "jingle":{"file":"ressources/video/letsdance.m4v", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/video/letsdance.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Clips vidéos",
               "desc":"des clips vidéos à reconstituer en AIR BAND",
               "components":{
                 "playlist_video":[
-                    {"label":"AIRBAND", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/special_video.m4v"}
+                    {"label":"AIRBAND", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/special_video.mp4"},
+                    {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
                 ]
               }
             }
