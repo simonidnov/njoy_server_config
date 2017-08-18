@@ -152,6 +152,7 @@ var receptor = {
         });
         */
         console.log('init_drawing');
+        
         $('.module').append('<canvas id="drawing" width="'+datas.width+'" height="'+datas.height+'"></canvas>');
         //this.drawing_tool = new drawer("drawing", datas.width, datas.height);
         this.canvas = document.getElementById("drawing");
