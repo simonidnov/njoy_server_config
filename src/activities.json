@@ -11,20 +11,7 @@
       ],
       "introduction":{"video":"", "audio":"", "pix":"ressources/crazy_show_logo.svg"},
       "tools":[
-        {
-          "label":"Émotions",
-          "desc":"Court samples audio pour rythmer les évènements, à lancer à tout instant !",
-          "playlist":[
-            {"label":"Applaudir", "file":"ressources/audio/applau.mp3"}
-          ]
-        },
-        {
-          "label":"Ambiance",
-          "desc":"Des musiques d'ambiance selon les humeurs pour combler les vides.",
-          "playlist":[
-              {"label":"Britney Spire", "file":"ressources/audio/ambiance/bitney.mp3"}
-          ]
-        }
+        
       ],
       "apps":[
         {
