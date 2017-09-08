@@ -26,7 +26,12 @@
     <p><%= menu[i].desc %></p>
     <% for(var c=0; c<_.keys(menu[i].components).length; c++){ %>
         <% var comp_datas = menu[i].components[_.keys(menu[i].components)[c]] %>
-        <% if(_.keys(menu[i].components)[c] === "galery"){ %>
+        <% if(_.keys(menu[i].components)[c] === "search"){ %>
+            <input type="search" id="web_research"/>
+            <ul id="search_results">
+                <li>Résultats de recherche</li>
+            </ul>
+        <% }else if(_.keys(menu[i].components)[c] === "galery"){ %>
             <ul class="galery_list">
                 <% for(var g=0; g<comp_datas.length; g++){ %>
                     <li class="picture_gallery">
