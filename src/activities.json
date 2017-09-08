@@ -1,6 +1,50 @@
 {
   "activities":[
     {
+      "label":"Web Content",
+      "thumb":"ressources/web_content.svg",
+      "desc":"moteur de recherche intégré pour diffusion de contenus",
+      "datas":{},
+      "prerecquise":[
+        {"label":"Connecter le serveur à l'internet", "checked":false},
+        {"label":"Se connecter sur le réseau NJOY", "checked":false}
+      ],
+      "introduction":{"video":"", "audio":"", "pix":"ressources/crazy_show_logo.svg"},
+      "tools":[
+        {
+          "label":"Émotions",
+          "desc":"Court samples audio pour rythmer les évènements, à lancer à tout instant !",
+          "playlist":[
+            {"label":"Applaudir", "file":"ressources/audio/applau.mp3"}
+          ]
+        },
+        {
+          "label":"Ambiance",
+          "desc":"Des musiques d'ambiance selon les humeurs pour combler les vides.",
+          "playlist":[
+              {"label":"Britney Spire", "file":"ressources/audio/ambiance/bitney.mp3"}
+          ]
+        }
+      ],
+      "apps":[
+        {
+          "label":"YOUTUBE",
+          "desc":"Rechercher des vidéos sur youtube",
+          "datas":{},
+          "jingle":{"file":"ressources/video/youtube.mp4", "type":"video", "event":null, "params":null},
+          "menu":[
+            {
+              "label":"Faire une recherche",
+              "desc":"Tapez votre recherche ici",
+              "components":{
+                "search":[]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "label":"Crazy Show",
       "thumb":"ressources/crazy_show_logo.svg",
       "desc":"Application Crazy Show",
@@ -27,6 +71,7 @@
           "label":"Ambiance",
           "desc":"Des musiques d'ambiance selon les humeurs pour combler les vides.",
           "playlist":[
+              {"label":"Britney Spire", "file":"ressources/audio/ambiance/bitney.mp3"},
               {"label":"Ray Charles", "file":"ressources/audio/ambiance/1.mp3"},
               {"label":"Franck Sinatra", "file":"ressources/audio/ambiance/2.mp3"},
               {"label":"Nate King Cole", "file":"ressources/audio/ambiance/3.mp3"},

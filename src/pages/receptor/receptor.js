@@ -76,10 +76,16 @@ var receptor = {
             case "golden_family":
                 this.golden_family(datas);
                 break;
+            case "web_content":
+                this.web_content(datas);
+                break;
         }
         if(typeof datas.chronos !== "undefined"){
             this.setChronos(datas.chronos, datas.chronos_type);
         }
+    },
+    web_content : function(datas){
+        console.log(datas);
     },
     object_component : function(datas){
         $('.module').html('');
@@ -152,7 +158,7 @@ var receptor = {
         });
         */
         console.log('init_drawing');
-        
+
         $('.module').append('<canvas id="drawing" width="'+datas.width+'" height="'+datas.height+'"></canvas>');
         //this.drawing_tool = new drawer("drawing", datas.width, datas.height);
         this.canvas = document.getElementById("drawing");

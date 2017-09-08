@@ -5,7 +5,7 @@ var express = require('express'),
     users = [],
     server = null,
     http = require('http').Server(app),
-    port = 8080,
+    port = 8000,
     os = require('os'),
     ifaces = os.networkInterfaces(),
     ip_config = get_ip_config(),
@@ -104,7 +104,7 @@ io.on('connection', function(socket){
     io.emit(call, {"status":stat.status, "infos":stat, "datas":datas});
 });
 });
-http.listen(3000, function(){
+http.listen(3007, function(){
 
 });
 /* OAUTH MANAGER */
