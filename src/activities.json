@@ -31,7 +31,6 @@
           "label":"YOUTUBE",
           "desc":"Rechercher des vidéos sur youtube",
           "datas":{},
-          "jingle":{"file":"ressources/video/youtube.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Faire une recherche",
