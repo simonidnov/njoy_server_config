@@ -5,7 +5,7 @@ var express = require('express'),
     users = [],
     server = null,
     http = require('http').Server(app),
-    port = 8000,
+    port = 3000,
     os = require('os'),
     ifaces = os.networkInterfaces(),
     ip_config = get_ip_config(),
@@ -28,7 +28,6 @@ module.exports = router;
 
 
 app.use(express.static('./src'));
-
 
 // start server //
 /*
