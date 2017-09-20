@@ -1,4 +1,5 @@
 var app = require('express')();
+var router = express.Router();
 var http = require('http').Server(app);
 var path = require('path');
 var io = require('socket.io')(http);
@@ -16,9 +17,10 @@ $ = require('jquery');
 /*app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });*/
-app.use(express.static(__dirname + '/src'));
+module.exports = router;
+app.use(express.static(__dirname + './src'));
 app.get('/', function(req, res){
-  res.sendFile('njoy/src/index.html', { root: path.join(__dirname, '../')});
+  res.sendFile('index.html', { root: path.join(__dirname, './src')});
 });
 
 io.on('connection', function(socket){
