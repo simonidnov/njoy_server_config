@@ -74,6 +74,13 @@ io.on('connection', function(socket){
 
 http.listen(port, function(){
   console.log('listening on *:' + port);
+    cp.exec("/home/pi/startchromium.sh", function(error, stdout, stderr) {
+        //console.log("stdout: " + stdout);
+        //console.log("stderr: " + stderr);
+        if (error !== null) {
+            //console.log("exec errror: " + error);
+        }
+    });
 });
 
 /*var express = require('express'),
