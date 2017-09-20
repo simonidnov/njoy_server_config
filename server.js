@@ -15,12 +15,12 @@ var express = require('express'),
     $ = require('jquery');
 
 // routes the app
-//app.use('/', router);
+app.use('/', router);
 
-/*app.use(function(req, res){
+app.use(function(req, res){
   console.log(res);
   res.send(404);
-});*/
+});
 
 
 module.exports = router;
