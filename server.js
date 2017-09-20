@@ -1,4 +1,74 @@
-var express = require('express'),
+var app = require('express')();
+var http = require('http').Server(app);
+var path = require('path');
+var io = require('socket.io')(http);
+var port = process.env.PORT || 3000;
+var _ = require('underscore');
+var router = express.Router();
+var users = [];
+var server = null;
+var os = require('os');
+var ifaces = os.networkInterfaces();
+var ip_config = get_ip_config();
+var cp = require('child_process');
+$ = require('jquery');
+
+/*app.get('/', function(req, res){
+  res.sendFile(__dirname + '/index.html');
+});*/
+app.get('*', function(req, res){
+  res.sendFile('njoy/src/index.html', { root: path.join(__dirname, '../')});
+});
+
+io.on('connection', function(socket){
+    console.log('a user connected');
+    socket.on('disconnect', function(){
+        console.log('user disconnected');
+    });
+    socket.on('njoy', function(datas){
+        users_activities.push(datas);
+        datas = addParams(datas);
+        var stat = {},
+            call = "njoy";
+        switch(datas.status){
+            case 'connect':
+                stat = login(datas);
+                datas = addParams(datas);
+                io.emit('njoy_'+datas.uuid, {"status":stat.status, "infos":stat, "datas":datas});
+                call = 'njoy';
+                break;
+            case 'disconnect':
+                stat = logout(datas);
+                datas = addParams(datas);
+                break;
+            case 'activities':
+                stat.status = "activities";
+                datas.users_activities = users_activities;
+                break;
+            case 'message':
+                stat.status = "message";
+                break;
+            case 'launch_content':
+                stat.status = "launch_content";
+                //console.log(datas);
+                break;
+            default:
+                stat = {"status":"default"};
+                break;
+        }
+        console.log('call ::: ', call, ' stat ', stat);
+        io.emit(call, {"status":stat.status, "infos":stat, "datas":datas});
+    });
+    socket.on('chat message', function(msg){
+        io.emit('chat message', msg);
+    });
+});
+
+http.listen(port, function(){
+  console.log('listening on *:' + port);
+});
+
+/*var express = require('express'),
     app = express(),
     router = express.Router(),
     path = require('path'),
@@ -34,51 +104,51 @@ app.listen(port, function(){
     //    }
     //});
 });
-/* socket io config default route */
+
 io.on('connection', function(socket){
-  console.log('a user connected');
-  socket.on('disconnect', function(){
-    console.log('user disconnected');
-  });
-  socket.on('njoy', function(datas){
-    users_activities.push(datas);
-    datas = addParams(datas);
-    var stat = {},
-        call = "njoy";
-    switch(datas.status){
-        case 'connect':
-          stat = login(datas);
-          datas = addParams(datas);
-          io.emit('njoy_'+datas.uuid, {"status":stat.status, "infos":stat, "datas":datas});
-          call = 'njoy';
-          break;
-        case 'disconnect':
-          stat = logout(datas);
-          datas = addParams(datas);
-          break;
-        case 'activities':
-          stat.status = "activities";
-          datas.users_activities = users_activities;
-          break;
-        case 'message':
-          stat.status = "message";
-          break;
-        case 'launch_content':
-          stat.status = "launch_content";
-          //console.log(datas);
-          break;
-        default:
-          stat = {"status":"default"};
-          break;
-    }
-    console.log('call ::: ', call, ' stat ', stat);
-    io.emit(call, {"status":stat.status, "infos":stat, "datas":datas});
-});
+    console.log('a user connected');
+    socket.on('disconnect', function(){
+        console.log('user disconnected');
+    });
+    socket.on('njoy', function(datas){
+        users_activities.push(datas);
+        datas = addParams(datas);
+        var stat = {},
+            call = "njoy";
+        switch(datas.status){
+            case 'connect':
+                stat = login(datas);
+                datas = addParams(datas);
+                io.emit('njoy_'+datas.uuid, {"status":stat.status, "infos":stat, "datas":datas});
+                call = 'njoy';
+                break;
+            case 'disconnect':
+                stat = logout(datas);
+                datas = addParams(datas);
+                break;
+            case 'activities':
+                stat.status = "activities";
+                datas.users_activities = users_activities;
+                break;
+            case 'message':
+                stat.status = "message";
+                break;
+            case 'launch_content':
+                stat.status = "launch_content";
+                //console.log(datas);
+                break;
+            default:
+                stat = {"status":"default"};
+                break;
+        }
+        console.log('call ::: ', call, ' stat ', stat);
+        io.emit(call, {"status":stat.status, "infos":stat, "datas":datas});
+    });
 });
 http.listen(port, function(){
     console.log('listen http 3000');
 });
-/* OAUTH MANAGER */
+*/
 var login = function(datas){
   if(typeof users === "undefined"){users = [];};
   if(_.where(users, {user_name:datas.user_name}).length > 0 ){
@@ -95,7 +165,7 @@ var logout = function(datas){
   users = _.without(users, _.findWhere(users, {uuid:datas.uuid}));
   return {"status":"logout_success", "message":"success lougout"};
 }
-/* REQUEST MANAGER */
+
 var addParams = function(datas){
   if(typeof datas === "undefined"){
     datas = {};
@@ -105,7 +175,7 @@ var addParams = function(datas){
   datas.ip_config = get_ip_config();
   return datas;
 }
-/* CHECKING IP CONFIG */
+
 function get_ip_config(){
   Object.keys(ifaces).forEach(function (ifname) {
     var alias = 0;
