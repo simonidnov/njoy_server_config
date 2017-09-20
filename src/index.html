@@ -7,19 +7,19 @@
       <meta http-equiv="Access-Control-Allow-Origin" content="*">
       <title>NJOY</title>
         <meta http-equiv="Access-Control-Allow-Origin" content="*">
-        <link href="node_modules/material-design-icons/iconfont/material-icons.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="node_modules/material-design-icons/iconfont/material-icons.css">
         <link rel="stylesheet" type="text/css" href="css/app.css">
         <link rel="stylesheet" type="text/css" href="css/ui.css">
         <link rel="stylesheet" type="text/css" href="css/components.css">
-        <script src="js/socket.io/socket.io.js"></script>
-        <script src="node_modules/underscore/underscore-min.js"></script>
-        <script src="node_modules/gsap/src/minified/TweenMax.min.js"></script>
-        <script src="node_modules/jquery/dist/jquery.min.js"></script>
-        <script src="node_modules/iscroll/build/iscroll.js"></script>
-        <script src="js/EaselJS/lib/easeljs-0.8.1.combined.js"></script>
-        <script src="js/confettis.js"></script>
-        <script src="js/app.js"></script>
-        <script src="js/ui.js"></script>
+        <script type="text/javascript" src="js/socket.io/socket.io.js"></script>
+        <script type="text/javascript" src="node_modules/underscore/underscore-min.js"></script>
+        <script type="text/javascript" src="node_modules/gsap/src/minified/TweenMax.min.js"></script>
+        <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="node_modules/iscroll/build/iscroll.js"></script>
+        <script type="text/javascript" src="js/EaselJS/lib/easeljs-0.8.1.combined.js"></script>
+        <script type="text/javascript" src="js/confettis.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript" src="js/ui.js"></script>
     </head>
     <body>
       <script>
@@ -53,7 +53,9 @@
         }
         $(function () {
           ui.init();
-          app.init(function(){});
+          app.init(function(e){
+              console.log(e);
+          });
         });
       </script>
     </body>

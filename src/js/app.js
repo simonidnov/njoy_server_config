@@ -96,7 +96,6 @@ var app = {
                 user_name: app.infos.user_name,
                 uuid: app.infos.uuid
             });
-            //return 'Please press the Logout button to logout.';
         };
     },
     destroy: function() {
