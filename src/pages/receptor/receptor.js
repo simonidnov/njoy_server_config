@@ -7,6 +7,7 @@ var receptor = {
     currentShape : [],
     canvas :null,
     init:function(){
+        app.init(function(){});
         /* on receive node_log print */
         app.socket_callback = $.proxy(function(e){
             if(typeof e.datas !== "undefined"){
