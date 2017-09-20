@@ -16,7 +16,7 @@ $ = require('jquery');
 /*app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });*/
-app.get('*', function(req, res){
+app.get('/', function(req, res){
   res.sendFile('njoy/src/index.html', { root: path.join(__dirname, '../')});
 });
 
