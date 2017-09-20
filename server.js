@@ -18,10 +18,14 @@ $ = require('jquery');
 /*app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });*/
+// routes the app
 module.exports = router;
-app.use(express.static(__dirname + './src'));
-app.get('/', function(req, res){
-  res.sendFile('index.html', { root: path.join(__dirname, './src')});
+//define static files
+app.use(express.static('./src'));
+
+// start server //
+app.get('*', function(req, res){
+  res.sendFile('njoy/src/index.html', { root: path.join(__dirname, '../')});
 });
 
 io.on('connection', function(socket){
