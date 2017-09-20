@@ -1,4 +1,5 @@
-var app = require('express')();
+var express = require('express'),
+var app = express();
 var router = express.Router();
 var http = require('http').Server(app);
 var path = require('path');
