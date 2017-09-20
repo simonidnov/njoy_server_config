@@ -30,7 +30,7 @@ app.listen(port, function(){
         //console.log("stdout: " + stdout);
         //console.log("stderr: " + stderr);
         if (error !== null) {
-            console.log("exec errror: " + error);
+            //console.log("exec errror: " + error);
         }
     });
 });
