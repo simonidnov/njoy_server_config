@@ -2,7 +2,7 @@ var canvas_confettis,
         ctx,
         W,
         H,
-        mp = 80,
+        mp = 20,
         particles = [],
         angle = 0,
         tiltAngle = 0,
@@ -15,7 +15,7 @@ var canvas_confettis,
 
 var confettis = function(){
     // globals
-    
+
     // objects
 
     var particleColors = {
@@ -39,7 +39,7 @@ var confettis = function(){
     function confettiParticle(color) {
         this.x = Math.random() * W; // x-coordinate
         this.y = (Math.random() * H) - H; //y-coordinate
-        this.r = RandomFromTo(10, 100); //radius;
+        this.r = RandomFromTo(100, 250); //radius;
         this.d = (Math.random() * mp) + 50; //density;
         this.color = color;
         this.tilt = Math.floor(Math.random() * 10) - 10;
@@ -88,7 +88,6 @@ var confettis = function(){
         results = [];
         animationComplete = false;
         for (var i = 0; i < mp; i++) {
-            console.log(i);
             var particleColor = particleColors.getColor();
             particles.push(new confettiParticle(particleColor));
         }
@@ -211,11 +210,11 @@ var confettis = function(){
     }
 
     window.requestAnimFrame = (function () {
-        return window.requestAnimationFrame || 
-        window.webkitRequestAnimationFrame || 
-        window.mozRequestAnimationFrame || 
-        window.oRequestAnimationFrame || 
-        window.msRequestAnimationFrame || 
+        return window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
         function (callback) {
             return window.setTimeout(callback, 1000 / 60);
         };
