@@ -20,7 +20,7 @@ var receptor = {
             case "init_drawing":
                 $('.module').html('');
                 $('.chronos').remove();
-                TweenLite.killAll();
+                TweenMax.killAll();
                 this.init_drawing(datas);
                 break;
             case "drawing":
@@ -32,16 +32,16 @@ var receptor = {
             case "video":
                 $('.module').html('');
                 $('.chronos').remove();
-                TweenLite.killAll();
+                TweenMax.killAll();
                 $('.module').append('<div class="video_display"><video src="'+window.location.origin+'/'+datas.file+'" autoplay width="'+window.innerWidth+'px" height="'+window.innerHeight+'px"></video></div>');
                 break;
             case "playlist_video":
                 $('.module').append('<div class="video_display"></div>');
-                TweenLite.killAll();
+                TweenMax.killAll();
                 console.log('play video playlist');
                 break;
             case "audio":
-                TweenLite.killAll();
+                TweenMax.killAll();
                 if(typeof this.audio !== "undefined"){
                   this.audio.pause();
                 }
@@ -51,12 +51,12 @@ var receptor = {
                 break;
             case "playlist_audio":
                 $('.module').append('<div class="audio_display"></div>');
-                TweenLite.killAll();
+                TweenMax.killAll();
                 console.log('play audio playlist');
                 break;
             case "picture":
                 $('.module').html('');
-                TweenLite.killAll();
+                TweenMax.killAll();
                 $('.module').append('<div class="picture_display"></div>');
                 $('.picture_display').css('background-image', 'url('+datas.file+')');
                 console.log('display picture');
@@ -91,8 +91,8 @@ var receptor = {
     object_component : function(datas){
         $('.module').html('');
         $('.chronos').remove();
-        TweenLite.killAll();
-        //TweenLite.killAllTweens();
+        TweenMax.killAll();
+        //TweenMax.killAllTweens();
         switch (datas.component){
             case "quiz_component":
                 break;
@@ -125,7 +125,7 @@ var receptor = {
         if(typeof type === "undefined"){type="bottom";}
         $('.screen.receptor').append('<div class="chronos '+type+'"><div class="counter"></div><div class="timelap"><div class="progress"></div></div></div>');
         $('.chronos .counter').html(time);
-        var chronos_tween = TweenLite.to($('.timelap .progress'), parseInt(time), {css:{width:"100%"}, ease:Linear.easeNone, onUpdate:function(e){
+        var chronos_tween = TweenMax.to($('.timelap .progress'), parseInt(time), {css:{width:"100%"}, ease:Linear.easeNone, onUpdate:function(e){
             $('.chronos .counter').html(parseInt(time) - Math.round(chronos_tween.time()));
         }, onComplete:function(){
             //alert('time elapsed');
@@ -138,12 +138,13 @@ var receptor = {
         if(typeof this.conf !== "undefined"){
             delete this.conf;
         }
-        this.conf = new confettis();
-        this.conf.initConfettis('motion_canvas');
-        this.conf.start_confettis();
-        setTimeout($.proxy(function(){
-            this.conf.stop_confettis();
-        },this), 1000);
+        /* TODO TEST MOTION LIKE CONFETTIS */
+        //this.conf = new confettis();
+        //this.conf.initConfettis('motion_canvas');
+        //this.conf.start_confettis();
+        //setTimeout($.proxy(function(){
+        //    this.conf.stop_confettis();
+        //},this), 1000);
         //alert('success');
     },
     fail : function(){
