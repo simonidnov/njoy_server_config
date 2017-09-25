@@ -13,6 +13,14 @@ var receptor = {
             console.log(e);
             if(typeof e.datas !== "undefined"){
                 this.create_component(e.datas);
+                if(typeof e.datas.tools !== "undefined"){
+                  if(typeof e.datas.tools.logo !== "undefined"){
+                    $('.app_logo').css('background-image', 'url('+app.ip+e.datas.tools.logo+')');
+                  }
+                  if(typeof e.datas.tools.icon !== "undefined"){
+                    $('.app_icon').css('background-image', 'url('+app.ip+e.datas.tools.logo+')');
+                  }
+                }
             }
         }, this);
     },
