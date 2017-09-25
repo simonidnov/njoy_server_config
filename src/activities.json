@@ -96,11 +96,11 @@
                   {"file":"ressources/jeux/photomime/dp1/arc.jpg", "desc":"", "label":"Tir a l'arc", "chronos":120, "datas":{}},
                   {"file":"ressources/jeux/photomime/dp1/epee.jpg", "desc":"", "label":"Epée", "chronos":120, "datas":{}},
                   {"file":"ressources/jeux/photomime/dp1/monstre.jpg", "desc":"", "label":"Monstre", "chronos":120, "datas":{}},
-                  {"file":"ressources/jeux/photomime/dp1/clown.jpg", "desc":"", "label":"Clown", "chronos":120, "datas":{}},,
+                  {"file":"ressources/jeux/photomime/dp1/clown.jpg", "desc":"", "label":"Clown", "chronos":120, "datas":{}},
                   {"file":"ressources/jeux/photomime/dp1/danseus.jpg", "desc":"", "label":"Danseuse", "chronos":120, "datas":{}},
                   {"file":"ressources/jeux/photomime/dp1/guitare.jpg", "desc":"", "label":"Guitare", "chronos":120, "datas":{}},
                   {"file":"ressources/jeux/photomime/dp1/avion.jpg", "desc":"", "label":"Avion", "chronos":120, "datas":{}},
-                  {"file":"ressources/jeux/photomime/dp1/moto.jpg", "desc":"", "label":"Moto", "chronos":120, "datas":{}}
+                  {"file":"ressources/jeux/photomime/dp1/moto.jpg", "desc":"", "label":"Moto", "chronos":120, "datas":{}},
                   {"file":"ressources/jeux/photomime/dp1/boxe.jpg", "desc":"", "label":"Boxe", "chronos":120, "datas":{}},
                   {"file":"ressources/jeux/photomime/dp1/lapin.jpg", "desc":"", "label":"Lapin", "chronos":120, "datas":{}},
                   {"file":"ressources/jeux/photomime/dp1/kangourou.jpg", "desc":"", "label":"Kangourou", "chronos":120, "datas":{}},
