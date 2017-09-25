@@ -258,7 +258,7 @@ header{
 }
 
 .app_logo{
-    background-size: cover;
+    background-size: contain;
     background-position:top center;
     position: absolute;
     z-index: 999;
@@ -267,16 +267,16 @@ header{
     top:0;
     margin:auto;
     width:600px;
-    height:200px;
+    height:125px;
 }
 .app_icon{
     background-size: cover;
-    background-position:top center;
+    background-position:top right;
     position: absolute;
     z-index: 999;
     right:0;
     top:0;
     margin:auto;
     width:300px;
-    height:200px;
+    height:125px;
 }
