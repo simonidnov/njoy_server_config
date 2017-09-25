@@ -260,7 +260,7 @@
           "icon":"ressources/crazyshow/habillage/abcstory.png",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/crazyshow/jingles/abcstory.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/abcstory.webm", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Musiques d'ambiance",

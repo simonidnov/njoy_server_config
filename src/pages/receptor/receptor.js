@@ -21,6 +21,8 @@ var receptor = {
                     $('.app_icon').css('background-image', 'url('+e.datas.tools.logo+')');
                   }
                 }
+            }else{
+              $('.app_icon, .app_logo').css('background-image', 'url()');
             }
         }, this);
     },
