@@ -75,25 +75,180 @@
         {
           "label":"Photomime",
           "desc":"mimer des photos",
+          "icon":"ressources/habillage/photomime.png",
+          "logo":"ressources/habillage/crazyshow.png",
           "datas":{},
           "jingle":{"file":"ressources/video/Photomime.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
-              "label":"theme 1",
-              "desc":"description du theme 1",
+              "label":"Maternel",
+              "desc":"Mimes pour les 3-6 ans",
               "components":{
                 "galery":[
-                  {"file":"ressources/jeux/photomime/dp1/image0.jpg", "desc":"", "label":"", "chronos":120, "datas":{}},
-                  {"file":"ressources/jeux/photomime/dp1/image0.jpg", "desc":"", "label":"", "chronos":120, "datas":{}}
+                  {"file":"ressources/jeux/photomime/dp1/robot.jpg", "desc":"", "label":"Robot", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp1/telephone.jpg", "desc":"", "label":"Téléphone", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp1/singe.jpg", "desc":"", "label":"Singe", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp1/chien.jpg", "desc":"", "label":"Chien", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp1/voiture.jpg", "desc":"", "label":"Voiture", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp1/ballon.jpg", "desc":"", "label":"Ballon", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp1/karate.jpg", "desc":"", "label":"Karate", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp1/peche.jpg", "desc":"", "label":"Pêche", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp1/arc.jpg", "desc":"", "label":"Tir a l'arc", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp1/epee.jpg", "desc":"", "label":"Epée", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp1/monstre.jpg", "desc":"", "label":"Monstre", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp1/clown.jpg", "desc":"", "label":"Clown", "chronos":120, "datas":{}},,
+                  {"file":"ressources/jeux/photomime/dp1/danseus.jpg", "desc":"", "label":"Danseuse", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp1/guitare.jpg", "desc":"", "label":"Guitare", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp1/avion.jpg", "desc":"", "label":"Avion", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp1/moto.jpg", "desc":"", "label":"Moto", "chronos":120, "datas":{}}
+                  {"file":"ressources/jeux/photomime/dp1/boxe.jpg", "desc":"", "label":"Boxe", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp1/lapin.jpg", "desc":"", "label":"Lapin", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp1/kangourou.jpg", "desc":"", "label":"Kangourou", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp1/fkute.jpg", "desc":"", "label":"Fkute", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp1/grenouille.jpg", "desc":"", "label":"Grenouille", "chronos":120, "datas":{}}
                 ]
               }
             },
             {
-              "label":"theme 2",
-              "desc":"description du theme 2",
+              "label":"Primaires",
+              "desc":"Mimes pour les 6-10 ans",
               "components":{
                 "galery":[
-                  {"file":"ressources/jeux/photomime/dp2/image0.jpg", "desc":"", "label":"", "chronos":120, "datas":{}}
+                  {"file":"ressources/jeux/photomime/dp2/Banane.jpg", "desc":"", "label":"Banane", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Girafe.jpg", "desc":"", "label":"Girafe", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Helicoptere.jpg", "desc":"", "label":"Helicoptere", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Pompier.jpg", "desc":"", "label":"Pompier", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Policier.jpg", "desc":"", "label":"Policier", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Chapeau.jpg", "desc":"", "label":"Chapeau", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Vaches.jpg", "desc":"", "label":"Vaches", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/aspirateur.jpg", "desc":"", "label":"aspirateur", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Lion.jpg", "desc":"", "label":"Lion", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Velo.jpg", "desc":"", "label":"Velo", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Pingouin.jpg", "desc":"", "label":"Pingouin", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Paillasson.jpg", "desc":"", "label":"Paillasson", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Pyramide.jpg", "desc":"", "label":"Pyramide", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Télécommande.jpg", "desc":"", "label":"Télécommande", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Bowling.jpg", "desc":"", "label":"Bowling", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Parapluie.jpg", "desc":"", "label":"Parapluie", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Glace.jpg", "desc":"", "label":"Glace", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Bouclier.jpg", "desc":"", "label":"Bouclier", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Chanteur.jpg", "desc":"", "label":"Chanteur", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Console.jpg", "desc":"", "label":"Console de jeu", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Sifflet.jpg", "desc":"", "label":"Sifflet", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Violon.jpg", "desc":"", "label":"Violon", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Crayon.jpg", "desc":"", "label":"Crayon", "chronos":120, "datas":{}}
+                ]
+              }
+            },
+            {
+              "label":"Ados",
+              "desc":"Mimes pour les 12-16 ans",
+              "components":{
+                "galery":[
+                  {"file":"ressources/jeux/photomime/dp2/Chevalier.jpg", "desc":"", "label":"Chevalier", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Cadi.jpg", "desc":"", "label":"Cadi", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Tondeuse.jpg", "desc":"", "label":"Tondeuse", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Hamburger.jpg", "desc":"", "label":"Hamburger", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Tronconeuse.jpg", "desc":"", "label":"Tronconeuse", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Lit.jpg", "desc":"", "label":"Lit", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Feu.jpg", "desc":"", "label":"Feu", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Poele.jpg", "desc":"", "label":"Poêle", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Boussole.jpg", "desc":"", "label":"Boussole", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Chameau.jpg", "desc":"", "label":"Chameau", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Crabe.jpg", "desc":"", "label":"Crabe", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Hache.jpg", "desc":"", "label":"Hache", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Bol.jpg", "desc":"", "label":"Bol", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/DJ.jpg", "desc":"", "label":"DJ", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Yoga.jpg", "desc":"", "label":"Yoga", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Achordéon.jpg", "desc":"", "label":"Achordéon", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Escalade.jpg", "desc":"", "label":"Escalade", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Militaire.jpg", "desc":"", "label":"Militaire", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/ournal.jpg", "desc":"", "label":"ournal", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Golf.jpg", "desc":"", "label":"Golf", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Toureiffel.jpg", "desc":"", "label":"Tour eiffel", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Parasol.jpg", "desc":"", "label":"Parasol", "chronos":120, "datas":{}}
+                ]
+              }
+            },
+            {
+              "label":"Adultes",
+              "desc":"Mimes pour les 18+",
+              "components":{
+                "galery":[
+                  {"file":"ressources/jeux/photomime/dp2/Tracteur.jpg", "desc":"", "label":"Tracteur", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Grue.jpg", "desc":"", "label":"Grue", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Lune.jpg", "desc":"", "label":"Lune", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Parachute.jpg", "desc":"", "label":"Parachute", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Rose.jpg", "desc":"", "label":"Rose", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Orage.jpg", "desc":"", "label":"Orage", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Ampoule.jpg", "desc":"", "label":"Ampoule", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Luge.jpg", "desc":"", "label":"Luge", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Toilettes.jpg", "desc":"", "label":"Toilettes", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Rouleaupatisserie.jpg", "desc":"", "label":"Rouleau pâtisserie", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Ventouse.jpg", "desc":"", "label":"Ventouse", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Gyrophare.jpg", "desc":"", "label":"Gyrophare", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Cerfvolant.jpg", "desc":"", "label":"Cerf volant", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Roulettedecasino.jpg", "desc":"", "label":"Roulette de casino", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Pissenlit.jpg", "desc":"", "label":"Pissenlit", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Feudartifice.jpg", "desc":"", "label":"Feu d'artifice", "chronos":120, "datas":{}}
+                ]
+              }
+            },
+            {
+              "label":"Noël",
+              "desc":"Mimes spéciales Noël",
+              "components":{
+                "galery":[
+                  {"file":"ressources/jeux/photomime/dp2/Cheminee.jpg", "desc":"", "label":"Cheminée", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Guirlande.jpg", "desc":"", "label":"Guirlande", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Cloche.jpg", "desc":"", "label":"Cloche", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Traineau.jpg", "desc":"", "label":"Traineau", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Botte.jpg", "desc":"", "label":"Botte", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Lutin.jpg", "desc":"", "label":"Lutin", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Ski.jpg", "desc":"", "label":"Ski", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Chaussette.jpg", "desc":"", "label":"Chaussette", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Sapin.jpg", "desc":"", "label":"Sapin", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Barbe.jpg", "desc":"", "label":"Barbe", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Cadeau.jpg", "desc":"", "label":"Cadeau", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Ange.jpg", "desc":"", "label":"Ange", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Pere-noel.jpg", "desc":"", "label":"Père-noël", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Gant.jpg", "desc":"", "label":"Gant", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Echarpe.jpg", "desc":"", "label":"Écharpe", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Rennes.jpg", "desc":"", "label":"Rennes", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Etoile.jpg", "desc":"", "label":"Etoile", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Bonhommedeneige.jpg", "desc":"", "label":"Bonhomme de neige", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Batailledebouledeneige.jpg", "desc":"", "label":"Bataille de boule de neige", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Avoirfroid.jpg", "desc":"", "label":"Avoir froid", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Igloo.jpg", "desc":"", "label":"Igloo", "chronos":120, "datas":{}}
+                ]
+              }
+            },
+            {
+              "label":"Halloween",
+              "desc":"Mimes spéciales Halloween",
+              "components":{
+                "galery":[
+                  {"file":"ressources/jeux/photomime/dp2/Araignee.jpg", "desc":"", "label":"Araignée", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Sorciere.jpg", "desc":"", "label":"Sorcière", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Cloche.jpg", "desc":"", "label":"Cloche", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Chat.jpg", "desc":"", "label":"Chat", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Loupgarou.jpg", "desc":"", "label":"Loup garou", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Fantome.jpg", "desc":"", "label":"Fantôme", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Vampire.jpg", "desc":"", "label":"Vampire", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Zombie.jpg", "desc":"", "label":"Zombie", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Bougie.jpg", "desc":"", "label":"Bougie", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Squelette.jpg", "desc":"", "label":"Squelette", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Bonbon.jpg", "desc":"", "label":"Bonbon", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Diable.jpg", "desc":"", "label":"Diable", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Citrouille.jpg", "desc":"", "label":"Citrouille", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Chauvesouris.jpg", "desc":"", "label":"Chauve souris", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Cicatrice.jpg", "desc":"", "label":"Cicatrice", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Tombe.jpg", "desc":"", "label":"Tombe", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Cape.jpg", "desc":"", "label":"Cape", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Prisonnier.jpg", "desc":"", "label":"Prisonnier", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Couteau.jpg", "desc":"", "label":"Couteau", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Squellete.jpg", "desc":"", "label":"Squellete", "chronos":120, "datas":{}},
+                  {"file":"ressources/jeux/photomime/dp2/Masque.jpg", "desc":"", "label":"Masque", "chronos":120, "datas":{}}
                 ]
               }
             }
@@ -102,6 +257,8 @@
         {
           "label":"ABC Story",
           "desc":"description de ABC stories",
+          "icon":"ressources/habillage/abcstory.png",
+          "logo":"ressources/habillage/crazyshow.png",
           "datas":{},
           "jingle":{"file":"ressources/video/abc.mp4", "type":"video", "event":null, "params":null},
           "menu":[
@@ -119,6 +276,8 @@
         {
           "label":"Juste Prix",
           "desc":"description du juste prix",
+          "icon":"ressources/habillage/justeprix.png",
+          "logo":"ressources/habillage/crazyshow.png",
           "datas":{},
           "jingle":{"file":"ressources/video/abc.mp4", "type":"video", "event":null, "params":null},
           "menu":[
@@ -127,15 +286,25 @@
               "desc":"série de produits 1, devinez le prix",
               "components":{
                 "galery":[
-                    {"label":"image 0", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image0.png", "chronos":"60"},
-                    {"label":"image 1", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image1.png", "chronos":"60"},
-                    {"label":"image 2", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image2.png", "chronos":"60"},
-                    {"label":"image 3", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image3.png", "chronos":"60"},
-                    {"label":"image 4", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image4.png", "chronos":"60"},
-                    {"label":"image 5", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image5.png", "chronos":"60"},
-                    {"label":"image 6", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image6.png", "chronos":"60"},
-                    {"label":"image 7", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image7.png", "chronos":"60"},
-                    {"label":"image 8", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image8.png", "chronos":"60"}
+                    {"label":"PSP", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image0.png", "chronos":"60"},
+                    {"label":"IPAD", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image1.png", "chronos":"60"},
+                    {"label":"Poney", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image2.png", "chronos":"60"},
+                    {"label":"Over Board", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image3.png", "chronos":"60"},
+                    {"label":"BOA", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image4.png", "chronos":"60"},
+                    {"label":"Ticket de cinéma", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image5.png", "chronos":"60"},
+                    {"label":"Drone", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image6.png", "chronos":"60"},
+                    {"label":"Go pro", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image7.png", "chronos":"60"},
+                    {"label":"Avion", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image8.png", "chronos":"60"},
+                    {"label":"Ballon de foot", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image8.png", "chronos":"60"},
+                    {"label":"Paire de basquette", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image8.png", "chronos":"60"},
+                    {"label":"Iphone", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image8.png", "chronos":"60"},
+                    {"label":"Trombonne (papeterie)", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image8.png", "chronos":"60"},
+                    {"label":"Thermomix", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image8.png", "chronos":"60"},
+                    {"label":"Séance de spa", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image8.png", "chronos":"60"},
+                    {"label":"Boite de conserve ravioli", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image8.png", "chronos":"60"},
+                    {"label":"Appareil à raclette", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image8.png", "chronos":"60"},
+                    {"label":"Yacht", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image8.png", "chronos":"60"},
+                    {"label":"Draisienne", "desc":"", "datas":{"prix":"00,00€"}, "display":true, "display_datas":false, "file":"ressources/jeux/justeprix/serie1/image8.png", "chronos":"60"}
                 ]
               }
             },
@@ -196,6 +365,8 @@
           "label":"AIR BAND",
           "desc":"Créer un groupe de Air Band, le groupe doit immiter le groupe de musique diffusé en arrière plan",
           "datas":{},
+          "icon":"ressources/habillage/airband.png",
+          "logo":"ressources/habillage/crazyshow.png",
           "jingle":{"file":"ressources/video/airband.m4v", "type":"video", "event":null, "params":null},
           "menu":[
             {
@@ -223,6 +394,8 @@
         {
           "label":"LET'S DANCE",
           "desc":"créer des chorégraphies",
+          "icon":"ressources/habillage/letsdance.png",
+          "logo":"ressources/habillage/crazyshow.png",
           "datas":{},
           "jingle":{"file":"ressources/video/letsdance.mp4", "type":"video", "event":null, "params":null},
           "menu":[
@@ -241,6 +414,8 @@
         {
           "label":"FAMILLE EN BRONZE",
           "desc":"Déclinaison 'une famille en or faire des propositions sur des thématiques...",
+          "icon":"ressources/habillage/familleenbronze.png",
+          "logo":"ressources/habillage/crazyshow.png",
           "datas":{},
           "jingle":{"file":"ressources/video/familleenbronze.m4v", "type":"video", "event":null, "params":null},
           "menu":[
@@ -251,26 +426,74 @@
                 "golden_family":[
                     {
                         "label":"En voiture",
-                        "desc":"que dit un enfant en voiture ?",
+                        "desc":"Que répètent souvent les enfants lors d'un voyage ?",
                         "datas":{
                             "chrono":60,
                             "display":"screen",
                             "display_response":"regis",
                             "type":"golden_family"
                         },
-                        "choices":["On est bientôt arrivé ?", "j'ai envie de faire pipi", "j'ai envie de vomir", "J'ai FAIM !"],
+                        "choices":["On est bientôt arrivé ?", "j'ai envie de faire pipi", "Je m'ennuie", "J'ai FAIM !", "Des chants"],
                         "response":"all"
                     },
                     {
-                        "label":"question 2",
-                        "desc":"Description question 2",
+                        "label":"Les Cadeaux",
+                        "desc":"A quelle occasion offre-t-on généralement un cadeau",
                         "datas":{
                             "chrono":60,
                             "display":"screen",
                             "display_response":"regis",
                             "type":"golden_family"
                         },
-                        "choices":["Choix 1", "Choix 2", "Choix 3", "Choix 4"],
+                        "choices":["Aux anniversaires", "Pour Noël", "Lors de la Saint Valentin", "Pour les anniversaires de mariage", "Lors d'un baptême"],
+                        "response":"all"
+                    },
+                    {
+                        "label":"À l'école",
+                        "desc":"Quel objet trouve-t-on dans une classe d'école primaire ?",
+                        "datas":{
+                            "chrono":60,
+                            "display":"screen",
+                            "display_response":"regis",
+                            "type":"golden_family"
+                        },
+                        "choices":["Des trousses", "Des stylos", "Des Gommes", "Des Règles", "Des craies"],
+                        "response":"all"
+                    },
+                    {
+                        "label":"Le p'tit dèj",
+                        "desc":"Quel aliment consomme-t-on le généralement matin ?",
+                        "datas":{
+                            "chrono":60,
+                            "display":"screen",
+                            "display_response":"regis",
+                            "type":"golden_family"
+                        },
+                        "choices":["Des croissants", "Des pains au chocolat", "Du lait", "Des fruits", "Des céréales"],
+                        "response":"all"
+                    },
+                    {
+                        "label":"Au quotidien",
+                        "desc":"Quel mot emploie-t-on tous les jours ?",
+                        "datas":{
+                            "chrono":60,
+                            "display":"screen",
+                            "display_response":"regis",
+                            "type":"golden_family"
+                        },
+                        "choices":["Bonjour", "Salut", "Merci", "Au revoir", "ça va ?"],
+                        "response":"all"
+                    },
+                    {
+                        "label":"Jeux de balle",
+                        "desc":"Quels sports se pratiquent avec un ballon ?",
+                        "datas":{
+                            "chrono":60,
+                            "display":"screen",
+                            "display_response":"regis",
+                            "type":"golden_family"
+                        },
+                        "choices":["Foot", "Basket", "Tennis", "handball", "volley  "],
                         "response":"all"
                     }
                 ]
@@ -305,6 +528,126 @@
                         "choices":["On est bientôt arrivé ?", "j'ai envie de faire pipi", "j'ai envie de vomir", "J'ai FAIM !"],
                         "response":"all"
                     }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "label":"CHABADA",
+          "desc":"chabada description de l'animation",
+          "icon":"ressources/habillage/chabada.png",
+          "logo":"ressources/habillage/crazyshow.png",
+          "datas":{},
+          "jingle":{"file":"ressources/video/letsdance.mp4", "type":"video", "event":null, "params":null},
+          "menu":[
+            {
+              "label":"Clips vidéos",
+              "desc":"des clips vidéos à reconstituer en AIR BAND",
+              "components":{
+                "playlist_video":[
+                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"},
+                    {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "label":"Repli Quiz",
+          "desc":"repliquiz description de l'animation",
+          "icon":"ressources/habillage/repliquiz.png",
+          "logo":"ressources/habillage/crazyshow.png",
+          "datas":{},
+          "jingle":{"file":"ressources/video/letsdance.mp4", "type":"video", "event":null, "params":null},
+          "menu":[
+            {
+              "label":"Clips vidéos",
+              "desc":"des clips vidéos à reconstituer en AIR BAND",
+              "components":{
+                "playlist_video":[
+                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"},
+                    {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "label":"Stop and Go",
+          "desc":"stop and go description de l'animation",
+          "icon":"ressources/habillage/stopandgo.png",
+          "logo":"ressources/habillage/crazyshow.png",
+          "datas":{},
+          "jingle":{"file":"ressources/video/letsdance.mp4", "type":"video", "event":null, "params":null},
+          "menu":[
+            {
+              "label":"Clips vidéos",
+              "desc":"des clips vidéos à reconstituer en AIR BAND",
+              "components":{
+                "playlist_video":[
+                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"},
+                    {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "label":"Chef d'Orchestre",
+          "desc":"Chef d'orchestre description de l'animation",
+          "icon":"ressources/habillage/chefdorchestre.png",
+          "logo":"ressources/habillage/crazyshow.png",
+          "datas":{},
+          "jingle":{"file":"ressources/video/letsdance.mp4", "type":"video", "event":null, "params":null},
+          "menu":[
+            {
+              "label":"Clips vidéos",
+              "desc":"des clips vidéos à reconstituer en AIR BAND",
+              "components":{
+                "playlist_video":[
+                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"},
+                    {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "label":"Blind Test",
+          "desc":"Blind Test description de l'animation",
+          "icon":"ressources/habillage/blindtest.png",
+          "logo":"ressources/habillage/crazyshow.png",
+          "datas":{},
+          "jingle":{"file":"ressources/video/letsdance.mp4", "type":"video", "event":null, "params":null},
+          "menu":[
+            {
+              "label":"Clips vidéos",
+              "desc":"des clips vidéos à reconstituer en AIR BAND",
+              "components":{
+                "playlist_video":[
+                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"},
+                    {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "label":"Tour en Folie",
+          "desc":"Tour en Folie Test description de l'animation",
+          "icon":"ressources/habillage/tourenfolie.png",
+          "logo":"ressources/habillage/crazyshow.png",
+          "datas":{},
+          "jingle":{"file":"ressources/video/letsdance.mp4", "type":"video", "event":null, "params":null},
+          "menu":[
+            {
+              "label":"Clips vidéos",
+              "desc":"des clips vidéos à reconstituer en AIR BAND",
+              "components":{
+                "playlist_video":[
+                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"},
+                    {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
                 ]
               }
             }
