@@ -25,6 +25,8 @@ var receptor = {
         }, this);
     },
     create_component : function(datas){
+        $('.chronos').remove();
+        $('.app_logo, .app_icon').css('display', 'block');
         switch(datas.status){
             case "init_drawing":
                 $('.module').html('');
@@ -39,6 +41,7 @@ var receptor = {
                 this.drawing_point(datas);
                 break;
             case "video":
+              $('.app_logo, .app_icon').css('display', 'none');
                 $('.module').html('');
                 $('.chronos').remove();
                 TweenMax.killAll();

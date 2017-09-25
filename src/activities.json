@@ -40,7 +40,7 @@
         {"label":"faire le pitch", "checked":false},
         {"label":"Jouer la vidéo d'intro", "checked":false}
       ],
-      "introduction":{"video":"", "audio":"", "pix":"ressources/crazy_show_logo.svg"},
+      "introduction":{"video":"ressources/crazyshow/jingles/intro_crazy_show.mp4", "audio":"", "pix":"ressources/crazy_show_logo.svg"},
       "tools":[
         {
           "label":"Émotions",
