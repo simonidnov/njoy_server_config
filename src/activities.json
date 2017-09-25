@@ -40,7 +40,7 @@
         {"label":"faire le pitch", "checked":false},
         {"label":"Jouer la vidéo d'intro", "checked":false}
       ],
-      "introduction":{"video":"ressources/crazyshow/jingles/intro_crazy_show.mp4", "audio":"", "pix":"ressources/crazy_show_logo.svg"},
+      "introduction":{"video":"ressources/crazyshow/jingles/intro_crazy_show.webm", "audio":"", "pix":"ressources/crazy_show_logo.svg"},
       "tools":[
         {
           "label":"Émotions",
@@ -78,7 +78,7 @@
           "icon":"ressources/crazyshow/habillage/photomime.png",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/crazyshow/jingles/photomime.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/photomime.webm", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Maternel",
@@ -279,7 +279,7 @@
           "icon":"ressources/crazyshow/habillage/justeprix.png",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/crazyshow/jingles/justeprix.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/justeprix.webm", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Série 1",
@@ -367,7 +367,7 @@
           "datas":{},
           "icon":"ressources/crazyshow/habillage/airband.png",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
-          "jingle":{"file":"ressources/crazyshow/jingles/airband.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/airband.webm", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Clips vidéos",
@@ -397,14 +397,14 @@
           "icon":"ressources/crazyshow/habillage/letsdance.png",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/crazyshow/jingles/letsdance.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/letsdance.webm", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Clips vidéos",
               "desc":"des clips vidéos à reconstituer en AIR BAND",
               "components":{
                 "playlist_video":[
-                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"},
+                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.webm"},
                     {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
                 ]
               }
@@ -417,7 +417,7 @@
           "icon":"ressources/crazyshow/habillage/familleenbronze.png",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/crazyshow/jingles/familleenbronze.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/familleenbronze.webm", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"4-6 ans",
@@ -539,14 +539,14 @@
           "icon":"ressources/crazyshow/habillage/chabada.png",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/crazyshow/jingles/chabada.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/chabada.webm", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Clips vidéos",
               "desc":"des clips vidéos à reconstituer en AIR BAND",
               "components":{
                 "playlist_video":[
-                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"},
+                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.webm"},
                     {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
                 ]
               }
@@ -559,14 +559,14 @@
           "icon":"ressources/crazyshow/habillage/repliquiz.png",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/crazyshow/jingles/repliquiz.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/repliquiz.webm", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Clips vidéos",
               "desc":"des clips vidéos à reconstituer en AIR BAND",
               "components":{
                 "playlist_video":[
-                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"},
+                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.webm"},
                     {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
                 ]
               }
@@ -579,14 +579,14 @@
           "icon":"ressources/crazyshow/habillage/stopandgo.png",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/crazyshow/jingles/stopandgo.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/stopandgo.webm", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Clips vidéos",
               "desc":"des clips vidéos à reconstituer en AIR BAND",
               "components":{
                 "playlist_video":[
-                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"},
+                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.webm"},
                     {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
                 ]
               }
@@ -599,14 +599,14 @@
           "icon":"ressources/crazyshow/habillage/chefdorchestre.png",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/crazyshow/jingles/chefdorchestre.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/chefdorchestre.webm", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Clips vidéos",
               "desc":"des clips vidéos à reconstituer en AIR BAND",
               "components":{
                 "playlist_video":[
-                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"},
+                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.webm"},
                     {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
                 ]
               }
@@ -619,14 +619,14 @@
           "icon":"ressources/crazyshow/habillage/blindtest.png",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/crazyshow/jingles/blindtest.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/blindtest.webm", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Clips vidéos",
               "desc":"des clips vidéos à reconstituer en AIR BAND",
               "components":{
                 "playlist_video":[
-                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"},
+                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.webm"},
                     {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
                 ]
               }
@@ -639,14 +639,14 @@
           "icon":"ressources/crazyshow/habillage/tourenfolie.png",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/crazyshow/jingles/tourenfolie.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/tourenfolie.webm", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Clips vidéos",
               "desc":"des clips vidéos à reconstituer en AIR BAND",
               "components":{
                 "playlist_video":[
-                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"},
+                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.webm"},
                     {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
                 ]
               }
