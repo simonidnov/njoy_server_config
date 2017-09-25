@@ -32,7 +32,7 @@
     },
     {
       "label":"Crazy Show",
-      "thumb":"ressources/crazy_show_logo.svg",
+      "thumb":"ressources/crazyshow/jingles/intro_crazy_show.mp4",
       "desc":"Application Crazy Show",
       "datas":{},
       "prerecquise":[
@@ -78,7 +78,7 @@
           "icon":"ressources/habillage/photomime.png",
           "logo":"ressources/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/video/Photomime.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/photomime.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Maternel",
@@ -260,7 +260,7 @@
           "icon":"ressources/habillage/abcstory.png",
           "logo":"ressources/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/video/abc.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/abcstory.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Musiques d'ambiance",
@@ -279,7 +279,7 @@
           "icon":"ressources/habillage/justeprix.png",
           "logo":"ressources/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/video/abc.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/justeprix.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Série 1",
@@ -367,7 +367,7 @@
           "datas":{},
           "icon":"ressources/habillage/airband.png",
           "logo":"ressources/habillage/crazyshow.png",
-          "jingle":{"file":"ressources/video/airband.m4v", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/airband.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Clips vidéos",
@@ -397,7 +397,7 @@
           "icon":"ressources/habillage/letsdance.png",
           "logo":"ressources/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/video/letsdance.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/letsdance.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Clips vidéos",
@@ -417,7 +417,7 @@
           "icon":"ressources/habillage/familleenbronze.png",
           "logo":"ressources/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/video/familleenbronze.m4v", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/familleenbronze.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"4-6 ans",
@@ -539,7 +539,7 @@
           "icon":"ressources/habillage/chabada.png",
           "logo":"ressources/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/video/letsdance.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/chabada.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Clips vidéos",
@@ -559,7 +559,7 @@
           "icon":"ressources/habillage/repliquiz.png",
           "logo":"ressources/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/video/letsdance.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/repliquiz.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Clips vidéos",
@@ -579,7 +579,7 @@
           "icon":"ressources/habillage/stopandgo.png",
           "logo":"ressources/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/video/letsdance.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/stopandgo.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Clips vidéos",
@@ -599,7 +599,7 @@
           "icon":"ressources/habillage/chefdorchestre.png",
           "logo":"ressources/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/video/letsdance.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/chefdorchestre.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Clips vidéos",
@@ -619,7 +619,7 @@
           "icon":"ressources/habillage/blindtest.png",
           "logo":"ressources/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/video/letsdance.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/blindtest.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Clips vidéos",
@@ -639,7 +639,7 @@
           "icon":"ressources/habillage/tourenfolie.png",
           "logo":"ressources/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/video/letsdance.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/tourenfolie.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Clips vidéos",
