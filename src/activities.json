@@ -32,7 +32,7 @@
     },
     {
       "label":"Crazy Show",
-      "thumb":"ressources/crazyshow/jingles/intro_crazy_show.mp4",
+      "thumb":"ressources/crazyshow/crazy_show_logo.svg",
       "desc":"Application Crazy Show",
       "datas":{},
       "prerecquise":[
@@ -75,8 +75,8 @@
         {
           "label":"Photomime",
           "desc":"mimer des photos",
-          "icon":"ressources/habillage/photomime.png",
-          "logo":"ressources/habillage/crazyshow.png",
+          "icon":"ressources/crazyshow/habillage/photomime.png",
+          "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
           "jingle":{"file":"ressources/crazyshow/jingles/photomime.mp4", "type":"video", "event":null, "params":null},
           "menu":[
@@ -257,8 +257,8 @@
         {
           "label":"ABC Story",
           "desc":"description de ABC stories",
-          "icon":"ressources/habillage/abcstory.png",
-          "logo":"ressources/habillage/crazyshow.png",
+          "icon":"ressources/crazyshow/habillage/abcstory.png",
+          "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
           "jingle":{"file":"ressources/crazyshow/jingles/abcstory.mp4", "type":"video", "event":null, "params":null},
           "menu":[
@@ -276,8 +276,8 @@
         {
           "label":"Juste Prix",
           "desc":"description du juste prix",
-          "icon":"ressources/habillage/justeprix.png",
-          "logo":"ressources/habillage/crazyshow.png",
+          "icon":"ressources/crazyshow/habillage/justeprix.png",
+          "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
           "jingle":{"file":"ressources/crazyshow/jingles/justeprix.mp4", "type":"video", "event":null, "params":null},
           "menu":[
@@ -365,8 +365,8 @@
           "label":"AIR BAND",
           "desc":"Créer un groupe de Air Band, le groupe doit immiter le groupe de musique diffusé en arrière plan",
           "datas":{},
-          "icon":"ressources/habillage/airband.png",
-          "logo":"ressources/habillage/crazyshow.png",
+          "icon":"ressources/crazyshow/habillage/airband.png",
+          "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "jingle":{"file":"ressources/crazyshow/jingles/airband.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
@@ -394,8 +394,8 @@
         {
           "label":"LET'S DANCE",
           "desc":"créer des chorégraphies",
-          "icon":"ressources/habillage/letsdance.png",
-          "logo":"ressources/habillage/crazyshow.png",
+          "icon":"ressources/crazyshow/habillage/letsdance.png",
+          "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
           "jingle":{"file":"ressources/crazyshow/jingles/letsdance.mp4", "type":"video", "event":null, "params":null},
           "menu":[
@@ -414,8 +414,8 @@
         {
           "label":"FAMILLE EN BRONZE",
           "desc":"Déclinaison 'une famille en or faire des propositions sur des thématiques...",
-          "icon":"ressources/habillage/familleenbronze.png",
-          "logo":"ressources/habillage/crazyshow.png",
+          "icon":"ressources/crazyshow/habillage/familleenbronze.png",
+          "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
           "jingle":{"file":"ressources/crazyshow/jingles/familleenbronze.mp4", "type":"video", "event":null, "params":null},
           "menu":[
@@ -536,8 +536,8 @@
         {
           "label":"CHABADA",
           "desc":"chabada description de l'animation",
-          "icon":"ressources/habillage/chabada.png",
-          "logo":"ressources/habillage/crazyshow.png",
+          "icon":"ressources/crazyshow/habillage/chabada.png",
+          "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
           "jingle":{"file":"ressources/crazyshow/jingles/chabada.mp4", "type":"video", "event":null, "params":null},
           "menu":[
@@ -556,8 +556,8 @@
         {
           "label":"Repli Quiz",
           "desc":"repliquiz description de l'animation",
-          "icon":"ressources/habillage/repliquiz.png",
-          "logo":"ressources/habillage/crazyshow.png",
+          "icon":"ressources/crazyshow/habillage/repliquiz.png",
+          "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
           "jingle":{"file":"ressources/crazyshow/jingles/repliquiz.mp4", "type":"video", "event":null, "params":null},
           "menu":[
@@ -576,8 +576,8 @@
         {
           "label":"Stop and Go",
           "desc":"stop and go description de l'animation",
-          "icon":"ressources/habillage/stopandgo.png",
-          "logo":"ressources/habillage/crazyshow.png",
+          "icon":"ressources/crazyshow/habillage/stopandgo.png",
+          "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
           "jingle":{"file":"ressources/crazyshow/jingles/stopandgo.mp4", "type":"video", "event":null, "params":null},
           "menu":[
@@ -596,8 +596,8 @@
         {
           "label":"Chef d'Orchestre",
           "desc":"Chef d'orchestre description de l'animation",
-          "icon":"ressources/habillage/chefdorchestre.png",
-          "logo":"ressources/habillage/crazyshow.png",
+          "icon":"ressources/crazyshow/habillage/chefdorchestre.png",
+          "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
           "jingle":{"file":"ressources/crazyshow/jingles/chefdorchestre.mp4", "type":"video", "event":null, "params":null},
           "menu":[
@@ -616,8 +616,8 @@
         {
           "label":"Blind Test",
           "desc":"Blind Test description de l'animation",
-          "icon":"ressources/habillage/blindtest.png",
-          "logo":"ressources/habillage/crazyshow.png",
+          "icon":"ressources/crazyshow/habillage/blindtest.png",
+          "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
           "jingle":{"file":"ressources/crazyshow/jingles/blindtest.mp4", "type":"video", "event":null, "params":null},
           "menu":[
@@ -636,8 +636,8 @@
         {
           "label":"Tour en Folie",
           "desc":"Tour en Folie Test description de l'animation",
-          "icon":"ressources/habillage/tourenfolie.png",
-          "logo":"ressources/habillage/crazyshow.png",
+          "icon":"ressources/crazyshow/habillage/tourenfolie.png",
+          "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
           "jingle":{"file":"ressources/crazyshow/jingles/tourenfolie.mp4", "type":"video", "event":null, "params":null},
           "menu":[
