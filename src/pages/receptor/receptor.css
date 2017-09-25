@@ -256,3 +256,29 @@ header{
     z-index: 999;
     transform: transale3d(0,0,0);
 }
+
+
+
+.app_logo{
+    background-size: cover;
+    background-position:top center;
+    position: absolute;
+    z-index: 999;
+    left:0;
+    right:0;
+    top:0;
+    margin:auto;
+    width:600px;
+    height:200px;
+}
+.app_icon{
+    background-size: cover;
+    background-position:top center;
+    position: absolute;
+    z-index: 999;
+    right:0;
+    top:0;
+    margin:auto;
+    width:300px;
+    height:200px;
+}
