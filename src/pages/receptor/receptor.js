@@ -10,6 +10,7 @@ var receptor = {
         app.init(function(){});
         /* on receive node_log print */
         app.socket_callback = $.proxy(function(e){
+            console.log(e);
             if(typeof e.datas !== "undefined"){
                 this.create_component(e.datas);
             }
