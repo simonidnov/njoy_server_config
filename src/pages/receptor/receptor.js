@@ -30,7 +30,7 @@ var receptor = {
           console.log('herre ::::::::::::: ', localStorage.getItem('video'));
           var vid = JSON.parse(localStorage.getItem('video'));
           localStorage.setItem('video', '');
-          console.log('herre ::::::::::::: video deleted ::::: ', localStorage.getItem('video'));
+          console.log('herre ::::::::::::: video deleted ::::: ', localStorage.getItem('video'), " ::: vid ::: ", vid);
           this.create_component(vid);
         }
     },
