@@ -87,7 +87,6 @@
                 "galery":[
                   {"file":"ressources/crazyshow/Photomime/robots.jpg", "desc":"", "label":"Robot", "chronos":120, "datas":{}},
                   {"file":"ressources/crazyshow/Photomime/smarthphone.jpg", "desc":"", "label":"Téléphone", "chronos":120, "datas":{}},
-                  {"file":"ressources/crazyshow/Photomime/singe.jpg", "desc":"", "label":"Singe", "chronos":120, "datas":{}},
                   {"file":"ressources/crazyshow/Photomime/chien.jpg", "desc":"", "label":"Chien", "chronos":120, "datas":{}},
                   {"file":"ressources/crazyshow/Photomime/voiture.jpg", "desc":"", "label":"Voiture", "chronos":120, "datas":{}},
                   {"file":"ressources/crazyshow/Photomime/ballon.jpg", "desc":"", "label":"Ballon", "chronos":120, "datas":{}},
@@ -114,7 +113,7 @@
               "desc":"Mimes pour les 6-10 ans",
               "components":{
                 "galery":[
-                  {"file":"ressources/crazyshow/Photomime/Banane.jpg", "desc":"", "label":"Banane", "chronos":120, "datas":{}},
+                  {"file":"ressources/crazyshow/Photomime/banane.jpg", "desc":"", "label":"Banane", "chronos":120, "datas":{}},
                   {"file":"ressources/crazyshow/Photomime/Girafe.jpg", "desc":"", "label":"Girafe", "chronos":120, "datas":{}},
                   {"file":"ressources/crazyshow/Photomime/Helicoptere.jpg", "desc":"", "label":"Helicoptere", "chronos":120, "datas":{}},
                   {"file":"ressources/crazyshow/Photomime/Pompier.jpg", "desc":"", "label":"Pompier", "chronos":120, "datas":{}},
@@ -420,7 +419,7 @@
           "jingle":{"file":"ressources/crazyshow/jingles/familleenbronze.webm", "type":"video", "event":null, "params":null},
           "menu":[
             {
-              "label":"4-6 ans",
+              "label":"6-10 ans",
               "desc":"Des questions pour les plus jeunes de 4 à 6 ans",
               "components":{
                 "golden_family":[
@@ -438,7 +437,7 @@
                     },
                     {
                         "label":"Les Cadeaux",
-                        "desc":"A quelle occasion offre-t-on généralement un cadeau",
+                        "desc":"A quelle occasion offre-t-on généralement un cadeau ?",
                         "datas":{
                             "chrono":60,
                             "display":"screen",
@@ -457,7 +456,7 @@
                             "display_response":"regis",
                             "type":"golden_family"
                         },
-                        "choices":["Des trousses", "Des stylos", "Des Gommes", "Des Règles", "Des craies"],
+                        "choices":["Tableau", "Horloge", "Carte de France", "Cahier", "Cartable"],
                         "response":"all"
                     },
                     {
@@ -500,7 +499,7 @@
               }
             },
             {
-              "label":"6-8 ans",
+              "label":"10-12 ans",
               "desc":"Des questions pour les 6 à 8 ans",
               "components":{
                 "quiz_component":[

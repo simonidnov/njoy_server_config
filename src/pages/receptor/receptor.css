@@ -2,6 +2,9 @@ html{overflow:hidden;}
 header{
     display:none;
 }
+main.app{
+  padding-bottom: 0 !important;
+}
 .app{
     top:0 !important;
 }
