@@ -28,7 +28,9 @@ var receptor = {
 
         if( localStorage.getItem('video') !== null || localStorage.getItem('video') !== ""){
           var vid = JSON.parse(localStorage.getItem('video'));
+
           localStorage.setItem('video', '');
+
           this.create_component(vid);
         }
     },
@@ -59,7 +61,6 @@ var receptor = {
             case "video":
                 if( localStorage.getItem('video') == null || localStorage.getItem('video') == ""){
                   console.log(localStorage.getItem('video'));
-                  alert('has vodeo');
                   localStorage.setItem('video', JSON.stringify(datas));
                   window.location.reload();
                 }else{
