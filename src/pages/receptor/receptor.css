@@ -115,7 +115,7 @@ main.app{
     top: 0;
     left: 0;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
 /* ----------------- golden_family ------------------- */
 .receptor .golden_family{
