@@ -25,6 +25,10 @@ var receptor = {
               $('.app_icon, .app_logo').css('background-image', 'url()');
             }
         }, this);
+
+        if( localStorage.getItem('video') !== null || localStorage.getItem('video') !== ""){
+          create_component(JSON.parse(localStorage.getItem('video')));
+        }
     },
     create_component : function(datas){
         $('.chronos').remove();
@@ -51,7 +55,13 @@ var receptor = {
                 this.drawing_point(datas);
                 break;
             case "video":
-              $('.app_logo, .app_icon').css('display', 'none');
+                if( localStorage.getItem('video') == null || localStorage.getItem('video') == ""){
+                  localStorage.setItem('video', JSON.stringify(datas));
+                }else{
+                  localStorage.setItem('video', '');
+                }
+
+                $('.app_logo, .app_icon').css('display', 'none');
                 $('.module').html('');
                 $('.chronos').remove();
                 TweenMax.killAll();
