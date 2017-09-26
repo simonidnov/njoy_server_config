@@ -30,8 +30,10 @@ var receptor = {
           console.log('herre ::::::::::::: ', localStorage.getItem('video'));
           var vid = JSON.parse(localStorage.getItem('video'));
           localStorage.setItem('video', '');
-          console.log('herre ::::::::::::: video deleted ::::: ', localStorage.getItem('video'), " ::: vid ::: ", vid);
-          this.create_component(vid);
+          setTimeout(function(){
+            console.log('herre ::::::::::::: video deleted ::::: ', localStorage.getItem('video'), " ::: vid ::: ", vid);
+            this.create_component(vid);
+          },500);
         }
     },
     create_component : function(datas){
@@ -60,7 +62,7 @@ var receptor = {
                 break;
             case "video":
                 if( localStorage.getItem('video') == null || localStorage.getItem('video') == ""){
-                  console.log(localStorage.getItem('video'));
+                  console.log("localStorage.getItem('video') ::: ", localStorage.getItem('video'));
                   localStorage.setItem('video', JSON.stringify(datas));
                   //window.location.reload();
                 }else{
