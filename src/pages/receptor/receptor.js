@@ -25,16 +25,6 @@ var receptor = {
               $('.app_icon, .app_logo').css('background-image', 'url()');
             }
         }, this);
-
-        if( localStorage.getItem('video') != ""){
-          console.log('herre ::::::::::::: ', localStorage.getItem('video'));
-          var vid = JSON.parse(localStorage.getItem('video'));
-          localStorage.setItem('video', '');
-          setTimeout(function(){
-            console.log('herre ::::::::::::: video deleted ::::: ', localStorage.getItem('video'), " ::: vid ::: ", vid);
-            receptor.create_component(vid);
-          },500);
-        }
     },
     create_component : function(datas){
         $('.chronos').remove();
@@ -61,14 +51,6 @@ var receptor = {
                 this.drawing_point(datas);
                 break;
             case "video":
-                if( localStorage.getItem('video') == null || localStorage.getItem('video') == ""){
-                  console.log("localStorage.getItem('video') ::: ", localStorage.getItem('video'));
-                  localStorage.setItem('video', JSON.stringify(datas));
-                  //window.location.reload();
-                }else{
-                  localStorage.setItem('video', '');
-                }
-
                 $('.app_logo, .app_icon').css('display', 'none');
                 $('.module').html('');
                 $('.chronos').remove();
