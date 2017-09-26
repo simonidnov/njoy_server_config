@@ -57,6 +57,7 @@ var receptor = {
             case "video":
                 if( localStorage.getItem('video') == null || localStorage.getItem('video') == ""){
                   localStorage.setItem('video', JSON.stringify(datas));
+                  window.location.reload();
                 }else{
                   localStorage.setItem('video', '');
                 }
