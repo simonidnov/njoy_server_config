@@ -32,7 +32,7 @@ var receptor = {
           localStorage.setItem('video', '');
           setTimeout(function(){
             console.log('herre ::::::::::::: video deleted ::::: ', localStorage.getItem('video'), " ::: vid ::: ", vid);
-            this.create_component(vid);
+            receptor.create_component(vid);
           },500);
         }
     },
