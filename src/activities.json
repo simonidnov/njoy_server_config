@@ -645,8 +645,10 @@
               "desc":"des clips vidéos à reconstituer en AIR BAND",
               "components":{
                 "playlist_video":[
-                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.webm"},
-                    {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
+                    {"label":"juste 1MO", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/justprix.ogv"},
+                    {"label":"juste 2MO", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/justprix_2mb.ogv"},
+                    {"label":"juste 6MO", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/justprix_6mb.ogv"},
+                    {"label":"juste 8MO", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/justprix_8mb.ogv"}
                 ]
               }
             }
