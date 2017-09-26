@@ -48,26 +48,26 @@ main.app{
     bottom:0;
 }
 .chronos.top{
-    height:100px;
+    height:50px;
     top:0;
 }
 .chronos .counter{
-    color:#FFFFFF;
-    font-weight: bold;
-    position: absolute;
-    left:0;
-    bottom:0;
-    right:0;
-    margin:auto;
-    font-size: 20px;
-    padding:20px;
-    z-index: 9;
-    background-color:#000;
-    border-radius: 100%;
-    display: table;
-    width:100px;
-    height:100px;
-    text-align: center;
+  color: #FFFFFF;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  font-size: 40px;
+  z-index: 9;
+  background-color: #000;
+  border-radius: 100%;
+  display: table;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  line-height: 77px;
 }
 .chronos.fullscreen .counter{
     font-size: 200px;
