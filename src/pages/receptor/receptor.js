@@ -27,7 +27,7 @@ var receptor = {
         }, this);
 
         if( localStorage.getItem('video') !== null || localStorage.getItem('video') !== ""){
-          create_component(JSON.parse(localStorage.getItem('video')));
+          this.create_component(JSON.parse(localStorage.getItem('video')));
         }
     },
     create_component : function(datas){
