@@ -159,6 +159,7 @@ var receptor = {
     },
     success : function(){
         TweenMax.killAll();
+        $('#error_motion').remove();
         $('#success_motion').remove();
         $('.receptor').css({'background-color': '#3B0092', 'background-image':'url()'});
         $('.receptor .module').css({'position':'absolute', 'width':window.innerWidth+'px', 'height':window.innerWidth+'px', 'transform-origin':'50% 50%', 'overflow':'hidden', "top":0, "left":0, "right":0, "bottom":0, "margin":"auto"});
@@ -196,7 +197,7 @@ var receptor = {
             "ease":Elastic.easeOut,
             "delay":.8,
             onComplete:function(){
-              TweenMax.to($(".success_text"), .8, {
+              /*TweenMax.to($(".success_text"), .8, {
                   "scaleX":0,
                   "scaleY":0,
                   delay:.8,
@@ -221,13 +222,14 @@ var receptor = {
                   ease:Power4.easeIn,
                   delay:(.03*index)
                 });
-              });
+              });*/
             }
         });
     },
     fail : function(){
         TweenMax.killAll();
         $('#error_motion').remove();
+        $('#success_motion').remove();
         $('.receptor').css({'background-color': '#FF6633', 'background-image':'url()'});
         $('.receptor .module').css({'position':'absolute', 'width':window.innerWidth+'px', 'height':window.innerWidth+'px', 'transform-origin':'50% 50%', 'overflow':'hidden', "top":0, "left":0, "right":0, "bottom":0, "margin":"auto"});
         TweenMax.to($('.receptor .module'), .5, {css:{'border-radius':"100%", "width":"0px", "height":"0px"}});
