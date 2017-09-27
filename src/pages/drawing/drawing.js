@@ -5,22 +5,26 @@
 var drawing = {
   drawing_tool : null,
   init:function(){
+    app.init(function(){});
     //app.socket_callback = function(e){
     //  console.log("get activities : ", e);
     //}
     //app.socket.emit("njoy", {"status":"activities"});
     //ui.navigate('/drawing');
-    this.drawing_tool = new drawer("drawer").init();
-    app.socket_callback = $.proxy(function(e){
-        console.log(e);
-    }, this);
+    setTimeout(function(){
+      drawing.drawing_tool = new drawer("drawer").init();
+      app.socket_callback = $.proxy(function(e){
+          console.log(e);
+      }, this);
 
-    app.socket.emit("njoy", {
-      "status":"init_drawing",
-      "color":createjs.Graphics.getRGB(0,0,0),
-      "width":window.innerWidth,
-      "height":window.innerHeight
-    });
+      app.socket.emit("njoy", {
+        "status":"init_drawing",
+        "color":createjs.Graphics.getRGB(0,0,0),
+        "width":window.innerWidth,
+        "height":window.innerHeight
+      });
+    },500);
+
   },
   destroy : function(){
   }
