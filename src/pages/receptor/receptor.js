@@ -351,7 +351,6 @@ var receptor = {
         console.log('init_drawing');
 
         $('.module').append('<canvas id="drawing" width="'+datas.width+'" height="'+datas.height+'" style="width:'+datas.width+'px; height:'+datas.height+'px;"></canvas>');
-        //this.drawing_tool = new drawer("drawing", datas.width, datas.height);
         this.canvas = document.getElementById("drawing");
         // TODO REMOVE TEST SIZE
         /*this.canvas.width = datas.width;
@@ -372,8 +371,7 @@ var receptor = {
         });
 
         this.stage = new createjs.Stage("drawing");
-        this.stage.autoClear = true;
-        this.stage.update();
+        //this.stage.autoClear = true;
 
         this.currentShape = [];
         var s = new createjs.Shape();
@@ -423,46 +421,7 @@ var receptor = {
       this.oldMidX = midPoint.x;
       this.oldMidY = midPoint.y;
       this.stage.update();
-      /*
-      app.socket.emit("njoy", {
-        "status":"drawing",
-        "strokestyle":{
-          "size":this.pencil.size,
-          "styleH":this.pencil.styleH,
-          "styleW":this.pencil.styleW,
-        },
-        "type":"moveTo",
-        "curve":{
-          "oldX":this.oldX,
-          "oldY":this.oldY,
-          "oldMidX":this.oldMidX,
-          "oldMidY":this.oldMidY
-        }
-      });
-      */
 
-      /*
-      if(typeof this.oldX === "undefined"){
-        this.oldX = datas.x;
-        this.oldY = datas.y;
-      }
-      this.currentShape[this.currentShape.length-1].graphics.setStrokeStyle(datas.strokestyle.size, datas.strokestyle.stylingW, datas.strokestyle.stylingH);
-      //this.currentShape[this.currentShape.length-1].graphics.moveTo(this.oldX, this.oldY);
-      this.currentShape[this.currentShape.length-1].graphics.moveTo(datas.x, datas.y);
-      this.currentShape[this.currentShape.length-1].graphics.curveTo(datas.curve.oldX, datas.curve.oldY, datas.curve.oldMidX, datas.curve.oldMidY);
-      this.oldX = datas.x;
-      this.oldY = datas.y;
-      */
-
-
-      //this.stage.update();
-      /*this.stage.clear();
-      if(typeof datas.shape !== "undefined"){
-        for(var i=0; i<datas.shape.length; i++){
-          this.stage.append(datas.shape[i]);
-        }
-      }*/
-      //this.stage.update();
     },
     destroy : function(){
         console.log('destroy receptor');

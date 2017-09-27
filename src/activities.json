@@ -290,8 +290,8 @@
               "desc":"des clips vidéos à reconstituer en AIR BAND",
               "components":{
                 "playlist_video":[
-                    {"label":"AIRBAND", "desc":"", "datas":{}, "file":"ressources/jeux/airband/airband.m4v"},
-                    {"label":"AIRBAND 2", "desc":"", "datas":{}, "file":"ressources/jeux/airband/airband2.m4v"}
+                    {"label":"AIRBAND", "desc":"", "datas":{}, "file":"ressources/crazyshow/airband/airband.m4v"},
+                    {"label":"AIRBAND 2", "desc":"", "datas":{}, "file":"ressources/crazyshow/airband/airband2.m4v"}
                 ]
               }
             },
@@ -300,8 +300,8 @@
               "desc":"Reconstituer avec juste une musique",
               "components":{
                 "playlist_audio":[
-                    {"label":"AUDIO 1", "desc":"", "datas":{}, "file":"ressources/jeux/airband/air_band_1.mp3"},
-                    {"label":"AUDIO 2", "desc":"", "datas":{}, "file":"ressources/jeux/airband/air_band_2.mp3"}
+                    {"label":"AUDIO 1", "desc":"", "datas":{}, "file":"ressources/crazyshow/airband/air_band_1.mp3"},
+                    {"label":"AUDIO 2", "desc":"", "datas":{}, "file":"ressources/crazyshow/airband/air_band_2.mp3"}
                 ]
               }
             }
@@ -317,11 +317,21 @@
           "menu":[
             {
               "label":"Clips vidéos",
-              "desc":"des clips vidéos à reconstituer en AIR BAND",
+              "desc":"des clips vidéos LETS DANCE",
               "components":{
                 "playlist_video":[
-                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"},
-                    {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.mp4"}
+                    {"label":"SPECIAL VIDEO", "desc":"", "datas":{}, "file":"ressources/crazyshow/letsdance/special_video.mp4"}
+                ]
+              }
+            },
+            {
+              "label":"Playlist audio",
+              "desc":"des sons LETS DANCE",
+              "components":{
+                "playlist_audio":[
+                    {"label":"Halloween", "desc":"", "datas":{}, "file":"ressources/crazyshow/letsdance/lets_hallo.mp3"},
+                    {"label":"Noel", "desc":"", "datas":{}, "file":"ressources/crazyshow/letsdance/lets_noel.mp3"},
+                    {"label":"Normal", "desc":"", "datas":{}, "file":"ressources/crazyshow/letsdance/lets_normal.mp3"}
                 ]
               }
             }
@@ -538,8 +548,8 @@
           "jingle":{"file":"ressources/crazyshow/jingles/blindtest.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
-              "label":"Clips vidéos",
-              "desc":"des clips vidéos à reconstituer en AIR BAND",
+              "label":"SERIE 1",
+              "desc":"les mp3 de la serie 1",
               "components":{
                 "playlist_audio":[
                     {"label":"01", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie1/01.mp3"},
@@ -551,6 +561,40 @@
                     {"label":"07", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie1/07.mp3"},
                     {"label":"08", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie1/08.mp3"},
                     {"label":"09", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie1/09.mp3"}
+                ]
+              }
+            },
+            {
+              "label":"SERIE 2",
+              "desc":"les mp3 de la serie 2",
+              "components":{
+                "playlist_audio":[
+                    {"label":"01", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie2/01.mp3"},
+                    {"label":"02", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie2/02.mp3"},
+                    {"label":"03", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie2/03.mp3"},
+                    {"label":"04", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie2/04.mp3"},
+                    {"label":"05", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie2/05.mp3"},
+                    {"label":"06", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie2/06.mp3"},
+                    {"label":"07", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie2/07.mp3"},
+                    {"label":"08", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie2/08.mp3"},
+                    {"label":"09", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie2/09.mp3"}
+                ]
+              }
+            },
+            {
+              "label":"SERIE 3",
+              "desc":"les mp3 de la serie 3",
+              "components":{
+                "playlist_audio":[
+                    {"label":"01", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie3/01.mp3"},
+                    {"label":"02", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie3/02.mp3"},
+                    {"label":"03", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie3/03.mp3"},
+                    {"label":"04", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie3/04.mp3"},
+                    {"label":"05", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie3/05.mp3"},
+                    {"label":"06", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie3/06.mp3"},
+                    {"label":"07", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie3/07.mp3"},
+                    {"label":"08", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie3/08.mp3"},
+                    {"label":"09", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie3/09.mp3"}
                 ]
               }
             }
@@ -569,10 +613,9 @@
               "desc":"des clips vidéos à reconstituer en AIR BAND",
               "components":{
                 "playlist_video":[
-                    {"label":"juste 1MO", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/justprix.ogv"},
-                    {"label":"juste 2MO", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/justprix_2mb.ogv"},
-                    {"label":"juste 6MO", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/justprix_6mb.ogv"},
-                    {"label":"juste 8MO", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/justprix_8mb.ogv"}
+                    {"label":"Exemple", "desc":"", "datas":{}, "file":"ressources/crazyshow/tourenfolie/exemple.mp4"},
+                    {"label":"chronos 20", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/chronos_20.mp4"},
+                    {"label":"chronos 60", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/chronos_60.mp4"}
                 ]
               }
             }
