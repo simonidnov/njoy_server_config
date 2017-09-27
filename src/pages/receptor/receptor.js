@@ -163,7 +163,7 @@ var receptor = {
         var success_temp = _.template($('#success_template').html());
         $('.app').append(success_temp({}));
         $.each($('.confetti'), function(index, conf){
-          TweenMax.to($(this), .8, {
+          TweenMax.to($(this), 1.8, {
             "css":{
               "top":Math.round((-window.innerHeight)+Math.random()*(window.innerHeight*2))+'px',
               "left":Math.round((-window.innerWidth)+Math.random()*(window.innerWidth*2))+'px'
@@ -194,8 +194,7 @@ var receptor = {
               $.each($('.confetti'), function(index, conf){
                 TweenMax.to($(this), .8, {
                   "css":{
-                    "top":(window.innerHeight+200)+'px',
-                    "left":(window.innerHeight+200)+'px'
+                    "top":(window.innerHeight+200)+'px'
                   },
                   ease:Power4.easeIn,
                   delay:.5
