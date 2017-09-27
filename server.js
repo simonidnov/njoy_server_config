@@ -38,11 +38,9 @@ io.on('connection', function(socket){
         datas = addParams(datas);
         var stat = {},
             call = "njoy";
-        console.log("datas :::::: ", JSON.stringify(datas));
         switch(datas.status){
             case 'reboot':
-              console.log('reboot');
-              cp.exec("/home/pi/startchromium.sh", function(error, stdout, stderr) {
+              cp.exec("/home/pi/startnode.sh", function(error, stdout, stderr) {
                 console.log("stdout: " + stdout);
                 console.log("stderr: " + stderr);
                 if (error !== null) {
