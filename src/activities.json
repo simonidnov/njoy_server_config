@@ -699,19 +699,19 @@
           "icon":"ressources/archodino/habillage/archodino.png",
           "logo":"ressources/archodino/habillage/archodino.png",
           "datas":{},
-          "jingle":{"file":"ressources/savant_fou/video1.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/savant_fou/video1.mov", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Liste des médias vidéo",
               "desc":"Lancer les vidéos dans l'ordre",
               "components":{
                 "playlist_video":[
-                    {"label":"Discours", "desc":"", "datas":{}, "file":"ressources/savant_fou/discours.mp4"},
-                    {"label":"Mobilisation", "desc":"", "datas":{}, "file":"ressources/savant_fou/mobilisation.mp4"},
-                    {"label":"Folie 1", "desc":"", "datas":{}, "file":"ressources/savant_fou/folie1.mp4"},
-                    {"label":"Folie 2", "desc":"", "datas":{}, "file":"ressources/savant_fou/folie2.mp4"},
-                    {"label":"Folie 3", "desc":"", "datas":{}, "file":"ressources/savant_fou/folie3.mp4"},
-                    {"label":"Clôture", "desc":"", "datas":{}, "file":"ressources/savant_fou/cloture.mp4"}
+                    {"label":"Discours", "desc":"", "datas":{}, "file":"ressources/savant_fou/discours.mov"},
+                    {"label":"Mobilisation", "desc":"", "datas":{}, "file":"ressources/savant_fou/mobilisation.mov"},
+                    {"label":"Folie 1", "desc":"", "datas":{}, "file":"ressources/savant_fou/folie1.mov"},
+                    {"label":"Folie 2", "desc":"", "datas":{}, "file":"ressources/savant_fou/folie2.mov"},
+                    {"label":"Folie 3", "desc":"", "datas":{}, "file":"ressources/savant_fou/folie3.mov"},
+                    {"label":"Clôture", "desc":"", "datas":{}, "file":"ressources/savant_fou/cloture.mov"}
                 ]
               }
             }
