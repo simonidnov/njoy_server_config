@@ -57,7 +57,7 @@ var receptor = {
                 $('.chronos').remove();
                 TweenMax.killAll();
 
-                console.log('video ', (window.location.origin+'/'+(datas.file.replace('.mp4', '.svg')));
+                console.log('video ', (window.location.origin+'/'+(datas.file.replace('.mp4', '.svg'))));
                 /*$('.module').append('<div class="video_display"><video src="'+window.location.origin+'/'+datas.file+'" autoplay width="'+window.innerWidth+'px" height="'+window.innerHeight+'px"></video></div>');*/
                 $(".receptor").css("background-image", "url("+(window.location.origin+'/'+(datas.file.replace('.mp4', '.svg')))+")");
                 break;
