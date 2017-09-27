@@ -27,6 +27,7 @@ var receptor = {
         }, this);
     },
     create_component : function(datas){
+    $('.receptor .module').css({'transform-origin':'50% 50%', 'overflow':'hidden', "width":window.innerWidth+"px", "height":window.innerHeight+"px"});
         $('.chronos').remove();
         if($('video').length > 0){
           $(".module").children().filter("video").each(function(){
