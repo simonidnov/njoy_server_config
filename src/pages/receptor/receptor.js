@@ -27,7 +27,7 @@ var receptor = {
         }, this);
     },
     create_component : function(datas){
-    $('.receptor .module').css({'transform-origin':'50% 50%', 'overflow':'hidden', "width":window.innerWidth+"px", "height":window.innerHeight+"px", "border-radius":"0"});
+      $('.receptor .module').css({'transform-origin':'50% 50%', 'overflow':'hidden', "width":window.innerWidth+"px", "height":window.innerHeight+"px", "border-radius":"0", "position":"relative"});
         $('.chronos').remove();
         if($('video').length > 0){
           $(".module").children().filter("video").each(function(){
@@ -163,7 +163,7 @@ var receptor = {
             delete this.conf;
         }*/
         $('.app').css('background-color', 'rgb(120, 169, 85)');
-        $('.receptor .module').css({'transform-origin':'50% 50%', 'overflow':'hidden', "top":0, "left":0, "right":0, "bottom":0, "margin":"auto"});
+        $('.receptor .module').css({'position':'absolute', 'transform-origin':'50% 50%', 'overflow':'hidden', "top":0, "left":0, "right":0, "bottom":0, "margin":"auto"});
         TweenMax.to($('.receptor .module'), .5, {css:{'border-radius':"100%", "width":"0px", "height":"0px"}});
         /* TODO TEST MOTION LIKE CONFETTIS */
         //this.conf = new confettis();
