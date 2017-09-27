@@ -167,7 +167,8 @@ var receptor = {
             "css":{
               "top":Math.round((-window.innerHeight)+Math.random()*(window.innerHeight*2))+'px',
               "left":Math.round((-window.innerWidth)+Math.random()*(window.innerWidth*2))+'px',
-              "rotation":Math.random()*360
+              "rotation":Math.random()*360,
+              "scaleX":(Math.radom()*1 + .5)
             },
             ease:Power4.easeOut,
             delay:.5
