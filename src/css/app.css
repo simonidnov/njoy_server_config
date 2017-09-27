@@ -1,3 +1,7 @@
+@font-face {
+    font-family:"franchise";
+    src: url("fonts/franchise/franchise.ttf") /* TTF file for CSS3 browsers */
+}
 html, body, iframe {
     margin: 0;
     padding: 0;
@@ -5,7 +9,7 @@ html, body, iframe {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    font-family: helvetica;
+    font-family: 'franchise', helvetica;
 }
 header{
   width:100%;
@@ -123,5 +127,3 @@ main.app p{
   margin-top:20px;
   margin-bottom:20px;
 }
-
-

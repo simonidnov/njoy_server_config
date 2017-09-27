@@ -160,6 +160,8 @@ var receptor = {
         if(typeof this.conf !== "undefined"){
             delete this.conf;
         }
+        var conf_temp = _.template($('#confettis_template').html());
+
         /* TODO TEST MOTION LIKE CONFETTIS */
         //this.conf = new confettis();
         //this.conf.initConfettis('motion_canvas');
