@@ -154,12 +154,13 @@ var receptor = {
         }});
     },
     success : function(){
-        if($('.motion_canvas').length == 0){
+        console.log('success');
+        /*if($('.motion_canvas').length == 0){
           $('.module').append('<iframe class="motion_canvas" id="motion_canvas" style="width:1920px; height:1080px; border:none; padding:0; margin:0;" src="/ressources/animations/success.html"></iframe');
         }
         if(typeof this.conf !== "undefined"){
             delete this.conf;
-        }
+        }*/
         var conf_temp = _.template($('#confettis_template').html());
         $('.module').append(conf_temp({}));
         /* TODO TEST MOTION LIKE CONFETTIS */
