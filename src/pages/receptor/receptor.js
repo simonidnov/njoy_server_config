@@ -90,6 +90,9 @@ var receptor = {
                 this.success(datas);
                 console.log('this is success');
                 break;
+            case "display_text":
+                this.display_text("DISPLAY TEXT");
+                console.log('display_text');
             case "fail":
                 this.fail(datas);
                 console.log('this is fail');
@@ -161,7 +164,7 @@ var receptor = {
         $('.receptor .module').css({'position':'absolute', 'width':window.innerWidth+'px', 'height':window.innerWidth+'px', 'transform-origin':'50% 50%', 'overflow':'hidden', "top":0, "left":0, "right":0, "bottom":0, "margin":"auto"});
         TweenMax.to($('.receptor .module'), .5, {css:{'border-radius':"100%", "width":"0px", "height":"0px"}});
         var success_temp = _.template($('#success_template').html());
-        $('.receptor').append(success_temp({}));
+        $('.receptor').append(success_temp({"label":"BRAVO!"}));
         $.each($('.confetti'), function(index, conf){
           var scale = Math.random()*1 + .5;
           TweenMax.to($(this), 2.8, {
@@ -180,6 +183,13 @@ var receptor = {
             "scaleX":0,
             "scaleY":0
         });
+
+        if(typeof this.audio !== "undefined"){
+          this.audio.pause();
+        }
+        this.audio = new Audio("ressources/audio/applau.mp3");
+        this.audio.play();
+
         TweenMax.to($(".success_text"), .5, {
             "scaleX":1,
             "scaleY":1,
@@ -234,6 +244,13 @@ var receptor = {
             "ease":Elastic.easeOut,
             "delay":.8,
             onComplete:function(){
+
+              if(typeof this.audio !== "undefined"){
+                this.audio.pause();
+              }
+              this.audio = new Audio("ressources/audio/faux.mp3");
+              this.audio.play();
+
               TweenMax.to($(".success_text"), .8, {
                   "scaleX":0,
                   "scaleY":0,
@@ -253,6 +270,67 @@ var receptor = {
             }
         });
         //alert('fail');
+    },
+    display_text : function(label){
+      TweenMax.killAll();
+      $('#success_motion').remove();
+      $('.receptor').css({'background-color': '#3B0092', 'background-image':'url()'});
+      $('.receptor .module').css({'position':'absolute', 'width':window.innerWidth+'px', 'height':window.innerWidth+'px', 'transform-origin':'50% 50%', 'overflow':'hidden', "top":0, "left":0, "right":0, "bottom":0, "margin":"auto"});
+      TweenMax.to($('.receptor .module'), .5, {css:{'border-radius':"100%", "width":"0px", "height":"0px"}});
+      var success_temp = _.template($('#success_template').html());
+      $('.receptor').append(success_temp({"label":label}));
+      $.each($('.confetti'), function(index, conf){
+        var scale = Math.random()*1 + .5;
+        TweenMax.to($(this), 2.8, {
+          "css":{
+            "top":Math.round((-window.innerHeight)+Math.random()*(window.innerHeight*2))+'px',
+            "left":Math.round((-window.innerWidth)+Math.random()*(window.innerWidth*2))+'px',
+            "rotation":Math.random()*360,
+            "scaleX":scale,
+            "scaleY":scale
+          },
+          ease:Power4.easeOut,
+          delay:.5
+        });
+      });
+      TweenMax.set($(".success_text"), {
+          "scaleX":0,
+          "scaleY":0
+      });
+      TweenMax.to($(".success_text"), .5, {
+          "scaleX":1,
+          "scaleY":1,
+          "ease":Elastic.easeOut,
+          "delay":.8,
+          onComplete:function(){
+            TweenMax.to($(".success_text"), .8, {
+                "scaleX":0,
+                "scaleY":0,
+                delay:.8,
+                ease:Back.easeIn,
+                onComplete : function(){
+
+                  TweenMax.to($('.receptor .module'), .5, {
+                    css:{'border-radius':"0%", "width":window.innerWidth+"px", "height":window.innerHeight+"px"},
+                    ease:Power4.easeIn,
+                    onComplete:function(){
+                      $('#success_motion').remove();
+                    }
+                  });
+                }
+            });
+            $.each($('.confetti'), function(index, conf){
+              TweenMax.to($(this), .6, {
+                "css":{
+                  "top":($(this).position().top+(window.innerHeight*2))+'px',
+                  "rotation":Math.random()*360
+                },
+                ease:Power4.easeIn,
+                delay:(.03*index)
+              });
+            });
+          }
+      });
     },
     init_drawing : function(datas){
         /*
