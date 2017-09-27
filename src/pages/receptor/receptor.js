@@ -173,9 +173,10 @@ var receptor = {
           });
         });
         $.each($('.success_text span'), function(index, conf){
-          $(this).css({'top':window.innerHeight});
-          TweenMax.to($(this), .8, {top:0, delay:(.5+(index*.3)), ease:Back.easeOut});
+          $(this).css({'margin-top':window.innerHeight+"px"});
+          TweenMax.to($(this), .8, {css:{"margin-top":"0px"}, delay:(.5+(index*.3)), ease:Back.easeOut});
         });
+        set
     },
     fail : function(){
         $('.module').append('<canvas class="motion_canvas" id="motion_canvas"></canvas');
