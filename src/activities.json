@@ -10,7 +10,7 @@
         {"label":"faire le pitch", "checked":false},
         {"label":"Jouer la vidéo d'intro", "checked":false}
       ],
-      "introduction":{"video":"ressources/crazyshow/jingles/intro_crazy_show.webm", "audio":"", "pix":"ressources/crazy_show_logo.svg"},
+      "introduction":{"video":"ressources/crazyshow/jingles/intro_crazy_show.mp4", "audio":"", "pix":"ressources/crazy_show_logo.svg"},
       "tools":[
         {
           "label":"Émotions",
@@ -48,7 +48,7 @@
           "icon":"ressources/crazyshow/habillage/photomime.png",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/crazyshow/jingles/photomime.webm", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/photomime.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Maternel",
@@ -214,7 +214,7 @@
           "icon":"ressources/crazyshow/habillage/abcstory.png",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/crazyshow/jingles/abcstory.webm", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/abcstory.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Musiques d'ambiance",
@@ -233,7 +233,7 @@
           "icon":"ressources/crazyshow/habillage/justeprix.png",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/crazyshow/jingles/justeprix.webm", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/justeprix.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Série 1",
@@ -283,7 +283,7 @@
           "datas":{},
           "icon":"ressources/crazyshow/habillage/airband.png",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
-          "jingle":{"file":"ressources/crazyshow/jingles/airband.webm", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/airband.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Clips vidéos",
@@ -313,15 +313,15 @@
           "icon":"ressources/crazyshow/habillage/letsdance.png",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/crazyshow/jingles/letsdance.webm", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/letsdance.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Clips vidéos",
               "desc":"des clips vidéos à reconstituer en AIR BAND",
               "components":{
                 "playlist_video":[
-                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.webm"},
-                    {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
+                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"},
+                    {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.mp4"}
                 ]
               }
             }
@@ -333,7 +333,7 @@
           "icon":"ressources/crazyshow/habillage/familleenbronze.png",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/crazyshow/jingles/familleenbronze.webm", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/familleenbronze.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"6-10 ans",
@@ -455,14 +455,14 @@
           "icon":"ressources/crazyshow/habillage/chabada.png",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/crazyshow/jingles/chabada.webm", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/chabada.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Clips vidéos",
               "desc":"des clips vidéos à reconstituer en AIR BAND",
               "components":{
                 "playlist_video":[
-                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.webm"},
+                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"},
                     {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
                 ]
               }
@@ -475,14 +475,14 @@
           "icon":"ressources/crazyshow/habillage/repliquiz.png",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/crazyshow/jingles/repliquiz.webm", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/repliquiz.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Clips vidéos",
               "desc":"des clips vidéos à reconstituer en AIR BAND",
               "components":{
                 "playlist_video":[
-                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.webm"},
+                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"},
                     {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
                 ]
               }
@@ -495,14 +495,14 @@
           "icon":"ressources/crazyshow/habillage/stopandgo.png",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/crazyshow/jingles/stopandgo.webm", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/stopandgo.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Clips vidéos",
               "desc":"des clips vidéos à reconstituer en AIR BAND",
               "components":{
                 "playlist_video":[
-                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.webm"},
+                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"},
                     {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
                 ]
               }
@@ -515,14 +515,14 @@
           "icon":"ressources/crazyshow/habillage/chefdorchestre.png",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/crazyshow/jingles/chefdorchestre.webm", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/chefdorchestre.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Clips vidéos",
               "desc":"des clips vidéos à reconstituer en AIR BAND",
               "components":{
                 "playlist_video":[
-                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.webm"},
+                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"},
                     {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
                 ]
               }
@@ -535,14 +535,14 @@
           "icon":"ressources/crazyshow/habillage/blindtest.png",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/crazyshow/jingles/blindtest.webm", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/blindtest.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Clips vidéos",
               "desc":"des clips vidéos à reconstituer en AIR BAND",
               "components":{
                 "playlist_video":[
-                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.webm"},
+                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"},
                     {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
                 ]
               }
@@ -555,7 +555,7 @@
           "icon":"ressources/crazyshow/habillage/tourenfolie.png",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/crazyshow/jingles/tourenfolie.webm", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/tourenfolie.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Clips vidéos",
@@ -620,31 +620,31 @@
           "icon":"ressources/archodino/habillage/archodino.png",
           "logo":"ressources/archodino/habillage/archodino.png",
           "datas":{},
-          "jingle":{"file":"ressources/archeodino/video1_accueil.webm", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/archeodino/video1_accueil.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Liste des médias vidéo",
               "desc":"Lancer les vidéos dans l'ordre",
               "components":{
                 "playlist_video":[
-                    {"label":"Accueil", "desc":"", "datas":{}, "file":"ressources/archeodino/video1_accueil.webm"},
-                    {"label":"Video 1", "desc":"", "datas":{}, "file":"ressources/archeodino/video1.webm"},
-                    {"label":"Video 2", "desc":"", "datas":{}, "file":"ressources/archeodino/video2.webm"},
-                    {"label":"Video 3", "desc":"", "datas":{}, "file":"ressources/archeodino/video3.webm"},
-                    {"label":"Video 4", "desc":"", "datas":{}, "file":"ressources/archeodino/video4.webm"},
-                    {"label":"Video 5", "desc":"", "datas":{}, "file":"ressources/archeodino/video5.webm"},
-                    {"label":"Video 6", "desc":"", "datas":{}, "file":"ressources/archeodino/video6.webm"},
-                    {"label":"Video 7", "desc":"", "datas":{}, "file":"ressources/archeodino/video7.webm"},
-                    {"label":"Video 8", "desc":"", "datas":{}, "file":"ressources/archeodino/video8.webm"},
-                    {"label":"Video 9", "desc":"", "datas":{}, "file":"ressources/archeodino/video9.webm"},
-                    {"label":"Jeu 1", "desc":"", "datas":{}, "file":"ressources/archeodino/video_jeu1.webm"},
-                    {"label":"Jeu 2", "desc":"", "datas":{}, "file":"ressources/archeodino/video_jeu2.webm"},
-                    {"label":"Lancement Recherche Sable", "desc":"", "datas":{}, "file":"ressources/archeodino/video_lancement_recherche_sable.webm"},
-                    {"label":"Equipe video", "desc":"", "datas":{}, "file":"ressources/archeodino/video_equipe.webm"},
-                    {"label":"Conclusion Oeuf", "desc":"", "datas":{}, "file":"ressources/archeodino/Video_conclu_oeuf.webm"},
-                    {"label":"LOTO", "desc":"", "datas":{}, "file":"ressources/archeodino/video_loto.webm"},
-                    {"label":"RECONSTITUTION DINO", "desc":"", "datas":{}, "file":"ressources/archeodino/video_reconstitution_dino.webm"},
-                    {"label":"FINAL", "desc":"", "datas":{}, "file":"ressources/archeodino/video_final.webm"}
+                    {"label":"Accueil", "desc":"", "datas":{}, "file":"ressources/archeodino/video1_accueil.mp4"},
+                    {"label":"Video 1", "desc":"", "datas":{}, "file":"ressources/archeodino/video1.mp4"},
+                    {"label":"Video 2", "desc":"", "datas":{}, "file":"ressources/archeodino/video2.mp4"},
+                    {"label":"Video 3", "desc":"", "datas":{}, "file":"ressources/archeodino/video3.mp4"},
+                    {"label":"Video 4", "desc":"", "datas":{}, "file":"ressources/archeodino/video4.mp4"},
+                    {"label":"Video 5", "desc":"", "datas":{}, "file":"ressources/archeodino/video5.mp4"},
+                    {"label":"Video 6", "desc":"", "datas":{}, "file":"ressources/archeodino/video6.mp4"},
+                    {"label":"Video 7", "desc":"", "datas":{}, "file":"ressources/archeodino/video7.mp4"},
+                    {"label":"Video 8", "desc":"", "datas":{}, "file":"ressources/archeodino/video8.mp4"},
+                    {"label":"Video 9", "desc":"", "datas":{}, "file":"ressources/archeodino/video9.mp4"},
+                    {"label":"Jeu 1", "desc":"", "datas":{}, "file":"ressources/archeodino/video_jeu1.mp4"},
+                    {"label":"Jeu 2", "desc":"", "datas":{}, "file":"ressources/archeodino/video_jeu2.mp4"},
+                    {"label":"Lancement Recherche Sable", "desc":"", "datas":{}, "file":"ressources/archeodino/video_lancement_recherche_sable.mp4"},
+                    {"label":"Equipe video", "desc":"", "datas":{}, "file":"ressources/archeodino/video_equipe.mp4"},
+                    {"label":"Conclusion Oeuf", "desc":"", "datas":{}, "file":"ressources/archeodino/Video_conclu_oeuf.mp4"},
+                    {"label":"LOTO", "desc":"", "datas":{}, "file":"ressources/archeodino/video_loto.mp4"},
+                    {"label":"RECONSTITUTION DINO", "desc":"", "datas":{}, "file":"ressources/archeodino/video_reconstitution_dino.mp4"},
+                    {"label":"FINAL", "desc":"", "datas":{}, "file":"ressources/archeodino/video_final.mp4"}
                 ]
               }
             }
@@ -699,19 +699,19 @@
           "icon":"ressources/archodino/habillage/archodino.png",
           "logo":"ressources/archodino/habillage/archodino.png",
           "datas":{},
-          "jingle":{"file":"ressources/savant_fou/video1.webm", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/savant_fou/video1.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Liste des médias vidéo",
               "desc":"Lancer les vidéos dans l'ordre",
               "components":{
                 "playlist_video":[
-                    {"label":"Discours", "desc":"", "datas":{}, "file":"ressources/savant_fou/discours.webm"},
-                    {"label":"Mobilisation", "desc":"", "datas":{}, "file":"ressources/savant_fou/mobilisation.webm"},
-                    {"label":"Folie 1", "desc":"", "datas":{}, "file":"ressources/savant_fou/folie1.webm"},
-                    {"label":"Folie 2", "desc":"", "datas":{}, "file":"ressources/savant_fou/folie2.webm"},
-                    {"label":"Folie 3", "desc":"", "datas":{}, "file":"ressources/savant_fou/folie3.webm"},
-                    {"label":"Clôture", "desc":"", "datas":{}, "file":"ressources/savant_fou/cloture.webm"}
+                    {"label":"Discours", "desc":"", "datas":{}, "file":"ressources/savant_fou/discours.mp4"},
+                    {"label":"Mobilisation", "desc":"", "datas":{}, "file":"ressources/savant_fou/mobilisation.mp4"},
+                    {"label":"Folie 1", "desc":"", "datas":{}, "file":"ressources/savant_fou/folie1.mp4"},
+                    {"label":"Folie 2", "desc":"", "datas":{}, "file":"ressources/savant_fou/folie2.mp4"},
+                    {"label":"Folie 3", "desc":"", "datas":{}, "file":"ressources/savant_fou/folie3.mp4"},
+                    {"label":"Clôture", "desc":"", "datas":{}, "file":"ressources/savant_fou/cloture.mp4"}
                 ]
               }
             }
