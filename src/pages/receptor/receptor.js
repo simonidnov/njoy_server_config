@@ -155,7 +155,6 @@ var receptor = {
         }});
     },
     success : function(){
-        console.log('success');
         TweenMax.killAll();
         $('#success_motion').remove();
         $('.receptor').css({'background-color': '#3B0092', 'background-image':'url()'});
@@ -217,7 +216,42 @@ var receptor = {
         });
     },
     fail : function(){
-        $('.module').append('<canvas class="motion_canvas" id="motion_canvas"></canvas');
+        TweenMax.killAll();
+        $('#error_motion').remove();
+        $('.receptor').css({'background-color': '#FF6633', 'background-image':'url()'});
+        $('.receptor .module').css({'position':'absolute', 'width':window.innerWidth+'px', 'height':window.innerWidth+'px', 'transform-origin':'50% 50%', 'overflow':'hidden', "top":0, "left":0, "right":0, "bottom":0, "margin":"auto"});
+        TweenMax.to($('.receptor .module'), .5, {css:{'border-radius':"100%", "width":"0px", "height":"0px"}});
+        var error_temp = _.template($('#error_template').html());
+        $('.receptor').append(error_temp({}));
+
+        TweenMax.set($(".success_text"), {
+            "scaleX":0,
+            "scaleY":0
+        });
+        TweenMax.to($(".success_text"), .5, {
+            "scaleX":1,
+            "scaleY":1,
+            "ease":Elastic.easeOut,
+            "delay":.8,
+            onComplete:function(){
+              TweenMax.to($(".success_text"), .8, {
+                  "scaleX":0,
+                  "scaleY":0,
+                  delay:.8,
+                  ease:Back.easeIn,
+                  onComplete : function(){
+
+                    TweenMax.to($('.receptor .module'), .5, {
+                      css:{'border-radius':"0%", "width":window.innerWidth+"px", "height":window.innerHeight+"px"},
+                      ease:Power4.easeIn,
+                      onComplete:function(){
+                        $('#success_motion').remove();
+                      }
+                    });
+                  }
+              });
+            }
+        });
         //alert('fail');
     },
     init_drawing : function(datas){
