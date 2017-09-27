@@ -155,24 +155,14 @@ var receptor = {
         }});
     },
     success : function(){
-        console.log('success');
-        /*if($('.motion_canvas').length == 0){
-          $('.module').append('<iframe class="motion_canvas" id="motion_canvas" style="width:1920px; height:1080px; border:none; padding:0; margin:0;" src="/ressources/animations/success.html"></iframe');
-        }
-        if(typeof this.conf !== "undefined"){
-            delete this.conf;
-        }*/
-        $('.app').css('background-color', 'rgb(120, 169, 85)');
+        $('.app').css({'background-color': 'rgb(120, 169, 85)', 'background-image':'url()');
         $('.receptor .module').css({'position':'absolute', 'width':window.innerWidth+'px', 'height':window.innerWidth+'px', 'transform-origin':'50% 50%', 'overflow':'hidden', "top":0, "left":0, "right":0, "bottom":0, "margin":"auto"});
         TweenMax.to($('.receptor .module'), .5, {css:{'border-radius':"100%", "width":"0px", "height":"0px"}});
-        /* TODO TEST MOTION LIKE CONFETTIS */
-        //this.conf = new confettis();
-        //this.conf.initConfettis('motion_canvas');
-        //this.conf.start_confettis();
-        //setTimeout($.proxy(function(){
-        //    this.conf.stop_confettis();
-        //},this), 1000);
-        //alert('success');
+        var success_temp = _.template($('#success_template'));
+        $('.app').append(success_temp({}));
+        $.each($('.confetti'), function(index, conf){
+          TweenMax.to($(this), .5, {"top":Math.round(Math.random*window.innerHeight)+'px', "left":Math.round(Math.random*window.innerWidth)+'px'});
+        });
     },
     fail : function(){
         $('.module').append('<canvas class="motion_canvas" id="motion_canvas"></canvas');
