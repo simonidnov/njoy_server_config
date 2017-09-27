@@ -541,9 +541,16 @@
               "label":"Clips vidéos",
               "desc":"des clips vidéos à reconstituer en AIR BAND",
               "components":{
-                "playlist_video":[
-                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"},
-                    {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
+                "playlist_audio":[
+                    {"label":"01", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie1/01.mp3"},
+                    {"label":"02", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie1/02.mp3"},
+                    {"label":"03", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie1/03.mp3"},
+                    {"label":"04", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie1/04.mp3"},
+                    {"label":"05", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie1/05.mp3"},
+                    {"label":"06", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie1/06.mp3"},
+                    {"label":"07", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie1/07.mp3"},
+                    {"label":"08", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie1/08.mp3"},
+                    {"label":"09", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie1/09.mp3"}
                 ]
               }
             }
