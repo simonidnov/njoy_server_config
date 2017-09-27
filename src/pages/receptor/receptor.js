@@ -192,8 +192,14 @@ var receptor = {
                   delay:.8,
                   ease:Back.easeIn,
                   onComplete : function(){
-                    $('#success_motion').remove();
-                    TweenMax.to($('.receptor .module'), .5, {css:{'border-radius':"0%", "width":window.innerWidth+"px", "height":window.innerHeight+"px"}, ease:Power4.easeIn});
+
+                    TweenMax.to($('.receptor .module'), .5, {
+                      css:{'border-radius':"0%", "width":window.innerWidth+"px", "height":window.innerHeight+"px"},
+                      ease:Power4.easeIn,
+                      onComplete:function(){
+                        $('#success_motion').remove();
+                      }
+                    });
                   }
               });
               $.each($('.confetti'), function(index, conf){
@@ -203,7 +209,7 @@ var receptor = {
                     "rotation":Math.random()*360
                   },
                   ease:Power4.easeIn,
-                  delay:(.1*index)
+                  delay:(.03*index)
                 });
               });
             }
