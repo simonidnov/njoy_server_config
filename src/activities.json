@@ -1,36 +1,6 @@
 {
   "activities":[
     {
-      "label":"Web Content",
-      "thumb":"ressources/web_content.svg",
-      "desc":"moteur de recherche intégré pour diffusion de contenus",
-      "datas":{},
-      "prerecquise":[
-        {"label":"Connecter le serveur à l'internet", "checked":false},
-        {"label":"Se connecter sur le réseau NJOY", "checked":false}
-      ],
-      "introduction":{"video":"", "audio":"", "pix":"ressources/crazy_show_logo.svg"},
-      "tools":[
-
-      ],
-      "apps":[
-        {
-          "label":"YOUTUBE",
-          "desc":"Rechercher des vidéos sur youtube",
-          "datas":{},
-          "menu":[
-            {
-              "label":"Faire une recherche",
-              "desc":"Tapez votre recherche ici",
-              "components":{
-                "search":[]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
       "label":"Crazy Show",
       "thumb":"ressources/crazyshow/crazy_show_logo.svg",
       "desc":"Application Crazy Show",
@@ -596,6 +566,152 @@
                     {"label":"juste 2MO", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/justprix_2mb.ogv"},
                     {"label":"juste 6MO", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/justprix_6mb.ogv"},
                     {"label":"juste 8MO", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/justprix_8mb.ogv"}
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"ARCHEO DINO",
+      "thumb":"ressources/archeodino/archeodino_logo.svg",
+      "desc":"Archeo Dino Playlist vidéo",
+      "datas":{},
+      "prerecquise":[
+        {"label":"Lancer l'introduction", "checked":false},
+        {"label":"Se connecter sur le réseau NJOY", "checked":false}
+      ],
+      "introduction":{"video":"", "audio":"", "pix":"ressources/archeodino/archeodino_logo.svg"},
+      "tools":[
+        {
+          "label":"Émotions",
+          "desc":"Court samples audio pour rythmer les évènements, à lancer à tout instant !",
+          "playlist":[
+            {"label":"Applaudir", "file":"ressources/audio/applau.mp3"},
+            {"label":"Huer", "file":"ressources/audio/huee.mp3"},
+            {"label":"Rater", "file":"ressources/audio/rate.mp3"},
+            {"label":"Mauvaise réponse", "file":"ressources/audio/faux.mp3"},
+            {"label":"Bonne réponse", "file":"ressources/audio/bon.mp3"}
+          ]
+        },
+        {
+          "label":"Ambiance",
+          "desc":"Des musiques d'ambiance selon les humeurs pour combler les vides.",
+          "playlist":[
+              {"label":"Britney Spire", "file":"ressources/audio/ambiance/bitney.mp3"},
+              {"label":"Ray Charles", "file":"ressources/audio/ambiance/1.mp3"},
+              {"label":"Franck Sinatra", "file":"ressources/audio/ambiance/2.mp3"},
+              {"label":"Nate King Cole", "file":"ressources/audio/ambiance/3.mp3"},
+              {"label":"Louis Prima", "file":"ressources/audio/ambiance/4.mp3"},
+              {"label":"Nina Simone", "file":"ressources/audio/ambiance/5.mp3"},
+              {"label":"Amstrong", "file":"ressources/audio/ambiance/6.mp3"},
+              {"label":"Dinah Washington", "file":"ressources/audio/ambiance/7.mp3"},
+              {"label":"Marylin Monroe", "file":"ressources/audio/ambiance/8.mp3"},
+              {"label":"Dave Brubeck", "file":"ressources/audio/ambiance/9.mp3"},
+              {"label":"Dean Martin", "file":"ressources/audio/ambiance/10.mp3"}
+          ]
+        }
+      ],
+      "apps":[
+        {
+          "label":"Archeo Dino Part 1",
+          "desc":"Playlist Vidéo Archeo Dino",
+          "icon":"ressources/archodino/habillage/archodino.png",
+          "logo":"ressources/archodino/habillage/archodino.png",
+          "datas":{},
+          "jingle":{"file":"ressources/archeodino/video1_accueil.webm", "type":"video", "event":null, "params":null},
+          "menu":[
+            {
+              "label":"Liste des médias vidéo",
+              "desc":"Lancer les vidéos dans l'ordre",
+              "components":{
+                "playlist_video":[
+                    {"label":"Accueil", "desc":"", "datas":{}, "file":"ressources/archeodino/video1_accueil.webm"},
+                    {"label":"Video 1", "desc":"", "datas":{}, "file":"ressources/archeodino/video1.webm"},
+                    {"label":"Video 2", "desc":"", "datas":{}, "file":"ressources/archeodino/video2.webm"},
+                    {"label":"Video 3", "desc":"", "datas":{}, "file":"ressources/archeodino/video3.webm"},
+                    {"label":"Video 4", "desc":"", "datas":{}, "file":"ressources/archeodino/video4.webm"},
+                    {"label":"Video 5", "desc":"", "datas":{}, "file":"ressources/archeodino/video5.webm"},
+                    {"label":"Video 6", "desc":"", "datas":{}, "file":"ressources/archeodino/video6.webm"},
+                    {"label":"Video 7", "desc":"", "datas":{}, "file":"ressources/archeodino/video7.webm"},
+                    {"label":"Video 8", "desc":"", "datas":{}, "file":"ressources/archeodino/video8.webm"},
+                    {"label":"Video 9", "desc":"", "datas":{}, "file":"ressources/archeodino/video9.webm"},
+                    {"label":"Jeu 1", "desc":"", "datas":{}, "file":"ressources/archeodino/video_jeu1.webm"},
+                    {"label":"Jeu 2", "desc":"", "datas":{}, "file":"ressources/archeodino/video_jeu2.webm"},
+                    {"label":"Lancement Recherche Sable", "desc":"", "datas":{}, "file":"ressources/archeodino/video_lancement_recherche_sable.webm"},
+                    {"label":"Equipe video", "desc":"", "datas":{}, "file":"ressources/archeodino/video_equipe.webm"},
+                    {"label":"Conclusion Oeuf", "desc":"", "datas":{}, "file":"ressources/archeodino/Video_conclu_oeuf.webm"},
+                    {"label":"LOTO", "desc":"", "datas":{}, "file":"ressources/archeodino/video_loto.webm"},
+                    {"label":"RECONSTITUTION DINO", "desc":"", "datas":{}, "file":"ressources/archeodino/video_reconstitution_dino.webm"},
+                    {"label":"FINAL", "desc":"", "datas":{}, "file":"ressources/archeodino/video_final.webm"}
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"SAVANT FOU",
+      "thumb":"ressources/savant_fou/savantfou_logo.svg",
+      "desc":"Archeo Dino Playlist vidéo",
+      "datas":{},
+      "prerecquise":[
+        {"label":"Lancer l'introduction", "checked":false},
+        {"label":"Se connecter sur le réseau NJOY", "checked":false}
+      ],
+      "introduction":{"video":"", "audio":"", "pix":"ressources/savant_fou/savantfou_logo.svg"},
+      "tools":[
+        {
+          "label":"Émotions",
+          "desc":"Court samples audio pour rythmer les évènements, à lancer à tout instant !",
+          "playlist":[
+            {"label":"Applaudir", "file":"ressources/audio/applau.mp3"},
+            {"label":"Huer", "file":"ressources/audio/huee.mp3"},
+            {"label":"Rater", "file":"ressources/audio/rate.mp3"},
+            {"label":"Mauvaise réponse", "file":"ressources/audio/faux.mp3"},
+            {"label":"Bonne réponse", "file":"ressources/audio/bon.mp3"}
+          ]
+        },
+        {
+          "label":"Ambiance",
+          "desc":"Des musiques d'ambiance selon les humeurs pour combler les vides.",
+          "playlist":[
+              {"label":"Britney Spire", "file":"ressources/audio/ambiance/bitney.mp3"},
+              {"label":"Ray Charles", "file":"ressources/audio/ambiance/1.mp3"},
+              {"label":"Franck Sinatra", "file":"ressources/audio/ambiance/2.mp3"},
+              {"label":"Nate King Cole", "file":"ressources/audio/ambiance/3.mp3"},
+              {"label":"Louis Prima", "file":"ressources/audio/ambiance/4.mp3"},
+              {"label":"Nina Simone", "file":"ressources/audio/ambiance/5.mp3"},
+              {"label":"Amstrong", "file":"ressources/audio/ambiance/6.mp3"},
+              {"label":"Dinah Washington", "file":"ressources/audio/ambiance/7.mp3"},
+              {"label":"Marylin Monroe", "file":"ressources/audio/ambiance/8.mp3"},
+              {"label":"Dave Brubeck", "file":"ressources/audio/ambiance/9.mp3"},
+              {"label":"Dean Martin", "file":"ressources/audio/ambiance/10.mp3"}
+          ]
+        }
+      ],
+      "apps":[
+        {
+          "label":"Savant Fou Part 1",
+          "desc":"Playlist Vidéo Archeo Dino",
+          "icon":"ressources/archodino/habillage/archodino.png",
+          "logo":"ressources/archodino/habillage/archodino.png",
+          "datas":{},
+          "jingle":{"file":"ressources/savant_fou/video1.webm", "type":"video", "event":null, "params":null},
+          "menu":[
+            {
+              "label":"Liste des médias vidéo",
+              "desc":"Lancer les vidéos dans l'ordre",
+              "components":{
+                "playlist_video":[
+                    {"label":"Discours", "desc":"", "datas":{}, "file":"ressources/savant_fou/discours.webm"},
+                    {"label":"Mobilisation", "desc":"", "datas":{}, "file":"ressources/savant_fou/mobilisation.webm"},
+                    {"label":"Folie 1", "desc":"", "datas":{}, "file":"ressources/savant_fou/folie1.webm"},
+                    {"label":"Folie 2", "desc":"", "datas":{}, "file":"ressources/savant_fou/folie2.webm"},
+                    {"label":"Folie 3", "desc":"", "datas":{}, "file":"ressources/savant_fou/folie3.webm"},
+                    {"label":"Clôture", "desc":"", "datas":{}, "file":"ressources/savant_fou/cloture.webm"}
                 ]
               }
             }
