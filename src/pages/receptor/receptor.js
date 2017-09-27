@@ -42,6 +42,7 @@ var receptor = {
             case "init_drawing":
                 $('.module').html('');
                 $('.chronos').remove();
+                $('.receptor').css({'background-image':'url()', 'background-color':'#FFF'});
                 TweenMax.killAll();
                 this.init_drawing(datas);
                 break;
@@ -349,7 +350,7 @@ var receptor = {
         */
         console.log('init_drawing');
 
-        $('.module').append('<canvas id="drawing" width="'+datas.width+'" height="'+datas.height+'"></canvas>');
+        $('.module').append('<canvas id="drawing" width="'+datas.width+'" height="'+datas.height+'" style="width:'+datas.width+'px; height:'+datas.height+'px;"></canvas>');
         //this.drawing_tool = new drawer("drawing", datas.width, datas.height);
         this.canvas = document.getElementById("drawing");
         // TODO REMOVE TEST SIZE
@@ -362,12 +363,12 @@ var receptor = {
         this.canvas.width = datas.width;
         this.canvas.height = datas.height;
 
-        this.canvas.style.width = window.innerWidth;
-        this.canvas.style.height = window.innerHeight;
+        this.canvas.style.width = datas.width;
+        this.canvas.style.height = datas.height;
 
-        $('#canvas_id').css({
-          "width":$('body').width()+'px !important',
-          "height":$('body').height()+'px !important'
+        $('#drawing').css({
+          "width":datas.width+'px !important',
+          "height":datas.height+'px !important'
         });
 
         this.stage = new createjs.Stage("drawing");
