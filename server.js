@@ -38,6 +38,7 @@ io.on('connection', function(socket){
         datas = addParams(datas);
         var stat = {},
             call = "njoy";
+        console.log(datas);
         switch(datas.status){
             case 'reboot':
               console.log('reboot');
