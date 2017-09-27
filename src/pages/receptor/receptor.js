@@ -161,8 +161,8 @@ var receptor = {
         if(typeof this.conf !== "undefined"){
             delete this.conf;
         }*/
-        var conf_temp = _.template($('#confettis_template').html());
-        $('.module').append(conf_temp({}));
+        $('.app').css('background-color', '#0b002b');
+        TweenMax.to($('.receptor .module'), .5, {css:{'border-radius':"100%", "width":"0px", "height":"0px"}});
         /* TODO TEST MOTION LIKE CONFETTIS */
         //this.conf = new confettis();
         //this.conf.initConfettis('motion_canvas');
