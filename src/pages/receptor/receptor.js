@@ -194,7 +194,7 @@ var receptor = {
               $.each($('.confetti'), function(index, conf){
                 TweenMax.to($(this), .8, {
                   "css":{
-                    "top":(window.innerHeight+200)+'px'
+                    "top":((this).position().top+window.innerHeight)+'px'
                   },
                   ease:Power4.easeIn,
                   delay:.5
