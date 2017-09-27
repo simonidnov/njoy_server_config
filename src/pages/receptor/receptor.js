@@ -180,12 +180,12 @@ var receptor = {
             "scaleX":1,
             "scaleY":1,
             "ease":Elastic.easeOut,
-            "delay":1.5,
+            "delay":.8,
             onComplete:function(){
               TweenMax.to($(".success_text"), .8, {
                   "scaleX":0,
                   "scaleY":0,
-                  delay:2,
+                  delay:.5,
                   ease:Back.easeIn,
                   onComplete : function(){
                     $('#success_motion').remove();
