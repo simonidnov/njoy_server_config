@@ -306,6 +306,8 @@ main.app{
   margin:auto;
   position: absolute;
   z-index: 99;
+    width: 1920px;
+    font-size: 200px;
 }
 .conf-cont{
   width:100%;

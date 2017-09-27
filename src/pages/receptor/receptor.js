@@ -163,12 +163,18 @@ var receptor = {
         var success_temp = _.template($('#success_template').html());
         $('.app').append(success_temp({}));
         $.each($('.confetti'), function(index, conf){
-          TweenMax.to($(this), .5, {
+          TweenMax.to($(this), .8, {
             "css":{
-              "top":Math.round(Math.random()*window.innerHeight)+'px',
-              "left":Math.round(Math.random()*window.innerWidth)+'px'
-            }
+              "top":Math.round((-window.innerHeight)+Math.random()*window.innerHeight)+'px',
+              "left":Math.round((-window.innerWidth)+Math.random()*window.innerWidth)+'px'
+            },
+            ease:Power4.easeOut,
+            delay:.5
           });
+        });
+        $.each($('.success_text span'), function(index, conf){
+          $(this).css({'top':window.innerHeight});
+          TweenMax.to($(this), .8, {top:0, delay:(.5+(i*.3)), ease:Back.easeOut});
         });
     },
     fail : function(){
