@@ -325,23 +325,23 @@ main.app{
   right:0;
   margin:auto;
 }
-.conf-cont .confetti .type1{
+.conf-cont .confetti.type1{
   background-color:#FAE324;
 }
-.conf-cont .confetti .type2{
+.conf-cont .confetti.type2{
   background-color:#D43092;
   border-radius: 100%;
 }
-.conf-cont .confetti .type3{
+.conf-cont .confetti.type3{
   border-style: solid;
   border-width: 0 50px 50px 50px;
   border-color: transparent transparent #D43092 transparent;
 }
-.conf-cont .confetti .type4{
+.conf-cont .confetti.type4{
   background-color:#FAE324;
   width:40px;
 }
-.conf-cont .confetti .type5{
+.conf-cont .confetti.type5{
     border-style: solid;
     border-width: 0 50px 50px 50px;
     border-color: transparent transparent #FAE324 transparent;
