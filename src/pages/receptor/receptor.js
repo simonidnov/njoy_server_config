@@ -165,8 +165,8 @@ var receptor = {
         $.each($('.confetti'), function(index, conf){
           TweenMax.to($(this), .8, {
             "css":{
-              "top":Math.round((-window.innerHeight)+Math.random()*window.innerHeight)+'px',
-              "left":Math.round((-window.innerWidth)+Math.random()*window.innerWidth)+'px'
+              "top":Math.round((-window.innerHeight)+Math.random()*(window.innerHeight*2))+'px',
+              "left":Math.round((-window.innerWidth)+Math.random()*(window.innerWidth*2))+'px'
             },
             ease:Power4.easeOut,
             delay:.5
@@ -174,7 +174,7 @@ var receptor = {
         });
         $.each($('.success_text span'), function(index, conf){
           $(this).css({'top':window.innerHeight});
-          TweenMax.to($(this), .8, {top:0, delay:(.5+(i*.3)), ease:Back.easeOut});
+          TweenMax.to($(this), .8, {top:0, delay:(.5+(index*.3)), ease:Back.easeOut});
         });
     },
     fail : function(){
