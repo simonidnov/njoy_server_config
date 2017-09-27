@@ -197,7 +197,7 @@ var receptor = {
             "ease":Elastic.easeOut,
             "delay":.8,
             onComplete:function(){
-              /*TweenMax.to($(".success_text"), .8, {
+              TweenMax.to($(".success_text"), .8, {
                   "scaleX":0,
                   "scaleY":0,
                   delay:.8,
@@ -222,7 +222,7 @@ var receptor = {
                   ease:Power4.easeIn,
                   delay:(.03*index)
                 });
-              });*/
+              });
             }
         });
     },

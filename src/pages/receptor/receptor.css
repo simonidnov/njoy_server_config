@@ -297,16 +297,18 @@ main.app{
 }
 .success_text{
   display: table;
-  color:#FFF;
+  color: #FFF;
   text-align: center;
-  top:0;
-  bottom:0;
-  margin:auto;
+  top: 0;
+  bottom: 0;
+  margin: auto;
   position: absolute;
   z-index: 99;
-  width: 1920px;
-  height:200px;
+  width: 900px;
+  height: 200px;
   font-size: 200px;
+  left: 0;
+  right: 0;
 }
 .conf-cont{
   width:100%;
