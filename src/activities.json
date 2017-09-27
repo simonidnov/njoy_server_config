@@ -712,6 +712,10 @@
                     {"label":"Folie 2", "desc":"", "datas":{}, "file":"ressources/savant_fou/folie2.mp4"},
                     {"label":"Folie 3", "desc":"", "datas":{}, "file":"ressources/savant_fou/folie3.mp4"},
                     {"label":"Clôture", "desc":"", "datas":{}, "file":"ressources/savant_fou/cloture.mp4"}
+                ],
+                "playlist_audio":[
+                    {"label":"Enigme 1", "desc":"", "datas":{}, "file":"ressources/savant_fou/enigme_1.mp3"},
+                    {"label":"Enigme 2", "desc":"", "datas":{}, "file":"ressources/savant_fou/enigme_2.mp3"}
                 ]
               }
             }
