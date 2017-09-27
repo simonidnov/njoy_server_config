@@ -74,9 +74,8 @@ io.on('connection', function(socket){
         }
         console.log('call ::: ', call, ' stat ', stat);
         if(datas.status === "video"){
-          cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {
-
-          });
+          cp.exec("killall omxplayer", function(error, stdout, stderr) {});
+          cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
           cp.exec("omxplayer -o local -r http://10.3.141.1:3000/"+datas.file, function(error, stdout, stderr) {
               console.log("stdout: " + stdout);
               console.log("stderr: " + stderr);
