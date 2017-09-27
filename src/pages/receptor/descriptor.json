@@ -30,7 +30,7 @@
   },
   "class":"receptor",
   "dependencies":{
-    "css":["receptor.css"],
+    "css":["receptor.css", "confettis.css"],
     "js":[]
   }
 }
