@@ -165,8 +165,8 @@ var receptor = {
         $.each($('.confetti'), function(index, conf){
           TweenMax.to($(this), .5, {
             "css":{
-              "top":Math.round(Math.random*window.innerHeight)+'px',
-              "left":Math.round(Math.random*window.innerWidth)+'px'
+              "top":Math.round(Math.random()*window.innerHeight)+'px',
+              "left":Math.round(Math.random()*window.innerWidth)+'px'
             }
           });
         });
