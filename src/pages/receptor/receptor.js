@@ -161,7 +161,12 @@ var receptor = {
         var success_temp = _.template($('#success_template'));
         $('.app').append(success_temp({}));
         $.each($('.confetti'), function(index, conf){
-          TweenMax.to($(this), .5, {"top":Math.round(Math.random*window.innerHeight)+'px', "left":Math.round(Math.random*window.innerWidth)+'px'});
+          TweenMax.to($(this), .5, {
+            "css":{
+              "top":Math.round(Math.random*window.innerHeight)+'px',
+              "left":Math.round(Math.random*window.innerWidth)+'px'
+            }
+          });
         });
     },
     fail : function(){
