@@ -73,16 +73,19 @@ io.on('connection', function(socket){
                 break;
         }
         console.log('call ::: ', call, ' stat ', stat);
-        /*if(datas.status === "video"){
-          "http://10.3.141.1/datas.file"
-          cp.exec("omxplayer -o hdmi http://10.3.141.1/"+datas.file, function(error, stdout, stderr) {
+        if(datas.status === "video"){
+          cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {
+
+          });
+          cp.exec("omxplayer -o hdmi -r http://10.3.141.1:3000/"+datas.file, function(error, stdout, stderr) {
               console.log("stdout: " + stdout);
               console.log("stderr: " + stderr);
               if (error !== null) {
                   console.log("exec errror: " + error);
               }
           });
-        }*/
+          return false;
+        }
         io.emit(call, {"status":stat.status, "infos":stat, "datas":datas});
     });
     socket.on('chat message', function(msg){
