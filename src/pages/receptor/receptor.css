@@ -333,8 +333,10 @@ main.app{
   border-radius: 100%;
 }
 .conf-cont .confetti.type3{
+  width:0;
+  height:0;
   border-style: solid;
-  border-width: 0 50px 50px 50px;
+  border-width: 0 30px 30px 30px;
   border-color: transparent transparent #D43092 transparent;
 }
 .conf-cont .confetti.type4{
