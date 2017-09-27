@@ -160,14 +160,14 @@ var receptor = {
         TweenMax.to($('.receptor .module'), .5, {css:{'border-radius':"100%", "width":"0px", "height":"0px"}});
         var success_temp = _.template($('#success_template'));
         $('.app').append(success_temp({}));
-        $.each($('.confetti'), function(index, conf){
+        /*$.each($('.confetti'), function(index, conf){
           TweenMax.to($(this), .5, {
             "css":{
               "top":Math.round(Math.random*window.innerHeight)+'px',
               "left":Math.round(Math.random*window.innerWidth)+'px'
             }
           });
-        });
+        });*/
     },
     fail : function(){
         $('.module').append('<canvas class="motion_canvas" id="motion_canvas"></canvas');
