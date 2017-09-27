@@ -163,12 +163,14 @@ var receptor = {
         var success_temp = _.template($('#success_template').html());
         $('.receptor').append(success_temp({}));
         $.each($('.confetti'), function(index, conf){
+          var scale = Math.random()*1 + .5;
           TweenMax.to($(this), 2.8, {
             "css":{
               "top":Math.round((-window.innerHeight)+Math.random()*(window.innerHeight*2))+'px',
               "left":Math.round((-window.innerWidth)+Math.random()*(window.innerWidth*2))+'px',
               "rotation":Math.random()*360,
-              "scaleX":(Math.radom()*1 + .5)
+              "scaleX":scale,
+              "scaleY":scale
             },
             ease:Power4.easeOut,
             delay:.5
