@@ -84,6 +84,9 @@ io.on('connection', function(socket){
                   console.log("exec errror: " + error);
               }
           });
+        }else{
+          cp.exec("killall omxplayer", function(error, stdout, stderr) {});
+          cp.exec("killall omxplayer.bin", function(error, stdout, stderr) {});
         }
         io.emit(call, {"status":stat.status, "infos":stat, "datas":datas});
     });
