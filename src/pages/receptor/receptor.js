@@ -172,11 +172,37 @@ var receptor = {
             delay:.5
           });
         });
-        $.each($('.success_text span'), function(index, conf){
-          $(this).css({'margin-top':window.innerHeight+"px"});
-          TweenMax.to($(this), .8, {css:{"margin-top":"0px"}, delay:(.5+(index*.3)), ease:Back.easeOut});
+        TweenMax.set($(".success_text"), {
+            "scaleX":0,
+            "scaleY":0
         });
-        set
+        TweenMax.to($(".success_text"), .5, {
+            "scaleX":1,
+            "scaleY":1,
+            "ease":Elastic.easeOut,
+            "delay":1.5,
+            onComplete:function(){
+              TweenMax.to($(".success_text"), .8, {
+                  "scaleX":0,
+                  "scaleY":0,
+                  delay:2,
+                  ease:Back.easeIn,
+                  onComplete : function(){
+                    $('#success_motion').remove();
+                  }
+              });
+              $.each($('.confetti'), function(index, conf){
+                TweenMax.to($(this), .8, {
+                  "css":{
+                    "top":(window.innerHeight+200)+'px',
+                    "left":(window.innerHeight+200)+'px'
+                  },
+                  ease:Power4.easeIn,
+                  delay:.5
+                });
+              });
+            }
+        });
     },
     fail : function(){
         $('.module').append('<canvas class="motion_canvas" id="motion_canvas"></canvas');
