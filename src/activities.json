@@ -614,8 +614,8 @@
               "components":{
                 "playlist_video":[
                     {"label":"Exemple", "desc":"", "datas":{}, "file":"ressources/crazyshow/tourenfolie/exemple.mp4"},
-                    {"label":"chronos 20", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/chronos_20.mp4"},
-                    {"label":"chronos 60", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/chronos_60.mp4"}
+                    {"label":"chronos 60", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/chronos_20.mp4"},
+                    {"label":"chronos 20", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/chronos_60.mp4"}
                 ]
               }
             }
