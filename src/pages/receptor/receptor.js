@@ -56,7 +56,8 @@ var receptor = {
                 $('.module').html('');
                 $('.chronos').remove();
                 TweenMax.killAll();
-                $('.module').append('<div class="video_display"><video src="'+window.location.origin+'/'+datas.file+'" autoplay width="'+window.innerWidth+'px" height="'+window.innerHeight+'px"></video></div>');
+                /*$('.module').append('<div class="video_display"><video src="'+window.location.origin+'/'+datas.file+'" autoplay width="'+window.innerWidth+'px" height="'+window.innerHeight+'px"></video></div>');*/
+                $(".receptor").css("background-image", "url("+(window.location.origin+'/'+(datas.file.replace('.mp4', '.svg')))+")");
                 break;
             case "playlist_video":
                 $('.module').append('<div class="video_display"></div>');

@@ -84,7 +84,6 @@ io.on('connection', function(socket){
                   console.log("exec errror: " + error);
               }
           });
-          return false;
         }
         io.emit(call, {"status":stat.status, "infos":stat, "datas":datas});
     });
