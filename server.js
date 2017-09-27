@@ -39,6 +39,8 @@ io.on('connection', function(socket){
         var stat = {},
             call = "njoy";
         switch(datas.status){
+            case 'reboot':
+              cp.exec("sudo reboot", function(error, stdout, stderr) {});
             case 'connect':
                 stat = login(datas);
                 datas = addParams(datas);
