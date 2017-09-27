@@ -299,15 +299,14 @@ main.app{
   display: table;
   color:#FFF;
   text-align: center;
-  left:0;
-  right:0;
   top:0;
   bottom:0;
   margin:auto;
   position: absolute;
   z-index: 99;
-    width: 1920px;
-    font-size: 200px;
+  width: 1920px;
+  height:200px;
+  font-size: 200px;
 }
 .conf-cont{
   width:100%;
