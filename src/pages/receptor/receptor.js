@@ -161,7 +161,7 @@ var receptor = {
             delete this.conf;
         }
         var conf_temp = _.template($('#confettis_template').html());
-
+        $('.module').append(conf_temp({}));
         /* TODO TEST MOTION LIKE CONFETTIS */
         //this.conf = new confettis();
         //this.conf.initConfettis('motion_canvas');
