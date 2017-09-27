@@ -160,7 +160,7 @@ var receptor = {
         $('.app').css({'background-color': 'rgb(120, 169, 85)', 'background-image':'url()'});
         $('.receptor .module').css({'position':'absolute', 'width':window.innerWidth+'px', 'height':window.innerWidth+'px', 'transform-origin':'50% 50%', 'overflow':'hidden', "top":0, "left":0, "right":0, "bottom":0, "margin":"auto"});
         TweenMax.to($('.receptor .module'), .5, {css:{'border-radius':"100%", "width":"0px", "height":"0px"}});
-        var success_temp = _.template($('#success_template'));
+        var success_temp = _.template($('#success_template').html());
         $('.app').append(success_temp({}));
         $.each($('.confetti'), function(index, conf){
           TweenMax.to($(this), .5, {
