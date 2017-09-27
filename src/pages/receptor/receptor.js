@@ -162,8 +162,8 @@ var receptor = {
             delete this.conf;
         }*/
         $('.app').css('background-color', 'rgb(120, 169, 85)');
-        $('.receptor .module').css('transform-origin', '50% 50%');
-        TweenMax.to($('.receptor .module'), .5, {css:{'border-radius':"100%", "width":window.innerWidth+"px", "height":window.innerWidth+"px"}, scaleX:0, scaleY:0});
+        $('.receptor .module').css({'transform-origin':'50% 50%', 'overflow':'hidden', "top":0, "left":0, "right":0, "bottom":0, "margin":"auto");
+        TweenMax.to($('.receptor .module'), .5, {css:{'border-radius':"100%", "width":"0px", "height":"0px"}});
         /* TODO TEST MOTION LIKE CONFETTIS */
         //this.conf = new confettis();
         //this.conf.initConfettis('motion_canvas');
