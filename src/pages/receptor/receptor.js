@@ -194,12 +194,13 @@ var receptor = {
                   }
               });
               $.each($('.confetti'), function(index, conf){
-                TweenMax.to($(this), .8, {
+                TweenMax.to($(this), .6, {
                   "css":{
-                    "top":($(this).position().top+(window.innerHeight*2))+'px'
+                    "top":($(this).position().top+(window.innerHeight*2))+'px',
+                    "rotation":Math.random()*360
                   },
                   ease:Power4.easeIn,
-                  delay:.5
+                  delay:(.1*index)
                 });
               });
             }
