@@ -290,8 +290,8 @@
               "desc":"des clips vidéos à reconstituer en AIR BAND",
               "components":{
                 "playlist_video":[
-                    {"label":"AIRBAND", "desc":"", "datas":{}, "file":"ressources/crazyshow/airband/airband.m4v"},
-                    {"label":"AIRBAND 2", "desc":"", "datas":{}, "file":"ressources/crazyshow/airband/airband2.m4v"}
+                    {"label":"AIRBAND", "desc":"", "datas":{}, "file":"ressources/crazyshow/airband/airband.mp4"},
+                    {"label":"AIRBAND 2", "desc":"", "datas":{}, "file":"ressources/crazyshow/airband/airband2.mp4"}
                 ]
               }
             },
