@@ -1,8 +1,8 @@
-var express = require('express');
-var app = express();
-var router = express.Router();
-var http = require('http').Server(app);
-var path = require('path');
+var express = require('express'),
+    app = express(),
+    router = express.Router(),
+    http = require('http').Server(app),
+    path = require('path');
 var io = require('socket.io')(http);
 var port = process.env.PORT || 3000;
 var _ = require('underscore');
@@ -12,8 +12,8 @@ var server = null;
 var os = require('os');
 var ifaces = os.networkInterfaces();
 var ip_config = get_ip_config();
-var cp = require('child_process');
 var Omx = require('node-omxplayer');
+var cp = require('child_process');
 var video_player = null;
 $ = require('jquery');
 
@@ -110,7 +110,7 @@ io.on('connection', function(socket){
             video_player = null;
           }
         }
-        
+
         if(datas.status === "video"){
           cp.exec("killall omxplayer", function(error, stdout, stderr) {
               if (stderr !== null) {
