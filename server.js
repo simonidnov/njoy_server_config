@@ -14,6 +14,8 @@ var ifaces = os.networkInterfaces();
 var ip_config = get_ip_config();
 var spawn = require('child_process').spawn;
 var cp = require('child_process');
+var Omx = require('node-omxplayer');
+
 var robot = require("kbm-robot");
 var video_player = null;
 $ = require('jquery');
