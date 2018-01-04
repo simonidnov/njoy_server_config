@@ -89,27 +89,38 @@ io.on('connection', function(socket){
             console.log('video player ', video_player);
             video_player.pause();
           }*/
+          //export DISPLAY=":0";
+          cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
+          cp.exec("xdotool key space", function(error, stdout, stderr) {});
         }
         if(datas.status === "play_video"){
           /*if(video_player !== null){
             video_player.play();
           }*/
+          cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
+          cp.exec("xdotool key space", function(error, stdout, stderr) {});
         }
         if(datas.status === "mute_video"){
           /*if(video_player !== null){
             video_player.volDown();
           }*/
+          cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
+          cp.exec("xdotool key space", function(error, stdout, stderr) {});
         }
         if(datas.status === "audio_video"){
           /*if(video_player !== null){
             video_player.volUp();
           }*/
+          cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
+          cp.exec("xdotool key space", function(error, stdout, stderr) {});
         }
         if(datas.status === "stop_video"){
           /*if(video_player !== null){
             video_player.quit();
             video_player = null;
           }*/
+          cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
+          cp.exec("killall omxplayer", function(error, stdout, stderr) {});
         }
         if(datas.status === "video"){
           cp.exec("killall omxplayer", function(error, stdout, stderr) {
