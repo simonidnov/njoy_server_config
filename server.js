@@ -1,9 +1,10 @@
+'use strict';
 var express = require('express'),
     app = express(),
     router = express.Router(),
     http = require('http').Server(app),
-    path = require('path');
-var io = require('socket.io')(http);
+    path = require('path'),
+    io = require('socket.io')(http);
 var port = process.env.PORT || 3000;
 var _ = require('underscore');
 //var router = express.Router();
