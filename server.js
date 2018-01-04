@@ -85,25 +85,23 @@ io.on('connection', function(socket){
                 break;
         }
         if(datas.status === "pause_video"){
-          /*if(video_player !== null){
+          if(video_player !== null){
             console.log('video player ', video_player);
             video_player.pause();
-          }*/
+          }
           //export DISPLAY=":0";
-          console.log(':::::::::::');
+          /*console.log(':::::::::::');
           console.log(':::::::::::');
           console.log('pause_video');
           console.log(':::::::::::');
           console.log(':::::::::::');
           cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
-          cp.exec("xdotool key space", function(error, stdout, stderr) {});
+          cp.exec("xdotool key space", function(error, stdout, stderr) {});*/
         }
         if(datas.status === "play_video"){
-          /*if(video_player !== null){
+          if(video_player !== null){
             video_player.play();
-          }*/
-          cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
-          cp.exec("xdotool key space", function(error, stdout, stderr) {});
+          }
         }
         if(datas.status === "mute_video"){
           /*if(video_player !== null){
