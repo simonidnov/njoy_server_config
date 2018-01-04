@@ -146,7 +146,7 @@ io.on('connection', function(socket){
                     video_player = null;
                   }
                   cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
-                  video_player = Omx("http://10.3.141.1:3000/"+datas.file);
+                  video_player = Omx("http://10.3.141.1:3000/"+datas.file, "local", false, 1.0);
                   video_player.volUp();
                   video_player.play();
                   video_player.on('close', function(){
