@@ -131,11 +131,11 @@ io.on('connection', function(socket){
                   */
                   cp.exec("killall omxplayer.bin", function(error, stdout, stderr) {});
 
-                  console.log("omxplayer -o local "+datas.file);
+                  console.log("omxplayer -o local /"+datas.file);
 
                   cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
 
-                  cp.exec("omxplayer -o local "+datas.file, function(error, stdout, stderr) {
+                  cp.exec("omxplayer -o local /"+datas.file, function(error, stdout, stderr) {
                       if (stderr !== null) {
                           console.log("exec errror: " + error);
                       }
