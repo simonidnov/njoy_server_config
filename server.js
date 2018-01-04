@@ -14,7 +14,8 @@ var ifaces = os.networkInterfaces();
 var ip_config = get_ip_config();
 var spawn = require('child_process').spawn;
 var cp = require('child_process');
-//var Omx = require('node-omxplayer');
+var Omx = require('node-omxplayer');
+
 var video_player = null;
 $ = require('jquery');
 
@@ -133,7 +134,7 @@ io.on('connection', function(socket){
                   datas.status = "force_video";
                   io.emit(call, {"status":"force_video", "infos":stat, "datas":datas});
               }else{*/
-                  /*
+
                   if(video_player !== null){
                     video_player.quit();
                     video_player = null;
@@ -142,8 +143,8 @@ io.on('connection', function(socket){
                   video_player = Omx("http://10.3.141.1:3000/"+datas.file);
                   video_player.volUp();
                   video_player.play();
-                  */
-                  cp.exec("killall omxplayer.bin", function(error, stdout, stderr) {});
+
+                  /*cp.exec("killall omxplayer.bin", function(error, stdout, stderr) {});
 
                   console.log("omxplayer -o local /"+datas.file);
 
@@ -156,6 +157,7 @@ io.on('connection', function(socket){
                   }, function(e){
                       console.log('catch error omx player');
                   });
+                  */
               //}
           });
         }else{
