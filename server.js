@@ -93,7 +93,6 @@ io.on('connection', function(socket){
               .sleep(100)
               .release("space")
               .then(robot.stopJar);
-
         }
         if(datas.status === "play_video"){
           //omxp.playPause(function(err){});
