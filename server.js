@@ -127,7 +127,7 @@ io.on('connection', function(socket){
                   //video_player.play();
                   cp.exec("killall omxplayer.bin", function(error, stdout, stderr) {});
                   cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
-                  cp.exec("omxplayer -o local http://10.3.141.1:3000/"+datas.file, function(error, stdout, stderr) {
+                  cp.exec("omxplayer -o local -r http://10.3.141.1:3000/"+datas.file, function(error, stdout, stderr) {
                       if (stderr !== null) {
                           console.log("exec errror: " + error);
                       }
