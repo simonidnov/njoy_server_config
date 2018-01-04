@@ -122,7 +122,7 @@ io.on('connection', function(socket){
           cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
           cp.exec("killall omxplayer", function(error, stdout, stderr) {});
         }
-        if(datas.status === "video"){
+        if(datas.status.indexOf("video") !== -1){
           cp.exec("killall omxplayer", function(error, stdout, stderr) {
               /*if (stderr !== null) {
                   // IF OMXPLAYER COMMEND DOESN'T EXIST ONLY
