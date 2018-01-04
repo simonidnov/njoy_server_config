@@ -14,7 +14,6 @@ var ifaces = os.networkInterfaces();
 var ip_config = get_ip_config();
 var spawn = require('child_process').spawn;
 var cp = require('child_process');
-var omxp = require('omxplayer-controll');
 var opts = {
     'audioOutput': 'hdmi', //  'hdmi' | 'local' | 'both'
     'blackBackground': false, //false | true | default: true
@@ -96,16 +95,16 @@ io.on('connection', function(socket){
                 break;
         }
         if(datas.status === "pause_video"){
-          omxp.playPause(function(err){});
+          //omxp.playPause(function(err){});
         }
         if(datas.status === "play_video"){
-          omxp.playPause(function(err){});
+          //omxp.playPause(function(err){});
         }
         if(datas.status === "mute_video"){
-            omxp.playPause(function(err){});
+            //omxp.playPause(function(err){});
         }
         if(datas.status === "audio_video"){
-           omxp.playPause(function(err){});
+           //omxp.playPause(function(err){});
         }
         if(datas.status === "stop_video"){
           /*if(video_player !== null){
@@ -133,7 +132,7 @@ io.on('connection', function(socket){
                   video_player = Omx("http://10.3.141.1:3000/"+datas.file);
                   video_player.volUp();
                   video_player.play();
-                  */
+
                   omxp.open("http://10.3.141.1:3000/"+datas.file, opts);
                   omxp.on('changeStatus',function(status){
                       console.log('Status',status);
@@ -141,9 +140,9 @@ io.on('connection', function(socket){
                   omxp.on('aboutToFinish',function(){
                       console.log('File about to finish');
                   });
+                  */
 
-
-                  /*cp.exec("killall omxplayer.bin", function(error, stdout, stderr) {});
+                  cp.exec("killall omxplayer.bin", function(error, stdout, stderr) {});
 
                   console.log("omxplayer -o local /"+datas.file);
 
@@ -156,7 +155,7 @@ io.on('connection', function(socket){
                   }, function(e){
                       console.log('catch error omx player');
                   });
-                  */
+                  
               //}
           });
         }else{
