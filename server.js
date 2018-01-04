@@ -122,6 +122,7 @@ io.on('connection', function(socket){
           cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
           cp.exec("killall omxplayer", function(error, stdout, stderr) {});
         }
+        console.log('datas.status.indexOf("video") ::::: ', datas.status.indexOf("video"));
         if(datas.status.indexOf("video") !== -1){
           console.log('datas.status.indexOf("video") ::::: ', datas.status.indexOf("video"));
           cp.exec("killall omxplayer", function(error, stdout, stderr) {
@@ -161,6 +162,7 @@ io.on('connection', function(socket){
           /*if(video_player !== null){
             video_player.quit();
           }*/
+          console.log('OUTCH !');
           cp.exec("killall omxplayer", function(error, stdout, stderr) {
               if (stderr !== null) {
                   console.log("killall omxplayer exec errror: " + error);
