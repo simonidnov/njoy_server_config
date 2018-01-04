@@ -1,10 +1,9 @@
-'use strict';
-var express = require('express'),
-    app = express(),
-    router = express.Router(),
-    http = require('http').Server(app),
-    path = require('path'),
-    io = require('socket.io')(http);
+var express = require('express');
+var app = express();
+var router = express.Router();
+var http = require('http').Server(app);
+var path = require('path');
+var io = require('socket.io')(http);
 var port = process.env.PORT || 3000;
 var _ = require('underscore');
 //var router = express.Router();
@@ -13,8 +12,8 @@ var server = null;
 var os = require('os');
 var ifaces = os.networkInterfaces();
 var ip_config = get_ip_config();
-var Omx = require('node-omxplayer');
 var cp = require('child_process');
+//var Omx = require('node-omxplayer');
 var video_player = null;
 $ = require('jquery');
 
@@ -85,8 +84,8 @@ io.on('connection', function(socket){
                 break;
         }
         if(datas.status === "pause_video"){
-          console.log('video player ', video_player);
           if(video_player !== null){
+            console.log('video player ', video_player);
             video_player.pause();
           }
         }
@@ -111,7 +110,6 @@ io.on('connection', function(socket){
             video_player = null;
           }
         }
-
         if(datas.status === "video"){
           cp.exec("killall omxplayer", function(error, stdout, stderr) {
               if (stderr !== null) {
@@ -123,10 +121,10 @@ io.on('connection', function(socket){
                     video_player = null;
                   }
                   cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
-                  video_player = Omx("http://10.3.141.1:3000/"+datas.file);
-                  video_player.volUp();
-                  video_player.play();
-                  /*cp.exec("killall omxplayer.bin", function(error, stdout, stderr) {});
+                  //video_player = Omx("http://10.3.141.1:3000/"+datas.file);
+                  //video_player.volUp();
+                  //video_player.play();
+                  cp.exec("killall omxplayer.bin", function(error, stdout, stderr) {});
                   cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
                   cp.exec("omxplayer -o local http://10.3.141.1:3000/"+datas.file, function(error, stdout, stderr) {
                       if (stderr !== null) {
@@ -134,11 +132,10 @@ io.on('connection', function(socket){
                       }
                   }, function(e){
                       console.log('catch error omx player');
-                  });*/
+                  });
               }
           });
         }else{
-          console.log('video_player ', video_player);
           if(video_player !== null){
             video_player.quit();
           }
