@@ -14,7 +14,17 @@ var ifaces = os.networkInterfaces();
 var ip_config = get_ip_config();
 var spawn = require('child_process').spawn;
 var cp = require('child_process');
-var Omx = require('node-omxplayer');
+var omxp = require('omxplayer-controll');
+var opts = {
+    'audioOutput': 'hdmi', //  'hdmi' | 'local' | 'both'
+    'blackBackground': false, //false | true | default: true
+    'disableKeys': true, //false | true | default: false
+    'disableOnScreenDisplay': true, //false | true | default: false
+    'disableGhostbox': true, //false | true | default: false
+    'subtitlePath': '', //default: ""
+    'startAt': 0, //default: 0
+    'startVolume': 1.0 //0.0 ... 1.0 default: 1.0
+};
 
 var video_player = null;
 $ = require('jquery');
@@ -86,37 +96,16 @@ io.on('connection', function(socket){
                 break;
         }
         if(datas.status === "pause_video"){
-          if(video_player !== null){
-            console.log('video player ', video_player);
-            video_player.pause();
-          }
-          //export DISPLAY=":0";
-          /*console.log(':::::::::::');
-          console.log(':::::::::::');
-          console.log('pause_video');
-          console.log(':::::::::::');
-          console.log(':::::::::::');
-          cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
-          cp.exec("xdotool key space", function(error, stdout, stderr) {});*/
+          omxp.playPause(function(err){});
         }
         if(datas.status === "play_video"){
-          if(video_player !== null){
-            video_player.play();
-          }
+          omxp.playPause(function(err){});
         }
         if(datas.status === "mute_video"){
-          /*if(video_player !== null){
-            video_player.volDown();
-          }*/
-          cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
-          cp.exec("xdotool key space", function(error, stdout, stderr) {});
+            omxp.playPause(function(err){});
         }
         if(datas.status === "audio_video"){
-          /*if(video_player !== null){
-            video_player.volUp();
-          }*/
-          cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
-          cp.exec("xdotool key space", function(error, stdout, stderr) {});
+           omxp.playPause(function(err){});
         }
         if(datas.status === "stop_video"){
           /*if(video_player !== null){
@@ -135,6 +124,7 @@ io.on('connection', function(socket){
                   io.emit(call, {"status":"force_video", "infos":stat, "datas":datas});
               }else{*/
 
+                  /*
                   if(video_player !== null){
                     video_player.quit();
                     video_player = null;
@@ -143,6 +133,15 @@ io.on('connection', function(socket){
                   video_player = Omx("http://10.3.141.1:3000/"+datas.file);
                   video_player.volUp();
                   video_player.play();
+                  */
+                  omxp.open("http://10.3.141.1:3000/"+datas.file, opts);
+                  omxp.on('changeStatus',function(status){
+                      console.log('Status',status);
+                  });
+                  omxp.on('aboutToFinish',function(){
+                      console.log('File about to finish');
+                  });
+
 
                   /*cp.exec("killall omxplayer.bin", function(error, stdout, stderr) {});
 
