@@ -150,7 +150,7 @@ io.on('connection', function(socket){
                   video_player.volUp();
                   video_player.play();
                   video_player.on('close', function(){
-                    video_player.quit();
+                    //video_player.quit();
                     video_player = null;
                   });
 /*
