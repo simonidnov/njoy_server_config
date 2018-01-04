@@ -23,6 +23,7 @@
   "dependencies": {
     "express": "^4.15.2",
     "jquery": "^3.2.1",
+    "node-omxplayer": "^0.6.1",
     "socket.io": "^1.7.3",
     "underscore": "^1.8.3",
     "underscore-express": "^1.0.1",

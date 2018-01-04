@@ -66,6 +66,14 @@ var app_tools = {
             app_tools.resize();
         });
         app_tools.resize();
+        $('#play_pause_button').off('click').on('click', function(){
+          app.socket.emit("njoy", {status:"pause_video"});
+          console.log('play pause');
+        });
+        $('#mute_button').off('click').on('click', function(){
+          app.socket.emit("njoy", {status:"mute_video"});
+          console.log('mute');
+        });
     },
     resize : function(){
         if(window.innerWidth <= 568){

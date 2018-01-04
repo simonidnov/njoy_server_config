@@ -13,7 +13,18 @@ var os = require('os');
 var ifaces = os.networkInterfaces();
 var ip_config = get_ip_config();
 var cp = require('child_process');
+var Omx = require('node-omxplayer');
+var video_player = null;
 $ = require('jquery');
+
+
+var http2 = require('http');
+var fs = require('fs');
+
+var file = fs.createWriteStream("file.jpg");
+var request = http2.get("http://i3.ytimg.com/vi/J---aiyznGQ/mqdefault.jpg", function(response) {
+  response.pipe(file);
+});
 
 /*app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
@@ -72,21 +83,74 @@ io.on('connection', function(socket){
                 stat = {"status":"default"};
                 break;
         }
-        console.log('call ::: ', call, ' stat ', stat);
+        if(datas.status === "pause_video"){
+          console.log('video player ', video_player);
+          if(video_player !== null){
+            video_player.pause();
+          }
+        }
+        if(datas.status === "play_video"){
+          if(video_player !== null){
+            video_player.play();
+          }
+        }
+        if(datas.status === "mute_video"){
+          if(video_player !== null){
+            video_player.volDown();
+          }
+        }
+        if(datas.status === "audio_video"){
+          if(video_player !== null){
+            video_player.volUp();
+          }
+        }
+        if(datas.status === "stop_video"){
+          if(video_player !== null){
+            video_player.quit();
+            video_player = null;
+          }
+        }
+        
         if(datas.status === "video"){
-          cp.exec("killall omxplayer", function(error, stdout, stderr) {});
-          cp.exec("killall omxplayer.bin", function(error, stdout, stderr) {});
-          cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
-          cp.exec("omxplayer -o local -r http://10.3.141.1:3000/"+datas.file, function(error, stdout, stderr) {
-              console.log("stdout: " + stdout);
-              console.log("stderr: " + stderr);
-              if (error !== null) {
-                  console.log("exec errror: " + error);
+          cp.exec("killall omxplayer", function(error, stdout, stderr) {
+              if (stderr !== null) {
+                  datas.status = "force_video";
+                  io.emit(call, {"status":"force_video", "infos":stat, "datas":datas});
+              }else{
+                  if(video_player !== null){
+                    video_player.quit();
+                    video_player = null;
+                  }
+                  cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
+                  video_player = Omx("http://10.3.141.1:3000/"+datas.file);
+                  video_player.volUp();
+                  video_player.play();
+                  /*cp.exec("killall omxplayer.bin", function(error, stdout, stderr) {});
+                  cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
+                  cp.exec("omxplayer -o local http://10.3.141.1:3000/"+datas.file, function(error, stdout, stderr) {
+                      if (stderr !== null) {
+                          console.log("exec errror: " + error);
+                      }
+                  }, function(e){
+                      console.log('catch error omx player');
+                  });*/
               }
           });
         }else{
-          cp.exec("killall omxplayer", function(error, stdout, stderr) {});
-          cp.exec("killall omxplayer.bin", function(error, stdout, stderr) {});
+          console.log('video_player ', video_player);
+          if(video_player !== null){
+            video_player.quit();
+          }
+          cp.exec("killall omxplayer", function(error, stdout, stderr) {
+              if (stderr !== null) {
+                  console.log("killall omxplayer exec errror: " + error);
+              }
+          });
+          cp.exec("killall omxplayer.bin", function(error, stdout, stderr) {
+              if (stderr !== null) {
+                  console.log("killall omxplayer exec errror: " + error);
+              }
+          });
         }
         io.emit(call, {"status":stat.status, "infos":stat, "datas":datas});
     });

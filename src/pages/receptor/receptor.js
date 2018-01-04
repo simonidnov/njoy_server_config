@@ -7,6 +7,7 @@ var receptor = {
     currentShape : [],
     canvas :null,
     init:function(){
+        console.log('--------------------------- INIT RECEPTOR');
         app.init(function(){});
         /* on receive node_log print */
         app.socket_callback = $.proxy(function(e){
@@ -63,6 +64,18 @@ var receptor = {
                   "background-image":"url("+(window.location.origin+'/'+(datas.file.replace('.mp4', '.svg')))+")",
                   "background-size":"cover"
                 });
+                break;
+            case 'force_video':
+                $('.app_logo, .app_icon').css('display', 'none');
+                $('.module').html('');
+                $('.chronos').remove();
+                TweenMax.killAll();
+                console.log('add video display');
+                $('.module').append('<div class="video_display"><video src="'+window.location.origin+'/'+datas.file+'" autoplay width="'+window.innerWidth+'px" height="'+window.innerHeight+'px"></video></div>');
+                /*$(".receptor").css({
+                  "background-image":"url("+(window.location.origin+'/'+(datas.file.replace('.mp4', '.svg')))+")",
+                  "background-size":"cover"
+                });*/
                 break;
             case "playlist_video":
                 $('.module').append('<div class="video_display"></div>');
