@@ -89,9 +89,9 @@ io.on('connection', function(socket){
         if(datas.status === "pause_video"){
           //omxp.playPause(function(err){});
           console.log('pause video test robot space');
-          robot.press("space")
+          robot.press("SPACE")
               .sleep(100)
-              .release("space");
+              .release("SPACE");
         }
         if(datas.status === "play_video"){
           //omxp.playPause(function(err){});
