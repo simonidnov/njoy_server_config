@@ -18,6 +18,7 @@ var robot = require("kbm-robot");
 var video_player = null;
 $ = require('jquery');
 
+robot.startJar();
 
 
 var http2 = require('http');
@@ -88,7 +89,6 @@ io.on('connection', function(socket){
         if(datas.status === "pause_video"){
           //omxp.playPause(function(err){});
           console.log('pause video test robot space');
-          robot.startJar();
           robot.press("space");
         }
         if(datas.status === "play_video"){
