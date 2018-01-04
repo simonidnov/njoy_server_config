@@ -107,7 +107,9 @@ io.on('connection', function(socket){
               //.then(robot.stopJar);
         }
         if(datas.status === "play_video"){
-          //omxp.playPause(function(err){});
+          if(video_player !== null){
+            video_player.play();
+          }//omxp.playPause(function(err){});
         }
         if(datas.status === "mute_video"){
             //omxp.playPause(function(err){});
@@ -168,11 +170,11 @@ io.on('connection', function(socket){
               //}
           });
         }else{
-          if(video_player !== null){
-            video_player.quit();
-            video_player = null;
-          }
           if(datas.status.indexOf("video") === -1){
+            if(video_player !== null){
+              video_player.quit();
+              video_player = null;
+            }
             cp.exec("killall omxplayer", function(error, stdout, stderr) {
                 if (stderr !== null) {
                     console.log("killall omxplayer exec errror: " + error);
