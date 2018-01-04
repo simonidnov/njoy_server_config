@@ -114,6 +114,7 @@ io.on('connection', function(socket){
         if(datas.status === "video"){
           cp.exec("killall omxplayer", function(error, stdout, stderr) {
               if (stderr !== null) {
+                  console.log('HEEEEEEEERE WTF !!!');
                   datas.status = "force_video";
                   io.emit(call, {"status":"force_video", "infos":stat, "datas":datas});
               }else{
