@@ -14,13 +14,15 @@ var ifaces = os.networkInterfaces();
 var ip_config = get_ip_config();
 var spawn = require('child_process').spawn;
 var cp = require('child_process');
-var Omx = require('node-omxplayer');
 
-var robot = require("kbm-robot");
+//var robot = require("kbm-robot");
+
+var Omx = require('node-omxplayer');
 var video_player = null;
+
 $ = require('jquery');
 
-robot.startJar();
+//robot.startJar();
 
 
 var http2 = require('http');
@@ -90,15 +92,18 @@ io.on('connection', function(socket){
         }
         if(datas.status === "pause_video"){
           //omxp.playPause(function(err){});
+          if(video_player !== null){
+            video_player.pause();
+          }
           console.log('pause video test robot space');
           //robot.startJar();
 
-          robot.press("alt")
+          /*robot.press("alt")
               .press("tab")
               .sleep(100)
               .release("tab")
               .release("alt")
-              .sleep(100);
+              .sleep(100);*/
               //.then(robot.stopJar);
         }
         if(datas.status === "play_video"){
@@ -127,7 +132,7 @@ io.on('connection', function(socket){
                   io.emit(call, {"status":"force_video", "infos":stat, "datas":datas});
               }else{*/
 
-                  /*
+
                   if(video_player !== null){
                     video_player.quit();
                     video_player = null;
@@ -136,7 +141,7 @@ io.on('connection', function(socket){
                   video_player = Omx("http://10.3.141.1:3000/"+datas.file);
                   video_player.volUp();
                   video_player.play();
-
+/*
                   omxp.open("http://10.3.141.1:3000/"+datas.file, opts);
                   omxp.on('changeStatus',function(status){
                       console.log('Status',status);
@@ -146,7 +151,7 @@ io.on('connection', function(socket){
                   });
                   */
 
-                  cp.exec("killall omxplayer.bin", function(error, stdout, stderr) {});
+                  /*cp.exec("killall omxplayer.bin", function(error, stdout, stderr) {});
 
                   console.log("omxplayer -o local /"+datas.file);
 
@@ -158,14 +163,14 @@ io.on('connection', function(socket){
                       }
                   }, function(e){
                       console.log('catch error omx player');
-                  });
+                  });*/
 
               //}
           });
         }else{
-          /*if(video_player !== null){
+          if(video_player !== null){
             video_player.quit();
-          }*/
+          }
           if(datas.status.indexOf("video") === -1){
             cp.exec("killall omxplayer", function(error, stdout, stderr) {
                 if (stderr !== null) {
