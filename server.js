@@ -123,6 +123,7 @@ io.on('connection', function(socket){
           cp.exec("killall omxplayer", function(error, stdout, stderr) {});
         }
         if(datas.status.indexOf("video") !== -1){
+          console.log('datas.status.indexOf("video") ::::: ', datas.status.indexOf("video"));
           cp.exec("killall omxplayer", function(error, stdout, stderr) {
               /*if (stderr !== null) {
                   // IF OMXPLAYER COMMEND DOESN'T EXIST ONLY
@@ -130,6 +131,7 @@ io.on('connection', function(socket){
                   datas.status = "force_video";
                   io.emit(call, {"status":"force_video", "infos":stat, "datas":datas});
               }else{*/
+
                   /*
                   if(video_player !== null){
                     video_player.quit();
