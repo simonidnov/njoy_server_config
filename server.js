@@ -14,19 +14,10 @@ var ifaces = os.networkInterfaces();
 var ip_config = get_ip_config();
 var spawn = require('child_process').spawn;
 var cp = require('child_process');
-var opts = {
-    'audioOutput': 'hdmi', //  'hdmi' | 'local' | 'both'
-    'blackBackground': false, //false | true | default: true
-    'disableKeys': true, //false | true | default: false
-    'disableOnScreenDisplay': true, //false | true | default: false
-    'disableGhostbox': true, //false | true | default: false
-    'subtitlePath': '', //default: ""
-    'startAt': 0, //default: 0
-    'startVolume': 1.0 //0.0 ... 1.0 default: 1.0
-};
-
+var robot = require("kbm-robot");
 var video_player = null;
 $ = require('jquery');
+
 
 
 var http2 = require('http');
@@ -96,6 +87,13 @@ io.on('connection', function(socket){
         }
         if(datas.status === "pause_video"){
           //omxp.playPause(function(err){});
+          console.log('pause video test robot space');
+          robot.startJar();
+          robot.press("space")
+              .sleep(100)
+              .release("space")
+              .then(robot.stopJar);
+
         }
         if(datas.status === "play_video"){
           //omxp.playPause(function(err){});
@@ -155,7 +153,7 @@ io.on('connection', function(socket){
                   }, function(e){
                       console.log('catch error omx player');
                   });
-                  
+
               //}
           });
         }else{
