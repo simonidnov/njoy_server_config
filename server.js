@@ -94,6 +94,7 @@ io.on('connection', function(socket){
           //omxp.playPause(function(err){});
           if(video_player !== null){
             video_player.pause();
+            io.emit(call, {"status":"video_pause", "is_running":video_player.running});
           }
           console.log('video_player pause ', video_player);
           //robot.startJar();
@@ -109,17 +110,21 @@ io.on('connection', function(socket){
         if(datas.status === "play_video"){
           if(video_player !== null){
             video_player.play();
-          }//omxp.playPause(function(err){});
+            io.emit(call, {"status":"video_play", "is_running":video_player.running});
+          }
+          //omxp.playPause(function(err){});
         }
         if(datas.status === "mute_video"){
             //omxp.playPause(function(err){});
             if(video_player !== null){
-              video_player.volDown();
+              video_player.volDown(0);
+              io.emit(call, {"status":"video_muted", "is_running":video_player.running});
             }
         }
         if(datas.status === "audio_video"){
           if(video_player !== null){
-            video_player.volUp();
+            video_player.volUp(1);
+            io.emit(call, {"status":"video_audio", "is_running":video_player.running});
           }
           //omxp.playPause(function(err){});
         }
@@ -151,8 +156,10 @@ io.on('connection', function(socket){
                   video_player.play();
                   video_player.on('close', function(){
                     //video_player.quit();
+                    io.emit(call, {"status":"video_closed"});
                     video_player = null;
                   });
+                  io.emit(call, {"status":"video_started"});
 /*
                   omxp.open("http://10.3.141.1:3000/"+datas.file, opts);
                   omxp.on('changeStatus',function(status){
@@ -183,6 +190,7 @@ io.on('connection', function(socket){
           if(datas.status.indexOf("video") === -1){
             if(video_player !== null){
               video_player.quit();
+              io.emit(call, {"status":"video_closed"});
               video_player = null;
             }
             cp.exec("killall omxplayer", function(error, stdout, stderr) {

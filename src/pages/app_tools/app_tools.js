@@ -74,6 +74,9 @@ var app_tools = {
           app.socket.emit("njoy", {status:"mute_video"});
           console.log('mute');
         });
+        app.socket_callback = function(e){
+          console.log("socket callback from apptools :::: ", e);
+        }
     },
     resize : function(){
         if(window.innerWidth <= 568){
