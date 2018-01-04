@@ -95,7 +95,7 @@ io.on('connection', function(socket){
           if(video_player !== null){
             video_player.pause();
           }
-          console.log('pause video test robot space');
+          console.log('video_player pause ', video_player);
           //robot.startJar();
 
           /*robot.press("alt")
@@ -170,6 +170,7 @@ io.on('connection', function(socket){
         }else{
           if(video_player !== null){
             video_player.quit();
+            video_player = null;
           }
           if(datas.status.indexOf("video") === -1){
             cp.exec("killall omxplayer", function(error, stdout, stderr) {
