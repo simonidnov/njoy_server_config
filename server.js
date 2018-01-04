@@ -90,6 +90,11 @@ io.on('connection', function(socket){
             video_player.pause();
           }*/
           //export DISPLAY=":0";
+          console.log(':::::::::::');
+          console.log(':::::::::::');
+          console.log('pause_video');
+          console.log(':::::::::::');
+          console.log(':::::::::::');
           cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
           cp.exec("xdotool key space", function(error, stdout, stderr) {});
         }
