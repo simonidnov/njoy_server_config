@@ -113,9 +113,15 @@ io.on('connection', function(socket){
         }
         if(datas.status === "mute_video"){
             //omxp.playPause(function(err){});
+            if(video_player !== null){
+              video_player.volDown();
+            }
         }
         if(datas.status === "audio_video"){
-           //omxp.playPause(function(err){});
+          if(video_player !== null){
+            video_player.volUp();
+          }
+          //omxp.playPause(function(err){});
         }
         if(datas.status === "stop_video"){
           /*if(video_player !== null){
@@ -143,6 +149,10 @@ io.on('connection', function(socket){
                   video_player = Omx("http://10.3.141.1:3000/"+datas.file);
                   video_player.volUp();
                   video_player.play();
+                  video_player.on('close', function(){
+                    video_player.quit();
+                    video_player = null;
+                  });
 /*
                   omxp.open("http://10.3.141.1:3000/"+datas.file, opts);
                   omxp.on('changeStatus',function(status){
