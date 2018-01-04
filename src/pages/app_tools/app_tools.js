@@ -67,15 +67,58 @@ var app_tools = {
         });
         app_tools.resize();
         $('#play_pause_button').off('click').on('click', function(){
-          app.socket.emit("njoy", {status:"pause_video"});
+          if($('.video_asset #play_pause_button img').attr('src') === "img/play_icon.svg"){
+            app.socket.emit("njoy", {status:"pause_video"});
+          }else{
+            app.socket.emit("njoy", {status:"play_video"});
+          }
+          //app.socket.emit("njoy", {status:"pause_video"});
           console.log('play pause');
         });
         $('#mute_button').off('click').on('click', function(){
-          app.socket.emit("njoy", {status:"mute_video"});
+          if($('.video_asset #mute_button img').attr('src') === "img/audio_icon.svg"){
+            app.socket.emit("njoy", {status:"mute_video"});
+          }else{
+            app.socket.emit("njoy", {status:"audio_video"});
+          }
           console.log('mute');
         });
         app.socket_callback = function(e){
           console.log("socket callback from apptools :::: ", e);
+          switch(e.status){
+            case 'video_started':
+              $('.video_asset #mute_button img').attr('src', "img/audio_icon.svg");
+              $('.video_asset #play_pause_button img').attr('src', "img/pause_icon.svg");
+              $('.video_asset').addClass('started');
+              break;
+            case 'video_pause':
+              if($('.video_asset #play_pause_button img').attr('src') === "img/play_icon.svg"){
+                $('.video_asset #play_pause_button img').attr('src', "img/pause_icon.svg");
+              }else{
+                $('.video_asset #play_pause_button img').attr('src', "img/play_icon.svg");
+              }
+              break;
+            case 'video_play':
+              if($('.video_asset #play_pause_button img').attr('src') === "img/play_icon.svg"){
+                $('.video_asset #play_pause_button img').attr('src', "img/pause_icon.svg");
+              }else{
+                $('.video_asset #play_pause_button img').attr('src', "img/play_icon.svg");
+              }
+              break;
+            case 'video_closed':
+              $('.video_asset').removeClass('started');
+              break;
+            case 'video_muted':
+              if($('.video_asset #mute_button img').attr('src') === "img/audio_icon.svg"){
+                $('.video_asset #mute_button img').attr('src', "img/mute_icon.svg");
+              }else{
+                $('.video_asset #mute_button img').attr('src', "img/audio_icon.svg");
+              }
+              break;
+            case 'video_audio':
+              $('.video_asset').removeClass('started');
+              break;
+          }
         }
     },
     resize : function(){
