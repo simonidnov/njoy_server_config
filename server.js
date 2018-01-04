@@ -129,7 +129,7 @@ io.on('connection', function(socket){
                   */
                   //cp.exec("killall omxplayer.bin", function(error, stdout, stderr) {});
 
-                  console.log("omxplayer -o local http://10.3.141.1:3000/"+datas.file);
+                  console.log("omxplayer -o local "+datas.file);
 
                   cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
 
