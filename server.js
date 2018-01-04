@@ -122,9 +122,7 @@ io.on('connection', function(socket){
           cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
           cp.exec("killall omxplayer", function(error, stdout, stderr) {});
         }
-        console.log('datas.status.indexOf("video") ::::: ', datas.status.indexOf("video"));
-        if(datas.status.indexOf("video") !== -1){
-          console.log('datas.status.indexOf("video") ::::: ', datas.status.indexOf("video"));
+        if(datas.status === "video"){
           cp.exec("killall omxplayer", function(error, stdout, stderr) {
               /*if (stderr !== null) {
                   // IF OMXPLAYER COMMEND DOESN'T EXIST ONLY
@@ -132,7 +130,6 @@ io.on('connection', function(socket){
                   datas.status = "force_video";
                   io.emit(call, {"status":"force_video", "infos":stat, "datas":datas});
               }else{*/
-
                   /*
                   if(video_player !== null){
                     video_player.quit();
@@ -162,17 +159,18 @@ io.on('connection', function(socket){
           /*if(video_player !== null){
             video_player.quit();
           }*/
-          console.log('OUTCH !');
-          cp.exec("killall omxplayer", function(error, stdout, stderr) {
-              if (stderr !== null) {
-                  console.log("killall omxplayer exec errror: " + error);
-              }
-          });
-          cp.exec("killall omxplayer.bin", function(error, stdout, stderr) {
-              if (stderr !== null) {
-                  console.log("killall omxplayer exec errror: " + error);
-              }
-          });
+          if(datas.status.indexOf("video") === -1){
+            cp.exec("killall omxplayer", function(error, stdout, stderr) {
+                if (stderr !== null) {
+                    console.log("killall omxplayer exec errror: " + error);
+                }
+            });
+            cp.exec("killall omxplayer.bin", function(error, stdout, stderr) {
+                if (stderr !== null) {
+                    console.log("killall omxplayer exec errror: " + error);
+                }
+            });
+          }
         }
         io.emit(call, {"status":stat.status, "infos":stat, "datas":datas});
     });
