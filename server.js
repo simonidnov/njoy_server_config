@@ -128,6 +128,21 @@ io.on('connection', function(socket){
           }
           //omxp.playPause(function(err){});
         }
+
+        if(datas.status === "fast_forward"){
+          if(video_player !== null){
+            video_player.fwd30();
+            io.emit(call, {"status":"fast_forward", "is_running":video_player.running});
+          }
+          //omxp.playPause(function(err){});
+        }
+        if(datas.status === "fast_backward"){
+          if(video_player !== null){
+            video_player.back30();
+            io.emit(call, {"status":"fast_backward", "is_running":video_player.running});
+          }
+          //omxp.playPause(function(err){});
+        }
         if(datas.status === "stop_video"){
           if(video_player !== null){
             video_player.quit();
