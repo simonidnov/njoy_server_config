@@ -117,13 +117,33 @@ io.on('connection', function(socket){
         if(datas.status === "mute_video"){
             //omxp.playPause(function(err){});
             if(video_player !== null){
-              video_player.volDown(0);
+              video_player.volDown();
+              video_player.volDown();
+              video_player.volDown();
+              video_player.volDown();
+              video_player.volDown();
+              video_player.volDown();
+              video_player.volDown();
+              video_player.volDown();
+              video_player.volDown();
+              video_player.volDown();
+              video_player.volDown();
+              video_player.volDown();
               io.emit(call, {"status":"video_muted", "is_running":video_player.running});
             }
         }
         if(datas.status === "audio_video"){
           if(video_player !== null){
-            video_player.volUp(1);
+            video_player.volUp();
+            video_player.volUp();
+            video_player.volUp();
+            video_player.volUp();
+            video_player.volUp();
+            video_player.volUp();
+            video_player.volUp();
+            video_player.volUp();
+            video_player.volUp();
+            video_player.volUp();
             io.emit(call, {"status":"video_audio", "is_running":video_player.running});
           }
           //omxp.playPause(function(err){});
