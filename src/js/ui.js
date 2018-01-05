@@ -45,7 +45,7 @@ var ui = {
                     {"label":"button 1"},
                     {"label":"button 2"}
                 ]
-            }, function(e){console.log(e);});  
+            }, function(e){console.log(e);});
     },
     popin : function(params, callback){
         if($('#popin_ui_content').length > 0){
@@ -103,7 +103,7 @@ var ui = {
                     if(typeof $(this).attr('data-chronostype') !== "undefined"){
                         status['chronos_type'] = $(this).attr('data-chronostype');
                     }
-                    
+
                     status['tools'] = app.selected_tool;
                     app.socket.emit("njoy", status);
                     /*switch($(this).attr('data-type')){
@@ -118,13 +118,13 @@ var ui = {
                             break;
                         case 'object':
                             status = {
-                                "status":"object", 
-                                "menu":$(this).attr('data-menu'), 
-                                "component":$(this).attr('data-component'), 
+                                "status":"object",
+                                "menu":$(this).attr('data-menu'),
+                                "component":$(this).attr('data-component'),
                                 "component_id":$(this).attr('data-componentid'),
                                 "tools":app.selected_tool
                             }
-                            
+
                             app.socket.emit("njoy", status);
                             //,"selected_app":app.selected_app
                             break;
@@ -140,8 +140,8 @@ var ui = {
                 case 'response':
                     $(this).addClass('checked');
                     app.socket.emit("njoy", {
-                        "status":$(this).attr('data-type'), 
-                        "response":$(this).attr('data-id'), 
+                        "status":$(this).attr('data-type'),
+                        "response":$(this).attr('data-id'),
                         "type":$(this).attr('data-type')
                     });
                     break;
@@ -174,7 +174,7 @@ var ui = {
                 if(parseInt(e) === 1){
                     ui.navigate('/');
                 }
-            }); 
+            });
             return false;
         }
         window.history.pushState("", "", url);
@@ -244,7 +244,7 @@ var ui = {
                                 ui.init_scroll_view();
                                 $('.blocker').remove();
                             }
-                        }); 
+                        });
                         ui.direction = "";
                     } else {
                         $('body main.app .screen').last().css('left', '0%');
@@ -268,7 +268,7 @@ var ui = {
                     $('footer').css('bottom', '0px');
                 }
                 ui.setListeners();
-                
+
             });
         });
     },
@@ -321,7 +321,7 @@ var ui = {
                     resizeTabNav();
                 });
                 ui.navbar_scroll = new IScroll('#header_navbar_wrapper',{
-                    mouseWheel:true, 
+                    mouseWheel:true,
                     click: true,
                     useTransition: true
                 });
@@ -335,7 +335,7 @@ var ui = {
         if($('.screen .wrapper .scroller').length === 1){
             if(typeof IScroll !== "undefined"){
                 ui.page_scroll = new IScroll('#screen_wrapper',{
-                    mouseWheel:true, 
+                    mouseWheel:true,
                     click: true,
                     useTransition: true
                 });

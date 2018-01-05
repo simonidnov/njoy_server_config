@@ -129,12 +129,13 @@ io.on('connection', function(socket){
           //omxp.playPause(function(err){});
         }
         if(datas.status === "stop_video"){
-          /*if(video_player !== null){
+          if(video_player !== null){
             video_player.quit();
             video_player = null;
-          }*/
+          }
           cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
           cp.exec("killall omxplayer", function(error, stdout, stderr) {});
+          io.emit(call, {"status":"kill_vid"});
         }
         if(datas.status === "video"){
           cp.exec("killall omxplayer", function(error, stdout, stderr) {
@@ -144,8 +145,6 @@ io.on('connection', function(socket){
                   datas.status = "force_video";
                   io.emit(call, {"status":"force_video", "infos":stat, "datas":datas});
               }else{*/
-
-
                   if(video_player !== null){
                     video_player.quit();
                     video_player = null;
