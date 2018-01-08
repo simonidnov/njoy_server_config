@@ -63,16 +63,16 @@ var drawer = function(canvas_id){
   var scale = 1;
 
   if($('#'+canvas_id).width() > $('#'+canvas_id).height()){
-    if($('#'+canvas_id).width() > window.innerWidth){
-      scale = window.innerWidth / $('#'+canvas_id).width();
-    }else{
-      scale = $('#'+canvas_id).width() / window.innerWidth;
-    }
-  }else{
     if($('#'+canvas_id).height() > window.innerHeight){
       scale = $('#'+canvas_id).height() / window.innerHeight;
     }else{
       scale = window.innerHeight / $('#'+canvas_id).height();
+    }
+  }else{
+    if($('#'+canvas_id).width() > window.innerWidth){
+      scale = window.innerWidth / $('#'+canvas_id).width();
+    }else{
+      scale = $('#'+canvas_id).width() / window.innerWidth;
     }
   }
   $('#'+canvas_id).css({
