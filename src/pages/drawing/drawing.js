@@ -22,8 +22,8 @@ var drawing = {
       app.socket.emit("njoy", {
         "status":"init_drawing",
         "color":createjs.Graphics.getRGB(0,0,0),
-        "width":window.innerWidth,
-        "height":window.innerHeight - 50
+        "width":1920,
+        "height":1080
       });
     },500);
 
@@ -34,13 +34,20 @@ var drawing = {
 var drawer = function(canvas_id){
   this.canvas = document.getElementById(canvas_id);
   // TODO REMOVE TEST SIZE
+  /*
   this.canvas.width = window.innerWidth;
   this.canvas.height = window.innerHeight - 50;
 
   this.canvas.style.width = window.innerWidth;
   this.canvas.style.height = window.innerHeight - 50;
+  */
+  this.canvas.width = 1920;
+  this.canvas.height = 1080;
 
-  
+  this.canvas.style.width = 1920;
+  this.canvas.style.height = 1080;
+
+
   this.lastSend = new Date().getTime();
   /*$('#canvas_id').css({
     "width":$('body').width()+'px !important',
