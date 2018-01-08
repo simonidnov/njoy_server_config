@@ -41,6 +41,7 @@
   background:#000000;
   width:10px;
   height:10px;
+  border-radius: 100%;
 }
 .pencil_menu .sizes li:nth-child(0):after{
   width:10px;
