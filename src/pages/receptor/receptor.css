@@ -351,4 +351,5 @@ main.app{
 }
 .receptor canvas{
   border:1px solid #333;
+  transform-origin: 0 0;
 }

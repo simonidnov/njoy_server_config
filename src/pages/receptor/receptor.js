@@ -374,9 +374,9 @@ var receptor = {
 
         if($('#'+canvas_id).width() > $('#'+canvas_id).height()){
           if($('#'+canvas_id).width() > window.innerWidth){
-            scale = $('#'+canvas_id).width() / window.innerWidth;
-          }else{
             scale = window.innerWidth / $('#'+canvas_id).width();
+          }else{
+            scale = $('#'+canvas_id).width() / window.innerWidth;
           }
         }else{
           if($('#'+canvas_id).height() > window.innerHeight){
