@@ -49,6 +49,25 @@ var drawer = function(canvas_id){
 
 
   this.lastSend = new Date().getTime();
+
+  var scale = 1;
+
+  if($('#'+canvas_id).width() > $('#'+canvas_id).height()){
+    if($('#'+canvas_id).width() > window.innerWidth){
+      scale = $('#'+canvas_id).width() / window.innerWidth;
+    }else{
+      scale = window.innerWidth / $('#'+canvas_id).width();
+    }
+  }else{
+    if($('#'+canvas_id).height() > window.innerHeight){
+      scale = $('#'+canvas_id).height() / window.innerHeight;
+    }else{
+      scale = window.innerHeight / $('#'+canvas_id).height();
+    }
+  }
+  $('#'+canvas_id).css({
+    "transform":'scale('+scale+')'
+  });
   /*$('#canvas_id').css({
     "width":$('body').width()+'px !important',
     "height":$('body').height()+'px !important'
