@@ -349,3 +349,6 @@ main.app{
     border-width: 0 50px 50px 50px;
     border-color: transparent transparent #FAE324 transparent;
 }
+.receptor canvas{
+  border:1px solid #333;
+}

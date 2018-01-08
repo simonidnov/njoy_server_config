@@ -65,7 +65,6 @@ drawer.prototype.init = function(){
   this.create_events();
 }
 drawer.prototype.create_events = function(){
-    console.log('drawer events created');
     //if ("ontouchstart" in window) {
         createjs.Touch.enable(this.stage);
         this.stage.on("stagemousedown", $.proxy(function(evt){

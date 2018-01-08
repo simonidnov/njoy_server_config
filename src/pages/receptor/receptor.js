@@ -351,7 +351,7 @@ var receptor = {
           "height":window.innerHeight
         });
         */
-        //console.log('init_drawing');
+        console.log('init_drawing ', datas.width);
 
         $('.module').append('<canvas id="drawing" width="'+datas.width+'" height="'+datas.height+'" style="width:'+datas.width+'px; height:'+datas.height+'px;"></canvas>');
         this.canvas = document.getElementById("drawing");
