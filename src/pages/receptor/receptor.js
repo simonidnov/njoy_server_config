@@ -368,6 +368,24 @@ var receptor = {
         this.canvas.style.width = datas.width;
         this.canvas.style.height = datas.height;
 
+
+        var scale = 1,
+            canvas_id = "drawing";
+            
+        if($('#'+canvas_id).width() > $('#'+canvas_id).height()){
+          if($('#'+canvas_id).width() > window.innerWidth){
+            scale = $('#'+canvas_id).width() / window.innerWidth;
+          }else{
+            scale = window.innerWidth / $('#'+canvas_id).width();
+          }
+        }else{
+          if($('#'+canvas_id).height() > window.innerHeight){
+            scale = $('#'+canvas_id).height() / window.innerHeight;
+          }else{
+            scale = window.innerHeight / $('#'+canvas_id).height();
+          }
+        }
+
         $('#drawing').css({
           "width":datas.width+'px !important',
           "height":datas.height+'px !important'

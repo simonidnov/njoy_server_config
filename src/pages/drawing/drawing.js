@@ -39,20 +39,7 @@ var drawer = function(canvas_id){
 
   this.canvas.style.width = window.innerWidth;
   this.canvas.style.height = window.innerHeight - 50;
-  var scale = 1;
-  if($('#'+canvas_id).width() > $('#'+canvas_id).height()){
-    if($('#'+canvas_id).width() > window.innerWidth){
-      scale = $('#'+canvas_id).width() / window.innerWidth;
-    }else{
-      scale = window.innerWidth / $('#'+canvas_id).width();
-    }
-  }else{
-    if($('#'+canvas_id).height() > window.innerHeight){
-      scale = $('#'+canvas_id).height() / window.innerHeight;
-    }else{
-      scale = window.innerHeight / $('#'+canvas_id).height();
-    }
-  }
+  
   $('#'+canvas_id).css("transform", 'scale('+scale+')');
 
   this.lastSend = new Date().getTime();
