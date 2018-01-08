@@ -47,8 +47,9 @@ var drawer = function(canvas_id){
   this.canvas.style.width = 1920;
   this.canvas.style.height = 1080;
 
-
   this.lastSend = new Date().getTime();
+  this.color = "#000000";
+  this.size = 10;
 
   var scale = 1;
 
@@ -72,7 +73,7 @@ var drawer = function(canvas_id){
     "width":$('body').width()+'px !important',
     "height":$('body').height()+'px !important'
   });*/
-  this.pencil = {"color":"#000000", "size":10, "stylingW":"round", "stylingH":"round"};
+  this.pencil = {"color":this.color, "size":this.size, "stylingW":"round", "stylingH":"round"};
   this.stage = new createjs.Stage(canvas_id);
   this.stage.autoClear = true;
   this.stage.update();
