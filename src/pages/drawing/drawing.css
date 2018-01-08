@@ -14,6 +14,7 @@
   height:50px;
   display: inline-flex;
 }
+.pencil_menu .colors,
 .pencil_menu .sizes{
   margin: 0;
   padding:0;
