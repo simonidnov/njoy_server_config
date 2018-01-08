@@ -39,9 +39,8 @@ var drawer = function(canvas_id){
 
   this.canvas.style.width = window.innerWidth;
   this.canvas.style.height = window.innerHeight - 50;
-  
-  $('#'+canvas_id).css("transform", 'scale('+scale+')');
 
+  
   this.lastSend = new Date().getTime();
   /*$('#canvas_id').css({
     "width":$('body').width()+'px !important',
