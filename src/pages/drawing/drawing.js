@@ -64,9 +64,9 @@ var drawer = function(canvas_id){
 
   if($('#'+canvas_id).width() > $('#'+canvas_id).height()){
     if($('#'+canvas_id).height() > window.innerHeight){
-      scale = $('#'+canvas_id).height() / window.innerHeight;
-    }else{
       scale = window.innerHeight / $('#'+canvas_id).height();
+    }else{
+      scale = $('#'+canvas_id).height() / window.innerHeight;
     }
   }else{
     if($('#'+canvas_id).width() > window.innerWidth){
