@@ -43,14 +43,14 @@
   height:10px;
   border-radius: 100%;
 }
-.pencil_menu .sizes li:nth-child(0):after{
+.pencil_menu .sizes li:nth-child(1):after{
   width:10px;
   height:10px;
 }
-.pencil_menu .sizes li:nth-child(1):after{
+.pencil_menu .sizes li:nth-child(2):after{
   width:20px;
   height:20px;
 }
-.pencil_menu .sizes li:nth-child(2):after{
+.pencil_menu .sizes li:nth-child(3):after{
   width:30px;
   height:30px;
