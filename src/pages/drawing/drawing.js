@@ -60,9 +60,9 @@ var drawer = function(canvas_id){
   this.color = "#000000";
   this.size = 10;
 
-  var scale = 1;
+  var scale = $('#drawer').height() / window.innerHeight;
 
-  if($('#'+canvas_id).width() > $('#'+canvas_id).height()){
+  /*if($('#'+canvas_id).width() > $('#'+canvas_id).height()){
     if($('#'+canvas_id).height() > window.innerHeight){
       scale = window.innerHeight / $('#'+canvas_id).height();
     }else{
@@ -74,7 +74,8 @@ var drawer = function(canvas_id){
     }else{
       scale = $('#'+canvas_id).width() / window.innerWidth;
     }
-  }
+  }*/
+
   $('#'+canvas_id).css({
     "transform":'scale('+scale+')'
   });
