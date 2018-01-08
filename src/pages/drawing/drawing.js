@@ -43,10 +43,14 @@ var drawer = function(canvas_id){
   */
   var self = this;
   $('[data-color]').off('click').on('click', function(){
+    console.log('color ::: ', $(this).attr('data-color'));
     self.color = $(this).attr('data-color');
+    self.pencil.color = $(this).attr('data-color');
   });
   $('[data-size]').off('click').on('click', function(){
+    console.log('size ::: ', $(this).attr('data-size'));
     self.size = $(this).attr('data-size');
+    self.pencil.size = $(this).attr('data-size');
   });
   this.canvas.width = 1920;
   this.canvas.height = 1080;
