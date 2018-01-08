@@ -146,7 +146,7 @@ drawer.prototype.update = function() {
         this.stage.update();
         console.log(this.pencil);
         this._removed = [];
-        if(new Date().getTime() - this.lastSend > 20){
+        if(new Date().getTime() - this.lastSend > 50){
           app.socket.emit("njoy", {
             "status":"drawing",
             "color":createjs.Graphics.getRGB(0,0,0),
