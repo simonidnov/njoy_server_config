@@ -448,7 +448,7 @@ var receptor = {
             this.currentShape[this.currentShape.length-1].graphics.setStrokeStyle(datas.strokestyle.size, datas.strokestyle.stylingW, datas.strokestyle.stylingH);
           }else{
             console.log('stroke none');
-            this.currentShape[this.currentShape.length-1].graphics.beginStroke("#000000");
+            this.currentShape[this.currentShape.length-1].graphics.beginStroke("rgba(0,0,0,0)");
             this.currentShape[this.currentShape.length-1].graphics.setStrokeStyle(0, 0, 0);
           }
           this.currentShape[this.currentShape.length-1].graphics.moveTo(midPoint.x, midPoint.y);
