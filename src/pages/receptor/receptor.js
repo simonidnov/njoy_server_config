@@ -438,6 +438,7 @@ var receptor = {
         this.oldY = datas.y;
       }
       */
+      console.log(datas);
       //console.log('draw ', this.currentShape[this.currentShape.length-1].graphics);
       var pt = new createjs.Point(datas.x, datas.y);
       var midPoint = new createjs.Point(this.oldX + pt.x>>1, this.oldY+pt.y>>1);
