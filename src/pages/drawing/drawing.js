@@ -23,7 +23,7 @@ var drawing = {
         "status":"init_drawing",
         "color":createjs.Graphics.getRGB(0,0,0),
         "width":window.innerWidth,
-        "height":window.innerHeight
+        "height":window.innerHeight - 50
       });
     },500);
 
@@ -35,10 +35,10 @@ var drawer = function(canvas_id){
   this.canvas = document.getElementById(canvas_id);
   // TODO REMOVE TEST SIZE
   this.canvas.width = window.innerWidth;
-  this.canvas.height = window.innerWidth;
+  this.canvas.height = window.innerHeight - 50;
 
   this.canvas.style.width = window.innerWidth;
-  this.canvas.style.height = window.innerHeight;
+  this.canvas.style.height = window.innerHeight - 50;
 
   this.lastSend = new Date().getTime();
   /*$('#canvas_id').css({
