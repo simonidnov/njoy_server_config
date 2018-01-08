@@ -371,7 +371,7 @@ var receptor = {
 
         var scale = 1,
             canvas_id = "drawing";
-            
+
         if($('#'+canvas_id).width() > $('#'+canvas_id).height()){
           if($('#'+canvas_id).width() > window.innerWidth){
             scale = $('#'+canvas_id).width() / window.innerWidth;
