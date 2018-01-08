@@ -12,7 +12,9 @@ var drawing = {
     //app.socket.emit("njoy", {"status":"activities"});
     //ui.navigate('/drawing');
     setTimeout(function(){
-      drawing.drawing_tool = new drawer("drawer").init();
+      drawing.drawing_tool = new drawer("drawer");
+      drawing.drawing_tool.init();
+      console.log("drawing.drawing_tool === ", drawing.drawing_tool);
       app.socket_callback = $.proxy(function(e){
           console.log(e);
       }, this);
@@ -37,6 +39,8 @@ var drawer = function(canvas_id){
 
   this.canvas.style.width = window.innerWidth;
   this.canvas.style.height = window.innerHeight;
+
+  this.lastSend = new Date().getTime();
   /*$('#canvas_id').css({
     "width":$('body').width()+'px !important',
     "height":$('body').height()+'px !important'
@@ -48,7 +52,7 @@ var drawer = function(canvas_id){
   this.touchPos = {x:0, y:0};
   this.isMouseDown = false;
   this.currentShape = [];
-  createjs.Ticker.setFPS(20);
+  createjs.Ticker.setFPS(60);
   createjs.Ticker.addEventListener("tick", $.proxy(function(){this.update();},this));
 }
 drawer.prototype.set_pencil = function(params){
@@ -143,24 +147,27 @@ drawer.prototype.update = function() {
         this.stage.update();
         console.log(this.pencil);
         this._removed = [];
-        app.socket.emit("njoy", {
-          "status":"drawing",
-          "color":createjs.Graphics.getRGB(0,0,0),
-          "strokestyle":{
-            "size":this.pencil.size,
-            "stylingH":this.pencil.stylingH,
-            "stylingW":this.pencil.stylingW
-          },
-          "type":"moveTo",
-          "x":midPoint.x,
-          "y":midPoint.y,
-          "curve":{
-            "oldX":this.oldX,
-            "oldY":this.oldY,
-            "oldMidX":this.oldMidX,
-            "oldMidY":this.oldMidY
-          }
-        });
+        if(new Date().getTime() - this.lastSend > 20){
+          app.socket.emit("njoy", {
+            "status":"drawing",
+            "color":createjs.Graphics.getRGB(0,0,0),
+            "strokestyle":{
+              "size":this.pencil.size,
+              "stylingH":this.pencil.stylingH,
+              "stylingW":this.pencil.stylingW
+            },
+            "type":"moveTo",
+            "x":midPoint.x,
+            "y":midPoint.y,
+            "curve":{
+              "oldX":this.oldX,
+              "oldY":this.oldY,
+              "oldMidX":this.oldMidX,
+              "oldMidY":this.oldMidY
+            }
+          });
+          this.lastSend = new Date().getTime();
+        }
     }
     //this.set_active_tools();
 }

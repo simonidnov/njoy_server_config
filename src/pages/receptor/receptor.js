@@ -7,11 +7,9 @@ var receptor = {
     currentShape : [],
     canvas :null,
     init:function(){
-        console.log('--------------------------- INIT RECEPTOR');
         app.init(function(){});
         /* on receive node_log print */
         app.socket_callback = $.proxy(function(e){
-            console.log(e);
             if(typeof e.datas !== "undefined"){
                 this.create_component(e.datas);
                 if(typeof e.datas.tools !== "undefined"){
@@ -70,7 +68,6 @@ var receptor = {
                 $('.module').html('');
                 $('.chronos').remove();
                 TweenMax.killAll();
-                console.log('add video display');
                 $('.module').append('<div class="video_display"><video src="'+window.location.origin+'/'+datas.file+'" autoplay width="'+window.innerWidth+'px" height="'+window.innerHeight+'px"></video></div>');
                 /*$(".receptor").css({
                   "background-image":"url("+(window.location.origin+'/'+(datas.file.replace('.mp4', '.svg')))+")",
@@ -80,7 +77,6 @@ var receptor = {
             case "playlist_video":
                 $('.module').append('<div class="video_display"></div>');
                 TweenMax.killAll();
-                console.log('play video playlist');
                 break;
             case "audio":
                 TweenMax.killAll();
@@ -89,32 +85,26 @@ var receptor = {
                 }
                 this.audio = new Audio(datas.file);
                 this.audio.play();
-                console.log('play audio http://10.213.1.231:3000/', datas.file);
                 break;
             case "playlist_audio":
                 $('.module').append('<div class="audio_display"></div>');
                 TweenMax.killAll();
-                console.log('play audio playlist');
                 break;
             case "picture":
                 $('.module').html('');
                 TweenMax.killAll();
                 $('.module').append('<div class="picture_display"></div>');
                 $('.picture_display').css('background-image', 'url('+datas.file+')');
-                console.log('display picture');
                 break;
             case "":
                 break;
             case "success":
                 this.success(datas);
-                console.log('this is success');
                 break;
             case "display_text":
                 this.display_text("DISPLAY TEXT");
-                console.log('display_text');
             case "fail":
                 this.fail(datas);
-                console.log('this is fail');
                 break;
             case "object":
                 this.object_component(datas);
@@ -131,7 +121,7 @@ var receptor = {
         }
     },
     web_content : function(datas){
-        console.log(datas);
+        //console.log(datas);
     },
     object_component : function(datas){
         $('.module').html('');
@@ -361,7 +351,7 @@ var receptor = {
           "height":window.innerHeight
         });
         */
-        console.log('init_drawing');
+        //console.log('init_drawing');
 
         $('.module').append('<canvas id="drawing" width="'+datas.width+'" height="'+datas.height+'" style="width:'+datas.width+'px; height:'+datas.height+'px;"></canvas>');
         this.canvas = document.getElementById("drawing");
@@ -399,18 +389,28 @@ var receptor = {
         this.stage.update();
     },
     drawing_point:function(datas){
-        console.log('drawing_point with new shape then set oldX Y enstroke', datas.x );
+        console.log('drawing_point with new shape then set oldX Y enstroke :::: ', this.oldX );
         this.oldX = datas.x;
         this.oldY = datas.y;
+        console.log('this.oldX ::: ', this.oldX );
+
         //var pt = new createjs.Point(datas.x, datas.y);
-        this.currentShape[this.currentShape.length-1].graphics.endStroke().endFill();
+        this.currentShape[this.currentShape.length-1].graphics.endStroke();
+        this.currentShape[this.currentShape.length-1].graphics.endFill();
         //this.currentShape[this.currentShape.length].graphics.endStroke();
+
         var s = new createjs.Shape();
         this.currentShape[this.currentShape.length] = s;
         var g = s.graphics;
-        g.beginStroke("#000000");
+        //g.beginStroke("#000000");
         this.stage.addChild(s);
-        g.moveTo(datas.x, datas.y);
+        this.drawing(datas);
+        //this.currentShape[this.currentShape.length-1].graphics.setStrokeStyle(datas.strokestyle.size, datas.strokestyle.stylingW, datas.strokestyle.stylingH);
+        //this.currentShape[this.currentShape.length-1].graphics.moveTo(datas.x, datas.y);
+        //this.currentShape[this.currentShape.length-1].graphics.curveTo(datas.curve.oldX, datas.curve.oldY, datas.curve.oldMidX, datas.curve.oldMidY);
+
+        //this.currentShape[this.currentShape.length-1].graphics.moveTo(this.oldX, this.oldY);
+        //this.currentShape[this.currentShape.length-1].graphics.beginStroke("#000000");
     },
     drawing : function(datas){
       /*
@@ -419,12 +419,17 @@ var receptor = {
         this.oldY = datas.y;
       }
       */
-      console.log(this.oldX);
       //console.log('draw ', this.currentShape[this.currentShape.length-1].graphics);
       var pt = new createjs.Point(datas.x, datas.y);
       var midPoint = new createjs.Point(this.oldX + pt.x>>1, this.oldY+pt.y>>1);
       if(typeof this.currentShape[this.currentShape.length-1] != "undefined"){
-          this.currentShape[this.currentShape.length-1].graphics.setStrokeStyle(datas.strokestyle.size, datas.strokestyle.stylingW, datas.strokestyle.stylingH);
+          if(typeof datas.strokestyle !== "undefined"){
+            this.currentShape[this.currentShape.length-1].graphics.beginStroke("#000000");
+            this.currentShape[this.currentShape.length-1].graphics.setStrokeStyle(datas.strokestyle.size, datas.strokestyle.stylingW, datas.strokestyle.stylingH);
+          }else{
+            console.log('stroke none');
+            this.currentShape[this.currentShape.length-1].graphics.setStrokeStyle(0, 0, 0);
+          }
           this.currentShape[this.currentShape.length-1].graphics.moveTo(midPoint.x, midPoint.y);
           this.currentShape[this.currentShape.length-1].graphics.curveTo(this.oldX, this.oldY, this.oldMidX, this.oldMidY);
       }
