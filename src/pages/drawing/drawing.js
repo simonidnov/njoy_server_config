@@ -185,7 +185,7 @@ drawer.prototype.update = function() {
         if(new Date().getTime() - this.lastSend > 50){
           app.socket.emit("njoy", {
             "status":"drawing",
-            "color":createjs.Graphics.getRGB(0,0,0),
+            "color":this.color,
             "strokestyle":{
               "size":this.pencil.size,
               "stylingH":this.pencil.stylingH,

@@ -444,10 +444,11 @@ var receptor = {
       var midPoint = new createjs.Point(this.oldX + pt.x>>1, this.oldY+pt.y>>1);
       if(typeof this.currentShape[this.currentShape.length-1] != "undefined"){
           if(typeof datas.strokestyle !== "undefined"){
-            this.currentShape[this.currentShape.length-1].graphics.beginStroke("#000000");
+            this.currentShape[this.currentShape.length-1].graphics.beginStroke(datas.color);
             this.currentShape[this.currentShape.length-1].graphics.setStrokeStyle(datas.strokestyle.size, datas.strokestyle.stylingW, datas.strokestyle.stylingH);
           }else{
             console.log('stroke none');
+            this.currentShape[this.currentShape.length-1].graphics.beginStroke("#000000");
             this.currentShape[this.currentShape.length-1].graphics.setStrokeStyle(0, 0, 0);
           }
           this.currentShape[this.currentShape.length-1].graphics.moveTo(midPoint.x, midPoint.y);
