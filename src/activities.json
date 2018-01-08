@@ -209,6 +209,25 @@
           ]
         },
         {
+          "label":"Dessiner c'est gagné",
+          "desc":"dessiner des trucs pour gagner des machins.",
+          "icon":"ressources/crazyshow/habillage/dessinercestgagne.png",
+          "logo":"ressources/crazyshow/habillage/crazyshow.png",
+          "datas":{},
+          "jingle":{"file":"ressources/crazyshow/jingles/dessinercestgagne.mp4", "type":"video", "event":null, "params":null},
+          "menu":[
+            {
+              "label":"Musiques d'ambiance",
+              "desc":"choisissez d'une musique d'ambiance pour l'activité",
+              "components":{
+                "galery":[
+                    {"label":"squelette", "desc":"dessiner un squelette", "datas":{}, "action":"drawing", "action_label":"Dessiner", "chronos":120, "file":"ressources/crazyshow/Photomime/squelette.jpg"}
+                ]
+              }
+            }
+          ]
+        },
+        {
           "label":"ABC Story",
           "desc":"description de ABC stories",
           "icon":"ressources/crazyshow/habillage/abcstory.png",
