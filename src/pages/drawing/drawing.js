@@ -77,7 +77,8 @@ var drawer = function(canvas_id){
   }*/
 
   $('#'+canvas_id).css({
-    "transform":'scale('+scale+')'
+    "transform":'scale('+scale+')',
+    "left":-((1920*scale)/2)
   });
   /*$('#canvas_id').css({
     "width":$('body').width()+'px !important',
