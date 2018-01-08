@@ -41,6 +41,13 @@ var drawer = function(canvas_id){
   this.canvas.style.width = window.innerWidth;
   this.canvas.style.height = window.innerHeight - 50;
   */
+  var self = this;
+  $('[data-color]').off('click').on('click', function(){
+    self.color = $(this).attr('data-color');
+  });
+  $('[data-size]').off('click').on('click', function(){
+    self.size = $(this).attr('data-size');
+  });
   this.canvas.width = 1920;
   this.canvas.height = 1080;
 

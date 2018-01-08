@@ -11,6 +11,7 @@
 .pencil_menu{
   position: absolute;
   bottom:0;
+  left: 0;
   height:50px;
   display: inline-flex;
 }
