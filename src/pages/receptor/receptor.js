@@ -388,7 +388,8 @@ var receptor = {
 
         $('#drawing').css({
           "width":datas.width+'px !important',
-          "height":datas.height+'px !important'
+          "height":datas.height+'px !important',
+          "transform":'scale('+scale+')'
         });
 
         this.stage = new createjs.Stage("drawing");
