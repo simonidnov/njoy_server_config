@@ -30,7 +30,8 @@
   position: relative;
 }
 
-.pencil_menu .sizes li:after{
+.pencil_menu .sizes li::after{
+  content:"";
   position: absolute;
   left:0;
   right:0;
