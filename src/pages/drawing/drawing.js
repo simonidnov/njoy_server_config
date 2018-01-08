@@ -60,7 +60,7 @@ var drawer = function(canvas_id){
   this.color = "#000000";
   this.size = 10;
 
-  var scale = $('#drawer').height() / window.innerHeight;
+  var scale = window.innerHeight / $('#drawer').height();
 
   /*if($('#'+canvas_id).width() > $('#'+canvas_id).height()){
     if($('#'+canvas_id).height() > window.innerHeight){
