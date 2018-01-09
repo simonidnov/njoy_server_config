@@ -411,10 +411,10 @@ var receptor = {
         this.stage.update();
     },
     drawing_clear : function(){
-      if(typeof this.stage !== "undefined"){
+      //if(typeof this.stage !== "undefined"){
         this.stage.removeAllChildren();
         this.stage.update();
-      }
+      //}
     },
     drawing_point:function(datas){
         this.oldX = datas.x;
