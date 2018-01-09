@@ -171,6 +171,10 @@ io.on('connection', function(socket){
           io.emit(call, {"status":"kill_vid"});
         }
         if(datas.status === "video"){
+          if(video_player !== null){
+            video_player.quit();
+            video_player = null;
+          }
           cp.exec("killall omxplayer", function(error, stdout, stderr) {
               /*if (stderr !== null) {
                   // IF OMXPLAYER COMMEND DOESN'T EXIST ONLY
