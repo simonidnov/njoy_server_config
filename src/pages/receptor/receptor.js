@@ -51,6 +51,9 @@ var receptor = {
             case "drawing_point":
                 this.drawing_point(datas);
                 break;
+            case "drawing_clear":
+                this.clear_canvas(datas);
+                break;
             case "video":
                 $('.app_logo, .app_icon').css('display', 'none');
                 $('.module').html('');
@@ -407,12 +410,15 @@ var receptor = {
         this.stage.autoClear = true;
         this.stage.update();
     },
+    drawing_clear : function(){
+      if(typeof this.stage !== "undefined"){
+        this.stage.removeAllChildren();
+        this.stage.update();
+      }
+    },
     drawing_point:function(datas){
-        console.log('drawing_point with new shape then set oldX Y enstroke :::: ', this.oldX );
         this.oldX = datas.x;
         this.oldY = datas.y;
-        console.log('this.oldX ::: ', this.oldX );
-
         //var pt = new createjs.Point(datas.x, datas.y);
         this.currentShape[this.currentShape.length-1].graphics.endStroke();
         this.currentShape[this.currentShape.length-1].graphics.endFill();
