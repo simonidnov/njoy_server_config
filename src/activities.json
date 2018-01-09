@@ -339,7 +339,10 @@
               "desc":"des clips vidéos LETS DANCE",
               "components":{
                 "playlist_video":[
-                    {"label":"SPECIAL VIDEO", "desc":"", "datas":{}, "file":"ressources/crazyshow/letsdance/special_video.mp4"}
+                    {"label":"Video 1", "desc":"", "datas":{}, "file":"ressources/crazyshow/letsdance/video1.mp4"},
+                    {"label":"Video 2", "desc":"", "datas":{}, "file":"ressources/crazyshow/letsdance/video2.mp4"},
+                    {"label":"Video 3", "desc":"", "datas":{}, "file":"ressources/crazyshow/letsdance/video3.mp4"},
+                    {"label":"Video 4", "desc":"", "datas":{}, "file":"ressources/crazyshow/letsdance/video4.mp4"}
                 ]
               }
             },
@@ -390,7 +393,7 @@
                             "display_response":"regis",
                             "type":"golden_family"
                         },
-                        "choices":["Aux anniversaires", "Pour Noël", "Lors de la Saint Valentin", "Pour les anniversaires de mariage", "Lors d'un baptême"],
+                        "choices":["Aux anniversaires", "Pour Noël", "Pour la Saint Valentin", "Pour les mariages", "A la naissance"],
                         "response":"all"
                     },
                     {
@@ -438,7 +441,7 @@
                             "display_response":"regis",
                             "type":"golden_family"
                         },
-                        "choices":["Foot", "Basket", "Tennis", "handball", "volley  "],
+                        "choices":["Foot", "Basket", "handball", "volley", "Water-Polo"],
                         "response":"all"
                     }
                 ]
@@ -490,10 +493,6 @@
               "label":"Clips vidéos",
               "desc":"des clips vidéos à reconstituer en AIR BAND",
               "components":{
-                "playlist_video":[
-                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"},
-                    {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
-                ]
               }
             }
           ]
@@ -510,10 +509,6 @@
               "label":"Clips vidéos",
               "desc":"des clips vidéos à reconstituer en AIR BAND",
               "components":{
-                "playlist_video":[
-                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"},
-                    {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
-                ]
               }
             }
           ]
@@ -527,37 +522,37 @@
           "jingle":{"file":"ressources/crazyshow/jingles/stopandgo.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
-              "label":"Clips vidéos",
-              "desc":"des clips vidéos à reconstituer en AIR BAND",
+              "label":"Serie normale",
+              "desc":"karaoke",
               "components":{
                 "playlist_video":[
-                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"},
-                    {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
+                    {"label":"Christophe Mae : On sattache", "desc":"", "datas":{}, "file":"ressources/crazyshow/stopandgo/SERIE_NORMALE/1_Christophe-Mae_on-sattache.mp4"},
+                    {"label":"JJ Goldman : A nos actes manques", "desc":"", "datas":{}, "file":"ressources/crazyshow/stopandgo/SERIE_NORMALE/2_Jean-jacques-goldman_a-nos-actes-manques.mp4"},
+                    {"label":"Roi Soleil : Mon essentiel", "desc":"", "datas":{}, "file":"ressources/crazyshow/stopandgo/SERIE_NORMALE/3_Roi-Soleil_mon-essentiel.mp4"},
+                    {"label":"Gregoire : Toi plus moi", "desc":"", "datas":{}, "file":"ressources/crazyshow/stopandgo/SERIE_NORMALE/4_Gregoire_toi-plus-moi.mp4"},
+                    {"label":"Kendji Girac : Andalouse", "desc":"", "datas":{}, "file":"ressources/crazyshow/stopandgo/SERIE_NORMALE/5_Kendji-Girac_andalouse.mp4"},
+                    {"label":"Frero Delavega : Le chant des sirenes", "desc":"", "datas":{}, "file":"ressources/crazyshow/stopandgo/SERIE_NORMALE/6_Frero-De-La-Vega_le-chant-des-sirenes.mp4"},
+                    {"label":"Louane : Avenir", "desc":"", "datas":{}, "file":"ressources/crazyshow/stopandgo/SERIE_NORMALE/7_Louane_avenir.mp4"},
+                    {"label":"Maitre Gims : Est-ce que tu maimes", "desc":"", "datas":{}, "file":"ressources/crazyshow/stopandgo/SERIE_NORMALE/8_Maitre-Gims_est-ce-que-tu-maimes.mp4"},
+                    {"label":"Jul ft Vitaa : Ca les derange", "desc":"", "datas":{}, "file":"ressources/crazyshow/stopandgo/SERIE_NORMALE/9_Jul-ft-Vitaa_ca-les-derange.mp4"},
+                    {"label":"Vitaa ft Maitre Gims : game over", "desc":"", "datas":{}, "file":"ressources/crazyshow/stopandgo/SERIE_NORMALE/10_Vitaa-ft-Maitre-Gims_game-over.mp4"},
+                    {"label":"Tal : Are we awake", "desc":"", "datas":{}, "file":"ressources/crazyshow/stopandgo/SERIE_NORMALE/11_Tal_are-we-awake.mp4"},
+                    {"label":"Black-M : sur ma route", "desc":"", "datas":{}, "file":"ressources/crazyshow/stopandgo/SERIE_NORMALE/12_Black-M_sur-ma-route.mp4"}
                 ]
               }
-            }
-          ]
-        },
-        {
-          "label":"Chef d'Orchestre",
-          "desc":"Chef d'orchestre description de l'animation",
-          "icon":"ressources/crazyshow/habillage/chefdorchestre.png",
-          "logo":"ressources/crazyshow/habillage/crazyshow.png",
-          "datas":{},
-          "jingle":{"file":"ressources/crazyshow/jingles/chefdorchestre.mp4", "type":"video", "event":null, "params":null},
-          "menu":[
+            },
             {
-              "label":"Clips vidéos",
-              "desc":"des clips vidéos à reconstituer en AIR BAND",
+              "label":"Serie divers",
+              "desc":"karaoke",
               "components":{
                 "playlist_video":[
-                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"},
-                    {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
+                    {"label":"Libere delivre", "desc":"", "datas":{}, "file":"ressources/crazyshow/stopandgo/SERIE_DIVERS/1_Libere-delivre.mp4"}
                 ]
               }
             }
           ]
         },
+        
         {
           "label":"Blind Test",
           "desc":"Blind Test description de l'animation",
@@ -618,7 +613,7 @@
                     {"label":"Chawki ft Dr Alban : Its my life", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_3/5_Chawki-ft-Dr-Alban_its-my-life.mp3"},
                     {"label":"Rune Rk : Calabria", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_3/6_Rune-Rk_calabria.mp3"},
                     {"label":"Imagine Dragons : Demons", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_3/7_Imagine-Dragons_demons.mp3"},
-                    {"label":"KeenV : Je me bats pour toi", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_3/8_KeenV_je-me-bats-pour-toi.mp3"},
+                    {"label":"KeenV : Je me bats pour toi", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_3/8_KeenV_je-me-bats-pour-toi.mp3"},    
                     {"label":"Papi Sanchez ft Tony Latino & Pakito : Rumba", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_3/9_Papi-Sanchez-ft-Tony-Latino-And-Pakito_rumba.mp3"},
                     {"label":"Pharrell Williams : Gust of wind", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_3/10_Pharrell-Williams_gust-of-wind.mp3"},
                     {"label":"Scooter And Vassy : Today", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_3/11_Scooter-And-Vassy_today.mp3"}
@@ -637,10 +632,30 @@
                     {"label":"M Pokora : Pas sans toi", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_4/5_M-Pokora_pas-sans-toi.mp3"},
                     {"label":"Rihanna : Pon de replay", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_4/6_Rihanna_pon-de-replay.mp3"},
                     {"label":"Tal : Rien nest parfait", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_4/7_Tal_rien-nest-parfait.mp3"},
-                    {"label":"Sexion Dassaut : Desole", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_4/8_Sexion-Dassaut_desole.mp3"},
+                    {"label":"Sexion Dassaut : Desole", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_4/8_Sexion-Dassaut_desole.mp3"},    
                     {"label":"Shym : On se fou de nous", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_4/9_Shym_on-se-fou-de-nous.mp3"},
                     {"label":"One Direction : Thats what makes you beautiful", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_4/10_One-Direction_thats-what-makes-you-beautiful.mp3"},
                     {"label":"Britney Spears : Womanizer", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_4/11_Britney-Spears_womanizer.mp3"}
+                ]
+              }
+            }
+          ]
+        },
+          {
+          "label":"Chef d'Orchestre",
+          "desc":"Chef d'orchestre description de l'animation",
+          "icon":"ressources/crazyshow/habillage/chefdorchestre.png",
+          "logo":"ressources/crazyshow/habillage/crazyshow.png",
+          "datas":{},
+          "jingle":{"file":"ressources/crazyshow/jingles/chefdorchestre.mp4", "type":"video", "event":null, "params":null},
+          "menu":[
+            {
+              "label":"Clips vidéos",
+              "desc":"des clips vidéos à reconstituer en AIR BAND",
+              "components":{
+                "playlist_video":[
+                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"},
+                    {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
                 ]
               }
             }
