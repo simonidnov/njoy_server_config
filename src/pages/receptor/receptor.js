@@ -52,7 +52,7 @@ var receptor = {
                 this.drawing_point(datas);
                 break;
             case "drawing_clear":
-                this.clear_canvas(datas);
+                this.drawing_clear(datas);
                 break;
             case "video":
                 $('.app_logo, .app_icon').css('display', 'none');
