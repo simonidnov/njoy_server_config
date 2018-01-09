@@ -567,53 +567,80 @@
           "jingle":{"file":"ressources/crazyshow/jingles/blindtest.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
-              "label":"SERIE 1",
-              "desc":"les mp3 de la serie 1",
+              "label":"2015 SERIE 1",
+              "desc":"Musiques",
               "components":{
                 "playlist_audio":[
-                    {"label":"01", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie1/01.mp3"},
-                    {"label":"02", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie1/02.mp3"},
-                    {"label":"03", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie1/03.mp3"},
-                    {"label":"04", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie1/04.mp3"},
-                    {"label":"05", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie1/05.mp3"},
-                    {"label":"06", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie1/06.mp3"},
-                    {"label":"07", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie1/07.mp3"},
-                    {"label":"08", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie1/08.mp3"},
-                    {"label":"09", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie1/09.mp3"}
+                    {"label":"Avicii : Addicted to you", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_1/1_Avicii_addicted-to-you.mp3"},
+                    {"label":"Beyonce : Haunted", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_1/2_Beyonce_haunted.mp3"},
+                    {"label":"Black-M : Cest tout moi", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_1/3_Black-M_cest-tout-moi.mp3"},
+                    {"label":"Carly Rae Jepsen : I really like you", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_1/4_Carly-Rae-Jepsen_i-really-like-you.mp3"},
+                    {"label":"David Guetta ft Sam Martin : Lovers on the sun", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_1/5_David-Guetta-ft-Sam-Martin_lovers-on-the-sun.mp3"},
+                    {"label":"Frero Delavega : Mon petit pays", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_1/6_Frero-De-La-Vega_mon-petit-pays.mp3"},
+                    {"label":"KeenV : Saltimbanque", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_1/7_KeenV_saltimbanque.mp3"},
+                    {"label":"Lassie : Le generique", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_1/8_Lassie_le-generique.mp3"},
+                    {"label":"Maitre Gims : Est-ce que tu maimes", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_1/9_Maitre-Gims_est-ce-que-tu-maimes.mp3"},
+                    {"label":"Rihanna : Di Do", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_1/10_Rihanna_di-do.mp3"},
+                    {"label":"Rihanna ft Kanye-West Mc-Cartney : Four Five Seconds", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_1/11_Rihanna-ft-Kanye-West-Mc-Cartney_four-five-seconds.mp3"},
+                    {"label":"Soprano : Clown", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_1/12_Soprano_clown.mp3"},
+                    {"label":"Stromae : Formidable", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_1/9_Maitre-Gims_est-ce-que-tu-maimes.mp3"},
+                    {"label":"Taylor Swift : Blank Space", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_1/14_Taylor-Swift_blank-space.mp3"},
+                    {"label":"Omi : Cheerleader", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_1/15_Omi_cheerleader.mp3"}
                 ]
               }
             },
             {
-              "label":"SERIE 2",
-              "desc":"les mp3 de la serie 2",
+              "label":"2015 SERIE 2",
+              "desc":"Musiques",
               "components":{
                 "playlist_audio":[
-                    {"label":"01", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie2/01.mp3"},
-                    {"label":"02", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie2/02.mp3"},
-                    {"label":"03", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie2/03.mp3"},
-                    {"label":"04", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie2/04.mp3"},
-                    {"label":"05", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie2/05.mp3"},
-                    {"label":"06", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie2/06.mp3"},
-                    {"label":"07", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie2/07.mp3"},
-                    {"label":"08", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie2/08.mp3"},
-                    {"label":"09", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie2/09.mp3"}
+                    {"label":"Black-M : On se fait du mal", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_2/1_Black-M_on-sfait-du-mal.mp3"},
+                    {"label":"Maitre Gims : Est-ce que tu maimes", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_2/2_Maitre-Gims_est-ce-que-tu-maimes.mp3"},
+                    {"label":"Wiz-Khalifa ft Charlie Puth : See you again", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_2/3_Wiz-Khalifa-ft-Charlie-Puth_see-you-again.mp3"},
+                    {"label":"Marina Kaye : Homeless", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_2/4_Marina-Kaye_Homeless.mp3"},
+                    {"label":"Louane : Jour 1", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_2/5_Louane_jour-1.mp3"},
+                    {"label":"Kendji Girac : Conmigo", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_2/6_Kendji-Girac_conmigo.mp3"},
+                    {"label":"Calvin Harris : Summer", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_2/7_Calvin-Harris_summer.mp3"},
+                    {"label":"John Legend : All of me", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_2/8_John-Legend_all-of-me.mp3"},
+                    {"label":"Ed Sheeran : Sing", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_2/9_Ed-Sheeran_sing.mp3"}
                 ]
               }
             },
             {
-              "label":"SERIE 3",
-              "desc":"les mp3 de la serie 3",
+              "label":"2015 SERIE 3",
+              "desc":"Musiques",
               "components":{
                 "playlist_audio":[
-                    {"label":"01", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie3/01.mp3"},
-                    {"label":"02", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie3/02.mp3"},
-                    {"label":"03", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie3/03.mp3"},
-                    {"label":"04", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie3/04.mp3"},
-                    {"label":"05", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie3/05.mp3"},
-                    {"label":"06", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie3/06.mp3"},
-                    {"label":"07", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie3/07.mp3"},
-                    {"label":"08", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie3/08.mp3"},
-                    {"label":"09", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/serie3/09.mp3"}
+                    {"label":"Clean Bandit ft Jess Glynne : Rather be", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_3/1_Clean-Bandit-ft-Jess-Glynne_rather-be.mp3"},
+                    {"label":"Maroon 5 : Animals", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_3/2_Maroon-5_animals.mp3"},
+                    {"label":"M Pokora : On danse", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_3/3_M-Pokora_on-danse.mp3"},
+                    {"label":"Shaniz ft Maitre Gims : A contre sens", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_3/4_Shaniz-ft-Maitre-Gims_a-contre-sens.mp3"},
+                    {"label":"Chawki ft Dr Alban : Its my life", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_3/5_Chawki-ft-Dr-Alban_its-my-life.mp3"},
+                    {"label":"Rune Rk : Calabria", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_3/6_Rune-Rk_calabria.mp3"},
+                    {"label":"Imagine Dragons : Demons", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_3/7_Imagine-Dragons_demons.mp3"},
+                    {"label":"KeenV : Je me bats pour toi", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_3/8_KeenV_je-me-bats-pour-toi.mp3"},    
+                    {"label":"Papi Sanchez ft Tony Latino & Pakito : Rumba", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_3/9_Papi-Sanchez-ft-Tony-Latino-And-Pakito_rumba.mp3"},
+                    {"label":"Pharrell Williams : Gust of wind", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_3/10_Pharrell-Williams_gust-of-wind.mp3"},
+                    {"label":"Scooter And Vassy : Today", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_3/11_Scooter-And-Vassy_today.mp3"}
+                ]
+              }
+            },
+            {
+              "label":"2015 SERIE 4",
+              "desc":"Musiques",
+              "components":{
+                "playlist_audio":[
+                    {"label":"Amel Bent : Ma philosophie", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_4/1_Amel-Bent_ma-philosophie.mp3"},
+                    {"label":"Colonel Reyel : Celui", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_4/2_Colonel-Reyel_celui.mp3"},
+                    {"label":"Joyce Jonathan : Je ne sais pas", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_4/3_Joyce-Jonathan_je-ne-sais-pas.mp3"},
+                    {"label":"Collectif Metisse : Laisse tomber tes problemes", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_4/4_Collectif-Metisse_laisse-tomber-tes-problemes.mp3"},
+                    {"label":"M Pokora : Pas sans toi", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_4/5_M-Pokora_pas-sans-toi.mp3"},
+                    {"label":"Rihanna : Pon de replay", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_4/6_Rihanna_pon-de-replay.mp3"},
+                    {"label":"Tal : Rien nest parfait", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_4/7_Tal_rien-nest-parfait.mp3"},
+                    {"label":"Sexion Dassaut : Desole", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_4/8_Sexion-Dassaut_desole.mp3"},    
+                    {"label":"Shym : On se fou de nous", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_4/9_Shym_on-se-fou-de-nous.mp3"},
+                    {"label":"One Direction : Thats what makes you beautiful", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_4/10_One-Direction_thats-what-makes-you-beautiful.mp3"},
+                    {"label":"Britney Spears : Womanizer", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2015_serie_4/11_Britney-Spears_womanizer.mp3"}
                 ]
               }
             }
