@@ -28,10 +28,10 @@ $ = require('jquery');
 var http2 = require('http');
 var fs = require('fs');
 
-var file = fs.createWriteStream("file.jpg");
+/*var file = fs.createWriteStream("file.jpg");
 var request = http2.get("http://i3.ytimg.com/vi/J---aiyznGQ/mqdefault.jpg", function(response) {
   response.pipe(file);
-});
+});*/
 
 /*app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
