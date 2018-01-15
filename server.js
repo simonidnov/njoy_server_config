@@ -179,12 +179,12 @@ io.on('connection', function(socket){
             io.emit(call, {"status":"kill_vid"});
           }else{
             cp.exec("killall omxplayer", function(error, stdout, stderr) {
-                if (stderr !== null) {
+                /*if (stderr !== null) {
                     // IF OMXPLAYER COMMEND DOESN'T EXIST ONLY
                     console.log('HEEEEEEEERE WTF !!!');
                     datas.status = "force_video";
                     io.emit(call, {"status":"force_video", "infos":stat, "datas":datas});
-                }else{
+                }else{*/
                     if(video_player !== null){
                       video_player.quit();
                       video_player = null;
@@ -199,7 +199,7 @@ io.on('connection', function(socket){
                       video_player = null;
                     });
                     io.emit(call, {"status":"video_started"});
-                }
+                
   /*
                     omxp.open("http://10.3.141.1:3000/"+datas.file, opts);
                     omxp.on('changeStatus',function(status){
