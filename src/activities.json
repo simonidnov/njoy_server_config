@@ -832,9 +832,12 @@
           "jingle":{"file":"ressources/labofolies/rencontre_professeur/rencontre_professeur.mp4", "type":"video", "event":null, "params":null},
             "menu":[
             {
-              "label":"Clips vidéos",
-              "desc":"des clips vidéos à reconstituer en AIR BAND",
+              "label":"Rencontrer le professeur",
+              "desc":"to complete",
               "components":{
+                "playlist_video":[
+                    {"label":"Rencontrer le professeur", "desc":"", "datas":{}, "file":"ressources/labofolies/rencontre_professeur/rencontre_professeur.mp4"}
+                ]
               }
             }
           ]
@@ -848,9 +851,12 @@
           "jingle":{"file":"ressources/labofolies/contact_professeur/contact.mp4", "type":"video", "event":null, "params":null},
             "menu":[
             {
-              "label":"Clips vidéos",
-              "desc":"des clips vidéos à reconstituer en AIR BAND",
+              "label":"Contacter le professeur",
+              "desc":"to complete",
               "components":{
+                "playlist_video":[
+                    {"label":"Contacter le professeur", "desc":"", "datas":{}, "file":"ressources/labofolies/rencontre_professeur/rencontre_professeur.mp4"}
+                ]
               }
             }
           ]
