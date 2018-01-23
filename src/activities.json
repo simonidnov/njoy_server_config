@@ -810,7 +810,7 @@
           "icon":"ressources/labofolies/labofolies.png",
           "logo":"ressources/labofolies/labofolies.png",
           "datas":{},
-          "jingle":{"file":"ressources/savant_fou/discours_president.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/savant_fou/discours_president.mp4", "type":"video", "event":null, "params":null}
         },
         {
           "label":"Rencontrer le professeur",
@@ -818,7 +818,7 @@
           "icon":"ressources/labofolies/labofolies.png",
           "logo":"ressources/labofolies/labofolies.png",
           "datas":{},
-          "jingle":{"file":"ressources/savant_fou/rencontre_professeur.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/savant_fou/rencontre_professeur.mp4", "type":"video", "event":null, "params":null}
         },
         {
           "label":"Contacter le professeur",
@@ -826,7 +826,7 @@
           "icon":"ressources/labofolies/labofolies.png",
           "logo":"ressources/labofolies/labofolies.png",
           "datas":{},
-          "jingle":{"file":"ressources/savant_fou/contact_professeur.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/savant_fou/contact_professeur.mp4", "type":"video", "event":null, "params":null}
         },
         {
           "label":"Enigmes",
