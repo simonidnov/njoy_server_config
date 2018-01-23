@@ -60,6 +60,8 @@ var drawer = function(canvas_id){
   this.color = "#000000";
   this.size = 10;
 
+  console.log('geoffrey');
+
   var scale = window.innerHeight / $('#drawer').height();
 
   /*if($('#'+canvas_id).width() > $('#'+canvas_id).height()){
