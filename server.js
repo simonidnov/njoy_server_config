@@ -8,6 +8,7 @@ var port = process.env.PORT || 3000;
 var _ = require('underscore');
 //var router = express.Router();
 var users = [];
+var teams = [];
 var server = null;
 var os = require('os');
 var ifaces = os.networkInterfaces();
@@ -85,6 +86,20 @@ io.on('connection', function(socket){
             case 'launch_content':
                 stat.status = "launch_content";
                 //console.log(datas);
+                break;
+            case 'team':
+                stat.status = "team";
+                datas.team = teams;
+                break;
+            case 'new_team':
+                teams.push(datas.new_team);
+                stat.status = "team";
+                datas.team = teams;
+                break;
+            case 'delete_team':
+                delete teams[datas.team_id];
+                stat.status = "team";
+                datas.team = teams;
                 break;
             default:
                 stat = {"status":"default"};
@@ -199,7 +214,7 @@ io.on('connection', function(socket){
                       video_player = null;
                     });
                     io.emit(call, {"status":"video_started"});
-                
+
   /*
                     omxp.open("http://10.3.141.1:3000/"+datas.file, opts);
                     omxp.on('changeStatus',function(status){
@@ -255,7 +270,7 @@ io.on('connection', function(socket){
 
 http.listen(port, function(){
   console.log('listening on *:' + port);
-    cp.exec("/home/pi/startchromium.sh", function(error, stdout, stderr) {
+    cp.exec("/home/pi/njoy/startchromium.sh", function(error, stdout, stderr) {
         //console.log("stdout: " + stdout);
         //console.log("stderr: " + stderr);
         if (error !== null) {
