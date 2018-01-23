@@ -835,7 +835,7 @@
           "logo":"ressources/labofolies/labofolies.png",
           "datas":{},
           "jingle":{"file":null, "type":"video", "event":null, "params":null},
-           
+
             "menu":[
             {
               "label":"to complete",
@@ -856,7 +856,7 @@
           "logo":"ressources/labofolies/labofolies.png",
           "datas":{},
           "jingle":{"file":null, "type":"video", "event":null, "params":null},
-           
+
             "menu":[
             {
               "label":"to complete",
