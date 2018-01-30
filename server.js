@@ -104,7 +104,7 @@ io.on('connection', function(socket){
                 }
                 break;
             case 'delete_team':
-                if(teams[datas.id] !== "undefined"){
+                if(typeof teams[datas.id] !== "undefined"){
                   delete teams[datas.id];
                   teams.splice(datas.id, 1);
                 }
@@ -112,7 +112,9 @@ io.on('connection', function(socket){
                 datas.teams = teams;
                 break;
             case 'team_score':
-                teams[datas.id].score = datas.score;
+                if(typeof teams[datas.id] !== "undefined"){
+                  teams[datas.id].score = datas.score;
+                }
                 stat.status = "teams";
                 datas.teams = teams;
                 break;
