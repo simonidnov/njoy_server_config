@@ -94,6 +94,7 @@ io.on('connection', function(socket){
             case 'new_team':
                 if(_.where(teams, {label:datas.new_team.label}).length > 0 ){
                   datas.new_team.color = getRandomColor();
+                  console.log("datas.new_team.color :::: ", datas.new_team);
                   teams.push(datas.new_team);
                   stat.status = "error";
                   datas.title = "teams";
