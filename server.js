@@ -59,7 +59,7 @@ io.on('connection', function(socket){
             call = "njoy";
         switch(datas.status){
             case 'reboot':
-              cp.exec("/home/pi/startchromium.sh", function(error, stdout, stderr) {
+              cp.exec("/home/pi/njoy/startchromium.sh", function(error, stdout, stderr) {
                 console.log("stdout: " + stdout);
                 console.log("stderr: " + stderr);
                 if (error !== null) {
@@ -87,19 +87,26 @@ io.on('connection', function(socket){
                 stat.status = "launch_content";
                 //console.log(datas);
                 break;
-            case 'team':
-                stat.status = "team";
-                datas.team = teams;
+            case 'teams':
+                stat.status = "teams";
+                datas.teams = teams;
                 break;
             case 'new_team':
-                teams.push(datas.new_team);
-                stat.status = "team";
-                datas.team = teams;
+                if(_.where(teams, {label:datas.new_team.label}).length > 0 ){
+                  teams.push(datas.new_team);
+                  stat.status = "error";
+                  datas.title = "Team";
+                  datas.message = "le nom de la team existe déjà";
+                }else{
+                  teams.push(datas.new_team);
+                  stat.status = "teams";
+                  datas.teams = teams;
+                }
                 break;
             case 'delete_team':
                 delete teams[datas.team_id];
-                stat.status = "team";
-                datas.team = teams;
+                stat.status = "teams";
+                datas.teams = teams;
                 break;
             default:
                 stat = {"status":"default"};
@@ -271,8 +278,8 @@ io.on('connection', function(socket){
 http.listen(port, function(){
   console.log('listening on *:' + port);
     cp.exec("/home/pi/njoy/startchromium.sh", function(error, stdout, stderr) {
-        //console.log("stdout: " + stdout);
-        //console.log("stderr: " + stderr);
+        console.log("stdout: " + stdout);
+        console.log("stderr: " + stderr);
         if (error !== null) {
             //console.log("exec errror: " + error);
         }
