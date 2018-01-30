@@ -66,7 +66,10 @@
         <div class="teams_display" id="teams_display">
           <ul>
             <% for(var i=0; i<teams.length; i++){ %>
-              <li><%= teams[i].label %></li>
+              <li>
+                <div class="label"><%= teams[i].label %></div>
+                <div class="score"><%= teams[i].score %></div>
+              </li>
             <% } %>
           </ul>
         </div>

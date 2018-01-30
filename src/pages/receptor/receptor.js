@@ -119,9 +119,7 @@ var receptor = {
                 this.web_content(datas);
                 break;
         }
-        console.log(' -------- datas.teams --------- ', datas.teams);
         if(typeof datas.teams !== "undefined"){
-          console.log('datas teams ', datas.teams);
           app.teams = datas.teams;
           this.set_teams(datas.teams);
         }

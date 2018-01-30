@@ -379,4 +379,12 @@ main.app{
   list-style: none;
   margin:0;
   padding: 0;
+  background:#FFF;
+  font-size: 38px;
+}
+.teams_display ul li .label{
+  font-weight: 400;
+}
+.teams_display ul li .score{
+  font-weight: bold;
 }
