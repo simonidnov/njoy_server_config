@@ -92,9 +92,16 @@ io.on('connection', function(socket){
                 datas.teams = teams;
                 break;
             case 'new_team':
-                teams.push(datas.new_team);
-                stat.status = "teams";
-                datas.teams = teams;
+                if(_.where(teams, {label:datas.new_team.label}).length > 0 ){
+                  teams.push(datas.new_team);
+                  stat.status = "error";
+                  datas.title = "Team";
+                  datas.message = "le nom de la team existe déjà";
+                }else{
+                  teams.push(datas.new_team);
+                  stat.status = "teams";
+                  datas.teams = teams;
+                }
                 break;
             case 'delete_team':
                 delete teams[datas.team_id];
