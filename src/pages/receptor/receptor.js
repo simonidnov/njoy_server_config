@@ -37,6 +37,7 @@ var receptor = {
           $(".module").empty();
         }
         $('.app_logo, .app_icon').css('display', 'block');
+        console.log(datas);
         switch(datas.status){
             case "init_drawing":
                 $('.module').html('');
