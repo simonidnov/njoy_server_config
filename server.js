@@ -95,7 +95,7 @@ io.on('connection', function(socket){
                 if(_.where(teams, {label:datas.new_team.label}).length > 0 ){
                   teams.push(datas.new_team);
                   stat.status = "error";
-                  datas.title = "Team";
+                  datas.title = "teams";
                   datas.message = "le nom de la team existe déjà";
                 }else{
                   teams.push(datas.new_team);
@@ -104,7 +104,17 @@ io.on('connection', function(socket){
                 }
                 break;
             case 'delete_team':
-                delete teams[datas.team_id];
+                if(typeof teams[datas.id] !== "undefined"){
+                  delete teams[datas.id];
+                  teams.splice(datas.id, 1);
+                }
+                stat.status = "teams";
+                datas.teams = teams;
+                break;
+            case 'team_score':
+                if(typeof teams[datas.id] !== "undefined"){
+                  teams[datas.id].score = datas.score;
+                }
                 stat.status = "teams";
                 datas.teams = teams;
                 break;
@@ -276,7 +286,6 @@ io.on('connection', function(socket){
 });
 
 http.listen(port, function(){
-  console.log('listening on *:' + port);
     cp.exec("/home/pi/njoy/startchromium.sh", function(error, stdout, stderr) {
         console.log("stdout: " + stdout);
         console.log("stderr: " + stderr);
@@ -308,6 +317,7 @@ var addParams = function(datas){
     datas = {};
   }
   datas.users = users;
+  datas.teams = teams;
   datas.animations = animations;
   datas.ip_config = get_ip_config();
   return datas;
