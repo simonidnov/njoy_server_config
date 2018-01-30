@@ -211,7 +211,7 @@
         {
           "label":"Dessiner c'est gagné",
           "desc":"dessiner des trucs pour gagner des machins.",
-          "icon":"ressources/crazyshow/habillage/dessinercestgagne.png",
+          "icon":"ressources/crazyshow/habillage/dessinercestgagne.svg",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
           "jingle":{"file":"ressources/crazyshow/jingles/dessinercestgagne.mp4", "type":"video", "event":null, "params":null, "display_cover":true},
@@ -230,7 +230,7 @@
         {
           "label":"ABC Story",
           "desc":"description de ABC stories",
-          "icon":"ressources/crazyshow/habillage/abcstory.png",
+          "icon":"ressources/crazyshow/habillage/abcstory.svg",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
           "jingle":{"file":"ressources/crazyshow/jingles/abcstory.mp4", "type":"video", "event":null, "params":null, "display_cover":true},
@@ -300,7 +300,7 @@
           "label":"AIR BAND",
           "desc":"Créer un groupe de Air Band, le groupe doit immiter le groupe de musique diffusé en arrière plan",
           "datas":{},
-          "icon":"ressources/crazyshow/habillage/airband.png",
+          "icon":"ressources/crazyshow/habillage/airband.svg",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "jingle":{"file":"ressources/crazyshow/jingles/airband.mp4", "type":"video", "event":null, "params":null},
           "menu":[
@@ -807,10 +807,10 @@
         {
           "label":"Discours du président",
           "desc":"to complete",
-          "icon":"ressources/labofolies/labofolies.png",
-          "logo":"ressources/labofolies/labofolies.png",
+          "icon":"ressources/labofolies/labofolies_decors.png",
+          "logo":"ressources/labofolies/labofolies_decors.png",
           "datas":{},
-          "jingle":{"file":"ressources/labofolies/rencontre_professeur/rencontre_professeur.mp4", "type":"video", "event":null, "params":null, "display_cover":false},
+          "jingle":{"file":"ressources/labofolies/discours_president/discours.mp4", "type":"video", "event":null, "params":null, "display_cover":false},
             "menu":[
             {
               "label":"discours du président",
@@ -826,17 +826,17 @@
         {
           "label":"Rencontrer le professeur",
           "desc":"to complete",
-          "icon":"ressources/labofolies/labofolies.png",
-          "logo":"ressources/labofolies/labofolies.png",
+          "icon":"ressources/labofolies/labofolies_decors.png",
+          "logo":"ressources/labofolies/labofolies_decors.png",
           "datas":{},
-          "jingle":{"file":"ressources/labofolies/rencontre_professeur/rencontre_professeur.mp4", "type":"video", "event":null, "params":null, "display_cover":false},
+          "jingle":{"file":"ressources/labofolies/rencontre_professeur/rencontre.mp4", "type":"video", "event":null, "params":null, "display_cover":false},
             "menu":[
             {
               "label":"Rencontrer le professeur",
               "desc":"to complete",
               "components":{
                 "playlist_video":[
-                    {"label":"Rencontrer le professeur", "desc":"", "datas":{}, "file":"ressources/labofolies/rencontre_professeur/rencontre_professeur.mp4", "display_cover":false}
+                    {"label":"Rencontrer le professeur", "desc":"", "datas":{}, "file":"ressources/labofolies/rencontre_professeur/rencontre.mp4", "display_cover":false}
                 ]
               }
             }
@@ -845,8 +845,8 @@
         {
           "label":"Contacter le professeur",
           "desc":"to complete",
-          "icon":"ressources/labofolies/labofolies.png",
-          "logo":"ressources/labofolies/labofolies.png",
+          "icon":"ressources/labofolies/labofolies_decors.png",
+          "logo":"ressources/labofolies/labofolies_decors.png",
           "datas":{},
           "jingle":{"file":"ressources/labofolies/contact_professeur/contact.mp4", "type":"video", "event":null, "params":null, "display_cover":false},
             "menu":[
@@ -855,7 +855,7 @@
               "desc":"to complete",
               "components":{
                 "playlist_video":[
-                    {"label":"Contacter le professeur", "desc":"", "datas":{}, "file":"ressources/labofolies/rencontre_professeur/rencontre_professeur.mp4", "display_cover":false}
+                    {"label":"Contacter le professeur", "desc":"", "datas":{}, "file":"ressources/labofolies/contact_professeur/contact.mp4", "display_cover":false}
                 ]
               }
             }
@@ -864,8 +864,8 @@
         {
           "label":"Enigmes",
           "desc":"to complete",
-          "icon":"ressources/labofolies/labofolies.png",
-          "logo":"ressources/labofolies/labofolies.png",
+          "icon":"ressources/labofolies/labofolies_decors.png",
+          "logo":"ressources/labofolies/labofolies_decors.png",
           "datas":{},
           "jingle":{"file":"ressources/labofolies/contact_professeur/contact.mp4", "type":"video", "event":null, "params":null, "display_cover":false},
             "menu":[
@@ -884,8 +884,8 @@
         {
           "label":"Etat de folies",
           "desc":"to complete",
-          "icon":"ressources/labofolies/labofolies.png",
-          "logo":"ressources/labofolies/labofolies.png",
+          "icon":"ressources/labofolies/labofolies_decors.png",
+          "logo":"ressources/labofolies/labofolies_decors.png",
           "datas":{},
           "jingle":{"file":"ressources/labofolies/contact_professeur/contact.mp4", "type":"video", "event":null, "params":null, "display_cover":false},
             "menu":[
