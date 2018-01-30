@@ -314,6 +314,7 @@ var addParams = function(datas){
     datas = {};
   }
   datas.users = users;
+  datas.teams = teams;
   datas.animations = animations;
   datas.ip_config = get_ip_config();
   return datas;
