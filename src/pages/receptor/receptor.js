@@ -123,16 +123,16 @@ var receptor = {
         if(typeof datas.teams !== "undefined"){
           console.log('datas teams ', datas.teams);
           app.teams = datas.teams;
-          this.set_teams();
+          this.set_teams(datas.teams);
         }
         if(typeof datas.chronos !== "undefined"){
             this.setChronos(datas.chronos, datas.chronos_type);
         }
     },
-    set_teams : function(){
+    set_teams : function(teams){
       var teams_temp = _.template($('#teams_template').html());
       $('#teams_display').remove();
-      $('.screen.receptor').append(teams_temp({teams:app.teams}));
+      $('.screen.receptor').append(teams_temp({teams : teams}));
     },
     web_content : function(datas){
         //console.log(datas);
