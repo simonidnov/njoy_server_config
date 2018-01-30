@@ -105,7 +105,7 @@ io.on('connection', function(socket){
                 break;
             case 'delete_team':
                 delete teams[datas.id];
-                myArray.splice(datas.id, 1);
+                teams.splice(datas.id, 1);
                 stat.status = "teams";
                 datas.teams = teams;
                 break;
