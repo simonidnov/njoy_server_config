@@ -62,5 +62,14 @@
           });*/
         });
       </script>
+      <script type="text/template" id="teams_template">
+        <div class="teams_display" id="teams_display">
+          <ul>
+            <% for(var i=0; i<teams.length; i++){ %>
+              <li><%= teams[i].label %></li>
+            <% } %>
+          </ul>
+        </div>
+      </script>
     </body>
 </html>
