@@ -109,7 +109,7 @@ io.on('connection', function(socket){
                 datas.teams = teams;
                 break;
             case 'team_score':
-                team[datas.id].score = datas.score;
+                teams[datas.id].score = datas.score;
                 stat.status = "teams";
                 datas.teams = teams;
                 break;
