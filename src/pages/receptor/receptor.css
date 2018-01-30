@@ -358,8 +358,10 @@ main.app{
 
 .teams_display{
   position: absolute;
-  bottom:0;
-  width:100%;
+  bottom: 0;
+  width: 100%;
+  height: 120px;
+  background: #FFF;
 }
 .teams_display ul{
   display: inline-block;
@@ -377,20 +379,20 @@ main.app{
   list-style: none;
   margin:0;
   padding: 0;
-  background:#FFF;
   font-size: 35px;
   padding:10px;
   position: relative;
 }
 .teams_display ul li .erlenmeyer{
   position: absolute;
-  bottom: 120px;
+  bottom: 109px;
   width: 100%;
-  height: 170px;
+  height: 213px;
   overflow: hidden;
   left: 0;
   right: 0;
   margin: auto;
+  z-index: 999;
 }
 .teams_display ul li .erlenmeyer .progress{
   width: 100%;
