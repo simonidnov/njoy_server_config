@@ -371,7 +371,6 @@ main.app{
 }
 .teams_display ul li{
   display:inline-block;
-  width:150px;
   line-height: 50px;
   text-align: center;
   list-style: none;
