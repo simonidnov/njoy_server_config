@@ -674,7 +674,7 @@
               "desc":"des clips vidéos à reconstituer en AIR BAND",
               "components":{
                 "playlist_video":[
-                    {"label":"Exemple", "desc":"", "datas":{}, "file":"ressources/crazyshow/tourenfolie/exemple.mp4"},
+                    {"label":"Exemple", "desc":"", "datas":{}, "file":"ressources/crazyshow/tourenfolie/tourenfolie.mp4"},
                     {"label":"chronos 60", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/chronos_20.mp4"},
                     {"label":"chronos 20", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/chronos_60.mp4"}
                 ]
@@ -868,7 +868,6 @@
           "logo":"ressources/labofolies/labofolies.png",
           "datas":{},
           "jingle":{"file":"ressources/labofolies/contact_professeur/contact.mp4", "type":"video", "event":null, "params":null},
-
             "menu":[
             {
               "label":"to complete",
