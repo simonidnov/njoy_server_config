@@ -104,7 +104,12 @@ io.on('connection', function(socket){
                 }
                 break;
             case 'delete_team':
-                delete teams[datas.team_id];
+                delete teams[datas.id];
+                stat.status = "teams";
+                datas.teams = teams;
+                break;
+            case 'team_score':
+                team[datas.id].score = datas.score;
                 stat.status = "teams";
                 datas.teams = teams;
                 break;
