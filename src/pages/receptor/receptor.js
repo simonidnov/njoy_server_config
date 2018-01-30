@@ -122,10 +122,17 @@ var receptor = {
         console.log(' -------- datas.teams --------- ', datas.teams);
         if(typeof datas.teams !== "undefined"){
           console.log('datas teams ', datas.teams);
+          app.teams = datas.teams;
+          this.set_teams();
         }
         if(typeof datas.chronos !== "undefined"){
             this.setChronos(datas.chronos, datas.chronos_type);
         }
+    },
+    set_teams : function(){
+      var teams_temp = _.template($('#teams_template').html());
+      $('#teams_display').remove();
+      $('.screen.receptor').append(teams_temp({teams:app.teams}));
     },
     web_content : function(datas){
         //console.log(datas);
