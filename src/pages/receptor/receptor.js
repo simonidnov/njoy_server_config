@@ -122,8 +122,8 @@ var receptor = {
         console.log(' -------- datas.teams --------- ', datas.teams);
         if(typeof datas.teams !== "undefined"){
           console.log('datas teams ', datas.teams);
-          app.teams = datas.teams;
-          this.set_teams(datas.teams);
+          //app.teams = datas.teams;
+          //this.set_teams(datas.teams);
         }
         if(typeof datas.chronos !== "undefined"){
             this.setChronos(datas.chronos, datas.chronos_type);
