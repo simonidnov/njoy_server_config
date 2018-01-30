@@ -87,19 +87,19 @@ io.on('connection', function(socket){
                 stat.status = "launch_content";
                 //console.log(datas);
                 break;
-            case 'team':
-                stat.status = "team";
-                datas.team = teams;
+            case 'teams':
+                stat.status = "teams";
+                datas.teams = teams;
                 break;
             case 'new_team':
                 teams.push(datas.new_team);
-                stat.status = "team";
-                datas.team = teams;
+                stat.status = "teams";
+                datas.teams = teams;
                 break;
             case 'delete_team':
                 delete teams[datas.team_id];
-                stat.status = "team";
-                datas.team = teams;
+                stat.status = "teams";
+                datas.teams = teams;
                 break;
             default:
                 stat = {"status":"default"};
