@@ -214,7 +214,7 @@
           "icon":"ressources/crazyshow/habillage/dessinercestgagne.png",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/crazyshow/jingles/dessinercestgagne.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/dessinercestgagne.mp4", "type":"video", "event":null, "params":null, "display_cover":true},
           "menu":[
             {
               "label":"Musiques d'ambiance",
@@ -233,7 +233,7 @@
           "icon":"ressources/crazyshow/habillage/abcstory.png",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/crazyshow/jingles/abcstory.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/abcstory.mp4", "type":"video", "event":null, "params":null, "display_cover":true},
           "menu":[
             {
               "label":"Musiques d'ambiance",
@@ -252,7 +252,7 @@
           "icon":"ressources/crazyshow/habillage/justeprix.png",
           "logo":"ressources/crazyshow/habillage/crazyshow.png",
           "datas":{},
-          "jingle":{"file":"ressources/crazyshow/jingles/justeprix.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/crazyshow/jingles/justeprix.mp4", "type":"video", "event":null, "params":null, "display_cover":true},
           "menu":[
             {
               "label":"Série 1",
@@ -810,14 +810,14 @@
           "icon":"ressources/labofolies/labofolies.png",
           "logo":"ressources/labofolies/labofolies.png",
           "datas":{},
-          "jingle":{"file":"ressources/labofolies/rencontre_professeur/rencontre_professeur.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/labofolies/rencontre_professeur/rencontre_professeur.mp4", "type":"video", "event":null, "params":null, "display_cover":false},
             "menu":[
             {
               "label":"discours du président",
               "desc":"to complete",
               "components":{
                 "playlist_video":[
-                    {"label":"Discours du président", "desc":"", "datas":{}, "file":"ressources/labofolies/discours_president/discours.mp4"}
+                    {"label":"Discours du président", "desc":"", "datas":{}, "file":"ressources/labofolies/discours_president/discours.mp4", "display_cover":false}
                 ]
               }
             }
@@ -829,14 +829,14 @@
           "icon":"ressources/labofolies/labofolies.png",
           "logo":"ressources/labofolies/labofolies.png",
           "datas":{},
-          "jingle":{"file":"ressources/labofolies/rencontre_professeur/rencontre_professeur.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/labofolies/rencontre_professeur/rencontre_professeur.mp4", "type":"video", "event":null, "params":null, "display_cover":false},
             "menu":[
             {
               "label":"Rencontrer le professeur",
               "desc":"to complete",
               "components":{
                 "playlist_video":[
-                    {"label":"Rencontrer le professeur", "desc":"", "datas":{}, "file":"ressources/labofolies/rencontre_professeur/rencontre_professeur.mp4"}
+                    {"label":"Rencontrer le professeur", "desc":"", "datas":{}, "file":"ressources/labofolies/rencontre_professeur/rencontre_professeur.mp4", "display_cover":false}
                 ]
               }
             }
@@ -848,14 +848,14 @@
           "icon":"ressources/labofolies/labofolies.png",
           "logo":"ressources/labofolies/labofolies.png",
           "datas":{},
-          "jingle":{"file":"ressources/labofolies/contact_professeur/contact.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/labofolies/contact_professeur/contact.mp4", "type":"video", "event":null, "params":null, "display_cover":false},
             "menu":[
             {
               "label":"Contacter le professeur",
               "desc":"to complete",
               "components":{
                 "playlist_video":[
-                    {"label":"Contacter le professeur", "desc":"", "datas":{}, "file":"ressources/labofolies/rencontre_professeur/rencontre_professeur.mp4"}
+                    {"label":"Contacter le professeur", "desc":"", "datas":{}, "file":"ressources/labofolies/rencontre_professeur/rencontre_professeur.mp4", "display_cover":false}
                 ]
               }
             }
@@ -867,15 +867,15 @@
           "icon":"ressources/labofolies/labofolies.png",
           "logo":"ressources/labofolies/labofolies.png",
           "datas":{},
-          "jingle":{"file":"ressources/labofolies/contact_professeur/contact.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/labofolies/contact_professeur/contact.mp4", "type":"video", "event":null, "params":null, "display_cover":false},
             "menu":[
             {
               "label":"to complete",
               "desc":"to complete",
               "components":{
                 "playlist_audio":[
-                    {"label":"Enigme 1", "desc":"", "datas":{}, "file":"ressources/labofolies/enigmes/enigme_1.mp3"},
-                    {"label":"Enigme 2", "desc":"", "datas":{}, "file":"ressources/labofolies/enigmes/enigme_2.mp3"}
+                    {"label":"Enigme 1", "desc":"", "datas":{}, "file":"ressources/labofolies/enigmes/enigme_1.mp3", "display_cover":false},
+                    {"label":"Enigme 2", "desc":"", "datas":{}, "file":"ressources/labofolies/enigmes/enigme_2.mp3", "display_cover":false}
                 ]
               }
             }
@@ -887,16 +887,16 @@
           "icon":"ressources/labofolies/labofolies.png",
           "logo":"ressources/labofolies/labofolies.png",
           "datas":{},
-          "jingle":{"file":"ressources/labofolies/contact_professeur/contact.mp4", "type":"video", "event":null, "params":null},
+          "jingle":{"file":"ressources/labofolies/contact_professeur/contact.mp4", "type":"video", "event":null, "params":null, "display_cover":false},
             "menu":[
             {
               "label":"to complete",
               "desc":"to complete",
               "components":{
                 "playlist_video":[
-                    {"label":"Etat de folie 1", "desc":"", "datas":{}, "file":"ressources/labofolies/etats_folies/folie1.mp4"},
-                    {"label":"Etat de folie 2", "desc":"", "datas":{}, "file":"ressources/labofolies/etats_folies/folie2.mp4"},
-                    {"label":"Etat de folie 3", "desc":"", "datas":{}, "file":"ressources/labofolies/etats_folies/folie3.mp4"}
+                    {"label":"Etat de folie 1", "desc":"", "datas":{}, "file":"ressources/labofolies/etats_folies/folie1.mp4", "display_cover":false},
+                    {"label":"Etat de folie 2", "desc":"", "datas":{}, "file":"ressources/labofolies/etats_folies/folie2.mp4", "display_cover":false},
+                    {"label":"Etat de folie 3", "desc":"", "datas":{}, "file":"ressources/labofolies/etats_folies/folie3.mp4", "display_cover":false}
                 ]
               }
             }
