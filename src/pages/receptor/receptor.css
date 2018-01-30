@@ -359,7 +359,7 @@ main.app{
 .teams_display{
   position: absolute;
   bottom:0;
-  height:50px;
+  height:100px;
   width:100%;
 }
 .teams_display ul{
