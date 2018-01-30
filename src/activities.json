@@ -772,7 +772,7 @@
         {"label":"Lancer l'introduction", "checked":false},
         {"label":"Se connecter sur le réseau NJOY", "checked":false}
       ],
-      "introduction":{"video":"", "audio":"", "pix":"ressources/labofolies/labofolies.png"},
+      "introduction":{"video":"", "audio":"", "pix":"ressources/labofolies/labofolies_ground.png"},
       "tools":[
         {
           "label":"Émotions",
