@@ -681,6 +681,27 @@
               }
             }
           ]
+        },
+        {
+          "label":"Cintre d'esprit",
+          "desc":"to complete",
+          "icon":"ressources/crazyshow/habillage/cintre_esprit.png",
+          "logo":"ressources/crazyshow/habillage/crazyshow.png",
+          "datas":{},
+          "jingle":{"file":"ressources/crazyshow/jingles/cintre_esprit.mp4", "type":"video", "event":null, "params":null},
+          "menu":[
+            {
+              "label":"Clips vidéos",
+              "desc":"to complete",
+              "components":{
+                "playlist_video":[
+                    {"label":"Exemple", "desc":"", "datas":{}, "file":"ressources/crazyshow/cintre_esprit/cintre_esprit.mp4"},
+                    {"label":"chronos 60", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/chronos_20.mp4"},
+                    {"label":"chronos 20", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/chronos_60.mp4"}
+                ]
+              }
+            }
+          ]
         }
       ]
     },
