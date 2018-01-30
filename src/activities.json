@@ -868,7 +868,6 @@
           "logo":"ressources/labofolies/labofolies.png",
           "datas":{},
           "jingle":{"file":"ressources/labofolies/contact_professeur/contact.mp4", "type":"video", "event":null, "params":null},
-
             "menu":[
             {
               "label":"to complete",
