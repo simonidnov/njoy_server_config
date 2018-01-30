@@ -93,11 +93,14 @@ io.on('connection', function(socket){
                 break;
             case 'new_team':
                 if(_.where(teams, {label:datas.new_team.label}).length > 0 ){
-                  teams.push(datas.new_team);
+                  //console.log("datas.new_team.color :::: ", datas.new_team);
+                  //console.log("datas.new_team.color :::: ", getRandomColor());
+                  //teams.push(datas.new_team);
                   stat.status = "error";
                   datas.title = "teams";
                   datas.message = "le nom de la team existe déjà";
                 }else{
+                  datas.new_team.color = getRandomColor();
                   teams.push(datas.new_team);
                   stat.status = "teams";
                   datas.teams = teams;
@@ -339,5 +342,16 @@ function get_ip_config(){
     });
   });
 }
+
+
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
 var users_activities = [];
 var animations = null;

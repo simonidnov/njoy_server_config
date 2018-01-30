@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+<style type="text/css">
+	.st0{opacity:0.93;fill:#B7DEEA;}
+	.st1{fill:#8CB4C1;}
+	.st2{opacity:0.7;fill:#FFFFFF;}
+	.st3{clip-path:url(#SVGID_2_);fill:#9BC45F;}
+</style>
+<g>
+	<g>
+		<path class="st0" d="M46.4,235.3c0-0.2,0.1-0.5,0.2-0.7L46.4,235.3z"/>
+		<path class="st0" d="M208.4,235.3l-0.2-0.7C208.3,234.8,208.4,235.1,208.4,235.3z"/>
+		<path class="st0" d="M208.4,235.3c0,5.6-36.3,10.1-81,10.1c-44.7,0-81-4.5-81-10.1l0.2-0.7l55.2-154l-1.9-21l55.9,0.3l-3.7,20.7
+			l56.1,154L208.4,235.3z"/>
+		<ellipse class="st1" cx="128" cy="60.3" rx="28.1" ry="4.4"/>
+	</g>
+</g>
+<path class="st2" d="M194.9,227.5L155,108c0,0-11.4-6-30-6s-26,2.4-26,4c0,0-38.8,121.5-38.8,121.8c0,2.8,30.2,5.1,67.4,5.1
+	s67.4-2.3,67.4-5.1C195,227.7,194.9,227.6,194.9,227.5z"/>
+<g>
+	<defs>
+		<path id="SVGID_1_" d="M194.9,227.5L155,108c0,0-11.4-6-30-6s-26,2.4-26,4c0,0-38.8,121.5-38.8,121.8c0,2.8,30.2,5.1,67.4,5.1
+			s67.4-2.3,67.4-5.1C195,227.7,194.9,227.6,194.9,227.5z"/>
+	</defs>
+	<clipPath id="SVGID_2_">
+		<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+	</clipPath>
+	<rect id="progress" x="39" y="224" class="st3" width="176" height="9"/>
+</g>
+</svg>

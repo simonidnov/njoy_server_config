@@ -115,7 +115,7 @@ main.app{
     top: 0;
     left: 0;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
 }
 /* ----------------- golden_family ------------------- */
 .receptor .golden_family{
@@ -358,8 +358,10 @@ main.app{
 
 .teams_display{
   position: absolute;
-  bottom:0;
-  width:100%;
+  bottom: 0;
+  width: 100%;
+  height: 120px;
+  background: #FFF;
 }
 .teams_display ul{
   display: inline-block;
@@ -372,16 +374,32 @@ main.app{
 .teams_display ul li{
   display:inline-block;
   line-height: 50px;
+  min-width: 220px;
   text-align: center;
   list-style: none;
   margin:0;
   padding: 0;
-  background:#FFF;
-  font-size: 25px;
+  font-size: 35px;
   padding:10px;
+  position: relative;
 }
-.teams_display ul li .label{
-  font-weight: 400;
+.teams_display ul li .erlenmeyer{
+  position: absolute;
+  bottom: 109px;
+  width: 220px;
+  height: 213px;
+  overflow: hidden;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 999;
+}
+.teams_display ul li .erlenmeyer .progress{
+  width: 100%;
+  height:0%;
+  background:#FF0000;
+  position: absolute;
+  bottom:0;
 }
 .teams_display ul li .score{
   font-weight: bold;
