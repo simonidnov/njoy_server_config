@@ -37,7 +37,6 @@ var receptor = {
           $(".module").empty();
         }
         $('.app_logo, .app_icon').css('display', 'block');
-        console.log(datas);
         switch(datas.status){
             case "init_drawing":
                 $('.module').html('');
@@ -119,9 +118,9 @@ var receptor = {
             case "web_content":
                 this.web_content(datas);
                 break;
-            case "teams":
-                alert('teams');
-                break;
+        }
+        if(typeof datas.teams !== "undefined"){
+          console.log('datas teams ', datas.teams);
         }
         if(typeof datas.chronos !== "undefined"){
             this.setChronos(datas.chronos, datas.chronos_type);
