@@ -69,6 +69,10 @@
               <li>
                 <div class="label"><%= teams[i].label %></div>
                 <div class="score"><%= teams[i].score %></div>
+                <div class="percent">
+                  <div class="progress" style="height:<%= parseInt(teams[i].score)*100 %>%;"></div>
+                  <div class="progress" style="height:<%= parseInt(teams[i].score)*100 %>%;"></div>
+                </div>
               </li>
             <% } %>
           </ul>

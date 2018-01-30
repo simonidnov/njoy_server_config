@@ -21,7 +21,7 @@ var receptor = {
                   }
                 }
             }else{
-              $('.app_icon, .app_logo').css('background-image', 'url()');
+              //$('.app_icon, .app_logo').css('background-image', 'url()');
             }
         }, this);
     },
@@ -182,7 +182,7 @@ var receptor = {
         TweenMax.killAll();
         $('#error_motion').remove();
         $('#success_motion').remove();
-        $('.receptor').css({'background-color': '#3B0092', 'background-image':'url()'});
+        //$('.receptor').css({'background-color': '#3B0092', 'background-image':'url()'});
         $('.receptor .module').css({'position':'absolute', 'width':window.innerWidth+'px', 'height':window.innerWidth+'px', 'transform-origin':'50% 50%', 'overflow':'hidden', "top":0, "left":0, "right":0, "bottom":0, "margin":"auto"});
         TweenMax.to($('.receptor .module'), .5, {css:{'border-radius':"100%", "width":"0px", "height":"0px"}});
         var success_temp = _.template($('#success_template').html());
@@ -251,7 +251,7 @@ var receptor = {
         TweenMax.killAll();
         $('#error_motion').remove();
         $('#success_motion').remove();
-        $('.receptor').css({'background-color': '#FF6633', 'background-image':'url()'});
+        //$('.receptor').css({'background-color': '#FF6633', 'background-image':'url()'});
         $('.receptor .module').css({'position':'absolute', 'width':window.innerWidth+'px', 'height':window.innerWidth+'px', 'transform-origin':'50% 50%', 'overflow':'hidden', "top":0, "left":0, "right":0, "bottom":0, "margin":"auto"});
         TweenMax.to($('.receptor .module'), .5, {css:{'border-radius':"100%", "width":"0px", "height":"0px"}});
         var error_temp = _.template($('#error_template').html());
@@ -297,7 +297,7 @@ var receptor = {
     display_text : function(label){
       TweenMax.killAll();
       $('#success_motion').remove();
-      $('.receptor').css({'background-color': '#3B0092', 'background-image':'url()'});
+      //$('.receptor').css({'background-color': '#3B0092', 'background-image':'url()'});
       $('.receptor .module').css({'position':'absolute', 'width':window.innerWidth+'px', 'height':window.innerWidth+'px', 'transform-origin':'50% 50%', 'overflow':'hidden', "top":0, "left":0, "right":0, "bottom":0, "margin":"auto"});
       TweenMax.to($('.receptor .module'), .5, {css:{'border-radius':"100%", "width":"0px", "height":"0px"}});
       var success_temp = _.template($('#success_template').html());
