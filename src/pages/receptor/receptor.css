@@ -372,6 +372,7 @@ main.app{
 .teams_display ul li{
   display:inline-block;
   line-height: 50px;
+  min-width: 150px;
   text-align: center;
   list-style: none;
   margin:0;
@@ -380,8 +381,12 @@ main.app{
   font-size: 25px;
   padding:10px;
 }
-.teams_display ul li .label{
-  font-weight: 400;
+.teams_display ul li .erlenmeyer{
+  position: absolute;
+  bottom:120px;
+  width:80px;
+  height:130px;
+  background:#333;
 }
 .teams_display ul li .score{
   font-weight: bold;
