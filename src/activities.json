@@ -807,8 +807,8 @@
         {
           "label":"Discours du président",
           "desc":"to complete",
-          "icon":"ressources/labofolies/labofolies_decors.png",
-          "logo":"ressources/labofolies/labofolies_decors.png",
+          "icon":"ressources/labofolies/labofolies_decors.svg",
+          "logo":"ressources/labofolies/labofolies_decors.svg",
           "datas":{},
           "jingle":{"file":"ressources/labofolies/discours_president/discours.mp4", "type":"video", "event":null, "params":null, "display_cover":false},
             "menu":[
