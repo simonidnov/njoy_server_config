@@ -118,6 +118,9 @@ var receptor = {
             case "web_content":
                 this.web_content(datas);
                 break;
+            case "teams":
+                alert('teams');
+                break;
         }
         if(typeof datas.chronos !== "undefined"){
             this.setChronos(datas.chronos, datas.chronos_type);

@@ -282,7 +282,6 @@ io.on('connection', function(socket){
 });
 
 http.listen(port, function(){
-  console.log('listening on *:' + port);
     cp.exec("/home/pi/njoy/startchromium.sh", function(error, stdout, stderr) {
         console.log("stdout: " + stdout);
         console.log("stderr: " + stderr);
