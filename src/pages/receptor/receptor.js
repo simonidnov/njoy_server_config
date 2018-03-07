@@ -167,6 +167,7 @@ var receptor = {
               });
               break;
            case "audio_stop":
+              console.log("audio_stop");
               if(typeof this.audio !== "undefined"){
                 this.audio.stop();
               }
