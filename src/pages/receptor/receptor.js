@@ -128,7 +128,11 @@ var receptor = {
                 }
                 this.audio = new Audio(datas.file);
                 this.audio.play();
-
+                this.audio.addEventListener("ended", function(){
+                  app.socket.emit("njoy", {
+                    "status":"audio_stopped"
+                  });
+                });
                 app.socket.emit("njoy", {
                   "status":"audio_played"
                 });
