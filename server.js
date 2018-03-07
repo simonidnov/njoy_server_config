@@ -122,7 +122,11 @@ io.on('connection', function(socket){
                 datas.teams = teams;
                 break;
             default:
-                stat = {"status":"default"};
+                if(typeof datas.status !== "undefined"){
+                  stat = {"status":datas.status};
+                }else{
+                  stat = {"status":"default"};
+                }
                 break;
         }
         if(datas.status === "pause_video"){
