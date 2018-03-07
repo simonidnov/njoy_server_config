@@ -782,12 +782,12 @@
     },
     {
       "label":"ARCHEO DINO",
-      "thumb":"ressources/archeodino/archeodino_logo.svg",
+      "thumb":"ressources/archeodino/archeo_background.png",
       "desc":"Archeo Dino Playlist vidéo",
-      "background":"ressources/crazyshow/jingles/archeodino_logo.svg",
-      "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
+      "background":"ressources/archeodino/archeo_background.png",
+      "tr":"",
       "tl":"",
-      "tc":"ressources/crazyshow/habillage/cintre_esprit.svg",
+      "tc":"",
       "br":"",
       "bl":"",
       "bc":"",
@@ -796,7 +796,7 @@
         {"label":"Lancer l'introduction", "checked":false},
         {"label":"Se connecter sur le réseau NJOY", "checked":false}
       ],
-      "introduction":{"video":"", "audio":"", "pix":"ressources/archeodino/archeodino_logo.svg"},
+      "introduction":{"video":"", "audio":"", "pix":"ressources/archeodino/archeo_background.png"},
       "tools":[
         {
           "label":"Émotions",
@@ -831,7 +831,7 @@
         {
           "label":"Archeo Dino Part 1",
           "desc":"Playlist Vidéo Archeo Dino",
-          "background":"ressources/crazyshow/jingles/archeodino_logo.svg",
+          "background":"ressources/archeodino/archeo_background.png",
           "tr":"",
           "tl":"",
           "tc":"",
