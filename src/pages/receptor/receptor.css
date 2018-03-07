@@ -362,6 +362,7 @@ main.app{
   width: 100%;
   height: 120px;
   background: #FFF;
+  display: none;
 }
 .teams_display ul{
   display: inline-block;

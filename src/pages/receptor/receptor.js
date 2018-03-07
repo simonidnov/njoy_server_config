@@ -130,7 +130,10 @@ var receptor = {
     set_teams : function(teams){
       var teams_temp = _.template($('#teams_template').html());
       $('#teams_display').remove();
-      $('.screen.receptor').append(teams_temp({teams : teams}));
+      if(teams.length > 0){
+        $('.screen.receptor').append(teams_temp({teams : teams}));
+        $('#teams_display').css('display', 'block');
+      }
     },
     web_content : function(datas){
         //console.log(datas);
