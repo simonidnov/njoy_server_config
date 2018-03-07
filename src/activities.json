@@ -870,7 +870,7 @@
       "label":"LABO FOLIES",
       "thumb":"ressources/labofolies/labofolies_logo.png",
       "desc":"Labofolies Playlist vidéo",
-      "background":"ressources/labofolies/labofolies_decors.svg",
+      "background":"ressources/labofolies/labofolies_decors.png",
       "tr":"",
       "tl":"",
       "tc":"",
@@ -917,7 +917,7 @@
         {
           "label":"Discours du président",
           "desc":"to complete",
-          "background":"ressources/labofolies/labofolies_decors.svg",
+          "background":"ressources/labofolies/labofolies_decors.png",
           "tr":"",
           "tl":"",
           "tc":"",
@@ -941,7 +941,7 @@
         {
           "label":"Rencontrer le professeur",
           "desc":"to complete",
-          "background":"ressources/labofolies/labofolies_decors.svg",
+          "background":"ressources/labofolies/labofolies_decors.png",
           "tr":"",
           "tl":"",
           "tc":"",
@@ -965,7 +965,7 @@
         {
           "label":"Contacter le professeur",
           "desc":"to complete",
-          "background":"ressources/labofolies/labofolies_decors.svg",
+          "background":"ressources/labofolies/labofolies_decors.png",
           "tr":"",
           "tl":"",
           "tc":"",
@@ -989,7 +989,7 @@
         {
           "label":"Enigmes",
           "desc":"to complete",
-          "background":"ressources/labofolies/labofolies_decors.svg",
+          "background":"ressources/labofolies/labofolies_decors.png",
           "tr":"",
           "tl":"",
           "tc":"",
@@ -1014,7 +1014,7 @@
         {
           "label":"Etat de folies",
           "desc":"to complete",
-          "background":"ressources/labofolies/labofolies_decors.svg",
+          "background":"ressources/labofolies/labofolies_decors.png",
           "tr":"",
           "tl":"",
           "tc":"",
