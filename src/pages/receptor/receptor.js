@@ -155,7 +155,7 @@ var receptor = {
                 this.audio.volume = 0;
               }
               app.socket.emit("njoy", {
-                "status":"audio_mutted"
+                "status":"audio_muted"
               });
              break;
            case "audio_volume":
@@ -167,7 +167,6 @@ var receptor = {
               });
               break;
            case "audio_stop":
-              console.log("audio_stop");
               if(typeof this.audio !== "undefined"){
                 this.audio.pause();
               }
