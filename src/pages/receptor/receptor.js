@@ -188,7 +188,7 @@ var receptor = {
         $('.receptor .module').css({'position':'absolute', 'width':window.innerWidth+'px', 'height':window.innerWidth+'px', 'transform-origin':'50% 50%', 'overflow':'hidden', "top":0, "left":0, "right":0, "bottom":0, "margin":"auto"});
         TweenMax.to($('.receptor .module'), .5, {css:{'border-radius':"100%", "width":"0px", "height":"0px"}});
         var success_temp = _.template($('#success_template').html());
-        $('.receptor').append(success_temp({"label":"BRAVO!"}));
+        $('.receptor .module').append(success_temp());
         if(typeof this.audio !== "undefined"){
           this.audio.pause();
         }
@@ -198,8 +198,8 @@ var receptor = {
     fail : function(){
         TweenMax.killAll();
         $('.over_motion').remove();
-        var success_temp = _.template($('#success_template').html());
-        $('.receptor').append(success_temp({"label":"BRAVO!"}));
+        var fail_temp = _.template($('#success_template').html());
+        $('.receptor .module').append(fail_temp());
         if(typeof this.audio !== "undefined"){
           this.audio.pause();
         }
