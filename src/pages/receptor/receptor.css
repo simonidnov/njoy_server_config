@@ -416,6 +416,7 @@ main.app{
   background-size:contain;
   background-position: top left;
   background-repeat: no-repeat;
+  z-index: 99;
 }
 .tc{
   position:absolute;
@@ -428,6 +429,7 @@ main.app{
   background-size:contain;
   background-position: top center;
   background-repeat: no-repeat;
+  z-index: 99;
 }
 .tr{
   position:absolute;
@@ -438,6 +440,7 @@ main.app{
   background-size:contain;
   background-position: top right;
   background-repeat: no-repeat;
+  z-index: 99;
 }
 .bl{
   position:absolute;
@@ -448,6 +451,7 @@ main.app{
   background-size:contain;
   background-position: bottom left;
   background-repeat: no-repeat;
+  z-index: 99;
 }
 .bc{
   position:absolute;
@@ -460,6 +464,7 @@ main.app{
   background-size:contain;
   background-position: bottom center;
   background-repeat: no-repeat;
+  z-index: 99;
 }
 .br{
   position:absolute;
@@ -470,4 +475,5 @@ main.app{
   background-size:contain;
   background-position: bottom right;
   background-repeat: no-repeat;
+  z-index: 99;
 }
