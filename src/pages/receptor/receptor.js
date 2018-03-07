@@ -13,11 +13,46 @@ var receptor = {
             if(typeof e.datas !== "undefined"){
                 this.create_component(e.datas);
                 if(typeof e.datas.tools !== "undefined"){
-                  if(typeof e.datas.tools.logo !== "undefined"){
-                    $('.app_logo').css('background-image', 'url('+e.datas.tools.icon+')');
+                  if(typeof e.datas.tools.tr !== "undefined"){
+                    $('.tr').css('background-image', 'url('+e.datas.tools.tr+')');
+                  }else{
+                    $('.tr').css('background-image', 'url()');
                   }
-                  if(typeof e.datas.tools.icon !== "undefined"){
-                    $('.app_icon').css('background-image', 'url('+e.datas.tools.logo+')');
+                  if(typeof e.datas.tools.tl !== "undefined"){
+                    $('.tl').css('background-image', 'url('+e.datas.tools.tl+')');
+                  }else{
+                    $('.tl').css('background-image', 'url()');
+                  }
+                  if(typeof e.datas.tools.tc !== "undefined"){
+                    $('.tc').css('background-image', 'url('+e.datas.tools.tc+')');
+                  }else{
+                    $('.tc').css('background-image', 'url()');
+                  }
+                  if(typeof e.datas.tools.br !== "undefined"){
+                    $('.br').css('background-image', 'url('+e.datas.tools.br+')');
+                  }else{
+                    $('.br').css('background-image', 'url()');
+                  }
+                  if(typeof e.datas.tools.bl !== "undefined"){
+                    $('.bl').css('background-image', 'url('+e.datas.tools.bl+')');
+                  }else{
+                    $('.bl').css('background-image', 'url()');
+                  }
+                  if(typeof e.datas.tools.bc !== "undefined"){
+                    $('.bc').css('background-image', 'url('+e.datas.tools.bc+')');
+                  }else{
+                    $('.bc').css('background-image', 'url()');
+                  }
+                  if(typeof e.datas.tools.background !== "undefined"){
+                    $(".receptor").css({
+                      "background-image":"url("+e.datas.tools.background+")",
+                      "background-size":"cover"
+                    });
+                  }else{
+                    $(".receptor").css({
+                      "background-image":"url()",
+                      "background-size":"contain"
+                    });
                   }
                 }
             }else{
@@ -61,10 +96,10 @@ var receptor = {
                 TweenMax.killAll();
 
                 /*$('.module').append('<div class="video_display"><video src="'+window.location.origin+'/'+datas.file+'" autoplay width="'+window.innerWidth+'px" height="'+window.innerHeight+'px"></video></div>');*/
-                $(".receptor").css({
+                /*$(".receptor").css({
                   "background-image":"url("+(window.location.origin+'/'+(datas.file.replace('.mp4', '.svg')))+")",
                   "background-size":"cover"
-                });
+                });*/
                 break;
             case 'force_video':
                 $('.app_logo, .app_icon').css('display', 'none');
