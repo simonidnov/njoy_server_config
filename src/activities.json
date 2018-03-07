@@ -245,8 +245,13 @@
         {
           "label":"ABC Story",
           "desc":"description de ABC stories",
-          "icon":"ressources/crazyshow/habillage/abcstory.svg",
-          "logo":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
+          "background":"ressources/crazyshow/jingles/abcstory.svg",
+          "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
+          "tl":"",
+          "tc":"ressources/crazyshow/habillage/abcstory.svg",
+          "br":"",
+          "bl":"",
+          "bc":"",
           "datas":{},
           "jingle":{"file":"ressources/crazyshow/jingles/abcstory.mp4", "type":"video", "event":null, "params":null, "display_cover":true},
           "menu":[

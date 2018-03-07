@@ -96,7 +96,7 @@ var receptor = {
                 $('.chronos').remove();
                 TweenMax.killAll();
                 if(typeof this.audio !== "undefined"){
-                  this.audio.stop();
+                  this.audio.pause();
                   app.socket.emit("njoy", {
                     "status":"audio_stopped"
                   });
