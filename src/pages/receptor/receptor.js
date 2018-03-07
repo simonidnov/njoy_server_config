@@ -95,7 +95,10 @@ var receptor = {
                 $('.chronos').remove();
                 TweenMax.killAll();
                 if(typeof this.audio !== "undefined"){
-                  this.audio.pause();
+                  this.audio.stop();
+                  app.socket.emit("njoy", {
+                    "status":"audio_stopped"
+                  });
                 }
                 /*$('.module').append('<div class="video_display"><video src="'+window.location.origin+'/'+datas.file+'" autoplay width="'+window.innerWidth+'px" height="'+window.innerHeight+'px"></video></div>');*/
                 /*$(".receptor").css({
@@ -127,7 +130,7 @@ var receptor = {
                 this.audio.play();
 
                 app.socket.emit("njoy", {
-                  "status":"audio_play"
+                  "status":"audio_played"
                 });
                 break;
             case "audio_pause":
@@ -145,6 +148,23 @@ var receptor = {
                app.socket.emit("njoy", {
                  "status":"audio_play"
                });
+              break;
+
+           case "audio_mute":
+              if(typeof this.audio !== "undefined"){
+                this.audio.volume = 0;
+              }
+              app.socket.emit("njoy", {
+                "status":"audio_mutted"
+              });
+             break;
+           case "audio_volume":
+              if(typeof this.audio !== "undefined"){
+                this.audio.volume = 1;
+              }
+              app.socket.emit("njoy", {
+                "status":"audio_volumed"
+              });
               break;
            case "audio_stop":
               if(typeof this.audio !== "undefined"){
