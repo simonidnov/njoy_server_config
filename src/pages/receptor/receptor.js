@@ -71,7 +71,7 @@ var receptor = {
           });
           $(".module").empty();
         }
-        $('.app_logo, .app_icon').css('display', 'block');
+        $('.tr, .tc, .tl, .br, .bc, .bl').css('display', 'block');
         switch(datas.status){
             case "init_drawing":
                 $('.module').html('');
