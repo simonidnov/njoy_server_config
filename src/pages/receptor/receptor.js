@@ -94,7 +94,9 @@ var receptor = {
                 $('.module').html('');
                 $('.chronos').remove();
                 TweenMax.killAll();
-
+                if(typeof this.audio !== "undefined"){
+                  this.audio.pause();
+                }
                 /*$('.module').append('<div class="video_display"><video src="'+window.location.origin+'/'+datas.file+'" autoplay width="'+window.innerWidth+'px" height="'+window.innerHeight+'px"></video></div>');*/
                 /*$(".receptor").css({
                   "background-image":"url("+(window.location.origin+'/'+(datas.file.replace('.mp4', '.svg')))+")",
@@ -123,8 +125,36 @@ var receptor = {
                 }
                 this.audio = new Audio(datas.file);
                 this.audio.play();
+
+                app.socket.emit("njoy", {
+                  "status":"audio_play"
+                });
                 break;
-            case "playlist_audio":
+            case "audio_pause":
+                if(typeof this.audio !== "undefined"){
+                  this.audio.pause();
+                }
+                app.socket.emit("njoy", {
+                  "status":"audio_paused"
+                });
+               break;
+           case "audio_resume":
+               if(typeof this.audio !== "undefined"){
+                 this.audio.play();
+               }
+               app.socket.emit("njoy", {
+                 "status":"audio_play"
+               });
+              break;
+           case "audio_stop":
+              if(typeof this.audio !== "undefined"){
+                this.audio.stop();
+              }
+              app.socket.emit("njoy", {
+                "status":"audio_stopped"
+              });
+              break;
+           case "playlist_audio":
                 $('.module').append('<div class="audio_display"></div>');
                 TweenMax.killAll();
                 break;
