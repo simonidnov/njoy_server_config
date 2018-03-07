@@ -183,119 +183,28 @@ var receptor = {
     },
     success : function(){
         TweenMax.killAll();
-        $('#error_motion').remove();
-        $('#success_motion').remove();
+        $('.over_motion').remove();
         //$('.receptor').css({'background-color': '#3B0092', 'background-image':'url()'});
         $('.receptor .module').css({'position':'absolute', 'width':window.innerWidth+'px', 'height':window.innerWidth+'px', 'transform-origin':'50% 50%', 'overflow':'hidden', "top":0, "left":0, "right":0, "bottom":0, "margin":"auto"});
         TweenMax.to($('.receptor .module'), .5, {css:{'border-radius':"100%", "width":"0px", "height":"0px"}});
         var success_temp = _.template($('#success_template').html());
         $('.receptor').append(success_temp({"label":"BRAVO!"}));
-        $.each($('.confetti'), function(index, conf){
-          var scale = Math.random()*1 + .5;
-          TweenMax.to($(this), 2.8, {
-            "css":{
-              "top":Math.round((-window.innerHeight)+Math.random()*(window.innerHeight*2))+'px',
-              "left":Math.round((-window.innerWidth)+Math.random()*(window.innerWidth*2))+'px',
-              "rotation":Math.random()*360,
-              "scaleX":scale,
-              "scaleY":scale
-            },
-            ease:Power4.easeOut,
-            delay:.5
-          });
-        });
-        TweenMax.set($(".success_text"), {
-            "scaleX":0,
-            "scaleY":0
-        });
-
         if(typeof this.audio !== "undefined"){
           this.audio.pause();
         }
         this.audio = new Audio("ressources/audio/applau.mp3");
         this.audio.play();
-
-        TweenMax.to($(".success_text"), .5, {
-            "scaleX":1,
-            "scaleY":1,
-            "ease":Elastic.easeOut,
-            "delay":.8,
-            onComplete:function(){
-              TweenMax.to($(".success_text"), .8, {
-                  "scaleX":0,
-                  "scaleY":0,
-                  delay:.8,
-                  ease:Back.easeIn,
-                  onComplete : function(){
-
-                    TweenMax.to($('.receptor .module'), .5, {
-                      css:{'border-radius':"0%", "width":window.innerWidth+"px", "height":window.innerHeight+"px"},
-                      ease:Power4.easeIn,
-                      onComplete:function(){
-                        $('#success_motion').remove();
-                      }
-                    });
-                  }
-              });
-              $.each($('.confetti'), function(index, conf){
-                TweenMax.to($(this), .6, {
-                  "css":{
-                    "top":($(this).position().top+(window.innerHeight*2))+'px',
-                    "rotation":Math.random()*360
-                  },
-                  ease:Power4.easeIn,
-                  delay:(.03*index)
-                });
-              });
-            }
-        });
     },
     fail : function(){
         TweenMax.killAll();
-        $('#error_motion').remove();
-        $('#success_motion').remove();
-        //$('.receptor').css({'background-color': '#FF6633', 'background-image':'url()'});
-        $('.receptor .module').css({'position':'absolute', 'width':window.innerWidth+'px', 'height':window.innerWidth+'px', 'transform-origin':'50% 50%', 'overflow':'hidden', "top":0, "left":0, "right":0, "bottom":0, "margin":"auto"});
-        TweenMax.to($('.receptor .module'), .5, {css:{'border-radius':"100%", "width":"0px", "height":"0px"}});
-        var error_temp = _.template($('#error_template').html());
-        $('.receptor').append(error_temp({}));
-
-        TweenMax.set($(".success_text"), {
-            "scaleX":0,
-            "scaleY":0
-        });
-        TweenMax.to($(".success_text"), .5, {
-            "scaleX":1,
-            "scaleY":1,
-            "ease":Elastic.easeOut,
-            "delay":.8,
-            onComplete:function(){
-
-              if(typeof this.audio !== "undefined"){
-                this.audio.pause();
-              }
-              this.audio = new Audio("ressources/audio/faux.mp3");
-              this.audio.play();
-
-              TweenMax.to($(".success_text"), .8, {
-                  "scaleX":0,
-                  "scaleY":0,
-                  delay:.8,
-                  ease:Back.easeIn,
-                  onComplete : function(){
-
-                    TweenMax.to($('.receptor .module'), .5, {
-                      css:{'border-radius':"0%", "width":window.innerWidth+"px", "height":window.innerHeight+"px"},
-                      ease:Power4.easeIn,
-                      onComplete:function(){
-                        $('#success_motion').remove();
-                      }
-                    });
-                  }
-              });
-            }
-        });
-        //alert('fail');
+        $('.over_motion').remove();
+        var success_temp = _.template($('#success_template').html());
+        $('.receptor').append(success_temp({"label":"BRAVO!"}));
+        if(typeof this.audio !== "undefined"){
+          this.audio.pause();
+        }
+        this.audio = new Audio("ressources/audio/faux.mp3");
+        this.audio.play();
     },
     display_text : function(label){
       TweenMax.killAll();
