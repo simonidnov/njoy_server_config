@@ -411,10 +411,11 @@ main.app{
   position:absolute;
   top:0;
   left:0;
-  width:250px;
-  height:250px;
+  width:20%;
+  height:20%;
   background-size:contain;
   background-position: top left;
+  background-repeat: no-repeat;
 }
 .tc{
   position:absolute;
@@ -422,28 +423,31 @@ main.app{
   left:0;
   right:0;
   margin:auto;
-  width:250px;
-  height:250px;
+  width:60%;
+  height:20%;
   background-size:contain;
   background-position: top center;
+  background-repeat: no-repeat;
 }
 .tr{
   position:absolute;
   top:0;
   right:0;
-  width:250px;
-  height:250px;
+  width:20%;
+  height:20%;
   background-size:contain;
   background-position: top right;
+  background-repeat: no-repeat;
 }
 .bl{
   position:absolute;
   bottom:0;
   left:0;
-  width:250px;
-  height:250px;
+  width:20%;
+  height:20%;
   background-size:contain;
   background-position: bottom left;
+  background-repeat: no-repeat;
 }
 .bc{
   position:absolute;
@@ -451,17 +455,19 @@ main.app{
   left:0;
   right:0;
   margin:auto;
-  width:450px;
-  height:250px;
+  width:60%;
+  height:20%;
   background-size:contain;
   background-position: bottom center;
+  background-repeat: no-repeat;
 }
 .br{
   position:absolute;
   top:0;
   right:0;
-  width:250px;
-  height:250px;
+  width:20%;
+  height:20%;
   background-size:contain;
   background-position: bottom right;
+  background-repeat: no-repeat;
 }
