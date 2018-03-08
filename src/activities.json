@@ -21,28 +21,28 @@
           "label":"Émotions",
           "desc":"Court samples audio pour rythmer les évènements, à lancer à tout instant !",
           "playlist":[
-            {"label":"Applaudir", "file":"ressources/audio/applau.mp3"},
-            {"label":"Huer", "file":"ressources/audio/huee.mp3"},
-            {"label":"Rater", "file":"ressources/audio/rate.mp3"},
-            {"label":"Mauvaise réponse", "file":"ressources/audio/faux.mp3"},
-            {"label":"Bonne réponse", "file":"ressources/audio/bon.mp3"}
+            {"label":"Applaudir", "file":"ressources/audio/applau.mp3", "type":"FX", "data":"ressources/crazyshow/fx/regis_applau.svg"},
+            {"label":"Huer", "file":"ressources/audio/huee.mp3", "type":"FX", "data":"ressources/crazyshow/fx/regis_huer.svg"},
+            {"label":"Rater", "file":"ressources/audio/rate.mp3", "type":"FX", "data":"ressources/crazyshow/fx/regis_false.svg"},
+            {"label":"Mauvaise réponse", "file":"ressources/audio/faux.mp3", "type":"FX", "data":"ressources/crazyshow/fx/regis_wrong.svg"},
+            {"label":"Bonne réponse", "file":"ressources/audio/bon.mp3", "type":"FX", "data":"ressources/crazyshow/fx/regis_good.svg"}
           ]
         },
         {
           "label":"Ambiance",
           "desc":"Des musiques d'ambiance selon les humeurs pour combler les vides.",
           "playlist":[
-              {"label":"Britney Spire", "file":"ressources/audio/ambiance/bitney.mp3"},
-              {"label":"Ray Charles", "file":"ressources/audio/ambiance/1.mp3"},
-              {"label":"Franck Sinatra", "file":"ressources/audio/ambiance/2.mp3"},
-              {"label":"Nate King Cole", "file":"ressources/audio/ambiance/3.mp3"},
-              {"label":"Louis Prima", "file":"ressources/audio/ambiance/4.mp3"},
-              {"label":"Nina Simone", "file":"ressources/audio/ambiance/5.mp3"},
-              {"label":"Amstrong", "file":"ressources/audio/ambiance/6.mp3"},
-              {"label":"Dinah Washington", "file":"ressources/audio/ambiance/7.mp3"},
-              {"label":"Marylin Monroe", "file":"ressources/audio/ambiance/8.mp3"},
-              {"label":"Dave Brubeck", "file":"ressources/audio/ambiance/9.mp3"},
-              {"label":"Dean Martin", "file":"ressources/audio/ambiance/10.mp3"}
+              {"label":"Britney Spire", "file":"ressources/audio/ambiance/bitney.mp3", "type":"audio"},
+              {"label":"Ray Charles", "file":"ressources/audio/ambiance/1.mp3", "type":"audio"},
+              {"label":"Franck Sinatra", "file":"ressources/audio/ambiance/2.mp3", "type":"audio"},
+              {"label":"Nate King Cole", "file":"ressources/audio/ambiance/3.mp3", "type":"audio"},
+              {"label":"Louis Prima", "file":"ressources/audio/ambiance/4.mp3", "type":"audio"},
+              {"label":"Nina Simone", "file":"ressources/audio/ambiance/5.mp3", "type":"audio"},
+              {"label":"Amstrong", "file":"ressources/audio/ambiance/6.mp3", "type":"audio"},
+              {"label":"Dinah Washington", "file":"ressources/audio/ambiance/7.mp3", "type":"audio"},
+              {"label":"Marylin Monroe", "file":"ressources/audio/ambiance/8.mp3", "type":"audio"},
+              {"label":"Dave Brubeck", "file":"ressources/audio/ambiance/9.mp3", "type":"audio"},
+              {"label":"Dean Martin", "file":"ressources/audio/ambiance/10.mp3", "type":"audio"}
           ]
         }
       ],
@@ -802,28 +802,28 @@
           "label":"Émotions",
           "desc":"Court samples audio pour rythmer les évènements, à lancer à tout instant !",
           "playlist":[
-            {"label":"Applaudir", "file":"ressources/audio/applau.mp3"},
-            {"label":"Huer", "file":"ressources/audio/huee.mp3"},
-            {"label":"Rater", "file":"ressources/audio/rate.mp3"},
-            {"label":"Mauvaise réponse", "file":"ressources/audio/faux.mp3"},
-            {"label":"Bonne réponse", "file":"ressources/audio/bon.mp3"}
+            {"label":"Applaudir", "file":"ressources/audio/applau.mp3", "type":"FX"},
+            {"label":"Huer", "file":"ressources/audio/huee.mp3", "type":"FX"},
+            {"label":"Rater", "file":"ressources/audio/rate.mp3", "type":"FX"},
+            {"label":"Mauvaise réponse", "file":"ressources/audio/faux.mp3", "type":"FX"},
+            {"label":"Bonne réponse", "file":"ressources/audio/bon.mp3", "type":"FX"}
           ]
         },
         {
           "label":"Ambiance",
           "desc":"Des musiques d'ambiance selon les humeurs pour combler les vides.",
           "playlist":[
-              {"label":"Britney Spire", "file":"ressources/audio/ambiance/bitney.mp3"},
-              {"label":"Ray Charles", "file":"ressources/audio/ambiance/1.mp3"},
-              {"label":"Franck Sinatra", "file":"ressources/audio/ambiance/2.mp3"},
-              {"label":"Nate King Cole", "file":"ressources/audio/ambiance/3.mp3"},
-              {"label":"Louis Prima", "file":"ressources/audio/ambiance/4.mp3"},
-              {"label":"Nina Simone", "file":"ressources/audio/ambiance/5.mp3"},
-              {"label":"Amstrong", "file":"ressources/audio/ambiance/6.mp3"},
-              {"label":"Dinah Washington", "file":"ressources/audio/ambiance/7.mp3"},
-              {"label":"Marylin Monroe", "file":"ressources/audio/ambiance/8.mp3"},
-              {"label":"Dave Brubeck", "file":"ressources/audio/ambiance/9.mp3"},
-              {"label":"Dean Martin", "file":"ressources/audio/ambiance/10.mp3"}
+              {"label":"Britney Spire", "file":"ressources/audio/ambiance/bitney.mp3", "type":"audio"},
+              {"label":"Ray Charles", "file":"ressources/audio/ambiance/1.mp3", "type":"audio"},
+              {"label":"Franck Sinatra", "file":"ressources/audio/ambiance/2.mp3", "type":"audio"},
+              {"label":"Nate King Cole", "file":"ressources/audio/ambiance/3.mp3", "type":"audio"},
+              {"label":"Louis Prima", "file":"ressources/audio/ambiance/4.mp3", "type":"audio"},
+              {"label":"Nina Simone", "file":"ressources/audio/ambiance/5.mp3", "type":"audio"},
+              {"label":"Amstrong", "file":"ressources/audio/ambiance/6.mp3", "type":"audio"},
+              {"label":"Dinah Washington", "file":"ressources/audio/ambiance/7.mp3", "type":"audio"},
+              {"label":"Marylin Monroe", "file":"ressources/audio/ambiance/8.mp3", "type":"audio"},
+              {"label":"Dave Brubeck", "file":"ressources/audio/ambiance/9.mp3", "type":"audio"},
+              {"label":"Dean Martin", "file":"ressources/audio/ambiance/10.mp3", "type":"audio"}
           ]
         }
       ],
@@ -893,28 +893,28 @@
           "label":"Émotions",
           "desc":"Court samples audio pour rythmer les évènements, à lancer à tout instant !",
           "playlist":[
-            {"label":"Applaudir", "file":"ressources/audio/applau.mp3"},
-            {"label":"Huer", "file":"ressources/audio/huee.mp3"},
-            {"label":"Rater", "file":"ressources/audio/rate.mp3"},
-            {"label":"Mauvaise réponse", "file":"ressources/audio/faux.mp3"},
-            {"label":"Bonne réponse", "file":"ressources/audio/bon.mp3"}
+            {"label":"Applaudir", "file":"ressources/audio/applau.mp3", "type":"FX"},
+            {"label":"Huer", "file":"ressources/audio/huee.mp3", "type":"FX"},
+            {"label":"Rater", "file":"ressources/audio/rate.mp3", "type":"FX"},
+            {"label":"Mauvaise réponse", "file":"ressources/audio/faux.mp3", "type":"FX"},
+            {"label":"Bonne réponse", "file":"ressources/audio/bon.mp3", "type":"FX"}
           ]
         },
         {
           "label":"Ambiance",
           "desc":"Des musiques d'ambiance selon les humeurs pour combler les vides.",
           "playlist":[
-              {"label":"Britney Spire", "file":"ressources/audio/ambiance/bitney.mp3"},
-              {"label":"Ray Charles", "file":"ressources/audio/ambiance/1.mp3"},
-              {"label":"Franck Sinatra", "file":"ressources/audio/ambiance/2.mp3"},
-              {"label":"Nate King Cole", "file":"ressources/audio/ambiance/3.mp3"},
-              {"label":"Louis Prima", "file":"ressources/audio/ambiance/4.mp3"},
-              {"label":"Nina Simone", "file":"ressources/audio/ambiance/5.mp3"},
-              {"label":"Amstrong", "file":"ressources/audio/ambiance/6.mp3"},
-              {"label":"Dinah Washington", "file":"ressources/audio/ambiance/7.mp3"},
-              {"label":"Marylin Monroe", "file":"ressources/audio/ambiance/8.mp3"},
-              {"label":"Dave Brubeck", "file":"ressources/audio/ambiance/9.mp3"},
-              {"label":"Dean Martin", "file":"ressources/audio/ambiance/10.mp3"}
+              {"label":"Britney Spire", "file":"ressources/audio/ambiance/bitney.mp3", "type":"audio"},
+              {"label":"Ray Charles", "file":"ressources/audio/ambiance/1.mp3", "type":"audio"},
+              {"label":"Franck Sinatra", "file":"ressources/audio/ambiance/2.mp3", "type":"audio"},
+              {"label":"Nate King Cole", "file":"ressources/audio/ambiance/3.mp3", "type":"audio"},
+              {"label":"Louis Prima", "file":"ressources/audio/ambiance/4.mp3", "type":"audio"},
+              {"label":"Nina Simone", "file":"ressources/audio/ambiance/5.mp3", "type":"audio"},
+              {"label":"Amstrong", "file":"ressources/audio/ambiance/6.mp3", "type":"audio"},
+              {"label":"Dinah Washington", "file":"ressources/audio/ambiance/7.mp3", "type":"audio"},
+              {"label":"Marylin Monroe", "file":"ressources/audio/ambiance/8.mp3", "type":"audio"},
+              {"label":"Dave Brubeck", "file":"ressources/audio/ambiance/9.mp3", "type":"audio"},
+              {"label":"Dean Martin", "file":"ressources/audio/ambiance/10.mp3", "type":"audio"}
           ]
         }
       ],
