@@ -287,10 +287,13 @@ var receptor = {
         if(typeof type === "undefined"){type="bottom";}
         $('.screen.receptor').append('<div class="chronos '+type+'"><div class="counter"></div><div class="timelap"><div class="progress"></div></div></div>');
         $('.chronos .counter').html(time);
+        this.chrono_sound = new Audio("ressources/audio/attente_30s.mp3");
+        this.chrono_sound.play();
         var chronos_tween = TweenMax.to($('.timelap .progress'), parseInt(time), {css:{width:"100%"}, ease:Linear.easeNone, onUpdate:function(e){
             $('.chronos .counter').html(parseInt(time) - Math.round(chronos_tween.time()));
         }, onComplete:function(){
             //alert('time elapsed');
+            receptor.chrono_sound.play();
         }});
     },
     success : function(){
