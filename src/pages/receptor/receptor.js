@@ -125,9 +125,9 @@ var receptor = {
             case "FX":
                 $('.module').append('<div class="fx" style="background-image:url('+datas.data+')"></div>');
                 TweenMax.to($('.fx'), .5, {css:{top:0}, ease:Back.easeOut});
-                this.audio = new Audio(datas.file);
-                this.audio.play();
-                this.audio.addEventListener("ended", function(){
+                this.fx = new Audio(datas.file);
+                this.fx.play();
+                this.fx.addEventListener("ended", function(){
                   TweenMax.to($('.fx'), .5, {css:{top:"100%"}, ease:Back.easeIn});
                 });
                 break;
