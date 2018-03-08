@@ -246,6 +246,8 @@ io.on('connection', function(socket){
             video_player = null;
             console.log("emit");
             io.emit(call, {"status":"video_closed"});
+          }else{
+            cp.exec("killall omxplayer", function(error, stdout, stderr) {});
           }
           cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
           //cp.exec("killall omxplayer", function(error, stdout, stderr) {});
