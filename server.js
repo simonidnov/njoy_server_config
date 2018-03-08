@@ -67,7 +67,7 @@ io.on('connection', function(socket){
                 }
               });
             case 'success':
-                video_player = Omx("/ressources/crazyshow/fx/gagne.mp4", "local", false, 1.0);
+                video_player = Omx("src/ressources/crazyshow/fx/gagne.mp4", "local", false, 1.0);
                 video_player.volUp();
                 video_player.play();
                 video_player.on('close', function(){
@@ -77,7 +77,7 @@ io.on('connection', function(socket){
                 });
                 break;
             case 'fail':
-                video_player = Omx("/ressources/crazyshow/fx/perdu.mp4", "local", false, 1.0);
+                video_player = Omx("src/ressources/crazyshow/fx/perdu.mp4", "local", false, 1.0);
                 video_player.volUp();
                 video_player.play();
                 video_player.on('close', function(){
