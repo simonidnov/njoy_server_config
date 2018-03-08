@@ -80,6 +80,10 @@ var receptor = {
         }
         $('.tr, .tc, .tl, .br, .bc, .bl').css('display', 'block');
         switch(datas.status){
+            case "splash":
+                $('.module').html('');
+                $('.chronos').remove();
+                break;
             case "init_drawing":
                 $('.module').html('');
                 $('.chronos').remove();
