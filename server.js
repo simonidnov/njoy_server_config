@@ -68,7 +68,7 @@ io.on('connection', function(socket){
               });
             case 'success':
                 //cp.exec("killall omxplayer", function(error, stdout, stderr) {
-                        if(video_player !== null){
+                        /*if(video_player !== null){
                           video_player.quit();
                           video_player = null;
                         }
@@ -81,12 +81,12 @@ io.on('connection', function(socket){
                           video_player.quit();
                           io.emit(call, {"status":"video_closed"});
                           video_player = null;
-                        });
+                        });*/
                 //});
                 break;
             case 'fail':
                 //cp.exec("killall omxplayer", function(error, stdout, stderr) {
-                    if(video_player !== null){
+                    /*if(video_player !== null){
                       video_player.quit();
                       video_player = null;
                     }
@@ -99,7 +99,7 @@ io.on('connection', function(socket){
                       video_player.quit();
                       io.emit(call, {"status":"video_closed"});
                       video_player = null;
-                    });
+                    });*/
                 //});
                 break;
             case 'connect':
