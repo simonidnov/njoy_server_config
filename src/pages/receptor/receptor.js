@@ -204,12 +204,12 @@ var receptor = {
             case "":
                 break;
             case "success":
-                this.success(datas);
+                //this.success(datas);
                 break;
             case "display_text":
                 this.display_text("DISPLAY TEXT");
             case "fail":
-                this.fail(datas);
+                //this.fail(datas);
                 break;
             case "object":
                 this.object_component(datas);

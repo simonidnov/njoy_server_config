@@ -66,6 +66,26 @@ io.on('connection', function(socket){
                     console.log("exec errror: " + error);
                 }
               });
+            case 'success':
+                video_player = Omx("http://10.3.141.1:3000/src/ressources/fx/gagne.mp4", "local", false, 1.0);
+                video_player.volUp();
+                video_player.play();
+                video_player.on('close', function(){
+                  //video_player.quit();
+                  io.emit(call, {"status":"video_closed"});
+                  video_player = null;
+                });
+                break;
+            case 'fail':
+                video_player = Omx("http://10.3.141.1:3000/src/ressources/fx/perdu.mp4", "local", false, 1.0);
+                video_player.volUp();
+                video_player.play();
+                video_player.on('close', function(){
+                  //video_player.quit();
+                  io.emit(call, {"status":"video_closed"});
+                  video_player = null;
+                });
+                break;
             case 'connect':
                 stat = login(datas);
                 datas = addParams(datas);
