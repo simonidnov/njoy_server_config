@@ -243,7 +243,7 @@ io.on('connection', function(socket){
             console.log("video_player not null");
             video_player.quit();
             console.log("video_player not null after quit");
-            //video_player = null;
+            video_player = null;
             console.log("emit");
             io.emit(call, {"status":"video_closed"});
           }else{
@@ -256,7 +256,7 @@ io.on('connection', function(socket){
         if(datas.status === "video"){
           if(video_player !== null){
             video_player.quit();
-            //video_player = null;
+            video_player = null;
             cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
             //cp.exec("killall omxplayer", function(error, stdout, stderr) {});
             io.emit(call, {"status":"kill_vid"});
@@ -272,7 +272,7 @@ io.on('connection', function(socket){
                     if(video_player !== null){
                       console.log('video en cours');
                       video_player.quit();
-                      //video_player = null;
+                      video_player = null;
                         console.log('on quitte la video en cours');
                         return false;
                     }
@@ -286,7 +286,7 @@ io.on('connection', function(socket){
                       video_player.quit();
                       console.log('la video est terminée');
                       io.emit(call, {"status":"video_closed"});
-                      //video_player = null;
+                      video_player = null;
                     });
                     io.emit(call, {"status":"video_started"});
 
@@ -322,7 +322,7 @@ io.on('connection', function(socket){
             if(video_player !== null){
               video_player.quit();
               //io.emit(call, {"status":"video_closed"});
-              //video_player = null;
+              video_player = null;
             }
             //cp.exec("killall omxplayer", function(error, stdout, stderr) {
             //    if (stderr !== null) {
