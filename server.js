@@ -283,8 +283,8 @@ io.on('connection', function(socket){
                     video_player.volUp();
                     video_player.play();
                     video_player.on('close', function(){
-                      //video_player.quit();
-                        console.log('la video est terminée');
+                      video_player.quit();
+                      console.log('la video est terminée');
                       io.emit(call, {"status":"video_closed"});
                       //video_player = null;
                     });
