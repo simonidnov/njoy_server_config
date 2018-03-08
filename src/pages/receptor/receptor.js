@@ -66,6 +66,7 @@ var receptor = {
                 $('.br').css('background-image', 'none');
                 $('.bc').css('background-image', 'none');
                 $('.bl').css('background-image', 'none');
+                $(".module").empty();
               //$('.app_icon, .app_logo').css('background-image', 'url()');
             }
         }, this);
