@@ -70,6 +70,9 @@ var receptor = {
     create_component : function(datas){
       $('.receptor .module').css({'transform-origin':'50% 50%', 'overflow':'hidden', "width":window.innerWidth+"px", "height":window.innerHeight+"px", "border-radius":"0", "position":"relative"});
         $('.chronos').remove();
+        if(typeof receptor.chrono_sound !== "undefined"){
+          receptor.chrono_sound.pause();
+        }
         if($('video').length > 0){
           $(".module").children().filter("video").each(function(){
               this.pause(); // can't hurt
@@ -293,7 +296,7 @@ var receptor = {
             $('.chronos .counter').html(parseInt(time) - Math.round(chronos_tween.time()));
         }, onComplete:function(){
             //alert('time elapsed');
-            receptor.chrono_sound.play();
+            receptor.chrono_sound.pause();
         }});
     },
     success : function(){
