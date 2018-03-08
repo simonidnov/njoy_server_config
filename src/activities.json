@@ -376,8 +376,7 @@
                 "playlist_video":[
                     {"label":"Video 1", "desc":"", "datas":{}, "file":"ressources/crazyshow/letsdance/video1.mp4"},
                     {"label":"Video 2", "desc":"", "datas":{}, "file":"ressources/crazyshow/letsdance/video2.mp4"},
-                    {"label":"Video 3", "desc":"", "datas":{}, "file":"ressources/crazyshow/letsdance/video3.mp4"},
-                    {"label":"Video 4", "desc":"", "datas":{}, "file":"ressources/crazyshow/letsdance/video4.mp4"}
+                    {"label":"Video 3", "desc":"", "datas":{}, "file":"ressources/crazyshow/letsdance/video3.mp4"}
                 ]
               }
             },
