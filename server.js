@@ -254,7 +254,7 @@ io.on('connection', function(socket){
             //cp.exec("killall omxplayer", function(error, stdout, stderr) {});
             io.emit(call, {"status":"kill_vid"});
           }else{
-            cp.exec("killall omxplayer", function(error, stdout, stderr) {
+            //cp.exec("killall omxplayer", function(error, stdout, stderr) {
                 /*if (stderr !== null) {
                     // IF OMXPLAYER COMMEND DOESN'T EXIST ONLY
                     console.log('HEEEEEEEERE WTF !!!');
@@ -267,6 +267,7 @@ io.on('connection', function(socket){
                       video_player.quit();
                       video_player = null;
                         console.log('on quitte la video en cours');
+                        return false;
                     }
                       console.log('on set l écran');
                     cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
@@ -307,7 +308,7 @@ io.on('connection', function(socket){
                     });*/
 
                 //}
-            });
+            //});
           }
         }else{
           if(datas.status.indexOf("video") === -1){
