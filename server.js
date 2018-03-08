@@ -240,6 +240,7 @@ io.on('connection', function(socket){
           if(video_player !== null){
             video_player.quit();
             video_player = null;
+            io.emit(call, {"status":"video_closed"});
           }
           cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
           //cp.exec("killall omxplayer", function(error, stdout, stderr) {});
@@ -270,7 +271,7 @@ io.on('connection', function(socket){
                     video_player.play();
                     video_player.on('close', function(){
                       //video_player.quit();
-                      io.emit(call, {"status":"video_closed"});
+                      io.emit(call, {"status":"kill_vid"});
                       video_player = null;
                     });
                     io.emit(call, {"status":"video_started"});
@@ -306,7 +307,7 @@ io.on('connection', function(socket){
           if(datas.status.indexOf("video") === -1){
             if(video_player !== null){
               video_player.quit();
-              io.emit(call, {"status":"video_closed"});
+              //io.emit(call, {"status":"video_closed"});
               video_player = null;
             }
             //cp.exec("killall omxplayer", function(error, stdout, stderr) {
