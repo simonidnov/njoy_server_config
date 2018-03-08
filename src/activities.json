@@ -23,7 +23,6 @@
           "playlist":[
             {"label":"Applaudir", "file":"ressources/audio/applau.mp3", "type":"FX", "data":"ressources/crazyshow/fx/regis_applau.svg"},
             {"label":"Huer", "file":"ressources/audio/huee.mp3", "type":"FX", "data":"ressources/crazyshow/fx/regis_huer.svg"},
-            {"label":"Rater", "file":"ressources/audio/rate.mp3", "type":"FX", "data":"ressources/crazyshow/fx/regis_false.svg"},
             {"label":"Mauvaise réponse", "file":"ressources/audio/faux.mp3", "type":"FX", "data":"ressources/crazyshow/fx/regis_wrong.svg"},
             {"label":"Bonne réponse", "file":"ressources/audio/bon.mp3", "type":"FX", "data":"ressources/crazyshow/fx/regis_good.svg"}
           ]

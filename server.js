@@ -261,16 +261,22 @@ io.on('connection', function(socket){
                     datas.status = "force_video";
                     io.emit(call, {"status":"force_video", "infos":stat, "datas":datas});
                 }else{*/
+                  console.log('demande de video');
                     if(video_player !== null){
+                      console.log('video en cours');
                       video_player.quit();
                       video_player = null;
+                        console.log('on quitte la video en cours');
                     }
+                      console.log('on set l écran');
                     cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
+                      console.log('on lance la vidéo');
                     video_player = Omx("http://10.3.141.1:3000/"+datas.file, "local", false, 1.0);
                     video_player.volUp();
                     video_player.play();
                     video_player.on('close', function(){
                       //video_player.quit();
+                        console.log('la video est terminée');
                       io.emit(call, {"status":"video_closed"});
                       video_player = null;
                     });
