@@ -14,6 +14,9 @@ var receptor = {
                 this.create_component(e.datas);
                 console.log("e.datas ::: " ,  e.datas);
                 if(typeof e.datas.tools !== "undefined"){
+                  console.log("e.datas ::: " ,  e.datas.tools);
+                  console.log("e.datas ::: " ,  e.datas.tools.tc);
+                  console.log("e.datas ::: " ,  e.datas.tools.tr);
                   if(typeof e.datas.tools.tr !== "undefined"){
                     $('.tr').css('background-image', 'url('+e.datas.tools.tr+')');
                   }else{
