@@ -237,9 +237,14 @@ io.on('connection', function(socket){
           //omxp.playPause(function(err){});
         }
         if(datas.status === "stop_video"){
+          console.log(video_player);
+          console.log(typeof video_player);
           if(video_player !== null){
+            console.log("video_player not null");
             video_player.quit();
+            console.log("video_player not null after quit");
             video_player = null;
+            console.log("emit");
             io.emit(call, {"status":"video_closed"});
           }
           cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
