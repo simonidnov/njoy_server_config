@@ -122,6 +122,15 @@ var receptor = {
                 $('.module').append('<div class="video_display"></div>');
                 TweenMax.killAll();
                 break;
+            case "FX":
+                $('.module').append('<div class="fx" style="background-image:url('+datas.data+')"></div>');
+                TweenMax.to($('.fx'), .5, {css:{top:0}, ease:Back.easeOut});
+                this.audio = new Audio(datas.file);
+                this.audio.play();
+                this.audio.addEventListener("ended", function(){
+                  TweenMax.to($('.fx'), .5, {css:{top:"100%"}, ease:Back.easeIn});
+                });
+                break;
             case "audio":
                 TweenMax.killAll();
                 if(typeof this.audio !== "undefined"){
