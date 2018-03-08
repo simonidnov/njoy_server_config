@@ -12,6 +12,12 @@ var receptor = {
         app.socket_callback = $.proxy(function(e){
             if(typeof e.datas !== "undefined"){
                 this.create_component(e.datas);
+                $('.tr').css('background-image', 'none');
+                $('.tc').css('background-image', 'none');
+                $('.tl').css('background-image', 'none');
+                $('.br').css('background-image', 'none');
+                $('.bc').css('background-image', 'none');
+                $('.bl').css('background-image', 'none');
                 console.log("e.datas ::: " ,  e.datas);
                 if(typeof e.datas.tools !== "undefined"){
                   if(typeof e.datas.tools.tr !== "undefined"){
