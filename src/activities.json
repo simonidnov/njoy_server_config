@@ -233,7 +233,7 @@
           "menu":[
             {
               "label":"Musiques d'ambiance",
-              "desc":"choisissez d'une musique d'ambiance pour l'activité",
+              "desc":"choisissez une musique d'ambiance pour l'activité",
               "components":{
                 "galery":[
                     {"label":"squelette", "desc":"dessiner un squelette", "datas":{}, "action":"drawing", "action_label":"Dessiner", "chronos":120, "file":"ressources/crazyshow/Photomime/squelette.jpg"}
