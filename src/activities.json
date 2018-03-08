@@ -49,7 +49,7 @@
       "apps":[
         {
           "label":"Photomime",
-          "desc":"mimer des photos",
+          "desc":"Jeu de mime. Affichage des photos à l'écran. 1 enfant mime ce qu'il voit. 2 enfants dos à l'écran doivent trouver le mime",
           "background":"ressources/crazyshow/jingles/photomime.svg",
           "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
           "tl":"",
@@ -220,7 +220,7 @@
         },
         {
           "label":"Dessiner c'est gagné",
-          "desc":"dessiner des trucs pour gagner des machins.",
+          "desc":"Dessin en live. Le dessin fait sur la tablette se dessine à l'écran. Il faut faire deviner le dessin en cours",
           "background":"ressources/crazyshow/jingles/dessinercestgagne.svg",
           "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
           "tl":"",
@@ -268,7 +268,7 @@
         },
         {
           "label":"Juste Prix",
-          "desc":"description du juste prix",
+          "desc":"4 enfants sur le plateau, chacun une ardoise et un feutre. Regis affiche des objets, les enfants doivent retrouver le prix (ils peuvent aller dans le public si besoin)",
           "background":"ressources/crazyshow/jingles/justeprix.svg",
           "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
           "tl":"",
@@ -323,7 +323,7 @@
         },
         {
           "label":"AIR BAND",
-          "desc":"Créer un groupe de Air Band, le groupe doit immiter le groupe de musique diffusé en arrière plan",
+          "desc":"4 enfants sur le plateau qui forment un groupe composé : 1 chanteur, 1 guitariste, 1 pianiste, 1 batteur. Le groupe doit immiter le groupe de musique diffusé en arrière plan. A chaque transition les 4 enfants changent de place et prennent un autre role dans le groupe",
           "datas":{},
           "background":"ressources/crazyshow/jingles/airband.svg",
           "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
@@ -358,7 +358,7 @@
         },
         {
           "label":"LET'S DANCE",
-          "desc":"créer des chorégraphies",
+          "desc":"Battle de chorégraphie chacun son tour. 2 équipes en ligne sur le plateau. Chacune leur tour les équipes doivent danser synchro sur la musique, à chaque transition c'est l'autre équipe qui danse.",
           "background":"ressources/crazyshow/jingles/letsdance.svg",
           "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
           "tl":"",
@@ -396,7 +396,7 @@
         },
         {
           "label":"FAMILLE EN BRONZE",
-          "desc":"Déclinaison 'une famille en or faire des propositions sur des thématiques...",
+          "desc":"Jeu identique à une famille en or. Les enfants doivent trouver la réponse la plus populaire. Faire 2 équipes, les enfants répondent 1 VS 1 aux questions.",
           "background":"ressources/crazyshow/jingles/familleenbronze.svg",
           "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
           "tl":"",
@@ -523,7 +523,7 @@
         },
         {
           "label":"CHABADA",
-          "desc":"chabada description de l'animation",
+          "desc":"les enfants sont en équipes, affichage d'un mot à l'écran, tour à tour les équipes doivent chanter une chanson contenant le mot.",
           "background":"ressources/crazyshow/jingles/chabada.svg",
           "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
           "tl":"",
@@ -565,7 +565,7 @@
         },
         {
           "label":"Stop and Go",
-          "desc":"stop and go description de l'animation",
+          "desc":"C'est un karaoké, les enfants sur le plateau doivent chanter les paroles de la chaosn. A un moment, le son se coupe, c'est à eux de poursuivre, puis le son reprend.",
           "background":"ressources/crazyshow/jingles/stopandgo.svg",
           "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
           "tl":"",
@@ -610,7 +610,7 @@
 
         {
           "label":"Blind Test",
-          "desc":"Blind Test description de l'animation",
+          "desc":"Faire 2 équipes de part et d'autre du présentoire. buzzer au milieu. Quizz musical. Nom de l'artiste et titre de la chanson",
           "background":"ressources/crazyshow/jingles/blindtest.svg",
           "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
           "tl":"",
@@ -703,7 +703,7 @@
         },
           {
           "label":"Chef d'Orchestre",
-          "desc":"Chef d'orchestre description de l'animation",
+          "desc":"pas encore de description",
           "background":"ressources/crazyshow/jingles/chefdorchestre.svg",
           "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
           "tl":"",
@@ -728,7 +728,7 @@
         },
         {
           "label":"Tour en Folie",
-          "desc":"Tour en Folie Test description de l'animation",
+          "desc":"l'enfant doit réaliser une tour de gobelet et la ranger le plus vite possible. Chrono afficher à l'écran.",
           "background":"ressources/crazyshow/jingles/tourenfolie.svg",
           "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
           "tl":"",
@@ -754,7 +754,7 @@
         },
         {
           "label":"Cintre d'esprit",
-          "desc":"to complete",
+          "desc":"Par équipe de 2, un enfant donne les cintres, l'autre doit en un temps record les empiler par le milieu. Chrono affiché à l'écran",
           "background":"ressources/crazyshow/jingles/cintre_esprit.svg",
           "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
           "tl":"",
