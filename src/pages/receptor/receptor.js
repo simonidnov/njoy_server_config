@@ -12,7 +12,7 @@ var receptor = {
         app.socket_callback = $.proxy(function(e){
             if(typeof e.datas !== "undefined"){
                 this.create_component(e.datas);
-                console.log("e.datas.tools ::: " ,  e.datas.tools);
+                console.log("e.datas ::: " ,  e.datas);
                 if(typeof e.datas.tools !== "undefined"){
                   if(typeof e.datas.tools.tr !== "undefined"){
                     $('.tr').css('background-image', 'url('+e.datas.tools.tr+')');
