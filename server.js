@@ -271,7 +271,7 @@ io.on('connection', function(socket){
                     video_player.play();
                     video_player.on('close', function(){
                       //video_player.quit();
-                      io.emit(call, {"status":"kill_vid"});
+                      io.emit(call, {"status":"video_closed"});
                       video_player = null;
                     });
                     io.emit(call, {"status":"video_started"});
