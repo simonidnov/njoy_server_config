@@ -123,12 +123,15 @@ var receptor = {
                 TweenMax.killAll();
                 break;
             case "FX":
+                console.log(datas);
                 $('.module').append('<div class="fx" style="background-image:url('+datas.data+')"></div>');
                 TweenMax.to($('.fx'), .5, {css:{top:0}, ease:Back.easeOut});
                 this.fx = new Audio(datas.file);
                 this.fx.play();
                 this.fx.addEventListener("ended", function(){
-                  TweenMax.to($('.fx'), .5, {css:{top:"100%"}, ease:Back.easeIn});
+                  TweenMax.to($('.fx'), .5, {css:{top:"100%"}, ease:Back.easeIn, onComplete:function(){
+                    $('.fx').remove();
+                  }});
                 });
                 break;
             case "audio":
