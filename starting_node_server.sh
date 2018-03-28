@@ -3,4 +3,4 @@ cd /Users/
 cd Application
 cd njoy
 cd server
-node server.js
+node package.json
