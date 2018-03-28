@@ -148,6 +148,7 @@ var receptor = {
                 });
                 break;
             case "audio":
+                /*
                 TweenMax.killAll();
                 if(typeof this.audio !== "undefined"){
                   this.audio.pause();
@@ -162,50 +163,61 @@ var receptor = {
                 app.socket.emit("njoy", {
                   "status":"audio_played"
                 });
+                */
                 break;
             case "audio_pause":
+                /*
                 if(typeof this.audio !== "undefined"){
                   this.audio.pause();
                 }
                 app.socket.emit("njoy", {
                   "status":"audio_paused"
                 });
+                */
                break;
            case "audio_resume":
+               /*
                if(typeof this.audio !== "undefined"){
                  this.audio.play();
                }
                app.socket.emit("njoy", {
                  "status":"audio_play"
                });
+               */
               break;
 
            case "audio_mute":
+              /*
               if(typeof this.audio !== "undefined"){
                 this.audio.volume = 0;
               }
               app.socket.emit("njoy", {
                 "status":"audio_muted"
               });
+              */
              break;
            case "audio_volume":
+              /*
               if(typeof this.audio !== "undefined"){
                 this.audio.volume = 1;
               }
               app.socket.emit("njoy", {
                 "status":"audio_volumed"
               });
+              */
               break;
            case "audio_stop":
+              /*
               if(typeof this.audio !== "undefined"){
                 this.audio.pause();
               }
               app.socket.emit("njoy", {
                 "status":"audio_stopped"
               });
+              */
               break;
            case "playlist_audio":
-                $('.module').append('<div class="audio_display"></div>');
+                //$('.module').append('<div class="audio_display"></div>');
                 TweenMax.killAll();
                 break;
             case "picture":

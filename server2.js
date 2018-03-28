@@ -27,8 +27,8 @@ var omx = require('omx-interface'),
     omx_options = {
         audioOutput:'local',
         blackBackground:false,
-        disableKeys:false,
-        disableOnScreenDisplay:false
+        disableKeys:true,
+        disableOnScreenDisplay:true
     };
 omx.init_remote({port:8080});
 
@@ -153,6 +153,49 @@ io.on('connection', function(socket){
                 }
                 io.emit(call, {"status":"video_stopped"});
                 break;
+
+            case 'audio':
+                omx.quit();
+                video_is_playing = false;
+                cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
+                omx.open("http://10.3.141.1:3000/"+datas.file, omx_options);
+                io.emit(call, {"status":"audio_started", "duration":omx.getCurrentDuration(), "position":omx.getCurrentPosition()});
+                resetAudioProgressListener();
+                break;
+            case 'pause_audio':
+                omx.pause();
+                io.emit(call, {"status":"audio_pause", "is_running":null, "is_loaded":null});
+                break;
+            case 'resume_audio':
+                omx.play();
+                io.emit(call, {"status":"audio_resume", "is_running":null, "is_loaded":null});
+                break;
+            case 'play_audio':
+                omx.play();
+                io.emit(call, {"status":"audio_play", "is_running":null, "is_loaded":null});
+                break;
+            case 'volume_audio':
+                console.log('setvolume :::::::::: ', datas.volume);
+                omx.setVolume(datas.volume);
+                io.emit(call, {"status":"audio_volume", "volume":datas.volume});
+                break;
+            case 'seek_audio':
+                omx.seek(datas.seek);
+                io.emit(call, {"status":"audio_seek", "seek":datas.seek});
+                break;
+            case 'position_audio':
+                omx.setPosition(datas.position);
+                io.emit(call, {"status":"audio_position", "position":datas.position});
+                break;
+            case 'stop_audio':
+                omx.quit();
+                audio_is_playing = false;
+                if(playerTimer !== null){
+                  clearTimeout(playerTimer);
+                  playerTimer = null;
+                }
+                io.emit(call, {"status":"video_stopped"});
+                break;
             default:
                 if(typeof datas.status !== "undefined"){
                   stat = {"status":datas.status};
@@ -257,6 +300,39 @@ function sendOmxStatus() {
       io.emit("njoy", vid_status);
       playerTimer = setTimeout(function(){
         sendOmxStatus();
+      }, 1000);
+    }
+  }
+}
+
+
+function resetAudioProgressListener() {
+  video_is_playing = true;
+  /* PROGRESS FILL DOESNT WORK CORRECTLY
+  omx.onProgress(function(track){ //subscribe for track updates (every second while not paused for now)
+      console.log("onProgress position :: ", track.position);
+      console.log("onProgress duration :: ", track.duration);
+      var percent = track.position / track.duration;
+      io.emit(call, {"status":"progress_video", "position":track.position, "duration":track.duration, "percent":percent});
+  });*/
+  playerTimer = setTimeout(function(){
+    sendOmxAudioStatus();
+  }, 1000);
+}
+function sendOmxAudioStatus() {
+  if(audio_is_playing){
+    var audio_status = {
+      "status":"progress_audio",
+      "position":omx.getCurrentPosition(),
+      "duration":omx.getCurrentDuration(),
+      "volume":omx.getCurrentVolume()
+    };
+    if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition() >= omx.getCurrentDuration()){
+      io.emit("njoy", {"status":"stop_audio"});
+    }else{
+      io.emit("njoy", audio_status);
+      playerTimer = setTimeout(function(){
+        sendOmxAudioStatus();
       }, 1000);
     }
   }
