@@ -119,7 +119,7 @@ io.on('connection', function(socket){
                 datas.teams = teams;
                 break;
             case 'video':
-                omx.quit();
+                //omx.quit();
                 video_is_playing = false;
                 cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
                 omx.open("http://10.3.141.1:3000/"+datas.file, omx_options);
@@ -163,7 +163,7 @@ io.on('connection', function(socket){
                 break;
 
             case 'audio':
-                omx.quit();
+                //omx.quit();
                 audio_is_playing = false;
                 cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
                 omx.open("http://10.3.141.1:3000/"+datas.file, omx_audio_options);
