@@ -20,11 +20,18 @@ const express = require('express'),
       fs = require('fs'),
       users_activities = [],
       animations = null,
-      playerTimer = null;
+      playerTimer = null,
+      app_volume = 1;
 
 /* VIDEO INSTANCE */
 var omx = require('omx-interface'),
     omx_options = {
+        audioOutput:'local',
+        blackBackground:true,
+        disableKeys:true,
+        disableOnScreenDisplay:true
+    };
+    omx_audio_options = {
         audioOutput:'local',
         blackBackground:false,
         disableKeys:true,
@@ -116,6 +123,7 @@ io.on('connection', function(socket){
                 video_is_playing = false;
                 cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
                 omx.open("http://10.3.141.1:3000/"+datas.file, omx_options);
+                omx.setVolume(app_volume);
                 io.emit(call, {"status":"video_started", "duration":omx.getCurrentDuration(), "position":omx.getCurrentPosition()});
                 resetProgressListener();
                 break;
@@ -134,6 +142,7 @@ io.on('connection', function(socket){
             case 'volume_video':
                 console.log('setvolume :::::::::: ', datas.volume);
                 omx.setVolume(datas.volume);
+                app_volume = datas.volume;
                 io.emit(call, {"status":"video_volume", "volume":datas.volume});
                 break;
             case 'seek_video':
@@ -158,7 +167,8 @@ io.on('connection', function(socket){
                 omx.quit();
                 audio_is_playing = false;
                 cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
-                omx.open("http://10.3.141.1:3000/"+datas.file, omx_options);
+                omx.open("http://10.3.141.1:3000/"+datas.file, omx_audio_options);
+                omx.setVolume(app_volume);
                 io.emit(call, {"status":"audio_started", "duration":omx.getCurrentDuration(), "position":omx.getCurrentPosition()});
                 resetAudioProgressListener();
                 break;
@@ -177,6 +187,7 @@ io.on('connection', function(socket){
             case 'volume_audio':
                 console.log('setvolume :::::::::: ', datas.volume);
                 omx.setVolume(datas.volume);
+                app_volume = datas.volume;
                 io.emit(call, {"status":"audio_volume", "volume":datas.volume});
                 break;
             case 'seek_audio':
