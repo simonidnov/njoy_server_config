@@ -2,7 +2,8 @@
   "name": "njoy",
   "version": "1.0.1",
   "description": "njoy app server for remote desktop mobile activities",
-  "main": "server.js",
+  "main": "server2.js",
+  "script":"server2.js",
   "scripts": {
     "test": "start",
     "start": "node server2.js"
