@@ -222,7 +222,7 @@ function getRandomColor() {
 
 function resetProgressListener() {
   video_is_playing = true;
-  /* PROGRESS FILL DOESNT WORK CORRECTLY 
+  /* PROGRESS FILL DOESNT WORK CORRECTLY
   omx.onProgress(function(track){ //subscribe for track updates (every second while not paused for now)
       console.log("onProgress position :: ", track.position);
       console.log("onProgress duration :: ", track.duration);
@@ -243,7 +243,7 @@ function sendOmxStatus() {
     };
     console.log(vid_status);
     if(omx.getCurrentPosition() >= omx.getCurrentDuration()){
-      io.emit(call, {"status":"stop_video"});
+      io.emit("njoy", {"status":"stop_video"});
     }else{
       io.emit("njoy", vid_status);
       setTimeout(function(){
