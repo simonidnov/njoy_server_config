@@ -151,57 +151,6 @@ io.on('connection', function(socket){
                 }
                 break;
         }
-        /*if(datas.status === "pause_video"){
-            omx.pause();
-            io.emit(call, {"status":"video_pause", "is_running":null, "is_loaded":null});
-        }
-        if(datas.status === "play_video"){
-            omx.play();
-            io.emit(call, {"status":"video_play", "is_running":null, "is_loaded":null});
-        }
-        if(datas.status === "mute_video"){
-            omx.volumeDown();
-            io.emit(call, {"status":"video_muted", "is_running":null, "is_loaded":null});
-        }
-        if(datas.status === "audio_video"){
-            omx.volumeUp();
-            io.emit(call, {"status":"video_audio", "is_running":null, "is_loaded":null});
-        }
-        if(datas.status === "volume_video"){
-            omx.setVolume(datas.volume);
-            io.emit(call, {"status":"video_volume", "volume":omx.getCurrentVolume()});
-        }
-        if(datas.status === "fast_forward_video"){
-            io.emit(call, {"status":"fast_backward_video", "is_running":null, "is_loaded":null, "message":"fast backward is on dev"});
-        }
-        if(datas.status === "fast_backward_video"){
-            io.emit(call, {"status":"fast_backward_video", "is_running":null, "is_loaded":null, "message":"fast backward is on dev"});
-        }
-        if(datas.status === "seek_video"){
-            omx.seek(datas.seek);
-            io.emit(call, {"status":"video_seek", "seek":datas.seek});
-        }
-        if(datas.status === "jump_video"){
-            omx.setPosition(datas.jump);
-            io.emit(call, {"status":"video_jump", "position":datas.jump});
-        }
-        if(datas.status === "stop_video"){
-            omx.quit();
-            io.emit(call, {"status":"kill_vid"});
-        }
-        if(datas.status === "video"){
-          omx.quit();
-
-          cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
-
-          omx.open("http://10.3.141.1:3000/"+datas.file, omx_options);
-
-          io.emit(call, {"status":"video_started", "duration":omx.getCurrentDuration(), "position":omx.getCurrentPosition()});
-        }else{
-          if(datas.status.indexOf("video") === -1){
-              omx.quit();
-          }
-        }*/
         io.emit(call, {"status":stat.status, "infos":stat, "datas":datas});
     });
     socket.on('chat message', function(msg){
@@ -292,7 +241,7 @@ function sendOmxStatus() {
       "volume":omx.getCurrentVolume()
     };
     console.log(vid_status);
-    io.emit(call, vid_status);
+    io.emit("njoy", vid_status);
     setTimeout(function(){
       sendOmxStatus();
     }, 1000);
