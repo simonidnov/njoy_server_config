@@ -253,7 +253,7 @@ function sendOmxStatus() {
       io.emit("njoy", vid_status);
       setTimeout(function(){
         sendOmxStatus();
-      }, 100);
+      }, 1000);
     }
   }
 }
