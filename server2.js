@@ -144,6 +144,10 @@ io.on('connection', function(socket){
         if(datas.status === "fast_backward_video"){
             io.emit(call, {"status":"fast_backward_video", "is_running":null, "is_loaded":null, "message":"fast backward is on dev"});
         }
+        if(datas.status === "seek_video"){
+            omx.setPosition(datas.seek);
+            io.emit(call, {"status":"video_seek", "position":datas.seek});
+        }
         if(datas.status === "stop_video"){
             omx.quit();
             io.emit(call, {"status":"kill_vid"});
@@ -153,15 +157,14 @@ io.on('connection', function(socket){
 
           cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
 
+          omx.open("http://10.3.141.1:3000/"+datas.file, omx_options);
           omx.onProgress(function(track){ //subscribe for track updates (every second while not paused for now)
               console.log(track.position);
               console.log(track.duration);
               var percent = track.position / track.duration;
               io.emit(call, {"status":"progress_video", "position":track.position, "duration":track.duration, "percent":percent});
           });
-
-          omx.open("http://10.3.141.1:3000/"+datas.file, omx_options);
-
+          
           io.emit(call, {"status":"video_started", "is_running":null, "is_loaded":null});
         }else{
           if(datas.status.indexOf("video") === -1){
