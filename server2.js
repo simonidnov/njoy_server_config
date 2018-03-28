@@ -19,7 +19,8 @@ const express = require('express'),
       http2 = require('http'),
       fs = require('fs'),
       users_activities = [],
-      animations = null;
+      animations = null,
+      playerTimer = null;
 
 /* VIDEO INSTANCE */
 var omx = require('omx-interface'),
@@ -146,6 +147,10 @@ io.on('connection', function(socket){
             case 'stop_video':
                 omx.quit();
                 video_is_playing = false;
+                if(playerTimer !== null){
+                  clearTimeout(playerTimer);
+                  playerTimer = null;
+                }
                 io.emit(call, {"status":"video_stopped"});
                 break;
             default:
@@ -234,7 +239,7 @@ function resetProgressListener() {
       var percent = track.position / track.duration;
       io.emit(call, {"status":"progress_video", "position":track.position, "duration":track.duration, "percent":percent});
   });*/
-  setTimeout(function(){
+  playerTimer = setTimeout(function(){
     sendOmxStatus();
   }, 1000);
 }
@@ -247,11 +252,11 @@ function sendOmxStatus() {
       "volume":omx.getCurrentVolume()
     };
     console.log(vid_status);
-    if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition() >= omx.getCurrentDuration()){
+    if(omx.getCurrentPosition() >= omx.getCurrentDuration()){
       io.emit("njoy", {"status":"stop_video"});
     }else{
       io.emit("njoy", vid_status);
-      setTimeout(function(){
+      playerTimer = setTimeout(function(){
         sendOmxStatus();
       }, 1000);
     }
