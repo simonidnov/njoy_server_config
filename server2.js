@@ -140,7 +140,6 @@ io.on('connection', function(socket){
                 io.emit(call, {"status":"video_play", "is_running":null, "is_loaded":null});
                 break;
             case 'volume_video':
-                console.log('setvolume :::::::::: ', datas.volume);
                 omx.setVolume(datas.volume);
                 app_volume = datas.volume;
                 io.emit(call, {"status":"video_volume", "volume":datas.volume});
@@ -185,7 +184,6 @@ io.on('connection', function(socket){
                 io.emit(call, {"status":"audio_play", "is_running":null, "is_loaded":null});
                 break;
             case 'volume_audio':
-                console.log('setvolume :::::::::: ', datas.volume);
                 omx.setVolume(datas.volume);
                 app_volume = datas.volume;
                 io.emit(call, {"status":"audio_volume", "volume":datas.volume});

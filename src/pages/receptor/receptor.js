@@ -136,7 +136,6 @@ var receptor = {
                 TweenMax.killAll();
                 break;
             case "FX":
-                console.log(datas);
                 $('.module').append('<div class="fx" style="background-image:url('+datas.data+')"></div>');
                 TweenMax.to($('.fx'), .5, {css:{top:0}, ease:Back.easeOut});
                 this.fx = new Audio(datas.file);
@@ -402,7 +401,6 @@ var receptor = {
           "height":window.innerHeight
         });
         */
-        console.log('init_drawing ', datas.width);
 
         $('.module').append('<canvas id="drawing" width="'+datas.width+'" height="'+datas.height+'" style="width:'+datas.width+'px; height:'+datas.height+'px;"></canvas>');
         this.canvas = document.getElementById("drawing");
@@ -492,7 +490,6 @@ var receptor = {
         this.oldY = datas.y;
       }
       */
-      console.log(datas);
       //console.log('draw ', this.currentShape[this.currentShape.length-1].graphics);
       var pt = new createjs.Point(datas.x, datas.y);
       var midPoint = new createjs.Point(this.oldX + pt.x>>1, this.oldY+pt.y>>1);
@@ -501,7 +498,6 @@ var receptor = {
             this.currentShape[this.currentShape.length-1].graphics.beginStroke(datas.color);
             this.currentShape[this.currentShape.length-1].graphics.setStrokeStyle(datas.strokestyle.size, datas.strokestyle.stylingW, datas.strokestyle.stylingH);
           }else{
-            console.log('stroke none');
             this.currentShape[this.currentShape.length-1].graphics.beginStroke("rgba(0,0,0,0)");
             this.currentShape[this.currentShape.length-1].graphics.setStrokeStyle(0, 0, 0);
           }
@@ -517,7 +513,6 @@ var receptor = {
 
     },
     destroy : function(){
-        console.log('destroy receptor');
     }
 }
 
