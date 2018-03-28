@@ -27,8 +27,8 @@ var omx = require('omx-interface'),
     omx_options = {
         audioOutput:'local',
         blackBackground:false,
-        disableKeys:true,
-        disableOnScreenDisplay:true
+        disableKeys:false,
+        disableOnScreenDisplay:false
     };
 omx.init_remote({port:8080});
 
@@ -251,7 +251,6 @@ function sendOmxStatus() {
       "duration":omx.getCurrentDuration(),
       "volume":omx.getCurrentVolume()
     };
-    console.log(vid_status);
     if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition() >= omx.getCurrentDuration()){
       io.emit("njoy", {"status":"stop_video"});
     }else{
