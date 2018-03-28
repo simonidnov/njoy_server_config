@@ -134,7 +134,7 @@ io.on('connection', function(socket){
                 console.log('setvolume :::::::::: ', datas.volume);
                 omx.setVolume(datas.volume);
                 setTimeout(function(){
-                  io.emit(call, {"status":"video_volume", "volume":omx.getCurrentVolume()});
+                  io.emit(call, {"status":"video_volume", "volume":datas.volume});
                 },1000);
                 break;
             case 'seek_video':
