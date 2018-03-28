@@ -305,7 +305,7 @@ function sendOmxStatus() {
       "duration":omx.getCurrentDuration(),
       "volume":omx.getCurrentVolume()
     };
-    if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition() >= omx.getCurrentDuration()){
+    if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition() >= omx.getCurrentDuration() - 1){
       io.emit("njoy", {"status":"stop_video"});
     }else{
       io.emit("njoy", vid_status);
@@ -338,7 +338,7 @@ function sendOmxAudioStatus() {
       "duration":omx.getCurrentDuration(),
       "volume":omx.getCurrentVolume()
     };
-    if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition() >= omx.getCurrentDuration()){
+    if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition() >= omx.getCurrentDuration() - 1){
       io.emit("njoy", {"status":"stop_audio"});
     }else{
       io.emit("njoy", audio_status);
