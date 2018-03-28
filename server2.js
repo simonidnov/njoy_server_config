@@ -156,7 +156,7 @@ io.on('connection', function(socket){
 
             case 'audio':
                 omx.quit();
-                video_is_playing = false;
+                audio_is_playing = false;
                 cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
                 omx.open("http://10.3.141.1:3000/"+datas.file, omx_options);
                 io.emit(call, {"status":"audio_started", "duration":omx.getCurrentDuration(), "position":omx.getCurrentPosition()});
@@ -307,7 +307,7 @@ function sendOmxStatus() {
 
 
 function resetAudioProgressListener() {
-  video_is_playing = true;
+  audio_is_playing = true;
   /* PROGRESS FILL DOESNT WORK CORRECTLY
   omx.onProgress(function(track){ //subscribe for track updates (every second while not paused for now)
       console.log("onProgress position :: ", track.position);
