@@ -29,8 +29,13 @@ var omx = require('omx-interface'),
         disableKeys:true,
         disableOnScreenDisplay:true
     };
-omx.init_remote({port:8000});
-
+omx.init_remote({port:port});
+omx.onProgress(function(track){ //subscribe for track updates (every second while not paused for now)
+    console.log(track.position);
+    console.log(track.duration);
+    var percent = track.position / track.duration;
+    io.emit(call, {"status":"progress_video", "position":track.position, "duration":track.duration, "percent":percent});
+});
 /* END VIDEO INSTANCE */
 
 module.exports = router;
@@ -136,7 +141,7 @@ io.on('connection', function(socket){
         }
         if(datas.status === "volume_video"){
             omx.setVolume(datas.volume);
-            io.emit(call, {"status":"video_volume", "volume":datas.volume});
+            io.emit(call, {"status":"video_volume", "volume":omx.getCurrentVolume()});
         }
         if(datas.status === "fast_forward_video"){
             io.emit(call, {"status":"fast_backward_video", "is_running":null, "is_loaded":null, "message":"fast backward is on dev"});
@@ -145,8 +150,12 @@ io.on('connection', function(socket){
             io.emit(call, {"status":"fast_backward_video", "is_running":null, "is_loaded":null, "message":"fast backward is on dev"});
         }
         if(datas.status === "seek_video"){
-            omx.setPosition(datas.seek);
-            io.emit(call, {"status":"video_seek", "position":datas.seek});
+            omx.seek(datas.seek);
+            io.emit(call, {"status":"video_seek", "seek":datas.seek});
+        }
+        if(datas.status === "jump_video"){
+            omx.setPosition(datas.jump);
+            io.emit(call, {"status":"video_jump", "position":datas.jump});
         }
         if(datas.status === "stop_video"){
             omx.quit();
@@ -158,14 +167,8 @@ io.on('connection', function(socket){
           cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
 
           omx.open("http://10.3.141.1:3000/"+datas.file, omx_options);
-          omx.onProgress(function(track){ //subscribe for track updates (every second while not paused for now)
-              console.log(track.position);
-              console.log(track.duration);
-              var percent = track.position / track.duration;
-              io.emit(call, {"status":"progress_video", "position":track.position, "duration":track.duration, "percent":percent});
-          });
-          
-          io.emit(call, {"status":"video_started", "is_running":null, "is_loaded":null});
+
+          io.emit(call, {"status":"video_started", "duration":omx.getCurrentDuration(), "position":omx.getCurrentPosition()});
         }else{
           if(datas.status.indexOf("video") === -1){
               omx.quit();
