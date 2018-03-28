@@ -22,23 +22,15 @@ const express = require('express'),
       animations = null;
 
 /* VIDEO INSTANCE */
-var omx = require('omxdirector');
+var omx = require('omx-interface'),
+    omx_options = {
+        audioOutput:'local',
+        blackBackground:false,
+        disableKeys:true,
+        disableOnScreenDisplay:true
+    };
+omx.init_remote({port:8000});
 
-omx.on('load', function(files, options){
-  io.emit(call, {"status":"load_vid"});
-}); // video successfully loaded (omxprocess starts)
-omx.on('play', function(){
-  io.emit(call, {"status":"play_vid"});
-});  // when successfully started or resumed from pause
-omx.on('changeVideo', function(newVideo){
-  io.emit(call, {"status":"change_vid", "name":newVideo});
-});  // when a new video in a loop starts
-omx.on('pause', function(){
-  io.emit(call, {"status":"pause_vid"});
-}); // when successfully paused
-omx.on('stop', function(){
-  io.emit(call, {"status":"kill_vid"});
-});
 /* END VIDEO INSTANCE */
 
 module.exports = router;
@@ -135,12 +127,16 @@ io.on('connection', function(socket){
             io.emit(call, {"status":"video_play", "is_running":omx.isPlaying(), "is_loaded":omx.isLoaded()});
         }
         if(datas.status === "mute_video"){
-            omx.voldown();
+            omx.volumeDown();
             io.emit(call, {"status":"video_muted", "is_running":omx.isPlaying(), "is_loaded":omx.isLoaded()});
         }
         if(datas.status === "audio_video"){
-            omx.volup();
+            omx.volumeUp();
             io.emit(call, {"status":"video_audio", "is_running":omx.isPlaying(), "is_loaded":omx.isLoaded()});
+        }
+        if(datas.status === "volume_video"){
+            omx.setVolume(datas.volume);
+            io.emit(call, {"status":"video_volume", "volume":datas.volume});
         }
         if(datas.status === "fast_forward_video"){
             io.emit(call, {"status":"fast_backward_video", "is_running":omx.isPlaying(), "is_loaded":omx.isLoaded(), "message":"fast backward is on dev"});
@@ -149,25 +145,27 @@ io.on('connection', function(socket){
             io.emit(call, {"status":"fast_backward_video", "is_running":omx.isPlaying(), "is_loaded":omx.isLoaded(), "message":"fast backward is on dev"});
         }
         if(datas.status === "stop_video"){
-            omx.stop();
+            omx.quit();
             io.emit(call, {"status":"kill_vid"});
         }
         if(datas.status === "video"){
-          var status = omx.getStatus();
+          omx.quit();
 
-          if(status.loaded || omx.isPlaying()){
-            omx.stop();
-          }
-          if(status.playing){
-            console.log('video is playing ', status.videos, status.settings);
-          }
           cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
-          omx.play("http://10.3.141.1:3000/"+datas.file, {audioOutput: 'local'});
-          omx.volup();
+
+          omx.onProgress(function(track){ //subscribe for track updates (every second while not paused for now)
+              //console.log(track.position);
+              //console.log(track.duration);
+              var percent = track.position / track.duration;
+              io.emit(call, {"status":"progress_video", "position":track.position, "duration":track.duration, "percent":percent});
+          });
+
+          omx.open("http://10.3.141.1:3000/"+datas.file, omx_options);
+
           io.emit(call, {"status":"video_started", "is_running":omx.isPlaying(), "is_loaded":omx.isLoaded()});
         }else{
           if(datas.status.indexOf("video") === -1){
-              omx.stop();
+              omx.quit();
           }
         }
         io.emit(call, {"status":stat.status, "infos":stat, "datas":datas});
