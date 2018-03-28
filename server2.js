@@ -242,7 +242,7 @@ function sendOmxStatus() {
       "volume":omx.getCurrentVolume()
     };
     console.log(vid_status);
-    if(omx.getCurrentPosition() >= omx.getCurrentDuration()){
+    if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition() >= omx.getCurrentDuration()){
       io.emit("njoy", {"status":"stop_video"});
     }else{
       io.emit("njoy", vid_status);
