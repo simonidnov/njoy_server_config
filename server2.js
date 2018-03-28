@@ -28,7 +28,6 @@ app.get('*', function(req, res){
     res.sendFile('njoy/src/index.html', { root: path.join(__dirname, '../')});
 });
 
-
 io.on('connection', function(socket){
     console.log('a user connected');
     socket.on('disconnect', function(){
@@ -171,8 +170,8 @@ io.on('connection', function(socket){
             }
             cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
             video_player = Omx("http://10.3.141.1:3000/"+datas.file, "local", false, 1.0);
-            video_player.volUp();
-            video_player.play();
+            //video_player.volUp();
+            //video_player.play();
             video_player.on('close', function(){
               console.log('la video est terminée');
               io.emit(call, {"status":"video_closed"});

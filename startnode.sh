@@ -1,4 +1,4 @@
 #!/bin/bash
 killall chromium-borwser
 killall node
-node server package.json
+node server2.min.js
