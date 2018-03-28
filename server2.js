@@ -29,7 +29,7 @@ var omx = require('omx-interface'),
         disableKeys:true,
         disableOnScreenDisplay:true
     };
-omx.init_remote({port:port});
+omx.init_remote({port:8080});
 omx.onProgress(function(track){ //subscribe for track updates (every second while not paused for now)
     console.log(track.position);
     console.log(track.duration);
