@@ -154,8 +154,8 @@ io.on('connection', function(socket){
           cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
 
           omx.onProgress(function(track){ //subscribe for track updates (every second while not paused for now)
-              //console.log(track.position);
-              //console.log(track.duration);
+              console.log(track.position);
+              console.log(track.duration);
               var percent = track.position / track.duration;
               io.emit(call, {"status":"progress_video", "position":track.position, "duration":track.duration, "percent":percent});
           });
