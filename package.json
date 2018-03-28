@@ -25,6 +25,7 @@
     "jquery": "^3.2.1",
     "kbm-robot": "0.0.4",
     "node-omxplayer": "^0.6.1",
+    "omx-manager": "^0.1.4",
     "socket.io": "^1.7.3",
     "underscore": "^1.8.3",
     "underscore-express": "^1.0.1",
