@@ -30,12 +30,7 @@ var omx = require('omx-interface'),
         disableOnScreenDisplay:true
     };
 omx.init_remote({port:8080});
-omx.onProgress(function(track){ //subscribe for track updates (every second while not paused for now)
-    console.log(track.position);
-    console.log(track.duration);
-    var percent = track.position / track.duration;
-    io.emit(call, {"status":"progress_video", "position":track.position, "duration":track.duration, "percent":percent});
-});
+
 /* END VIDEO INSTANCE */
 
 module.exports = router;
@@ -115,6 +110,39 @@ io.on('connection', function(socket){
                 stat.status = "teams";
                 datas.teams = teams;
                 break;
+            case 'video':
+                omx.quit();
+                video_is_playing = false;
+                cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
+                omx.open("http://10.3.141.1:3000/"+datas.file, omx_options);
+                io.emit(call, {"status":"video_started", "duration":omx.getCurrentDuration(), "position":omx.getCurrentPosition()});
+                resetProgressListener();
+                break;
+            case 'pause_video':
+                omx.pause();
+                io.emit(call, {"status":"video_pause", "is_running":null, "is_loaded":null});
+                break;
+            case 'play_video':
+                omx.play();
+                io.emit(call, {"status":"video_play", "is_running":null, "is_loaded":null});
+                break;
+            case 'volume_video':
+                omx.setVolume(datas.volume);
+                io.emit(call, {"status":"video_volume", "volume":omx.getCurrentVolume()});
+                break;
+            case 'seek_video':
+                omx.seek(datas.seek);
+                io.emit(call, {"status":"video_seek", "seek":datas.seek});
+                break;
+            case 'position_video':
+                omx.setPosition(datas.position);
+                io.emit(call, {"status":"video_position", "position":datas.position});
+                break;
+            case 'stop_video':
+                omx.quit();
+                video_is_playing = false;
+                io.emit(call, {"status":"kill_vid"});
+                break;
             default:
                 if(typeof datas.status !== "undefined"){
                   stat = {"status":datas.status};
@@ -123,7 +151,7 @@ io.on('connection', function(socket){
                 }
                 break;
         }
-        if(datas.status === "pause_video"){
+        /*if(datas.status === "pause_video"){
             omx.pause();
             io.emit(call, {"status":"video_pause", "is_running":null, "is_loaded":null});
         }
@@ -173,7 +201,7 @@ io.on('connection', function(socket){
           if(datas.status.indexOf("video") === -1){
               omx.quit();
           }
-        }
+        }*/
         io.emit(call, {"status":stat.status, "infos":stat, "datas":datas});
     });
     socket.on('chat message', function(msg){
@@ -240,4 +268,33 @@ function getRandomColor() {
     color += letters[Math.floor(Math.random() * 16)];
   }
   return color;
+}
+
+
+function resetProgressListener() {
+  video_is_playing = true;
+  omx.onProgress(function(track){ //subscribe for track updates (every second while not paused for now)
+      console.log("onProgress position :: ", track.position);
+      console.log("onProgress duration :: ", track.duration);
+      var percent = track.position / track.duration;
+      io.emit(call, {"status":"progress_video", "position":track.position, "duration":track.duration, "percent":percent});
+  });
+  setTimeout(function(){
+    sendOmxStatus();
+  }, 1000);
+}
+function sendOmxStatus() {
+  if(video_is_playing){
+    var vid_status = {
+      "status":"progress_video",
+      "position":omx.getCurrentPosition(),
+      "duration":omx.getCurrentDuration(),
+      "volume":omx.getCurrentVolume()
+    };
+    console.log(vid_status);
+    io.emit(call, vid_status);
+    setTimeout(function(){
+      sendOmxStatus();
+    }, 1000);
+  }
 }
