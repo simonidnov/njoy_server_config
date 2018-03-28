@@ -14,13 +14,14 @@ const express = require('express'),
       ip_config = get_ip_config(),
       spawn = require('child_process').spawn,
       cp = require('child_process'),
-      Omx = require('node-omxplayer'),
       video_player = null,
       $ = require('jquery'),
       http2 = require('http'),
       fs = require('fs'),
       users_activities = [],
       animations = null;
+
+var Omx = require('node-omxplayer');
 
 module.exports = router;
 app.use(express.static('./src'));
