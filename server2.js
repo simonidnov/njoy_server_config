@@ -122,11 +122,16 @@ io.on('connection', function(socket){
                 omx.pause();
                 io.emit(call, {"status":"video_pause", "is_running":null, "is_loaded":null});
                 break;
+            case 'resume_video':
+                omx.play();
+                io.emit(call, {"status":"video_resume", "is_running":null, "is_loaded":null});
+                break;
             case 'play_video':
                 omx.play();
                 io.emit(call, {"status":"video_play", "is_running":null, "is_loaded":null});
                 break;
             case 'volume_video':
+                console.log('setvolume :::::::::: ', datas.volume);
                 omx.setVolume(datas.volume);
                 io.emit(call, {"status":"video_volume", "volume":omx.getCurrentVolume()});
                 break;
