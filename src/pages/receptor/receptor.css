@@ -375,7 +375,7 @@ main.app{
 .teams_display ul li{
   display:inline-block;
   line-height: 50px;
-  min-width: 220px;
+  min-width: 320px;
   text-align: center;
   list-style: none;
   margin:0;
@@ -387,8 +387,8 @@ main.app{
 .teams_display ul li .erlenmeyer{
   position: absolute;
   bottom: 109px;
-  width: 220px;
-  height: 213px;
+  width: 320px;
+  height: 305px;
   overflow: hidden;
   left: 0;
   right: 0;
