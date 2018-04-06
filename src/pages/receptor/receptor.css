@@ -375,7 +375,7 @@ main.app{
 .teams_display ul li{
   display:inline-block;
   line-height: 50px;
-  min-width: 320px;
+  min-width: 210px;
   text-align: center;
   list-style: none;
   margin:0;
@@ -388,10 +388,9 @@ main.app{
   position: absolute;
   bottom: 109px;
   width: 320px;
-  height: 305px;
+  height: 325px;
   overflow: hidden;
-  left: 0;
-  right: 0;
+  left: -55px;
   margin: auto;
   z-index: 999;
 }
