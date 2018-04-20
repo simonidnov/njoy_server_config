@@ -319,7 +319,7 @@ function resetProgressListener() {
   });*/
   playerTimer = setTimeout(function(){
     sendOmxStatus();
-  }, 1000);
+  }, 500);
 }
 function sendOmxStatus() {
   if(video_is_playing){
@@ -335,7 +335,7 @@ function sendOmxStatus() {
       io.emit("njoy", vid_status);
       playerTimer = setTimeout(function(){
         sendOmxStatus();
-      }, 1000);
+      }, 500);
     }
   }
 }
