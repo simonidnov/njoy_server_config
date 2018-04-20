@@ -267,8 +267,10 @@ io.on('connection', function(socket){
                 break;
         }
         if(datas.status.indexOf('video') === -1 || datas.status.indexOf('audio') === -1){
-          io.emit(call, {"status":"stop_audio"});
-          io.emit(call, {"status":"stop_video"});
+          if(playerTimer !== null){
+            clearTimeout(playerTimer);
+            playerTimer = null;
+          }
         }
         io.emit(call, {"status":stat.status, "infos":stat, "datas":datas});
     });
