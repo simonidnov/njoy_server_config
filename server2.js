@@ -122,19 +122,31 @@ io.on('connection', function(socket){
                 //omx.quit();
                 if(typeof video_is_playing !== "undefined"){
                   if(video_is_playing){
-                    io.emit(call, {"status":"error", datas:{"title":"video", "message":"une video est déjà en cours de lecture"}});
-                    return false;
+                    omx.quit();
+                    video_is_playing = false;
+                    io.emit(call, {"status":"error", datas:{"title":"video", "message":"Une vidéo était en cours de lecture et vient d'être coupée."}});
+                  }else{
+                    video_is_playing = false;
+                    omx.quit();
+                    setTimeout(function(){
+                      cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
+                      omx.open("http://10.3.141.1:3000/"+datas.file, omx_options);
+                      omx.setVolume(app_volume);
+                      io.emit(call, {"status":"video_started", "duration":omx.getCurrentDuration(), "position":omx.getCurrentPosition()});
+                      resetProgressListener();
+                    }, 200);
                   }
+                }else{
+                  video_is_playing = false;
+                  omx.quit();
+                  setTimeout(function(){
+                    cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
+                    omx.open("http://10.3.141.1:3000/"+datas.file, omx_options);
+                    omx.setVolume(app_volume);
+                    io.emit(call, {"status":"video_started", "duration":omx.getCurrentDuration(), "position":omx.getCurrentPosition()});
+                    resetProgressListener();
+                  }, 200);
                 }
-                video_is_playing = false;
-                omx.quit();
-                setTimeout(function(){
-                  cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
-                  omx.open("http://10.3.141.1:3000/"+datas.file, omx_options);
-                  omx.setVolume(app_volume);
-                  io.emit(call, {"status":"video_started", "duration":omx.getCurrentDuration(), "position":omx.getCurrentPosition()});
-                  resetProgressListener();
-                }, 200);
                 break;
             case 'pause_video':
                 omx.pause();
