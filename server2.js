@@ -120,6 +120,9 @@ io.on('connection', function(socket){
                 break;
             case 'video':
                 //omx.quit();
+                if(video_is_playing){
+                  return false;
+                }
                 video_is_playing = false;
                 cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
                 omx.quit();
