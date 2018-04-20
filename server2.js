@@ -122,6 +122,7 @@ io.on('connection', function(socket){
                 //omx.quit();
                 if(typeof video_is_playing !== "undefined"){
                   if(video_is_playing){
+                    io.emit(call, {"status":"error", "title":"video", "message":"une video est déjà en cours de lecture"});
                     return false;
                   }
                 }
