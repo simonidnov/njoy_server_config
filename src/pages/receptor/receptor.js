@@ -92,8 +92,9 @@ var receptor = {
                 $('.chronos').remove();
                 $('.receptor').css({'background-image':'url()', 'background-color':'#FFF'});
                 TweenMax.killAll();
+                app.socket.emit('njoy', {status:'stop_video'});
+                app.socket.emit('njoy', {status:'stop_audio'});
                 setTimeout($.proxy(function(){
-                  console.log("init drawing after check video ?");
                   this.init_drawing(datas);
                 },this),300);
                 break;
