@@ -250,6 +250,7 @@ io.on('connection', function(socket){
                 io.emit(call, {"status":"audio_position", "position":datas.position});
                 break;
             case 'stop_audio':
+                console.log('stop_audio');
                 omx.quit();
                 audio_is_playing = false;
                 if(playerTimer !== null){
@@ -259,6 +260,9 @@ io.on('connection', function(socket){
                 io.emit(call, {"status":"audio_stopped"});
                 break;
             case 'init_drawing':
+                console.log('init_srawing stop_video');
+                io.emit(call, {"status":"stop_audio"});
+                io.emit(call, {"status":"stop_video"});
                 check_end_omx();
                 break;
             case 'drawing_point':

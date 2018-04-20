@@ -92,7 +92,9 @@ var receptor = {
                 $('.chronos').remove();
                 $('.receptor').css({'background-image':'url()', 'background-color':'#FFF'});
                 TweenMax.killAll();
-                this.init_drawing(datas);
+                setTimeout($.proxy(function(){
+                  this.init_drawing(datas);
+                },this),300);
                 break;
             case "drawing":
                 this.drawing(datas);
