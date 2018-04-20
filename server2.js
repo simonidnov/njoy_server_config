@@ -263,7 +263,7 @@ io.on('connection', function(socket){
                 console.log('init_srawing stop_video');
                 io.emit(call, {"status":"stop_audio"});
                 io.emit(call, {"status":"stop_video"});
-                check_end_omx();
+                //check_end_omx();
                 break;
             case 'drawing_point':
                 check_end_omx();

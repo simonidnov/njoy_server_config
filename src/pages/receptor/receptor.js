@@ -93,6 +93,7 @@ var receptor = {
                 $('.receptor').css({'background-image':'url()', 'background-color':'#FFF'});
                 TweenMax.killAll();
                 setTimeout($.proxy(function(){
+                  console.log("init drawing after check video ?");
                   this.init_drawing(datas);
                 },this),300);
                 break;
