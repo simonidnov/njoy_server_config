@@ -124,6 +124,11 @@ io.on('connection', function(socket){
                   if(video_is_playing){
                     omx.quit();
                     video_is_playing = false;
+                    if(playerTimer !== null){
+                      clearTimeout(playerTimer);
+                      playerTimer = null;
+                    }
+                    io.emit(call, {"status":"video_stopped"});
                     io.emit(call, {"status":"error", datas:{"title":"video", "message":"Une vidéo était en cours de lecture et vient d'être coupée."}});
                   }else{
                     video_is_playing = false;
