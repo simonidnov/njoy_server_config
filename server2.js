@@ -266,7 +266,7 @@ io.on('connection', function(socket){
                 }
                 break;
         }
-        if(e.status.indexOf('video') === -1 || e.status.indexOf('audio') === -1){
+        if(datas.status.indexOf('video') === -1 || datas.status.indexOf('audio') === -1){
           io.emit(call, {"status":"stop_audio"});
           io.emit(call, {"status":"stop_video"});
         }
