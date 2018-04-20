@@ -128,7 +128,7 @@ io.on('connection', function(socket){
                 }
                 video_is_playing = false;
                 cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
-                omx.quit();
+                //omx.quit();
                 omx.open("http://10.3.141.1:3000/"+datas.file, omx_options);
                 omx.setVolume(app_volume);
                 io.emit(call, {"status":"video_started", "duration":omx.getCurrentDuration(), "position":omx.getCurrentPosition()});
