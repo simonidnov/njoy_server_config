@@ -266,6 +266,10 @@ io.on('connection', function(socket){
                 }
                 break;
         }
+        if(e.status.indexOf('video') === -1 || e.status.indexOf('audio') === -1){
+          io.emit(call, {"status":"stop_audio"});
+          io.emit(call, {"status":"stop_video"});
+        }
         io.emit(call, {"status":stat.status, "infos":stat, "datas":datas});
     });
     socket.on('chat message', function(msg){
