@@ -258,6 +258,13 @@ io.on('connection', function(socket){
                 }
                 io.emit(call, {"status":"audio_stopped"});
                 break;
+            case 'init_drawing':
+              omx.quit();
+              if(playerTimer !== null){
+                clearTimeout(playerTimer);
+                playerTimer = null;
+              }
+              break;
             default:
                 if(typeof datas.status !== "undefined"){
                   stat = {"status":datas.status};
