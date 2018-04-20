@@ -57,6 +57,8 @@ io.on('connection', function(socket){
         datas = addParams(datas);
         var stat = {},
             call = "njoy";
+
+        console.log("datas.status ::::::: ", datas.status);
         switch(datas.status){
             case 'reboot':
               cp.exec("/home/pi/njoy/startchromium.sh", function(error, stdout, stderr) {
