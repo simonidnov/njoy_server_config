@@ -259,12 +259,14 @@ io.on('connection', function(socket){
                 io.emit(call, {"status":"audio_stopped"});
                 break;
             case 'init_drawing':
-              omx.quit();
-              if(playerTimer !== null){
-                clearTimeout(playerTimer);
-                playerTimer = null;
-              }
-              break;
+                check_end_omx();
+                break;
+            case 'drawing_point':
+                check_end_omx();
+                break;
+            case 'drawing':
+                check_end_omx();
+                break;
             default:
                 if(typeof datas.status !== "undefined"){
                   stat = {"status":datas.status};
@@ -379,8 +381,15 @@ function sendOmxStatus() {
     }
   }
 }
-
-
+function check_end_omx(){
+  omx.quit();
+  audio_is_playing = false;
+  video_is_playing = false;
+  if(playerTimer !== null){
+    clearTimeout(playerTimer);
+    playerTimer = null;
+  }
+}
 function resetAudioProgressListener() {
   audio_is_playing = true;
   /* PROGRESS FILL DOESNT WORK CORRECTLY
