@@ -189,13 +189,38 @@ io.on('connection', function(socket){
                 break;
 
             case 'audio':
-                //omx.quit();
-                audio_is_playing = false;
-                cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
-                omx.open("http://10.3.141.1:3000/"+datas.file, omx_audio_options);
-                omx.setVolume(app_volume);
-                io.emit(call, {"status":"audio_started", "duration":omx.getCurrentDuration(), "position":omx.getCurrentPosition()});
-                resetAudioProgressListener();
+                if(typeof audio_is_playing !== "undefined"){
+                  if(audio_is_playing){
+                    omx.quit();
+                    audio_is_playing = false;
+                    if(playerTimer !== null){
+                      clearTimeout(playerTimer);
+                      playerTimer = null;
+                    }
+                    io.emit(call, {"status":"audio_stopped"});
+                    io.emit(call, {"status":"error", datas:{"title":"audio", "message":"Un mp3 était en cours de lecture et vient d'être coupée."}});
+                  }else{
+                    omx.quit();
+                    setTimeout(function(){
+                      audio_is_playing = false;
+                      cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
+                      omx.open("http://10.3.141.1:3000/"+datas.file, omx_audio_options);
+                      omx.setVolume(app_volume);
+                      io.emit(call, {"status":"audio_started", "duration":omx.getCurrentDuration(), "position":omx.getCurrentPosition()});
+                      resetAudioProgressListener();
+                    },200);
+                  }
+                }else{
+                  omx.quit();
+                  setTimeout(function(){
+                    audio_is_playing = false;
+                    cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
+                    omx.open("http://10.3.141.1:3000/"+datas.file, omx_audio_options);
+                    omx.setVolume(app_volume);
+                    io.emit(call, {"status":"audio_started", "duration":omx.getCurrentDuration(), "position":omx.getCurrentPosition()});
+                    resetAudioProgressListener();
+                  },200);
+                }
                 break;
             case 'pause_audio':
                 omx.pause();
@@ -229,7 +254,7 @@ io.on('connection', function(socket){
                   clearTimeout(playerTimer);
                   playerTimer = null;
                 }
-                io.emit(call, {"status":"video_stopped"});
+                io.emit(call, {"status":"audio_stopped"});
                 break;
             default:
                 if(typeof datas.status !== "undefined"){
@@ -352,7 +377,7 @@ function resetAudioProgressListener() {
   });*/
   playerTimer = setTimeout(function(){
     sendOmxAudioStatus();
-  }, 1000);
+  }, 500);
 }
 function sendOmxAudioStatus() {
   if(audio_is_playing){
@@ -368,7 +393,7 @@ function sendOmxAudioStatus() {
       io.emit("njoy", audio_status);
       playerTimer = setTimeout(function(){
         sendOmxAudioStatus();
-      }, 1000);
+      }, 500);
     }
   }
 }
