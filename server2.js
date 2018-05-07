@@ -440,7 +440,7 @@ function sendOmxAudioStatus() {
       io.emit("njoy", audio_status);
       playerTimer = setTimeout(function(){
         sendOmxAudioStatus();
-      }, 250);
+      }, 50);
     }
   }
 }
