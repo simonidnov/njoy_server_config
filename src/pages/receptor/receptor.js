@@ -96,7 +96,7 @@ var receptor = {
                 $('.receptor').css({'background-image':'url()', 'background-color':'#FFF'});
                 TweenMax.killAll();
                 app.socket.emit('njoy', {status:'stop_video'});
-                app.socket.emit('njoy', {status:'stop_audio'});
+                //app.socket.emit('njoy', {status:'stop_audio'});
                 setTimeout($.proxy(function(){
                   this.init_drawing(datas);
                 },this),300);
