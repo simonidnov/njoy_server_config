@@ -48,7 +48,7 @@ var receptor = {
                       "background-image":"url("+e.datas.tools.background+")",
                       "background-size":"cover"
                     });
-                    $(".module").html('').empty();
+                    //$(".module").html('').empty();
                   }else{
                     $(".receptor").css({
                       "background-image":"url()",
@@ -112,7 +112,7 @@ var receptor = {
             case "video":
                 $('.app_logo, .app_icon').css('display', 'none');
                 console.log('video');
-                //$('.module').html('');
+                $('.module').html('');
                 $('.chronos').remove();
                 TweenMax.killAll();
                 if(typeof this.audio !== "undefined"){
@@ -130,8 +130,8 @@ var receptor = {
             case 'force_video':
                 console.log('force_video');
                 $('.app_logo, .app_icon').css('display', 'none');
-                //$('.module').html('');
-                //$('.chronos').remove();
+                $('.module').html('');
+                $('.chronos').remove();
                 TweenMax.killAll();
                 $('.module').html('<div class="video_display"><video src="'+window.location.origin+'/'+datas.file+'" autoplay width="'+window.innerWidth+'px" height="'+window.innerHeight+'px"></video></div>');
                 /*$(".receptor").css({
