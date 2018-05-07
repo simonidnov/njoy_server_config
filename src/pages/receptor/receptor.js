@@ -68,7 +68,7 @@ var receptor = {
         }, this);
     },
     create_component : function(datas){
-      //console.log('create_component ', datas);
+      console.log('create_component ', datas);
       $('.receptor .module').css({'transform-origin':'50% 50%', 'overflow':'hidden', "width":window.innerWidth+"px", "height":window.innerHeight+"px", "border-radius":"0", "position":"relative"});
         //$('.chronos').remove();
         if(typeof receptor.chrono_sound !== "undefined"){
@@ -143,7 +143,8 @@ var receptor = {
                 TweenMax.killAll();
                 break;
             case "FX":
-              console.log('FX');
+                console.log('FX ', datas);
+
                 $('.module').append('<div class="fx" style="background-image:url('+datas.data+')"></div>');
                 TweenMax.to($('.fx'), .5, {css:{top:0}, ease:Back.easeOut});
                 //this.fx = new Audio(datas.file);
