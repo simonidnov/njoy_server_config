@@ -248,6 +248,7 @@ var receptor = {
                 app.socket.emit('njoy', {status:'chrono_stop'});
                 break;
             case "object":
+                console.log('OBJECT OBJeCT ', datas);
                 this.object_component(datas);
                 break;
             case "golden_family":
@@ -278,7 +279,6 @@ var receptor = {
     },
     object_component : function(datas){
         console.log("object_component ", object_component);
-        //$('.module').html('');
         $('.chronos').remove();
         TweenMax.killAll();
         //TweenMax.killAllTweens();
@@ -286,6 +286,7 @@ var receptor = {
             case "quiz_component":
                 break;
             case "golden_family":
+                $('.module').html('');
                 //<h1>'+datas.tools.menu[datas.menu].components.golden_family[datas.component_id].label+'</h1>
                 $('.module').html('<div class="golden_family"><div class="content_choice"><h3>'+datas.tools.menu[datas.menu].components.golden_family[datas.component_id].desc+'</h3><ul class="choices"></ul></div></div>');
                 var LENGTH = datas.tools.menu[datas.menu].components.golden_family[datas.component_id].choices.length;
