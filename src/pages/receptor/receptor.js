@@ -68,6 +68,7 @@ var receptor = {
         }, this);
     },
     create_component : function(datas){
+      console.log('create_component ', datas);
       $('.receptor .module').css({'transform-origin':'50% 50%', 'overflow':'hidden', "width":window.innerWidth+"px", "height":window.innerHeight+"px", "border-radius":"0", "position":"relative"});
         $('.chronos').remove();
         if(typeof receptor.chrono_sound !== "undefined"){
@@ -109,6 +110,7 @@ var receptor = {
                 break;
             case "video":
                 $('.app_logo, .app_icon').css('display', 'none');
+                console.log('video');
                 $('.module').html('');
                 $('.chronos').remove();
                 TweenMax.killAll();
@@ -125,6 +127,7 @@ var receptor = {
                 });*/
                 break;
             case 'force_video':
+                console.log('force_video');
                 $('.app_logo, .app_icon').css('display', 'none');
                 $('.module').html('');
                 $('.chronos').remove();
@@ -142,13 +145,13 @@ var receptor = {
             case "FX":
                 $('.module').append('<div class="fx" style="background-image:url('+datas.data+')"></div>');
                 TweenMax.to($('.fx'), .5, {css:{top:0}, ease:Back.easeOut});
-                this.fx = new Audio(datas.file);
-                this.fx.play();
-                this.fx.addEventListener("ended", function(){
-                  TweenMax.to($('.fx'), .5, {css:{top:"100%"}, ease:Back.easeIn, onComplete:function(){
+                //this.fx = new Audio(datas.file);
+                //this.fx.play();
+                //this.fx.addEventListener("ended", function(){
+                  TweenMax.to($('.fx'), .5, {css:{top:"100%", delay:3}, ease:Back.easeIn, onComplete:function(){
                     $('.fx').remove();
                   }});
-                });
+                //});
                 break;
             case "audio":
                 /*
@@ -269,6 +272,7 @@ var receptor = {
         //console.log(datas);
     },
     object_component : function(datas){
+        console.log("object_component ", object_component);
         $('.module').html('');
         $('.chronos').remove();
         TweenMax.killAll();
@@ -305,13 +309,13 @@ var receptor = {
         if(typeof type === "undefined"){type="bottom";}
         $('.screen.receptor').append('<div class="chronos '+type+'"><div class="counter"></div><div class="timelap"><div class="progress"></div></div></div>');
         $('.chronos .counter').html(time);
-        this.chrono_sound = new Audio("ressources/audio/attente_30s.mp3");
-        this.chrono_sound.play();
+        //this.chrono_sound = new Audio("ressources/audio/attente_30s.mp3");
+        //this.chrono_sound.play();
         var chronos_tween = TweenMax.to($('.timelap .progress'), parseInt(time), {css:{width:"100%"}, ease:Linear.easeNone, onUpdate:function(e){
             $('.chronos .counter').html(parseInt(time) - Math.round(chronos_tween.time()));
         }, onComplete:function(){
             //alert('time elapsed');
-            receptor.chrono_sound.pause();
+            //receptor.chrono_sound.pause();
         }});
     },
     success : function(){

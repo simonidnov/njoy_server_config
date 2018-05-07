@@ -21,7 +21,7 @@ const express = require('express'),
       users_activities = [],
       animations = null,
       playerTimer = null,
-      app_volume = 1;
+      app_volume = .5;
 
 /* VIDEO INSTANCE */
 var omx = require('omx-interface'),
@@ -58,7 +58,7 @@ io.on('connection', function(socket){
         var stat = {},
             call = "njoy";
 
-        console.log("datas.status ::::::: ", datas.status);
+        //console.log("datas.status ::::::: ", datas.status);
         switch(datas.status){
             case 'reboot':
               cp.exec("/home/pi/njoy/startchromium.sh", function(error, stdout, stderr) {
