@@ -277,13 +277,13 @@ io.on('connection', function(socket){
                 break;
             case 'init_drawing':
                 console.log('init_drawing init_drawing init_drawing');
-                omx.quit();
-                video_is_playing = false;
-                audio_is_playing = false;
-                if(playerTimer !== null){
-                  clearTimeout(playerTimer);
-                  playerTimer = null;
-                }
+                //omx.quit();
+                //video_is_playing = false;
+                //audio_is_playing = false;
+                //if(playerTimer !== null){
+                //  clearTimeout(playerTimer);
+                //  playerTimer = null;
+                //}
                 //check_end_omx();
                 break;
             case 'drawing_point':
