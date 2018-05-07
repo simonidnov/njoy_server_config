@@ -10,6 +10,7 @@ var receptor = {
         app.init(function(){});
         /* on receive node_log print */
         app.socket_callback = $.proxy(function(e){
+            console.log('app.socket_callback ', e);
             if(typeof e.datas !== "undefined"){
                 this.create_component(e.datas);
                 if(typeof e.datas.tools !== "undefined"){
@@ -238,11 +239,13 @@ var receptor = {
                 break;
             case "success":
                 //this.success(datas);
+                app.socket.emit('njoy', {status:'chronos_stop'});
                 break;
             case "display_text":
                 this.display_text("DISPLAY TEXT");
             case "fail":
                 //this.fail(datas);
+                app.socket.emit('njoy', {status:'chronos_stop'});
                 break;
             case "object":
                 this.object_component(datas);
@@ -313,9 +316,11 @@ var receptor = {
         $('.chronos .counter').html(time);
         //this.chrono_sound = new Audio("ressources/audio/attente_30s.mp3");
         //this.chrono_sound.play();
+        app.socket.emit('njoy', {status:'chronos_start'});
         var chronos_tween = TweenMax.to($('.timelap .progress'), parseInt(time), {css:{width:"100%"}, ease:Linear.easeNone, onUpdate:function(e){
             $('.chronos .counter').html(parseInt(time) - Math.round(chronos_tween.time()));
         }, onComplete:function(){
+            app.socket.emit('njoy', {status:'chronos_stop'});
             //alert('time elapsed');
             //receptor.chrono_sound.pause();
         }});

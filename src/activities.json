@@ -31,7 +31,6 @@
           "label":"Ambiance",
           "desc":"Des musiques d'ambiance selon les humeurs pour combler les vides.",
           "playlist":[
-              {"label":"Britney Spire", "file":"ressources/audio/ambiance/bitney.mp3", "type":"audio"},
               {"label":"Ray Charles", "file":"ressources/audio/ambiance/1.mp3", "type":"audio"},
               {"label":"Franck Sinatra", "file":"ressources/audio/ambiance/2.mp3", "type":"audio"},
               {"label":"Nate King Cole", "file":"ressources/audio/ambiance/3.mp3", "type":"audio"},
