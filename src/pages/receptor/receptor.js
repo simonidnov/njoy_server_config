@@ -111,7 +111,7 @@ var receptor = {
             case "video":
                 $('.app_logo, .app_icon').css('display', 'none');
                 console.log('video');
-                $('.module').html('');
+                //$('.module').html('');
                 $('.chronos').remove();
                 TweenMax.killAll();
                 if(typeof this.audio !== "undefined"){
@@ -129,17 +129,17 @@ var receptor = {
             case 'force_video':
                 console.log('force_video');
                 $('.app_logo, .app_icon').css('display', 'none');
-                $('.module').html('');
-                $('.chronos').remove();
+                //$('.module').html('');
+                //$('.chronos').remove();
                 TweenMax.killAll();
-                $('.module').append('<div class="video_display"><video src="'+window.location.origin+'/'+datas.file+'" autoplay width="'+window.innerWidth+'px" height="'+window.innerHeight+'px"></video></div>');
+                $('.module').html('<div class="video_display"><video src="'+window.location.origin+'/'+datas.file+'" autoplay width="'+window.innerWidth+'px" height="'+window.innerHeight+'px"></video></div>');
                 /*$(".receptor").css({
                   "background-image":"url("+(window.location.origin+'/'+(datas.file.replace('.mp4', '.svg')))+")",
                   "background-size":"cover"
                 });*/
                 break;
             case "playlist_video":
-                $('.module').append('<div class="video_display"></div>');
+                $('.module').html('<div class="video_display"></div>');
                 TweenMax.killAll();
                 break;
             case "FX":
@@ -227,9 +227,9 @@ var receptor = {
                 TweenMax.killAll();
                 break;
             case "picture":
-                $('.module').html('');
+                //$('.module').html('');
                 TweenMax.killAll();
-                $('.module').append('<div class="picture_display"></div>');
+                $('.module').html('<div class="picture_display"></div>');
                 $('.picture_display').css('background-image', 'url('+datas.file+')');
                 break;
             case "":
@@ -282,7 +282,7 @@ var receptor = {
                 break;
             case "golden_family":
                 //<h1>'+datas.tools.menu[datas.menu].components.golden_family[datas.component_id].label+'</h1>
-                $('.module').append('<div class="golden_family"><div class="content_choice"><h3>'+datas.tools.menu[datas.menu].components.golden_family[datas.component_id].desc+'</h3><ul class="choices"></ul></div></div>');
+                $('.module').html('<div class="golden_family"><div class="content_choice"><h3>'+datas.tools.menu[datas.menu].components.golden_family[datas.component_id].desc+'</h3><ul class="choices"></ul></div></div>');
                 var LENGTH = datas.tools.menu[datas.menu].components.golden_family[datas.component_id].choices.length;
                 for(var i=0; i<LENGTH; i++){
                     $('.receptor .module .golden_family ul.choices').append('<li><div class="front"></div><div class="back">'+datas.tools.menu[datas.menu].components.golden_family[datas.component_id].choices[i]+'<div class="points">'+((LENGTH*10)-(i*10))+'</div></div></li>');
@@ -410,7 +410,7 @@ var receptor = {
         });
         */
 
-        $('.module').append('<canvas id="drawing" width="'+datas.width+'" height="'+datas.height+'" style="width:'+datas.width+'px; height:'+datas.height+'px;"></canvas>');
+        $('.module').html('<canvas id="drawing" width="'+datas.width+'" height="'+datas.height+'" style="width:'+datas.width+'px; height:'+datas.height+'px;"></canvas>');
         this.canvas = document.getElementById("drawing");
         // TODO REMOVE TEST SIZE
         /*this.canvas.width = datas.width;
