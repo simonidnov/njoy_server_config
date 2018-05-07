@@ -150,9 +150,9 @@ var receptor = {
                 //this.fx = new Audio(datas.file);
                 //this.fx.play();
                 //this.fx.addEventListener("ended", function(){
-                  //TweenMax.to($('.fx'), .5, {css:{top:"100%", delay:3}, ease:Back.easeIn, onComplete:function(){
-                  //  $('.fx').remove();
-                  //}});
+                  TweenMax.to($('.fx'), .5, {css:{top:"100%"}, delay:3, ease:Back.easeIn, onComplete:function(){
+                    $('.fx').remove();
+                  }});
                 //});
                 break;
             case "audio":
