@@ -143,7 +143,6 @@ var receptor = {
                 TweenMax.killAll();
                 break;
             case "FX":
-                console.log('FX ', datas);
 
                 $('.module').append('<div class="fx" style="background-image:url('+datas.data+')"></div>');
                 TweenMax.to($('.fx'), .5, {css:{top:0}, ease:Back.easeOut});
