@@ -85,11 +85,11 @@ var receptor = {
         $('.tr, .tc, .tl, .br, .bc, .bl').css('display', 'block');
         switch(datas.status){
             case "splash":
-                $('.module').html('');
+                //$('.module').html('');
                 $('.chronos').remove();
                 break;
             case "init_drawing":
-                $('.module').html('');
+                //$('.module').html('');
                 $('.chronos').remove();
                 $('.receptor').css({'background-image':'url()', 'background-color':'#FFF'});
                 TweenMax.killAll();
