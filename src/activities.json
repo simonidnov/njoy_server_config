@@ -406,7 +406,7 @@
           "menu":[
             {
               "label":"6-10 ans",
-              "desc":"Des questions pour les plus jeunes de 4 à 6 ans",
+              "desc":"Des questions pour les plus jeunes de 6 à 10 ans",
               "components":{
                 "golden_family":[
                     {
@@ -418,7 +418,13 @@
                             "display_response":"regis",
                             "type":"golden_family"
                         },
-                        "choices":["On est bientôt arrivé ?", "j'ai envie de faire pipi", "Je m'ennuie", "J'ai FAIM !", "Des chants"],
+                        "choices":[
+                          "On est bientôt arrivé ?",
+                          "j'ai envie de faire pipi",
+                          "Je m'ennuie",
+                          "J'ai FAIM !",
+                          "Des chants"
+                        ],
                         "response":"all"
                     },
                     {
