@@ -1,10 +1,9 @@
 <div class="screen">
     <div class="wrapper" id="screen_wrapper">
         <div class="scroller">
-            <div class="picture" style="background-image:url()">
+            <div class="picture" style="background-image:url(<%= app.ip+'/'+app.selected_app.thumb %>)">
                 <!--<div class="video_big_button"></div>-->
-                <img src="<%= app.ip+'/'+app.selected_app.thumb %>" width="100%" height="auto"/>
-                <div class="cast_button_top"></div>
+                <div class="cast_button_top" data-action="cast" data-type="picture" data-file="<%= app.selected_app.thumb %>"></div>
             </div>
             <h2><%= app.selected_app.label %></h2>
             <p><%= app.selected_app.desc %></p>
@@ -16,7 +15,7 @@
             </ul>
             <button id="launch_app" class="classic_button disabled">Lancer l'animation</button>
             <br/>
-            <a href="#" onclick="return false;" class="hyperlink">Fiche technique de l'animation</a>
+            <a href="#" onclick="return false;" data-webview="http://10.3.141.1:3000/infos" class="hyperlink">Fiche technique de l'animation</a>
             <br/>
             <br/>
         </div>

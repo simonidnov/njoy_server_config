@@ -1,4 +1,5 @@
 var ui = {
+    event : "click",
     templates: {
         header: null,
         footer: null
@@ -8,8 +9,16 @@ var ui = {
         params: {}
     },
     init: function() {
+        if('ontouchstart' in window){
+            this.event = 'click';
+        }
+        if(typeof StatusBar !== "undefined"){
+            StatusBar.hide();
+        }
         this.load_templates();
         this.setListeners();
+
+
     },
     load_templates: function() {
         _.each(_.keys(this.templates), function(key, index) {
@@ -32,7 +41,7 @@ var ui = {
         setTimeout($.proxy(function() {
             $('body').append(this.templates.header({}));
             $('body').append(this.templates.footer({}));
-            this.navigate(window.location.pathname);
+            this.navigate(this.page_params.page);
             this.setListeners();
         }, this), 200);
     },
@@ -57,10 +66,11 @@ var ui = {
         ));
         $('#popin_ui_content .popin').css('top', '100%');
         TweenMax.to($('#popin_ui_content .popin'), .5, {top:0, ease:Back.easeOut});
-        $('[data-popbutton]').on('click', function(e){
+        $('[data-popbutton]').on(ui.event, function(e){
            ui.close_popin($(this).attr('data-popbutton'));
         });
-        $('#close_popin').on('click', function(){ui.close_popin();})
+        $('#close_popin').on(ui.event, function(){ui.close_popin();});
+        setTimeout(function(){ui.close_popin();}, 2000);
     },
     close_popin:function(e){
         TweenMax.to($('#popin_ui_content .popin'), .5, {top:"100%", opacity:0, ease:Back.easeIn});
@@ -69,8 +79,102 @@ var ui = {
         }});
         ui.popin_callBack(e);
     },
+    openTeam : function(){
+      $('.teams').addClass('opened');
+      $('.teams .cross_button').off('click').on('click', $.proxy(function(){
+        this.closeTeam();
+      },this));
+        $('#add_team').off('click').on('click', function(e){
+            e.preventDefault();
+            if($('#team_name').val() === ""){
+                 ui.popin({
+                    "illus":"img/logout_illus.svg",
+                    "title":"TEAM",
+                    "message":"Pour ajouter une équipe vous devez indiquer un nom dans",
+                    "buttons":[
+                        {"label":"OK"}
+                    ]
+                }, function(e){
+                    if(parseInt(e) === 1){
+                        ui.navigate('/');
+                    }
+                });
+                return false;
+            } 
+            if(_.where(app.teams, {label:$('#team_name').val()}).length > 0){
+                ui.popin({
+                    "illus":"img/logout_illus.svg",
+                    "title":"TEAM",
+                    "message":"Le nom de l'équipe "+$('#team_name').val()+" existe déjà, veuillez choisir un nom d'équipe différent",
+                    "buttons":[
+                        {"label":"OK"}
+                    ]
+                }, function(e){
+                    if(parseInt(e) === 1){
+                        ui.navigate('/');
+                    }
+                });
+                return false;
+            }
+            app.socket.emit("njoy", {
+                status:"new_team",
+                new_team:{
+                    label:$('#team_name').val(),
+                    score:0
+                }
+            });
+            $('#team_name').val('');
+        });
+    },
+    closeTeam : function(){
+      $('.teams').removeClass('opened');
+    },
+    set_teams : function(){
+        $('#team_list').html('');
+        if(typeof app.teams === "undefined"){
+            return false;
+        }
+        var temp_team = _.template($('#team_template').html());
+        for(var i=0; i<app.teams.length; i++){
+            app.teams[i].id = i;
+            $('#team_list').append(temp_team(app.teams[i]));
+        }
+        $('.delete_team_button').off('click').on('click', function(){
+            app.socket.emit("njoy", {
+                status:"delete_team", 
+                id:$(this).attr('data-id')
+            });
+        });
+        $('.less_score_button').off('click').on('click', function(){
+            $(this).parent().find('.score').val(parseInt($(this).parent().find('.score').val())-1);
+            app.socket.emit("njoy", {
+                status:"team_score", 
+                id:$(this).attr('data-id'),
+                score:$(this).parent().find('.score').val()
+            });
+        });
+        $('.more_score_button').off('click').on('click', function(){
+            $(this).parent().find('.score').val(parseInt($(this).parent().find('.score').val())+1);
+            app.socket.emit("njoy", {
+                status:"team_score", 
+                id:$(this).attr('data-id'),
+                score:$(this).parent().find('.score').val()
+            });
+        });
+        $('.set_score_input').off('blur').on('blur', function(){
+            app.socket.emit("njoy", {
+                status:"team_score", 
+                id:$(this).attr('data-id'),
+                score:$(this).parent().find('.score').val()
+            });
+        });
+    },
     setListeners: function() {
-        $('[data-navigate]').off('click').on('click', function(event) {
+        $('[data-navigate]').off(ui.event).on(ui.event, function(event) {
+            if($(this).attr('data-navigate') === "/team"){
+              ui.openTeam();
+              return false;
+            }
             if(typeof $(this).attr('data-direction') !== "undefined"){
                 ui.direction = $(this).attr('data-direction');
             }
@@ -78,8 +182,12 @@ var ui = {
             event.preventDefault();
             return false;
         });
-        $('[data-action]').off('click').on('click', function(){
+        $('[data-action]').off(ui.event).on(ui.event, function(){
             switch($(this).attr('data-action')){
+                case 'drawing':
+                    console.log('EMIT ::::::::: status ', status);
+                    app.socket.emit("njoy", {status:"drawer"});
+                    break;
                 case 'cast':
                     var status = {};
                     if(typeof $(this).attr('data-type') !== "undefined"){
@@ -100,11 +208,28 @@ var ui = {
                     if(typeof $(this).attr('data-chronos') !== "undefined"){
                         status['chronos'] = $(this).attr('data-chronos');
                     }
+                    if(typeof $(this).attr('data-data') !== "undefined"){
+                        status['data'] = $(this).attr('data-data');
+                    }
                     if(typeof $(this).attr('data-chronostype') !== "undefined"){
                         status['chronos_type'] = $(this).attr('data-chronostype');
                     }
-
-                    status['tools'] = app.selected_tool;
+                    if($(this).attr('data-type') === "audio"){
+                        if($(this).find('img').attr('src') === "img/pause_icon.svg"){
+                            $(this).find('img').attr('src', "img/play_icon.svg");
+                            status['status'] = "pause_audio";
+                        }else{
+                            $('[data-type="audio"] img').attr('src', "img/play_icon.svg");
+                            $(this).find('img').attr('src', "img/pause_icon.svg");
+                        }
+                    }
+                    if(typeof $(this).attr('data-selectedapp') !== "undefined"){
+                        //delete app.selected_tool;
+                        status['tools'] = app.selected_app;
+                    }else{
+                        status['tools'] = app.selected_tool;    
+                    }
+                    console.log('EMIT ::::::::: status ', status);
                     app.socket.emit("njoy", status);
                     /*switch($(this).attr('data-type')){
                         case 'video':
@@ -148,7 +273,7 @@ var ui = {
                 default:
                     break;
             }
-            app_tools.components_scroll.refresh();
+            //app_tools.components_scroll.refresh();
             //app.socket.emit("njoy", {"status":"video", "file":"ressources/1703_NJOY_ANIM_LOGO_FB.mp4"});
         });
     },
@@ -159,7 +284,7 @@ var ui = {
         }*/
         app.socket_callback = null;
         app.socket_callback = function(e) {
-            console.log(e);
+            //console.log(e);
         }
         if(url.indexOf('logout') !== -1){
             ui.popin({
@@ -168,7 +293,7 @@ var ui = {
                 "message":"Si vous continuez vous allez vous déconnecter du serveur.<br/>Êtes vous certain de vouloir continuer ?",
                 "buttons":[
                     {"label":"Annuler"},
-                    {"label":"Déconnexion", class:"error"}
+                    {"label":"Déconnexion", "class":"error"}
                 ]
             }, function(e){
                 if(parseInt(e) === 1){
@@ -177,7 +302,7 @@ var ui = {
             });
             return false;
         }
-        window.history.pushState("", "", url);
+        //window.history.pushState("", "", url);
         this.setParams(url);
         this.load_dependencies();
         /*switch(url){
@@ -193,8 +318,8 @@ var ui = {
         //alert(this.page_params.page);
         (this.page_params.page === "") ? this.page_params.page = "default": this.page_params.page = this.page_params.page;
         /* get descriptor */
-        $.get('/pages/' + this.page_params.page + '/descriptor.json', function(e) {
-            ui.descriptor = e;
+        $.getJSON('pages/' + this.page_params.page + '/descriptor.json', function(e) {
+            ui.descriptor = JSON.parse(JSON.stringify(e));
             /* load content template */
             $.get('pages/' + ui.page_params.page + '/' + ui.descriptor.content.uri, function(e) {
                 $('body').append('<div class="blocker"></div>');
@@ -221,23 +346,25 @@ var ui = {
                     });
                 }
                 /* load default page class then init there */
-                $.getScript('pages/' + ui.page_params.page + '/' + ui.descriptor.class + '.js', function(e) {
+                $.getScript('pages/' + (ui.page_params.page) + '/' + (ui.descriptor.class) + '.js', function(e) {
+                    if($('body main.app .screen').length > 2){
+                        for(var i=0; i<$('body main.app .screen').length-1; i++){
+                            $('body main.app .screen').eq(i).remove();
+                        }
+                    }
                     if ($('body main.app .screen').length > 1) {
                         if(ui.direction === "back"){
                             TweenMax.to($('body main.app .screen').first(), .5, {
-                                left: '100%',
-                                ease: Power4.easeInOut
+                                left: '100%'
                             });
                             TweenMax.set($('body main.app .screen').last(), {left:"-100%"});
                         }else{
                             TweenMax.to($('body main.app .screen').first(), .5, {
-                                left: '-100%',
-                                ease: Power4.easeInOut
+                                left: '-100%'
                             });
                         }
                         TweenMax.to($('body main.app .screen').last(), .5, {
                             left: '0%',
-                            ease: Power4.easeInOut,
                             onComplete: function() {
                                 window[ui.descriptor.class].init();
                                 $('body main.app .screen').first().remove();
@@ -274,9 +401,12 @@ var ui = {
     },
     display_error: function(datas) {
         $('.ui_layer').append(ui.templates.notification(datas));
-        $('.cross_close').off('click').on('click', function() {
+        $('.cross_close').off(ui.event).on(ui.event, function() {
             $(this).parent().remove();
         });
+        TweenMax.to($('.notification'), .5, {opacity:0, delay:1.5, onComplete:function(){
+            $('.notification').remove();
+        }})
     },
     setParams: function(url) {
         url = url.replace('/', '').split('/');
@@ -293,6 +423,17 @@ var ui = {
                 $('header').append('<div class="left_nav"><div class="head_button" data-navigate="'+ui.descriptor.header.nav_left[i].link+'"><div class="icon" style="background-image:url(img/'+ui.descriptor.header.nav_left[i].icon+'.svg);"></div><span>'+ui.descriptor.header.nav_left[i].label+'</span></div></div>');
                 if(typeof ui.descriptor.header.nav_left[i].direction !== "undefined"){
                     $('[data-navigate="'+ui.descriptor.header.nav_left[i].link+'"]').attr('data-direction', ui.descriptor.header.nav_left[i].direction);
+                }
+            }
+            for(var i=0; i<ui.descriptor.header.nav_right.length; i++){
+                if($('.right_nav').length === 0){
+                    $('header').append('<div class="right_nav"></div>');
+                }else{
+                    $('header .right_nav').html('');
+                }
+                $('header .right_nav').append('<div class="head_button" data-navigate="'+ui.descriptor.header.nav_right[i].link+'"><div class="icon" style="background-image:url(img/'+ui.descriptor.header.nav_right[i].icon+'.svg);"></div><span>'+ui.descriptor.header.nav_right[i].label+'</span></div>');
+                if(typeof ui.descriptor.header.nav_right[i].direction !== "undefined"){
+                    $('[data-navigate="'+ui.descriptor.header.nav_right[i].link+'"]').attr('data-direction', ui.descriptor.header.nav_right[i].direction);
                 }
             }
         }
@@ -315,16 +456,18 @@ var ui = {
                         'left': $('.header-navbar ul li.selected').first().position().left
                     });
                 }
-                $('header .header-navbar li').off('click').on('click', function() {
+                $('header .header-navbar li').off(ui.event).on(ui.event, function() {
                     $('header .header-navbar li').removeClass('selected');
                     $(this).addClass('selected');
                     resizeTabNav();
                 });
+                /*
                 ui.navbar_scroll = new IScroll('#header_navbar_wrapper',{
                     mouseWheel:true,
                     click: true,
                     useTransition: true
                 });
+                */
             }, this));
         }
     },
@@ -334,12 +477,74 @@ var ui = {
         $('.screen .wrapper .scroller').css({'display':"table", "width":"100%"});
         if($('.screen .wrapper .scroller').length === 1){
             if(typeof IScroll !== "undefined"){
+                /*
                 ui.page_scroll = new IScroll('#screen_wrapper',{
                     mouseWheel:true,
                     click: true,
                     useTransition: true
                 });
+                */
             }
+        }
+    },
+    open_wifi_settings : function(){
+        if (window.cordova && window.cordova.plugins.settings) {
+            console.log('openNativeSettingsTest is active');
+            window.cordova.plugins.settings.open(
+                "wifi",
+                function() {
+                    console.log('opened settings');
+                },
+                function () {
+                    console.log('failed to open settings');
+                }
+            );
+        } else {
+            console.log('openNativeSettingsTest is not active!');
+        }
+    },
+    check_wifi : function(){
+        if(typeof navigator.connection !== "undefined"){
+            if(navigator.connection.type !== "wifi"){
+                ui.popin({
+                    "illus":"img/logout_illus.svg",
+                    "title":"WIFI",
+                    "message":"Pour utiliser l'application vous devez activer la WIFI et vous connecter sur le réseau NJOY avec le mot de passe njoynjoy.",
+                    "buttons":[
+                        {"label":"Activer la WIFI", class:"error"}
+                    ]
+                }, function(e){
+                    ui.open_wifi_settings();
+                });
+            }
+        }
+    },
+    reboot_server : function(){
+        app.socket.emit("njoy", {"status":"reboot"});
+    },
+    battery_low : function(){
+        ui.popin({
+            "illus":"img/energy.svg",
+            "title":"BATTERIE",
+            "message":"Attention votre batterie est bientôt vide, veuillez brancher votre appareil.",
+            "buttons":[
+                {"label":"J'ai compris", class:"success"}
+            ]
+        }, function(e){
+        });
+    },
+    open_webview : function(){
+        if (cordova && cordova.InAppBrowser) {
+            cordova.InAppBrowser.open(url, target, options);
+        }else{
+            ui.popin({
+                "title":"INFOS",
+                "message":"Nous avons un problème avec le chargement de ce contenu, veuillez contacter NJOY pour en savoir plus.",
+                "buttons":[
+                    {"label":"J'ai compris", class:"success"}
+                ]
+            }, function(e){
+            });
         }
     }
 }

@@ -8,7 +8,6 @@ var login = {
       }
       app.infos.user_name = $('#pseudo').val();
       app.socket_callback = function(e){
-          console.log("app.socket_callback ", e);
           if(e.status === "login_error"){
             ui.display_error({"icon":"", "message":e.infos.message});
             return false;
@@ -20,7 +19,6 @@ var login = {
           //}
       }
       app.socket.emit('njoy', {status:"connect", user_name:app.infos.user_name, uuid:app.infos.uuid});
-      console.log('connexion send waiting for response');
       return false;
     });
     $('#pseudo').on('change paste keyup', function(){

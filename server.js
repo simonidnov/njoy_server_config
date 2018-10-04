@@ -60,8 +60,6 @@ io.on('connection', function(socket){
         switch(datas.status){
             case 'reboot':
               cp.exec("/home/pi/njoy/startchromium.sh", function(error, stdout, stderr) {
-                console.log("stdout: " + stdout);
-                console.log("stderr: " + stderr);
                 if (error !== null) {
                     console.log("exec errror: " + error);
                 }

@@ -58,7 +58,6 @@ io.on('connection', function(socket){
         datas = addParams(datas);
         var stat = {},
             call = "njoy";
-
         //console.log("datas.status ::::::: ", datas.status);
         switch(datas.status){
             case 'chrono_start':
@@ -138,6 +137,15 @@ io.on('connection', function(socket){
                 datas.teams = teams;
                 break;
             case 'video':
+              if(typeof omx.quit() === "undefined"){
+                console.log('FORCE VIDEO BROWSER');
+                //omx.open("http://10.3.141.1:3000/"+datas.file, omx_options);
+                //omx.setVolume(app_volume);
+                datas.status = "force_video";
+                io.emit(call, {status:datas.status, datas:datas});
+                return false;
+              }
+                //console.log('typeof omx ', omx.quit());
                 //omx.quit();
                 if(typeof video_is_playing !== "undefined"){
                   if(video_is_playing){

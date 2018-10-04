@@ -3,6 +3,7 @@ var app_tools = {
     is_mobile : false,
     init: function() {
         setTimeout($.proxy(function() {
+            /*
             this.tools_scroll = new IScroll('#tools_scroll', {
                 mouseWheel: true,
                 click: true,
@@ -18,22 +19,25 @@ var app_tools = {
                 click: true,
                 useTransition: true
             });
+            */
+            $('#connexion_check').off('click').on('click', function(){
+                ui.open_wifi_settings();
+            });
             $.get('pages/app_tools/components.tmpl', $.proxy(function(e) {
                 this.component_template = _.template(e);
             }, this));
-            $('[data-appid]').on('click', function() {
+            $('[data-appid]').on(ui.event, function() {
                 app.selected_tool = app.selected_app.apps[parseInt($(this).attr('data-appid'))];
                 $('.column.components').html(app_tools.component_template(app.selected_app.apps[parseInt($(this).attr('data-appid'))]));
                 app_tools.set_events();
-                app_tools.components_scroll.refresh();
+                //app_tools.components_scroll.refresh();
 
                 ui.setListeners();
                 if(app_tools.is_mobile){
-                    $('header .left_nav .head_button').off('click').on('click', function(e){
+                    $('header .left_nav .head_button').off(ui.event).on(ui.event, function(e){
                         e.preventDefault();
                         TweenMax.to($('#components_scroll'), .5, {
                             "left":"100%",
-                            ease:Power4.easeIn,
                             onComplete:function(){
                                 ui.setListeners();
                             }
@@ -42,17 +46,31 @@ var app_tools = {
                     });
                     TweenMax.to($('#components_scroll'), .5, {
                         "left":0,
-                        ease:Power4.easeOut
+                        delay:.5
                     });
                 }
-                /*$('[data-component="golden_family"]').on('click', function(){
+                /*
+                $('[data-component="golden_family"]').on('click', function(){
                     console.log('is golden family');
                 });
                 $('[data-type="response"]').on('click', function(){
                     console.log('intercept hitted area');
-                });*/
+                });
+                */
             });
-            $('#open_tools').on('click', function(){
+            $( "#components_scroll" ).scroll(function() {
+		    	clearTimeout( $.data( this, "scrollCheck" ) );
+    			$.data( this, "scrollCheck", setTimeout(function() {
+                    $('.lazy').lazyload({
+                        scrollDirection: 'vertical',
+                        visibleOnly: true,
+                        onError: function(element) {
+                            console.log('error loading ' + element.data('src'));
+                        }
+                    });
+                }, 250) );
+    		});
+            $('#open_tools').on(ui.event, function(){
                 if($('#tools_scroll').position().top !== 0){
                     $('header .left_nav .head_button').css('display', 'none');
                     TweenMax.to($('#tools_scroll'), .5, {top:0, ease:Power4.easeOut});
@@ -66,60 +84,7 @@ var app_tools = {
             app_tools.resize();
         });
         app_tools.resize();
-        $('#play_pause_button').off('click').on('click', function(){
-          if($('.video_asset #play_pause_button img').attr('src') === "img/play_icon.svg"){
-            app.socket.emit("njoy", {status:"pause_video"});
-          }else{
-            app.socket.emit("njoy", {status:"play_video"});
-          }
-          //app.socket.emit("njoy", {status:"pause_video"});
-          console.log('play pause');
-        });
-        $('#mute_button').off('click').on('click', function(){
-          if($('.video_asset #mute_button img').attr('src') === "img/audio_icon.svg"){
-            app.socket.emit("njoy", {status:"mute_video"});
-          }else{
-            app.socket.emit("njoy", {status:"audio_video"});
-          }
-          console.log('mute');
-        });
-        app.socket_callback = function(e){
-          console.log("socket callback from apptools :::: ", e);
-          switch(e.status){
-            case 'video_started':
-              $('.video_asset #mute_button img').attr('src', "img/audio_icon.svg");
-              $('.video_asset #play_pause_button img').attr('src', "img/pause_icon.svg");
-              $('.video_asset').addClass('started');
-              break;
-            case 'video_pause':
-              if($('.video_asset #play_pause_button img').attr('src') === "img/play_icon.svg"){
-                $('.video_asset #play_pause_button img').attr('src', "img/pause_icon.svg");
-              }else{
-                $('.video_asset #play_pause_button img').attr('src', "img/play_icon.svg");
-              }
-              break;
-            case 'video_play':
-              if($('.video_asset #play_pause_button img').attr('src') === "img/play_icon.svg"){
-                $('.video_asset #play_pause_button img').attr('src', "img/pause_icon.svg");
-              }else{
-                $('.video_asset #play_pause_button img').attr('src', "img/play_icon.svg");
-              }
-              break;
-            case 'video_closed':
-              $('.video_asset').removeClass('started');
-              break;
-            case 'video_muted':
-              if($('.video_asset #mute_button img').attr('src') === "img/audio_icon.svg"){
-                $('.video_asset #mute_button img').attr('src', "img/mute_icon.svg");
-              }else{
-                $('.video_asset #mute_button img').attr('src', "img/audio_icon.svg");
-              }
-              break;
-            case 'video_audio':
-              $('.video_asset').removeClass('started');
-              break;
-          }
-        }
+        
     },
     resize : function(){
         if(window.innerWidth <= 568){
@@ -129,12 +94,12 @@ var app_tools = {
         }
     },
     set_events : function(){
-        $('.tab_bar li').off('click').on('click', function(){
+        $('.tab_bar li').off(ui.event).on(ui.event, function(){
             $('.tab_bar li').removeClass('selected');
             $('.section_tab').css('display', 'none');
             $('#section_'+$(this).attr('id')).css('display', 'block');
             $(this).addClass('selected');
-            app_tools.components_scroll.refresh();
+            //app_tools.components_scroll.refresh();
         });
     },
     destroy: function() {

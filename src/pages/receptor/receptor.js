@@ -112,7 +112,6 @@ var receptor = {
                 break;
             case "video":
                 $('.app_logo, .app_icon').css('display', 'none');
-                console.log('video');
                 $('.module').html('');
                 $('.chronos').remove();
                 TweenMax.killAll();
@@ -129,12 +128,12 @@ var receptor = {
                 });*/
                 break;
             case 'force_video':
-                console.log('force_video');
+                console.log('force video');
                 $('.app_logo, .app_icon').css('display', 'none');
                 $('.module').html('');
                 $('.chronos').remove();
                 TweenMax.killAll();
-                $('.module').html('<div class="video_display"><video src="'+window.location.origin+'/'+datas.file+'" autoplay width="'+window.innerWidth+'px" height="'+window.innerHeight+'px"></video></div>');
+                $('.module').html('<div class="video_display"><video src="'+window.location.origin+'/'+datas.file+'" autoplay width="'+window.innerWidth+'px" height="'+window.innerHeight+'px"><source src="'+window.location.origin+'/'+datas.file+'" type="video/mp4" /></video></div>');
                 /*$(".receptor").css({
                   "background-image":"url("+(window.location.origin+'/'+(datas.file.replace('.mp4', '.svg')))+")",
                   "background-size":"cover"
