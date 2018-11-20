@@ -23,7 +23,8 @@ var express = require('express'),
       playerTimer = null,
       app_volume = .5,
       is_on_seek = false,
-      has_omx = false;
+      has_omx = false,
+      URI = 'http://10.3.141.1:3000/';
 
 /* VIDEO INSTANCE */
 var omx = require('omx-interface'),
@@ -41,7 +42,7 @@ var omx = require('omx-interface'),
     };
 omx.init_remote({port:8080});
 
-if(typeof omx.quit() === "undefined"){
+if(typeof omx.quit() === "undefined") {
   console.log('------------------- OMX NOT DEFINED ------------------- ');
   has_omx = false;
 }else{
@@ -52,8 +53,11 @@ if(typeof omx.quit() === "undefined"){
 
 module.exports = router;
 app.use(express.static('./src'));
-app.get('*', function(req, res){
-    res.sendFile('njoy/src/index.html', { root: path.join(__dirname, '../')});
+app.get('/receptor', function(req, res){
+  res.sendFile('njoy/src/receptor.html', { root: path.join(__dirname, '../')});
+});
+app.get(['/', '/*'], function(req, res){
+  res.sendFile('njoy/src/index.html', { root: path.join(__dirname, '../')});
 });
 
 io.on('connection', function(socket){
@@ -73,7 +77,7 @@ io.on('connection', function(socket){
               omx.quit();
               io.emit(call, {"status":"video_stopped"});
               io.emit(call, {"status":"audio_stopped"});
-              omx.open("http://10.3.141.1:3000/ressources/audio/attente_30s.mp3", omx_audio_options);
+              omx.open(URI+"ressources/audio/attente_30s.mp3", omx_audio_options);
               omx.setVolume(app_volume);
               break;
             case 'chrono_stop':
@@ -82,7 +86,7 @@ io.on('connection', function(socket){
               io.emit(call, {"status":"audio_stopped"});
               break;
             case 'FX':
-              omx.open("http://10.3.141.1:3000/"+datas.file, omx_audio_options);
+              omx.open(URI+datas.file, omx_audio_options);
               omx.setVolume(app_volume);
               break;
             case 'reboot':
@@ -166,7 +170,7 @@ io.on('connection', function(socket){
                     omx.quit();
                     setTimeout(function(){
                       cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
-                      omx.open("http://10.3.141.1:3000/"+datas.file, omx_options);
+                      omx.open(URI+datas.file, omx_options);
                       omx.setVolume(app_volume);
                       io.emit(call, {"status":"video_started", "duration":omx.getCurrentDuration(), "position":omx.getCurrentPosition()});
                       resetProgressListener();
@@ -174,17 +178,15 @@ io.on('connection', function(socket){
                   }
                 }else{
                   console.log('OMX QUIT ', typeof omx.quit());
-                  if(typeof omx.quit() !== "undefined"){
-                    video_is_playing = false;
-                    omx.quit();
-                    setTimeout(function(){
-                      cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
-                      omx.open("http://10.3.141.1:3000/"+datas.file, omx_options);
-                      omx.setVolume(app_volume);
-                      io.emit(call, {"status":"video_started", "duration":omx.getCurrentDuration(), "position":omx.getCurrentPosition()});
-                      resetProgressListener();
-                    }, 200);
-                  }
+                  video_is_playing = false;
+                  omx.quit();
+                  setTimeout(function(){
+                    cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
+                    omx.open(URI+datas.file, omx_options);
+                    omx.setVolume(app_volume);
+                    io.emit(call, {"status":"video_started", "duration":omx.getCurrentDuration(), "position":omx.getCurrentPosition()});
+                    resetProgressListener();
+                  }, 200);
                 }
                 break;
             case 'pause_video':
@@ -244,7 +246,7 @@ io.on('connection', function(socket){
                     setTimeout(function(){
                       audio_is_playing = false;
                       cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
-                      omx.open("http://10.3.141.1:3000/"+datas.file, omx_audio_options);
+                      omx.open(URI+datas.file, omx_audio_options);
                       omx.setVolume(app_volume);
                       io.emit(call, {"status":"audio_started", "duration":omx.getCurrentDuration(), "position":omx.getCurrentPosition()});
                       resetAudioProgressListener();
@@ -255,7 +257,7 @@ io.on('connection', function(socket){
                   setTimeout(function(){
                     audio_is_playing = false;
                     cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
-                    omx.open("http://10.3.141.1:3000/"+datas.file, omx_audio_options);
+                    omx.open(URI+datas.file, omx_audio_options);
                     omx.setVolume(app_volume);
                     io.emit(call, {"status":"audio_started", "duration":omx.getCurrentDuration(), "position":omx.getCurrentPosition()});
                     resetAudioProgressListener();

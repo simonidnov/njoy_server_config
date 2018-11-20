@@ -8,13 +8,18 @@
                     <h3><%= app.selected_app.tools[t].label %></h3>
                     <ul class="playlist_list">
                     <% for(var k=0; k<app.selected_app.tools[t].playlist.length; k++){ %>
-                        <li data-action="cast" data-type="audio" data-file="<%= app.selected_app.tools[t].playlist[k].file %>">
+                        <li data-action="cast" data-type="<%= app.selected_app.tools[t].playlist[k].type %>" data-file="<%= app.selected_app.tools[t].playlist[k].file %>" data-data="<%= app.selected_app.tools[t].playlist[k].data %>">
                             <img class="play_icon" src="img/play_icon.svg" width="40"/>
                             <span class="label"><%= app.selected_app.tools[t].playlist[k].label %></span>
                         </li>
                     <% } %>
                     </ul>
                 <% } %>
+                <h3>Options De l'application</h3>
+                <ul class="playlist_list">
+                    <li id="connexion_check" style="height:50px; line-height:50px;">vérifier la connexion NJOY</li>
+                    <li id="server_reboot" data-action="cast" data-type="reboot" style="height:50px; line-height:50px;">Redémarrer l'application</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -22,11 +27,17 @@
         <div class="scroller">
             <div class="column">
                 <% if(typeof app.selected_app.introduction.video !== "undefined" && app.selected_app.introduction.video !== ""){ %>
-                    <video data-action="cast" data-type="video" data-file="<%= app.selected_app.intro_video %>" class="video_preview" src="<%= app.selected_app.intro_video %>"/>
+                    <video controls preload="none" class="video_preview" poster="<%= app.ip+"/"+(app.selected_app.introduction.video.replace('mp4', 'png')) %>">
+                        <source src="<%= app.ip+"/"+(app.selected_app.introduction.video.replace('webm', 'mp4')) %>" type="video/mp4">
+                    </video>
                 <% } %>
-                <div class="item_button intro">
+                <div class="item_button intro" data-action="cast" data-type="video" data-file="<%= app.selected_app.introduction.video %>" data-selectedapp="true">
                     <div class="icon cast"><img src="img/cast.svg" width="50"/></div>
                     <span>Jouer l'introduction</span>
+                </div>
+                <div class="item_button intro" data-action="cast" data-type="splash" data-selectedapp="true">
+                    <div class="icon cast"><img src="img/cast.svg" width="50"/></div>
+                    <span>Afficher le splashscreen</span>
                 </div>
                 <h3>Applications</h3>
                 <ul class="tools_list">
@@ -44,25 +55,6 @@
         <div class="scroller">
             <div class="column components">
             </div>
-        </div>
-    </div>
-    <div class="wrapper" id="components_scroll">
-        <div class="scroller">
-            <div class="column components">
-            </div>
-        </div>
-    </div>
-    <div class="video_asset">
-        <div class="player_nav">
-            <div class="icon play" id="play_pause_button">
-              <img src="img/play_icon.svg"/>
-            </div>
-            <div class="icon audio" id="mute_button">
-              <img src="img/audio_icon.svg"/>
-            </div>
-        </div>
-        <div class="seeker">
-            <div class="progress"></div>
         </div>
     </div>
 </div>

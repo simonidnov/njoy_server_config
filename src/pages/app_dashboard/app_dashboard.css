@@ -1,18 +1,17 @@
 .default{
-
+  
 }
 .picture{
     width:100%;
-    max-height:50vh;
     background-size: cover;
     background-position: center center;
     position: relative;
     background-color: #E3E3E3;
     display:table;
+    height:50vh;
 }
 .picture img{
-    width:auto;
-    max-height:50vh;
+    max-height: 50vh;
 }
 .cast_button_top{
     position: absolute;
@@ -23,7 +22,7 @@
     background-size: 60%;
     background-position: center center;
     background-repeat: no-repeat;
-    background-image: url(../../img/cast_screen.svg);
+    background-image: url(../../img/cast.svg);
     background-color:#78A955;
     border-radius: 100%;
 }
