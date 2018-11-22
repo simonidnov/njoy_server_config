@@ -30,9 +30,10 @@ var express = require('express'),
 var omx = require('./modules/omx-interface/index.js'),
     omx_options = {
         audioOutput:'local',
-        blackBackground:true,
+        blackBackground:false,
         disableKeys:true,
-        disableOnScreenDisplay:true
+        disableOnScreenDisplay:true,
+        size:"0 0 640 480"
     };
     omx_audio_options = {
         audioOutput:'local',

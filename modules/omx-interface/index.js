@@ -394,7 +394,9 @@ var open = function (path, options) {
 	}
 	//SET VIDEO SIZE AND POSITION IF ARG PASSED 
 	//TODO ADD SETTINGS
-	args.push('--win "0 0 640 480"');
+	if (settings.sizes){
+		args.push('--win "'+settings.size+'"');
+	}
 
 	args.push('--dbus_name');
 	args.push('org.mpris.MediaPlayer2.omxplayer');
