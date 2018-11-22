@@ -33,7 +33,7 @@ var omx = require('./modules/omx-interface/index.js'),
         blackBackground:false,
         disableKeys:true,
         disableOnScreenDisplay:true,
-        sizes:"0 0 640 480"
+        sizes:"fullscreen"
     };
     omx_audio_options = {
         audioOutput:'local',
@@ -173,6 +173,11 @@ io.on('connection', function(socket){
                     omx.quit();
                     setTimeout(function(){
                       cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
+                      if(typeof datas.size !== "undefined") {
+                        omx_options.sizes = datas.size;
+                      }else {
+                        omx_options.sizes = "fullscreen";
+                      }
                       omx.open(URI+datas.file, omx_options);
                       omx.setVolume(app_volume);
                       io.emit(call, {"status":"video_started", "duration":omx.getCurrentDuration(), "position":omx.getCurrentPosition()});
