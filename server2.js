@@ -54,10 +54,10 @@ if(typeof omx.quit() === "undefined") {
 module.exports = router;
 app.use(express.static('./src'));
 app.get('/receptor', function(req, res){
-  res.sendFile('njoy/src/receptor.html', { root: path.join(__dirname, '../')});
+  res.sendFile('./src/receptor.html', { root: path.join(__dirname, '../')});
 });
 app.get(['/', '/*'], function(req, res){
-  res.sendFile('njoy/src/index.html', { root: path.join(__dirname, '../')});
+  res.sendFile('./src/index.html', { root: path.join(__dirname, '../')});
 });
 
 io.on('connection', function(socket){
