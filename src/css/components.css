@@ -67,14 +67,17 @@ section.section_tab p{
     padding:10px;
 }
 .app_description{
-    font-size: 17px !important;
-    line-height: 30px !important;
-    margin:0 !important;
-    padding:0 !important;
-    width:100% !important;
-    max-width:100% !important;
+    font-size: 14px !important;
+    line-height: 20px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
     padding-bottom: 10px !important;
-    border-bottom:1px solid #E3E3E3;
+    border-bottom: 1px solid #E3E3E3;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    font-weight: lighter;
 }
 video{
     width:100%;
