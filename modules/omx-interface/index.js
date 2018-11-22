@@ -395,7 +395,7 @@ var open = function (path, options) {
 
 	args.push('--dbus_name');
 	args.push('org.mpris.MediaPlayer2.omxplayer');
-
+	console.log(command+' '+args.join(' ')+' < omxpipe');
   exec(command+' '+args.join(' ')+' < omxpipe',function(error, stdout, stderr) {
 		update_duration();
 		console.log('omxpipe done');
