@@ -27,7 +27,7 @@ var express = require('express'),
       URI = 'http://10.3.141.1:3000/';
 
 /* VIDEO INSTANCE */
-var omx = require('njoy/modules/omx-interface'),
+var omx = require('./modules/omx-interface/index.js'),
     omx_options = {
         audioOutput:'local',
         blackBackground:true,
