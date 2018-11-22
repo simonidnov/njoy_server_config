@@ -395,7 +395,7 @@ var open = function (path, options) {
 	//SET VIDEO SIZE AND POSITION IF ARG PASSED 
 	//TODO ADD SETTINGS
 	if (settings.sizes){
-		args.push('--win "'+settings.size+'"');
+		args.push('--win "'+settings.sizes+'"');
 	}
 
 	args.push('--dbus_name');
