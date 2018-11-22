@@ -56,7 +56,7 @@ app.use(express.static('./src'));
 app.get('/receptor', function(req, res){
   res.sendFile('./src/receptor.html', { root: path.join(__dirname, '../')});
 });
-app.get(['/', '/*'], function(req, res){
+app.get(['/'], function(req, res){
   res.sendFile('./src/index.html', { root: path.join(__dirname, '../')});
 });
 
