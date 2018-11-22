@@ -181,7 +181,7 @@
       "prerecquise":[
         {"label":"Lancer l'écran d'accueil", "checked":false}
       ],
-      "introduction":{"video":"ressources/crazyshow/jingles/intro_crazy_show.mp4", "size":"0 0 720 480", "audio":"", "pix":"ressources/crazy_show_logo.svg"},
+      "introduction":{"video":"ressources/crazyshow/jingles/intro_crazy_show.mp4", "size":"0 0 1920 1080", "audio":"", "pix":"ressources/crazy_show_logo.svg"},
       "tools":[
         {
           "label":"Émotions",
