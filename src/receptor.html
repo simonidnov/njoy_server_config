@@ -1,108 +1,258 @@
 <!doctype html>
 <html>
     <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, user-scalable=no">
-      <meta http-equiv="Access-Control-Allow-Origin" content="*">
-      <title>NJOY</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, user-scalable=no">
         <meta http-equiv="Access-Control-Allow-Origin" content="*">
-        <link rel="stylesheet" type="text/css" href="fonts/franchise/stylesheet.css">
-        <link rel="stylesheet" type="text/css" href="node_modules/material-design-icons/iconfont/material-icons.css">
+        <title>NJOY</title>
         <link rel="stylesheet" type="text/css" href="css/app.css">
-        <link rel="stylesheet" type="text/css" href="css/ui.css">
-        <link rel="stylesheet" type="text/css" href="css/components.css">
-        <!--<script src="//cdnjs.cloudflare.com/ajax/libs/sass.js/0.6.3/sass.min.js"></script>
-        <script type="text/javascript" src="js/socket.io/socket.io.js"></script>-->
+        <meta http-equiv="Access-Control-Allow-Origin" content="*">
         <script type="text/javascript" src="js/socket.io/socket.io.js"></script>
-        <script type="text/javascript" src="node_modules/underscore/underscore-min.js"></script>
-        <script type="text/javascript" src="node_modules/gsap/src/minified/TweenMax.min.js"></script>
-        <script type="text/javascript" src="node_modules/gsap/src/minified/TweenLite.min.js"></script>
-        <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
-        <script type="text/javascript" src="node_modules/iscroll/build/iscroll.js"></script>
-        <script type="text/javascript" src="js/EaselJS/lib/easeljs-0.8.1.combined.js"></script>
+        <script src="node_modules/vue/dist/vue.min.js"></script>
     </head>
     <body>
-      <script>
-        function rgb2hex(rgb){
-         rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
-         return (rgb && rgb.length === 4) ? "#" +
-          ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) +
-          ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) +
-          ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
-        }
-        var colors = {
-            "purple":"#612B9B",
-            "green":"#44AC34",
-            "orange":"#FF821D",
-            "lighblue":"#33CAD2",
-            "pink":"#E41694",
-            "maroon":"#784217",
-            "grey":"#7D868B",
-            "red":"#DA0036",
-            "fblue":"#0095A7",
-            "yellow":"#FFCF00",
-            "dgreen":"#008274",
-            "sblue":"#465FC4",
-            "blue":"#042367",
-            "black":"#000000"
-        }
-
-        document.ontouchmove = function(event){
-            //console.log(event);
-            //event.preventDefault();
-        }
-        $(function () {
-          ui.init();
-          /*app.init(function(e){
-              console.log(e);
-          });*/
-        });
-      </script>
-      <script type="text/template" id="teams_template">
-        <div class="teams_display" id="teams_display">
-          <ul>
-            <% for(var i=0; i<teams.length; i++){ %>
-              <li>
-                <div class="label"><%= teams[i].label %></div>
-                <div class="score"><%= teams[i].score %></div>
-                <div class="erlenmeyer">
-                  <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                  	 viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
-                  <style type="text/css">
-                  	.st0{opacity:0.93;fill:#B7DEEA;}
-                  	.st1{fill:#8CB4C1;}
-                  	.st2{opacity:0.7;fill:#FFFFFF;}
-                  	.st3{clip-path:url(#SVGID_2_);}
-                  </style>
-                  <g>
-                  	<g>
-                  		<path class="st0" d="M46.4,235.3c0-0.2,0.1-0.5,0.2-0.7L46.4,235.3z"/>
-                  		<path class="st0" d="M208.4,235.3l-0.2-0.7C208.3,234.8,208.4,235.1,208.4,235.3z"/>
-                  		<path class="st0" d="M208.4,235.3c0,5.6-36.3,10.1-81,10.1c-44.7,0-81-4.5-81-10.1l0.2-0.7l55.2-154l-1.9-21l55.9,0.3l-3.7,20.7
-                  			l56.1,154L208.4,235.3z"/>
-                  		<ellipse class="st1" cx="128" cy="60.3" rx="28.1" ry="4.4"/>
-                  	</g>
-                  </g>
-                  <path class="st2" d="M194.9,227.5L155,108c0,0-11.4-6-30-6s-26,2.4-26,4c0,0-38.8,121.5-38.8,121.8c0,2.8,30.2,5.1,67.4,5.1
-                  	s67.4-2.3,67.4-5.1C195,227.7,194.9,227.6,194.9,227.5z"/>
-                  <g>
-                  	<defs>
-                  		<path id="SVGID_1_" d="M194.9,227.5L155,108c0,0-11.4-6-30-6s-26,2.4-26,4c0,0-38.8,121.5-38.8,121.8c0,2.8,30.2,5.1,67.4,5.1
-                  			s67.4-2.3,67.4-5.1C195,227.7,194.9,227.6,194.9,227.5z"/>
-                  	</defs>
-                  	<clipPath id="SVGID_2_">
-                  		<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
-                  	</clipPath>
-                    <rect id="progress" x="39" y="<%= 224-parseInt(teams[i].score) %>" class="st3" width="176" height="200" fill="<%= teams[i].color %>"/>
-                  </g>
-                  </svg>
-                  <!--<div class="progress" style="height:<%= parseInt(teams[i].score) %>%;"></div>-->
+        <div id="receptor">
+            <div class="contentBackground" v-bind:style="{ backgroundImage: 'url(' + infos.datas.tools.background + ')' }"></div>  
+            <div class="pictureComponent" v-show="infos.datas.status === 'picture'">
+                <img v-bind:src="infos.datas.file"/>
+            </div>
+            <div class="chronos" v-bind:class="chronosClass" v-show="typeof infos.datas.chronos !== 'undefined'">
+                <div class="chronos_bar" v-show="infos.datas.chronos > 0">
+                    <div class="chronos_progress" v-bind:style="{ width : infos.datas.chronosProgress + '%' }"></div>
                 </div>
-              </li>
-            <% } %>
-          </ul>
+                <div class="chronos_count" v-show="infos.datas.chronos > 0">{{ infos.datas.chronos }}</div>
+                <h1 v-show="infos.datas.chronos === 0">TIME'S UP</h1>
+                
+            </div>
+            <div class="teams" v-show="this.infos.datas.teams.length > 0">
+                NOUS AVONS DES EQUIPES
+            </div>
+            <div class="contentBackground">
+                <div class="tl" v-bind:style="{ backgroundImage: 'url(' + infos.datas.tools.tl + ')' }"></div>
+                <div class="tc" v-bind:style="{ backgroundImage: 'url(' + infos.datas.tools.tc + ')' }"></div>
+                <div class="tr" v-bind:style="{ backgroundImage: 'url(' + infos.datas.tools.tr + ')' }"></div>
+                <div class="bl" v-bind:style="{ backgroundImage: 'url(' + infos.datas.tools.bl + ')' }"></div>
+                <div class="bc" v-bind:style="{ backgroundImage: 'url(' + infos.datas.tools.bc + ')' }"></div>
+                <div class="br" v-bind:style="{ backgroundImage: 'url(' + infos.datas.tools.br + ')' }"></div>
+            </div>
         </div>
-      </script>
+        <script>
+            var vm = new Vue({
+                el: '#receptor',
+                data: {
+                    activities: [],
+                    message: 'RECEPTOR',
+                    infos:{
+                        datas:{
+                            tools:{
+                                background:""
+                            }
+                        }
+                    },
+                    socket: io(window.location.origin, {transports: ['websocket', 'xhr-polling']})
+                },
+                created: function(){
+                    this.socket.on('error', function(e) {
+                        console.log('error socket');
+                    });
+                    this.socket.on('connect_failed', function(e) {
+                        console.log("connect_failed");
+                    });
+                    this.socket.on('connect', function(e) {
+                        console.log("socket_connected");
+                    });
+                    this.socket.on('njoy', function(datas) {
+                        console.log(datas);
+                        if(typeof datas.datas !== "undefined"){
+                            if(typeof datas.datas.tools === "undefined"){
+                                datas.datas.tools = this.infos.datas.tools;
+                            }
+                            this.infos = datas;
+                        }
+                        if(this.infos.datas.chronos !== "undefined"){
+                            this.infos.datas.chronosCount = parseInt(this.infos.datas.chronos);
+                            this.infos.datas.chronosProgress = 0;
+                            this.startChronos();
+                        }
+                        switch (datas.datas.status) {
+                            case 'success':
+                                alert('SUCCESS');
+                                break;
+                            case 'fail':
+                                alert('FAIL');
+                                break;
+                            case 'picture':
+                                break;
+                            case 'splash':
+                                break;
+                            case 'video':
+                                break;
+                            case 'famille_en_bronze':
+                                break;
+                        }
+                    }.bind(this));
+                },
+                computed: {
+                    chronosClass: function(){
+                        return {
+                            lastFive: this.infos.datas.chronos <= 5 && this.infos.datas.chronos > 0,
+                            timesUp: this.infos.datas.chronos === 0
+                        }
+                    }
+                },
+                methods: {
+                    startChronos: function() {
+                        if(typeof this.timeout !== "undefined"){
+                            clearTimeout(this.timeout);
+                        }
+                        if(parseInt(this.infos.datas.chronos) > 0){
+                            this.timeout = setTimeout(function () { 
+                                this.infos.datas.chronos = parseInt(this.infos.datas.chronos)-1;
+                                this.infos.datas.chronosProgress = (this.infos.datas.chronos / this.infos.datas.chronosCount) * 100;
+                                this.startChronos();
+                            }.bind(this), 1000);
+                        }else{
+                            this.timeout = setTimeout(function () { 
+                                this.infos.datas.chronos = -1;
+                                this.deleteChronos();
+                            }.bind(this), 3000);
+                        }
+                    },
+                    deleteChronos: function() {
+                        delete this.infos.datas.chronos;
+                    }
+                }
+            });
+        </script>
+        <style>
+            .contentBackground{
+                position: absolute;
+                width:100%;
+                height:100%;
+                background-size: cover;
+                background-position: center center;
+            }
+            .contentBackground .tr,
+            .contentBackground .tc,
+            .contentBackground .tl,
+            .contentBackground .br,
+            .contentBackground .bl,
+            .contentBackground .bc{
+                width:33.3%;
+                height:50%;
+                float:left;
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+            .contentBackground .tl{
+                background-position: top left;
+            }
+            .contentBackground .tc{
+                background-position: top center;
+            }
+            .contentBackground .tr{
+                background-position: top right;
+            }
+            .contentBackground .bl {
+                background-position: bottom left;
+            }
+            .contentBackground .bc {
+                background-position: bottom center;
+            }
+            .contentBackground .br {
+                background-position: bottom right;
+            }
+            .pictureComponent {
+                position: absolute;
+                width:100%;
+                height:100%;
+                top:0;
+                left:0;
+            }
+            .pictureComponent img {
+                width:100%;
+                height:auto;
+            }
+            .chronos {
+                position: absolute;
+                bottom:0;
+                left:0;
+                height:80px;
+                width:100%;
+                transition:height .3 ease-in-out;
+            }
+            .chronos.timesUp{
+                height:100%;
+            }
+            .chronos h1{
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                text-align: center;
+                font-weight: bold;
+                font-size: 50px;
+                width: auto;
+                margin: auto;
+                height: 100px;
+                right: 0;
+                background: #78A955;
+                line-height: 100px;
+                color:#FFF;
+                animation: timeup .1s infinite alternate;
+            }
+            .chronos_bar {
+                width:100%;
+                height:100%;
+                background-color:#F0F0F0;
+            }
+            .chronos_progress {
+                width:100%;
+                height:100%;
+                background-color:#78A955;
+                left:0;
+                right: 0;
+                margin:auto;
+                transition:width .5s ease-out;
+            }
+            .chronos.lastFive .chronos_progress{
+                background-color:red;
+                animation: yo-yo .2s infinite alternate;
+            }
+            .chronos_count {
+                width:100px;
+                height:100px;
+                background-color: #78A955;
+                position: absolute;
+                left:0;
+                right:0;
+                margin:auto;
+                bottom:0;
+                /*border-top-left-radius:50px;
+                border-top-right-radius:50px;*/
+                color:#FFF;
+                text-align: center;
+                line-height: 100px;
+                font-size: 40px;
+                font-weight: bold;
+            }
+            .chronos.lastFive .chronos_count{
+                background-color:red;
+                animation: yo-yo .2s infinite alternate;
+            }
+            @keyframes timeup {
+                from{
+                    transform: rotate(-2deg);
+                }
+                to{
+                    transform: rotate(2deg);
+                }
+            }
+            @keyframes yo-yo {
+                from { background-color:red; font-size:55px; }
+                to { background-color:orange; font-size:45px; }
+            }
+        </style>
     </body>
 </html>

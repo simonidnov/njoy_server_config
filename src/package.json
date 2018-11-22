@@ -30,6 +30,8 @@
     "materialize-css": "^0.98.2",
     "socket.io": "^1.7.3",
     "underscore": "^1.8.3",
-    "uuid": "^3.0.1"
+    "uuid": "^3.0.1",
+    "vue": "^2.5.17",
+    "vuejs": "^3.0.1"
   }
 }

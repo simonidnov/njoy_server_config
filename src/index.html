@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html>
     <head>
@@ -12,18 +13,17 @@
         <link rel="stylesheet" type="text/css" href="css/app.css">
         <link rel="stylesheet" type="text/css" href="css/ui.css">
         <link rel="stylesheet" type="text/css" href="css/components.css">
-        <!--<script src="//cdnjs.cloudflare.com/ajax/libs/sass.js/0.6.3/sass.min.js"></script>
-        <script type="text/javascript" src="js/socket.io/socket.io.js"></script>-->
         <script type="text/javascript" src="js/socket.io/socket.io.js"></script>
         <script type="text/javascript" src="node_modules/underscore/underscore-min.js"></script>
         <script type="text/javascript" src="node_modules/gsap/src/minified/TweenMax.min.js"></script>
         <script type="text/javascript" src="node_modules/gsap/src/minified/TweenLite.min.js"></script>
         <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="node_modules/iscroll/build/iscroll.js"></script>
+        <script type="text/javascript" src="node_modules/jquery-lazyload/jquery.lazyload.js"></script>
         <script type="text/javascript" src="js/EaselJS/lib/easeljs-0.8.1.combined.js"></script>
         <script type="text/javascript" src="js/confettis.js"></script>
-        <script type="text/javascript" src="js/app.js"></script>
         <script type="text/javascript" src="js/ui.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
     </head>
     <body>
       <script>
@@ -57,9 +57,6 @@
         }
         $(function () {
           ui.init();
-          /*app.init(function(e){
-              console.log(e);
-          });*/
         });
       </script>
       <script type="text/template" id="teams_template">
@@ -100,12 +97,67 @@
                     <rect id="progress" x="39" y="<%= 224-parseInt(teams[i].score) %>" class="st3" width="176" height="200" fill="<%= teams[i].color %>"/>
                   </g>
                   </svg>
-                  <!--<div class="progress" style="height:<%= parseInt(teams[i].score) %>%;"></div>-->
                 </div>
               </li>
             <% } %>
           </ul>
         </div>
       </script>
+
+
+
+      <div class="teams">
+          <div class="cross_button">
+            <img src="img/cross_icon.svg"/>
+          </div>
+          <ul id="team_list">
+          </ul>
+          <form class="form">
+              <h3>Créer une team</h3>
+              <label for="team_name">Entrer le nom de la team</label>
+              <input type="text" name="team_name" id="team_name" placeholder="Nom de la team"/>
+              <button id="add_team" class="classic_button">Ajouter</button>
+          </form>
+      </div>
+      <script type="text/template" id="team_template">
+          <li data-id="<%= id %>">
+              <div class="name"><%= label %></div>
+              <button id="delete_button" data-id="<%= id %>" class="classic_button error delete_team_button">
+                  <img src="img/delete_icon.svg"/>
+              </button>
+              <button id="more_button"  data-id="<%= id %>" class="classic_button more_score_button">+</button>
+              <input type="number" class="score set_score_input" data-id="<%= id %>" value="<%= score %>"/>
+              <button id="less_button" data-id="<%= id %>" class="classic_button less_score_button">-</button>
+          </li>
+      </script>
+      <div class="video_asset player_audio_video">
+          <div class="player_nav">
+              <div class="center_assets">
+                  <input class="seeker" id="seeker" name="seeker" type="range" max="100" min="0" step="1" value="0" >
+                  <div class="icon play" id="play_pause_button">
+                    <img src="img/play_icon.svg"/>
+                  </div>
+                  <div class="icon stop" id="quit_video_button">
+                    <img src="img/stop_icon.svg"/>
+                  </div>
+                  <input class="seeker volume" id="volume" name="volume" type="range" value="50" max="100" min="0" step="1">
+              </div>
+          </div>
+      </div>
+      
+      <div class="audio_asset player_audio_video">
+          <div class="player_nav">
+              <div class="center_assets">
+                  <input class="seeker" id="seeker" name="seeker" type="range" max="100" min="0" step="1" value="0" >
+                  <div class="icon play" id="play_pause_button">
+                    <img src="img/play_icon.svg"/>
+                  </div>
+                  <div class="icon stop" id="quit_video_button">
+                    <img src="img/stop_icon.svg"/>
+                  </div>
+                  <input class="seeker volume" id="volume" name="volume" type="range" value="50" max="100" min="0" step="1">
+              </div>
+          </div>
+      </div>
     </body>
 </html>

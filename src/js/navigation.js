@@ -9,6 +9,7 @@ var navigation = {
         params:null
     },
     init:function(){
+        alert('init nav');
         this.load_templates();
     },
     set_listeners : function(){

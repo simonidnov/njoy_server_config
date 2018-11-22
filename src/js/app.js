@@ -1,5 +1,7 @@
 var app = {
-    ip : "http://localhost:3000",
+    ip : window.location.origin,
+    localip: "http://localhost:3000",
+    prodip: "http://10.3.141.1:3000",
     activities : null,
     callback:null,
     infos: {
@@ -25,9 +27,9 @@ var app = {
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
         //this.load_activities();
-        navigation.init();
-        ui.init();
-        document.addEventListener("offline", this.is_offline, false);
+        //navigation.init();
+        //ui.init();
+        //document.addEventListener("offline", this.is_offline, false);
         if(typeof cordova == "undefined"){
             window.addEventListener("batterylow", this.onBatteryLow, false);
         }
@@ -71,7 +73,6 @@ var app = {
         ui.battery_low();
     },
     set_video_assets:function(){
-        
         $(".video_asset #seeker").off("change").on("change", function(e) { 
             var sec = Math.round((app.current_video.duration/100)*$('.video_asset #seeker').val());
             console.log("seek to ", sec);
@@ -128,7 +129,7 @@ var app = {
             app.socket.emit("njoy", {status:"stop_audio"});
         });
     },
-    init_socket:function(callback){
+    init_socket:function(callback) {
         this.callback = callback;
         //this.ip = window.location.origin;
         app.infos.uuid = new Date().getTime();
