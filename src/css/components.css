@@ -130,7 +130,7 @@ video{
     left:0;
     right:0;
     margin:auto;
-    max-width: 100vw;
+    max-width: 320px;
     height: 48px;
     overflow: hidden;
     position: relative;
@@ -143,6 +143,8 @@ video{
     white-space: nowrap;
     left:0;
     right:0;
+    margin:0;
+    padding:0;
 }
 .tab_bar ul li{
     margin:0;
