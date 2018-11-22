@@ -349,8 +349,8 @@ var onEnd = function(callback){
 var open = function (path, options) {
 	var settings = options || {};
 	var args = [];
-	var command = 'omxplayer --win "50 50 50 50"';
-
+	var command = 'omxplayer';
+	console.log("OMX OPEN COMMAND :::: ", command);
 	cache = setDefault();
 
 	cache.path.value = path;
@@ -392,6 +392,9 @@ var open = function (path, options) {
 		args.push('--pos');
 		args.push(''+settings.startAt+'');
 	}
+	//SET VIDEO SIZE AND POSITION IF ARG PASSED 
+	//TODO ADD SETTINGS
+	args.push('--win "0 0 640 480"');
 
 	args.push('--dbus_name');
 	args.push('org.mpris.MediaPlayer2.omxplayer');
