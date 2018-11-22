@@ -1,0 +1,62 @@
+{
+  "_from": "omx-interface",
+  "_id": "omx-interface@1.2.2",
+  "_inBundle": false,
+  "_integrity": "sha1-lHBDNfmlWbnWpmRZ+tAdhlZvCHo=",
+  "_location": "/omx-interface",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "omx-interface",
+    "name": "omx-interface",
+    "escapedName": "omx-interface",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/omx-interface/-/omx-interface-1.2.2.tgz",
+  "_shasum": "94704335f9a559b9d6a66459fad01d86566f087a",
+  "_spec": "omx-interface",
+  "_where": "/Users/sdelamarre/Sites/njoy/njoy",
+  "author": {
+    "name": "Diederik Feilzer",
+    "email": "diederikfeilzer@gmail.com"
+  },
+  "bin": {
+    "dbus.sh": "dbus.sh"
+  },
+  "bugs": {
+    "url": "https://github.com/diederikfeilzer/node-omx-interface/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "express": "^4.13.4",
+    "jsonfile": "^2.4.0",
+    "socket.io": "^1.4.5"
+  },
+  "deprecated": false,
+  "description": "An interface for omxplayer through dbus",
+  "homepage": "https://github.com/diederikfeilzer/node-omx-interface#readme",
+  "keywords": [
+    "omxplayer",
+    "raspberry",
+    "pi",
+    "interface",
+    "gui"
+  ],
+  "main": "index.js",
+  "name": "omx-interface",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diederikfeilzer/node-omx-interface.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.2.2"
+}
