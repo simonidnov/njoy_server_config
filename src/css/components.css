@@ -139,13 +139,10 @@ video{
     overflow-scrolling:touch;
 }
 .tab_bar ul{
-    margin:0;
-    padding:0;
-    position: absolute;
-    display: inline-flex;
+    list-style:none;
+    white-space: nowrap;
     left:0;
     right:0;
-    margin:auto;
 }
 .tab_bar ul li{
     margin:0;
@@ -155,12 +152,11 @@ video{
     line-height: 48px;
     text-align: center;
     color:#333;
-    display: table;
+    display: inline-block;
     height:48px;
     overflow: hidden;
     cursor: pointer;
     border-right: 1px solid #E3E3E3;
-    float:left
 }
 .tab_bar ul li:hover{
     background: #FFF;
