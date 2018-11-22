@@ -6,7 +6,7 @@
 .app_tools .column{
     width: 100%;
     min-height: 100%;
-    display: inline-table;
+    display: block;
     float: left;
 }
 .app_tools .tools_list{
