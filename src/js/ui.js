@@ -196,6 +196,9 @@ var ui = {
                     if(typeof $(this).attr('data-file') !== "undefined"){
                         status['file'] = $(this).attr('data-file');
                     }
+                    if(typeof $(this).attr('data-size') !== "undefined"){
+                        status['size'] = $(this).attr('data-size');
+                    }
                     if(typeof $(this).attr('data-menu') !== "undefined"){
                         status['menu'] = $(this).attr('data-menu');
                     }
