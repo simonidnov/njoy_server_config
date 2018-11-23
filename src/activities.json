@@ -883,7 +883,8 @@
               "components":{
                 "playlist_video":[
                     {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"},
-                    {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"}
+                    {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"},
+                    {"label":"TRANSPARENTE", "desc":"", "datas":{}, "file":"ressources/crazyshow/crazyshow/assets_video/CRAZY_SHOW_TRSP.mov"}
                 ]
               }
             }

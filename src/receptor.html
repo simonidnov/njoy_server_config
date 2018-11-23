@@ -7,6 +7,7 @@
         <meta http-equiv="Access-Control-Allow-Origin" content="*">
         <title>NJOY</title>
         <link rel="stylesheet" type="text/css" href="css/app.css">
+        <link rel="stylesheet" type="text/css" href="css/receptor.css">
         <meta http-equiv="Access-Control-Allow-Origin" content="*">
         <script type="text/javascript" src="js/socket.io/socket.io.js"></script>
         <script src="node_modules/vue/dist/vue.min.js"></script>
@@ -27,6 +28,26 @@
             </div>
             <div class="teams" v-show="this.infos.datas.teams.length > 0">
                 NOUS AVONS DES EQUIPES
+                <ul>
+                    <li v-for="team in this.infos.datas.teams">
+                        <div class="teamAsset" v-bind:style="{ backgroundColor : team.color }"></div>
+                        <div class="teamLabel">{{ team.label }}</div>
+                        <div class="teamScore">{{ team.score }}</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="golden_family" v-show="typeof infos.datas.gf !== 'undefined'">
+                <ul class="choices">
+                    <li v-for="purposes in infos.datas.gf">
+                        <div class="panel" v-bind:class="{ selected : purposes.value }">
+                            <div class="front"></div>
+                            <div class="back">
+                                {{ purposes.label }}
+                                <div class="points">5</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
             <div class="contentBackground">
                 <div class="tl" v-bind:style="{ backgroundImage: 'url(' + infos.datas.tools.tl + ')' }"></div>
@@ -68,13 +89,12 @@
                             if(typeof datas.datas.tools === "undefined"){
                                 datas.datas.tools = this.infos.datas.tools;
                             }
-                            this.infos = datas;
+                            if(datas.datas.status !== "golden_family"){
+                                this.infos = datas;
+                            }
                         }
-                        if(this.infos.datas.chronos !== "undefined"){
-                            this.infos.datas.chronosCount = parseInt(this.infos.datas.chronos);
-                            this.infos.datas.chronosProgress = 0;
-                            this.startChronos();
-                        }
+                        
+
                         switch (datas.datas.status) {
                             case 'success':
                                 console.log('SUCCESS');
@@ -88,8 +108,27 @@
                                 break;
                             case 'video':
                                 break;
-                            case 'famille_en_bronze':
+                            case 'golden_family':
+                                this.infos.datas.gf[parseInt(datas.datas.response)].value = 1;
                                 break;
+                            case 'object':
+                                if(datas.datas.component === "golden_family") {
+                                    var gf = [],
+                                        choices = datas.datas.tools.menu[parseInt(datas.datas.menu)].components.golden_family[parseInt(datas.datas.component_id)].choices;
+                                    for(var i=0; i<choices.length; i++){
+                                        gf.push({label:choices[i], value:0});
+                                    }
+                                    this.infos.datas.gf = gf;
+                                    console.log('this.infos.datas.choices ', this.infos.datas.gf);
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                        if(this.infos.datas.chronos !== "undefined"){
+                            this.infos.datas.chronosCount = parseInt(this.infos.datas.chronos);
+                            this.infos.datas.chronosProgress = 0;
+                            this.startChronos();
                         }
                     }.bind(this));
                 },
@@ -126,133 +165,7 @@
             });
         </script>
         <style>
-            .contentBackground{
-                position: absolute;
-                width:100%;
-                height:100%;
-                background-size: cover;
-                background-position: center center;
-            }
-            .contentBackground .tr,
-            .contentBackground .tc,
-            .contentBackground .tl,
-            .contentBackground .br,
-            .contentBackground .bl,
-            .contentBackground .bc{
-                width:33.3%;
-                height:50%;
-                float:left;
-                background-repeat: no-repeat;
-                background-size: contain;
-            }
-            .contentBackground .tl{
-                background-position: top left;
-            }
-            .contentBackground .tc{
-                background-position: top center;
-            }
-            .contentBackground .tr{
-                background-position: top right;
-            }
-            .contentBackground .bl {
-                background-position: bottom left;
-            }
-            .contentBackground .bc {
-                background-position: bottom center;
-            }
-            .contentBackground .br {
-                background-position: bottom right;
-            }
-            .pictureComponent {
-                position: absolute;
-                width:100%;
-                height:100%;
-                top:0;
-                left:0;
-            }
-            .pictureComponent img {
-                width:100%;
-                height:auto;
-            }
-            .chronos {
-                position: absolute;
-                bottom:0;
-                left:0;
-                height:80px;
-                width:100%;
-                transition:height .3 ease-in-out;
-            }
-            .chronos.timesUp{
-                height:100%;
-            }
-            .chronos h1{
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                text-align: center;
-                font-weight: bold;
-                font-size: 50px;
-                width: auto;
-                margin: auto;
-                height: 100px;
-                right: 0;
-                background: #78A955;
-                line-height: 100px;
-                color:#FFF;
-                animation: timeup .1s infinite alternate;
-            }
-            .chronos_bar {
-                width:100%;
-                height:100%;
-                background-color:#F0F0F0;
-            }
-            .chronos_progress {
-                width:100%;
-                height:100%;
-                background-color:#78A955;
-                left:0;
-                right: 0;
-                margin:auto;
-                transition:width .5s ease-out;
-            }
-            .chronos.lastFive .chronos_progress{
-                background-color:red;
-                animation: yo-yo .2s infinite alternate;
-            }
-            .chronos_count {
-                width:100px;
-                height:100px;
-                background-color: #78A955;
-                position: absolute;
-                left:0;
-                right:0;
-                margin:auto;
-                bottom:0;
-                /*border-top-left-radius:50px;
-                border-top-right-radius:50px;*/
-                color:#FFF;
-                text-align: center;
-                line-height: 100px;
-                font-size: 40px;
-                font-weight: bold;
-            }
-            .chronos.lastFive .chronos_count{
-                background-color:red;
-                animation: yo-yo .2s infinite alternate;
-            }
-            @keyframes timeup {
-                from{
-                    transform: rotate(-2deg);
-                }
-                to{
-                    transform: rotate(2deg);
-                }
-            }
-            @keyframes yo-yo {
-                from { background-color:red; font-size:55px; }
-                to { background-color:orange; font-size:45px; }
-            }
+            
         </style>
     </body>
 </html>
