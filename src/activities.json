@@ -182,6 +182,7 @@
         {"label":"Lancer l'écran d'accueil", "checked":false}
       ],
       "introduction":{"video":"ressources/crazyshow/jingles/intro_crazy_show.mp4", "size":"0 0 1920 1080", "audio":"", "pix":"ressources/crazy_show_logo.svg"},
+      "final":{"video":"ressources/crazyshow/jingles/generique_fin.mp4", "size":"0 0 1920 1080", "audio":"", "pix":"ressources/crazy_show_logo.svg"},
       "tools":[
         {
           "label":"Émotions",
@@ -197,6 +198,7 @@
           "label":"Ambiance",
           "desc":"Des musiques d'ambiance selon les humeurs pour combler les vides.",
           "playlist":[
+              {"label":"Vegedream", "file":"ressources/crazyshow/blindtest/2018/12_Vegedream_Ramenez-la-coupe-a-la-maison.mp3",  "type":"audio"},
               {"label":"Ray Charles", "file":"ressources/audio/ambiance/1.mp3", "type":"audio"},
               {"label":"Franck Sinatra", "file":"ressources/audio/ambiance/2.mp3", "type":"audio"},
               {"label":"Nate King Cole", "file":"ressources/audio/ambiance/3.mp3", "type":"audio"},
@@ -1519,8 +1521,8 @@
               "components":{
                 "playlist_video":[
                     {"label":"Exemple", "desc":"", "datas":{}, "file":"ressources/crazyshow/tourenfolie/tourenfolie.mp4"},
-                    {"label":"chronos 60", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/chronos_20.mp4"},
-                    {"label":"chronos 20", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/chronos_60.mp4"}
+                    {"label":"chronos 60", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/chronos_60.mp4"},
+                    {"label":"chronos 20", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/chronos_20.mp4"}
                 ]
               }
             }
@@ -1545,8 +1547,8 @@
               "components":{
                 "playlist_video":[
                     {"label":"Exemple", "desc":"", "datas":{}, "file":"ressources/crazyshow/cintre_esprit/cintre_esprit.mp4"},
-                    {"label":"chronos 60", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/chronos_20.mp4"},
-                    {"label":"chronos 20", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/chronos_60.mp4"}
+                    {"label":"chronos 60", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/chronos_60.mp4"},
+                    {"label":"chronos 20", "desc":"", "datas":{}, "file":"ressources/crazyshow/jingles/chronos_20.mp4"}
                 ]
               }
             }
