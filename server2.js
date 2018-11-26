@@ -154,12 +154,9 @@ io.on('connection', function(socket){
                 break;
             case 'video':
                 //omx.quit();
-                console.log('video');
                 if(typeof video_is_playing !== "undefined"){
                   if(video_is_playing){
-                    console.log('VIDEO QUIT ? ', omx);
                     omx.quit();
-                    console.log('OMX EXIST ? ', omx);
                     video_is_playing = false;
                     if(playerTimer !== null){
                       clearTimeout(playerTimer);
@@ -168,7 +165,6 @@ io.on('connection', function(socket){
                     io.emit(call, {"status":"video_stopped"});
                     io.emit(call, {"status":"error", datas:{"title":"video", "message":"Une vidéo était en cours de lecture et vient d'être coupée."}});
                   }else{
-                    console.log('VIDEO QUIT ? ', omx);
                     video_is_playing = false;
                     omx.quit();
                     setTimeout(function(){
@@ -185,7 +181,6 @@ io.on('connection', function(socket){
                     }, 200);
                   }
                 }else{
-                  console.log('OMX QUIT ', typeof omx.quit());
                   video_is_playing = false;
                   omx.quit();
                   setTimeout(function(){

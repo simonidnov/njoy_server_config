@@ -208,6 +208,16 @@
               {"label":"Dave Brubeck", "file":"ressources/audio/ambiance/9.mp3", "type":"audio"},
               {"label":"Dean Martin", "file":"ressources/audio/ambiance/10.mp3", "type":"audio"}
           ]
+        },
+        {
+          "label":"Ambiance Noël",
+          "desc":"Des musiques d'ambiance de Noël pour combler les vides.",
+          "playlist":[
+              {"label":"Bobby Helms : Jingle Bell Rock", "file":"ressources/audio/ambiance_noel/1_Bobby-Helms_Jingle-Bell-Rock.mp3", "type":"audio"},
+              {"label":"Ella Fitzgerald : Frosty the snowman", "file":"ressources/audio/ambiance_noel/2_Elza-Fitzgerald_Frosty-The-Snowman.mp3", "type":"audio"},
+              {"label":"Sinatra : Let it snow", "file":"ressources/audio/ambiance_noel/3_Frank-Sinatra_Let-it-Snow.mp3", "type":"audio"},
+              {"label":"Sia : Santa's coming for us", "file":"ressources/audio/ambiance_noel/4_Sia_Santa-s-Coming-For-Us.mp3", "type":"audio"}
+          ]
         }
       ],
       "apps":[
@@ -384,7 +394,7 @@
         },
         {
           "label":"Dessiner c'est gagné",
-          "desc":"Dessin en live. Le dessin fait sur la tablette se dessine à l'écran. Il faut faire deviner le dessin en cours",
+          "desc":"Un candidat prend la tablette, et doit dessiner une liste de mots / d’expressions et les faire deviner à trois autres participants. 5 tentatives.",
           "background":"ressources/crazyshow/jingles/dessinercestgagne.svg",
           "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
           "tl":"",
@@ -397,10 +407,223 @@
           "menu":[
             {
               "label":"Musiques d'ambiance",
+              "desc":"choisissez d'une musique d'ambiance pour l'activité",
+              "components":{
+                "playlist_audio":[
+                    {"label":"Musique de fond #1", "desc":"", "datas":{}, "file":"ressources/audio/ambiance/hall_of_the_Mountai_King.mp3"},
+                    {"label":"Musique de fond #2", "desc":"", "datas":{}, "file":"ressources/audio/ambiance/Quirky_Dog.mp3"}
+                ]
+              }
+            },
+            {
+              "label":"4-6 ans",
               "desc":"choisissez une musique d'ambiance pour l'activité",
               "components":{
                 "galery":[
-                    {"label":"squelette", "desc":"dessiner un squelette", "datas":{}, "action":"drawing", "action_label":"Dessiner", "chronos":30, "file":"ressources/crazyshow/Photomime/squelette.jpg"}
+                  {
+                    "label":"Maison",
+                    "desc":"Dessine une maison",
+                    "datas":{},
+                    "action":"drawing",
+                    "action_label":"Dessiner",
+                    "chronos":30,
+                    "file":"ressources/crazyshow/dessinercestgagne/maison.jpg"
+                  },
+                  {
+                    "label":"Bonhomme",
+                    "desc":"Dessine un bonhomme",
+                    "datas":{},
+                    "action":"drawing",
+                    "action_label":"Dessiner",
+                    "chronos":30,
+                    "file":"ressources/crazyshow/dessinercestgagne/bonhomme.jpg"
+                  },
+                  {
+                    "label":"Soleil",
+                    "desc":"Dessine un soleil",
+                    "datas":{},
+                    "action":"drawing",
+                    "action_label":"Dessiner",
+                    "chronos":30,
+                    "file":"ressources/crazyshow/dessinercestgagne/soleil.jpg"
+                  },
+                  {
+                    "label":"Nuage",
+                    "desc":"Dessine un nuage",
+                    "datas":{},
+                    "action":"drawing",
+                    "action_label":"Dessiner",
+                    "chronos":30,
+                    "file":"ressources/crazyshow/dessinercestgagne/nuage.jpg"
+                  },
+                  {
+                    "label":"Arbre",
+                    "desc":"Dessine un arbre",
+                    "datas":{},
+                    "action":"drawing",
+                    "action_label":"Dessiner",
+                    "chronos":30,
+                    "file":"ressources/crazyshow/dessinercestgagne/arbre.jpg"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"6-9 ans",
+              "desc":"choisissez une musique d'ambiance pour l'activité",
+              "components":{
+                "galery":[
+                  {
+                    "label":"Voiture",
+                    "desc":"Dessine une voiture",
+                    "datas":{},
+                    "action":"drawing",
+                    "action_label":"Dessiner",
+                    "chronos":30,
+                    "file":"ressources/crazyshow/dessinercestgagne/voiture.jpg"
+                  },
+                  {
+                    "label":"Squelette",
+                    "desc":"Dessine un squelette",
+                    "datas":{},
+                    "action":"drawing",
+                    "action_label":"Dessiner",
+                    "chronos":30,
+                    "file":"ressources/crazyshow/dessinercestgagne/squelette.jpg"
+                  },
+                  {
+                    "label":"Ordinateur",
+                    "desc":"Dessine un ordinateur",
+                    "datas":{},
+                    "action":"drawing",
+                    "action_label":"Dessiner",
+                    "chronos":30,
+                    "file":"ressources/crazyshow/dessinercestgagne/ordinateur.jpg"
+                  },
+                  {
+                    "label":"Avion",
+                    "desc":"Dessine un avion",
+                    "datas":{},
+                    "action":"drawing",
+                    "action_label":"Dessiner",
+                    "chronos":30,
+                    "file":"ressources/crazyshow/dessinercestgagne/avion.jpg"
+                  },
+                  {
+                    "label":"Calculatrice",
+                    "desc":"Dessine une calculatrice",
+                    "datas":{},
+                    "action":"drawing",
+                    "action_label":"Dessiner",
+                    "chronos":30,
+                    "file":"ressources/crazyshow/dessinercestgagne/calculatrice.jpg"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"9-12+",
+              "desc":"choisissez une musique d'ambiance pour l'activité",
+              "components":{
+                "galery":[
+                  {
+                    "label":"Machine à laver",
+                    "desc":"Dessine une machine à laver",
+                    "datas":{},
+                    "action":"drawing",
+                    "action_label":"Dessiner",
+                    "chronos":30,
+                    "file":"ressources/crazyshow/dessinercestgagne/machinealaver.jpg"
+                  },
+                  {
+                    "label":"Clé USB",
+                    "desc":"Dessine une clé USB",
+                    "datas":{},
+                    "action":"drawing",
+                    "action_label":"Dessiner",
+                    "chronos":30,
+                    "file":"ressources/crazyshow/dessinercestgagne/cleusb.jpg"
+                  },
+                  {
+                    "label":"Frisbee",
+                    "desc":"Dessine un frisbee",
+                    "datas":{},
+                    "action":"drawing",
+                    "action_label":"Dessiner",
+                    "chronos":30,
+                    "file":"ressources/crazyshow/dessinercestgagne/frisbee.jpg"
+                  },
+                  {
+                    "label":"Salade de fruits",
+                    "desc":"Dessine une salade de fruits",
+                    "datas":{},
+                    "action":"drawing",
+                    "action_label":"Dessiner",
+                    "chronos":30,
+                    "file":"ressources/crazyshow/dessinercestgagne/saladedefruits.jpg"
+                  },
+                  {
+                    "label":"La France",
+                    "desc":"Dessine la France",
+                    "datas":{},
+                    "action":"drawing",
+                    "action_label":"Dessiner",
+                    "chronos":30,
+                    "file":"ressources/crazyshow/dessinercestgagne/france.jpg"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"Adultes (expressions)",
+              "desc":"choisissez une musique d'ambiance pour l'activité",
+              "components":{
+                "galery":[
+                  {
+                    "label":"Les yeux plus gros que le ventre",
+                    "desc":"Dessine l'expression 'Les yeux plus gros que le ventre'",
+                    "datas":{},
+                    "action":"drawing",
+                    "action_label":"Dessiner",
+                    "chronos":30,
+                    "file":"ressources/crazyshow/dessinercestgagne/avoirlesyeuxplusgrosqueleventre.jpg"
+                  },
+                  {
+                    "label":"Les murs ont des oreilles",
+                    "desc":"Dessine l'espression 'Les murs ont des oreilles'",
+                    "datas":{},
+                    "action":"drawing",
+                    "action_label":"Dessiner",
+                    "chronos":30,
+                    "file":"ressources/crazyshow/dessinercestgagne/lesmursontdesoreilles.jpg"
+                  },
+                  {
+                    "label":"Prendre sous son aile",
+                    "desc":"Dessine l'expression 'Prendre sous son aile'",
+                    "datas":{},
+                    "action":"drawing",
+                    "action_label":"Dessiner",
+                    "chronos":30,
+                    "file":"ressources/crazyshow/dessinercestgagne/prendresoussonaile.jpg"
+                  },
+                  {
+                    "label":"Avoir la puce à l'oreille",
+                    "desc":"Dessine l'expression 'Avoir la puce à l'oreille'",
+                    "datas":{},
+                    "action":"drawing",
+                    "action_label":"Dessiner",
+                    "chronos":30,
+                    "file":"ressources/crazyshow/dessinercestgagne/avoirlapucealoreille.jpg"
+                  },
+                  {
+                    "label":"Faire la tête au carré",
+                    "desc":"Dessine l'expression 'Faire la tête au carré'",
+                    "datas":{},
+                    "action":"drawing",
+                    "action_label":"Dessiner",
+                    "chronos":30,
+                    "file":"ressources/crazyshow/dessinercestgagne/fairelateteaucarre.jpg"
+                  }
                 ]
               }
             }
@@ -572,7 +795,7 @@
           "menu":[
             {
               "label":"6-10 ans",
-              "desc":"Des questions pour les plus jeunes de 4 à 6 ans",
+              "desc":"Des questions pour les plus jeunes de 6 à 10 ans",
               "components":{
                 "golden_family":[
                     {
@@ -584,7 +807,13 @@
                             "display_response":"regis",
                             "type":"golden_family"
                         },
-                        "choices":["On est bientôt arrivé ?", "j'ai envie de faire pipi", "Je m'ennuie", "J'ai FAIM !", "Des chants"],
+                        "choices":[
+                          "On est bientôt arrivé ?",
+                          "j'ai envie de faire pipi",
+                          "Je m'ennuie",
+                          "J'AI FAIM !",
+                          "J'AI SOIF !"
+                        ],
                         "response":"all"
                     },
                     {
@@ -601,14 +830,14 @@
                     },
                     {
                         "label":"À l'école",
-                        "desc":"Quel objet trouve-t-on dans une classe d'école primaire ?",
+                        "desc":"Que trouve t'on dans une classe d'école primaire ?",
                         "datas":{
                             "chrono":60,
                             "display":"screen",
                             "display_response":"regis",
                             "type":"golden_family"
                         },
-                        "choices":["Tableau", "Horloge", "Carte de France", "Cahier", "Cartable"],
+                        "choices":["Un tableau", "Des tables", "Des chaises", "Des crayons/trousses", "Des cartables"],
                         "response":"all"
                     },
                     {
@@ -625,14 +854,14 @@
                     },
                     {
                         "label":"Au quotidien",
-                        "desc":"Quel mot emploie-t-on tous les jours ?",
+                        "desc":"Quels mots emploie-t-on tous les jours ?",
                         "datas":{
                             "chrono":60,
                             "display":"screen",
                             "display_response":"regis",
                             "type":"golden_family"
                         },
-                        "choices":["Bonjour", "Salut", "Merci", "Au revoir", "ça va ?"],
+                        "choices":["Bonjour", "S'il te plait", "Merci", "Au revoir", "ça va ?"],
                         "response":"all"
                     },
                     {
@@ -644,7 +873,7 @@
                             "display_response":"regis",
                             "type":"golden_family"
                         },
-                        "choices":["Foot", "Basket", "handball", "volley", "Water-Polo"],
+                        "choices":["Football", "Basket-ball", "Handball", "Volley-ball", "Rugby"],
                         "response":"all"
                     }
                 ]
@@ -654,29 +883,65 @@
               "label":"10-12 ans",
               "desc":"Des questions pour les 6 à 8 ans",
               "components":{
-                "quiz_component":[
+                "golden_family":[
                     {
-                        "label":"question 4",
-                        "desc":"description question 4",
+                        "label":"La vie de tous les jours",
+                        "desc":"Qu’est-ce qu’on ouvre et referme souvent dans la journée ?",
                         "datas":{
                             "chrono":60,
                             "display":"screen",
                             "display_response":"regis",
                             "type":"golden_family"
                         },
-                        "choices":["Choix 1", "Choix 2", "Choix 3", "Choix 4"],
+                        "choices":["La bouche", "La fenêtre", "La porte", "Le frigo", "Les volets"],
                         "response":"all"
                     },
                     {
-                        "label":"question 3",
-                        "desc":"description question 3",
+                        "label":"Les animaux",
+                        "desc":"Quels insectes croise-t-on le plus souvent ?",
                         "datas":{
                             "chrono":60,
                             "display":"screen",
                             "display_response":"regis",
                             "type":"golden_family"
                         },
-                        "choices":["On est bientôt arrivé ?", "j'ai envie de faire pipi", "j'ai envie de vomir", "J'ai FAIM !"],
+                        "choices":["Mouche", "Fourmi", "Moustique", "Araignée", "Abeille"],
+                        "response":"all"
+                    },
+                    {
+                        "label":"Les sports",
+                        "desc":"Quels sports demandent de lancer un objet ?",
+                        "datas":{
+                            "chrono":60,
+                            "display":"screen",
+                            "display_response":"regis",
+                            "type":"golden_family"
+                        },
+                        "choices":["Handball", "Lancer de javelot", "Lancer de poids", "Lancer de marteau", "Basket"],
+                        "response":"all"
+                    },
+                    {
+                        "label":"Les vacances",
+                        "desc":"Que peut-on faire à la mer ?",
+                        "datas":{
+                            "chrono":60,
+                            "display":"screen",
+                            "display_response":"regis",
+                            "type":"golden_family"
+                        },
+                        "choices":["Se baigner", "Bronzer", "Un château de sable", "Jouer à la raquette", "Jouer au beach volley"],
+                        "response":"all"
+                    },
+                    {
+                        "label":"La nature",
+                        "desc":"Avec quoi se protège-t-on du soleil ?",
+                        "datas":{
+                            "chrono":60,
+                            "display":"screen",
+                            "display_response":"regis",
+                            "type":"golden_family"
+                        },
+                        "choices":["Lunettes de soleil", "Casquette", "Chapeau", "Parasol", "Crème solaire"],
                         "response":"all"
                     }
                 ]
@@ -686,7 +951,7 @@
         },
         {
           "label":"CHABADA",
-          "desc":"les enfants sont en équipes, affichage d'un mot à l'écran, tour à tour les équipes doivent chanter une chanson contenant le mot.",
+          "desc":"Un mot est donné. Chacun votre tour, vous devez trouver une chanson qui contient ce mot. Et la chanter, bien sûr! Sinon c'est trop facile ! Celui ou celle qui sèche est éliminé ! A chaque élimination, on change de mot.",
           "background":"ressources/crazyshow/jingles/chabada.svg",
           "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
           "tl":"",
@@ -698,16 +963,48 @@
           "jingle":{"file":"ressources/crazyshow/jingles/chabada.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
-              "label":"Clips vidéos",
-              "desc":"des clips vidéos à reconstituer en AIR BAND",
+              "label":"CHABADA",
+              "desc":"Trouver des chansons contenant le mot affiché",
               "components":{
+                "word_component":[
+                  {
+                      "label":"Soleil",
+                      "desc":"Trouver des chansons qui contiennent le mot Soleil",
+                      "datas":{
+                          "chrono":60,
+                          "display":"screen",
+                          "display_response":"regis",
+                          "type":"word_component"
+                      }
+                  },
+                  {
+                    "label":"Boule",
+                    "desc":"Trouver des chansons qui contiennent le mot Soleil",
+                    "datas":{
+                        "chrono":60,
+                        "display":"screen",
+                        "display_response":"regis",
+                        "type":"word_component"
+                    }
+                  },
+                  {
+                    "label":"Biere",
+                    "desc":"Trouver des chansons qui contiennent le mot Soleil",
+                    "datas":{
+                        "chrono":60,
+                        "display":"screen",
+                        "display_response":"regis",
+                        "type":"word_component"
+                    }
+                  }
+                ]
               }
             }
           ]
         },
         {
           "label":"Repli Quiz",
-          "desc":"repliquiz description de l'animation",
+          "desc":"Deux équipes de 5 enfants s’affrontent, plus un animateur. Un buzzer, une liste de questions, le premier à buzzer peut donner la réponse.",
           "background":"ressources/crazyshow/jingles/repliquiz.svg",
           "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
           "tl":"",
@@ -719,9 +1016,209 @@
           "jingle":{"file":"ressources/crazyshow/jingles/repliquiz.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
-              "label":"Clips vidéos",
-              "desc":"des clips vidéos à reconstituer en AIR BAND",
+              "label":"4-6 ans",
+              "desc":"Des questions pour les plus jeunes de 4 à 6 ans",
               "components":{
+                "repli_quiz":[
+                    {
+                        "label":"",
+                        "desc":"Quel objet utilise-t-on pour prendre la température ?",
+                        "datas":{
+                            "chrono":60,
+                            "display":"screen",
+                            "display_response":"regis",
+                            "type":"repli_quiz"
+                        },
+                        "choices":[
+                          "Thermomètre"
+                        ],
+                        "response":"all"
+                    },
+                    {
+                        "label":"",
+                        "desc":"Quel animal donne du lait ?",
+                        "datas":{
+                            "chrono":60,
+                            "display":"screen",
+                            "display_response":"regis",
+                            "type":"repli_quiz"
+                        },
+                        "choices":["La vache"],
+                        "response":"all"
+                    },
+                    {
+                        "label":"",
+                        "desc":"En voiture, à quel couleur de feu dois-je m’arrêter ?",
+                        "datas":{
+                            "chrono":60,
+                            "display":"screen",
+                            "display_response":"regis",
+                            "type":"repli_quiz"
+                        },
+                        "choices":["Rouge"],
+                        "response":"all"
+                    },
+                    {
+                        "label":"",
+                        "desc":"Quelle est la capitale de la France ?",
+                        "datas":{
+                            "chrono":60,
+                            "display":"screen",
+                            "display_response":"regis",
+                            "type":"repli_quiz"
+                        },
+                        "choices":["Paris"],
+                        "response":"all"
+                    }
+                ]
+              }
+            },
+            {
+              "label":"6-12 ans",
+              "desc":"Des questions pour les 6 à 12 ans",
+              "components":{
+                "quiz_component":[
+                    {
+                        "label":"",
+                        "desc":"Citez trois métiers où l’on doit porter un casque",
+                        "datas":{
+                            "chrono":60,
+                            "display":"screen",
+                            "display_response":"regis",
+                            "type":"quiz_component"
+                        },
+                        "choices":["", "", ""],
+                        "response":"all"
+                    },
+                    {
+                        "label":"",
+                        "desc":"Je suis un sorcier très célèbre avec des lunettes. Qui suis-je ?",
+                        "datas":{
+                            "chrono":60,
+                            "display":"screen",
+                            "display_response":"regis",
+                            "type":"quiz_component"
+                        },
+                        "choices":["Harry Potter"],
+                        "response":"all"
+                    },
+                    {
+                        "label":"",
+                        "desc":"Dans quel pays trouve-ton des sumos ?",
+                        "datas":{
+                            "chrono":60,
+                            "display":"screen",
+                            "display_response":"regis",
+                            "type":"quiz_component"
+                        },
+                        "choices":["Au Japon"],
+                        "response":"all"
+                    },
+                    {
+                        "label":"",
+                        "desc":"Quel festival trouve-ton chaque année à Cannes ?",
+                        "datas":{
+                            "chrono":60,
+                            "display":"screen",
+                            "display_response":"regis",
+                            "type":"quiz_component"
+                        },
+                        "choices":["Festival du cinéma"],
+                        "response":"all"
+                    },
+                    {
+                        "label":"",
+                        "desc":"Combien y’a-t-il de jours dans une année ?",
+                        "datas":{
+                            "chrono":60,
+                            "display":"screen",
+                            "display_response":"regis",
+                            "type":"quiz_component"
+                        },
+                        "choices":["365"],
+                        "response":"all"
+                    },
+                    {
+                        "label":"",
+                        "desc":"Quel animal construit des barrages sur les rivières ?",
+                        "datas":{
+                            "chrono":60,
+                            "display":"screen",
+                            "display_response":"regis",
+                            "type":"quiz_component"
+                        },
+                        "choices":["Le castor"],
+                        "response":"all"
+                    },
+                    {
+                        "label":"",
+                        "desc":"Dans quoi vivent les indiens ?",
+                        "datas":{
+                            "chrono":60,
+                            "display":"screen",
+                            "display_response":"regis",
+                            "type":"quiz_component"
+                        },
+                        "choices":["Des tipis"],
+                        "response":"all"
+                    }
+                ]
+              }
+            },
+            {
+              "label":"12 ans et +",
+              "desc":"Des questions pour les enfants de 12 ans et plus",
+              "components":{
+                "quiz_component":[
+                    {
+                        "label":"",
+                        "desc":"Comment appelle-ton la peur des araignées ?",
+                        "datas":{
+                            "chrono":60,
+                            "display":"screen",
+                            "display_response":"regis",
+                            "type":"quiz_component"
+                        },
+                        "choices":["L’arachnophobie"],
+                        "response":"all"
+                    },
+                    {
+                        "label":"",
+                        "desc":"Qui était surnommé « Le Roi Soleil » ?",
+                        "datas":{
+                            "chrono":60,
+                            "display":"screen",
+                            "display_response":"regis",
+                            "type":"quiz_component"
+                        },
+                        "choices":["Louis XIV"],
+                        "response":"all"
+                    },
+                    {
+                        "label":"",
+                        "desc":"Comment s’appelle l’écriture utilisée par les personnages aveugles ?",
+                        "datas":{
+                            "chrono":60,
+                            "display":"screen",
+                            "display_response":"regis",
+                            "type":"quiz_component"
+                        },
+                        "choices":["Le braille"],
+                        "response":"all"
+                    },
+                    {
+                        "label":"",
+                        "desc":"Quelle est la capitale des États-Unis ?",
+                        "datas":{
+                            "chrono":60,
+                            "display":"screen",
+                            "display_response":"regis",
+                            "type":"quiz_component"
+                        },
+                        "choices":["Washington"],
+                        "response":"all"
+                    }
+                ]
               }
             }
           ]
@@ -744,7 +1241,7 @@
               "desc":"karaoke",
               "components":{
                 "playlist_video":[
-                    {"label":"Christophe Mae : On sattache", "desc":"", "datas":{}, "file":"ressources/crazyshow/stopandgo/SERIE_NORMALE/1_Christophe-Mae_on-sattache.mp4"},
+                    {"label":"Christophe Mae : On s'attache", "desc":"", "datas":{}, "file":"ressources/crazyshow/stopandgo/SERIE_NORMALE/1_Christophe-Mae_on-sattache.mp4"},
                     {"label":"JJ Goldman : A nos actes manques", "desc":"", "datas":{}, "file":"ressources/crazyshow/stopandgo/SERIE_NORMALE/2_Jean-jacques-goldman_a-nos-actes-manques.mp4"},
                     {"label":"Roi Soleil : Mon essentiel", "desc":"", "datas":{}, "file":"ressources/crazyshow/stopandgo/SERIE_NORMALE/3_Roi-Soleil_mon-essentiel.mp4"},
                     {"label":"Gregoire : Toi plus moi", "desc":"", "datas":{}, "file":"ressources/crazyshow/stopandgo/SERIE_NORMALE/4_Gregoire_toi-plus-moi.mp4"},
@@ -755,7 +1252,9 @@
                     {"label":"Jul ft Vitaa : Ca les derange", "desc":"", "datas":{}, "file":"ressources/crazyshow/stopandgo/SERIE_NORMALE/9_Jul-ft-Vitaa_ca-les-derange.mp4"},
                     {"label":"Vitaa ft Maitre Gims : game over", "desc":"", "datas":{}, "file":"ressources/crazyshow/stopandgo/SERIE_NORMALE/10_Vitaa-ft-Maitre-Gims_game-over.mp4"},
                     {"label":"Tal : Are we awake", "desc":"", "datas":{}, "file":"ressources/crazyshow/stopandgo/SERIE_NORMALE/11_Tal_are-we-awake.mp4"},
-                    {"label":"Black-M : sur ma route", "desc":"", "datas":{}, "file":"ressources/crazyshow/stopandgo/SERIE_NORMALE/12_Black-M_sur-ma-route.mp4"}
+                    {"label":"Black-M : sur ma route", "desc":"", "datas":{}, "file":"ressources/crazyshow/stopandgo/SERIE_NORMALE/12_Black-M_sur-ma-route.mp4"},
+                    {"label":"Magic System - Magic in th air", "desc":"", "datas":{}, "file":"ressources/crazyshow/stopandgo/SERIE_NORMALE/13-Magic-System-Magic-in-the-air.mp4"},
+                    {"label":"Kids United - On écrit sur les murs", "desc":"", "datas":{}, "file":"ressources/crazyshow/stopandgo/SERIE_NORMALE/14-Kids-United-On-ecrit-sur-les-murs.mp4"}
                 ]
               }
             },
@@ -764,7 +1263,7 @@
               "desc":"karaoke",
               "components":{
                 "playlist_video":[
-                    {"label":"Libere delivre", "desc":"", "datas":{}, "file":"ressources/crazyshow/stopandgo/SERIE_DIVERS/1_Libere-delivre.mp4"}
+                  {"label":"Libérée , délivrée", "desc":"", "datas":{}, "file":"ressources/crazyshow/stopandgo/SERIE_DIVERS/1_Libere-delivre.mp4"}
                 ]
               }
             }
@@ -784,6 +1283,47 @@
           "datas":{},
           "jingle":{"file":"ressources/crazyshow/jingles/blindtest.mp4", "type":"video", "event":null, "params":null},
           "menu":[
+            {
+              "label":"2017-2018",
+              "desc":"Musiques",
+              "components":{
+                "playlist_audio":[
+                    {"label":"Big Flo & Oli : Dommage", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2018/1_bigflo-oli_dommage.mp3"},
+                    {"label":"Ed Sheeran : Shape of you", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2018/2_ed-sheeran_Shape-Of-You.mp3"},
+                    {"label":"Julien Doré : Coco câline", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2018/3_Julien-Dore_Coco-Caline.mp3"},
+                    {"label":"Louane : On était beau", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2018/4_Louane_On-etait-beau.mp3"},
+                    {"label":"Luis Fonsi : Despacito", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2018/5_Luis-Fonsi_Despacito.mp3"},
+                    {"label":"Maître Gims & Vianney : La même", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2018/6_Maitre-GIMS-Vianney_La-Meme.mp3"},
+                    {"label":"Maroon 5 - What lovers do", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2018/7_Maroon-5_What-Lovers-Do.mp3"},
+                    {"label":"Naestro : Bella ciao", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2018/8_Naestro_Bella-Ciao.mp3"},
+                    {"label":"Twenty one pilots : Stressed out", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2018/9_Twenty-One-Pilots_Stressed-Out.mp3"},
+                    {"label":"Aya Nakamura : Djadja", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2018/10_Aya-Nakamura_Djadja.mp3"},
+                    {"label":"Dadju : Bob Marley", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2018/11_Dadju_Bob-Marley.mp3"},
+                    {"label":"Vegedream : Ramenez la coupe à la maison", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/2018/12_Vegedream_Ramenez-la-coupe-a-la-maison.mp3"}
+                ]
+              }
+            },
+            {
+              "label":"Dessins animés",
+              "desc":"Musiques",
+              "components":{
+                "playlist_audio":[
+                    {"label":"Le Livre de la Jungle : Il en faut peu pour être heureux", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/dessins-animes/1_Le-Livre-de-la-Jungle_Il-en-faut-peu.mp3"},
+                    {"label":"La Petite Sirène : Sous l'océan", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/dessins-animes/2_La-Petite-Sirene_Sous-l-ocean.mp3"},
+                    {"label":"Le Roi Lion : Je voudrais déjà être roi", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/dessins-animes/3_Le-Roi-Lion_Je-voudrais-deja-etre-roi.mp3"},
+                    {"label":"Aladdin : Ce rêve bleu", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/dessins-animes/4_Aladdin_Ce-reve-bleu.mp3"},
+                    {"label":"Blanche Neige et les Sept Nains : Heigh-ho !", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/dessins-animes/5_Blanche-Neige-et-les-Sept-Nains_Heigh-ho.mp3"},
+                    {"label":"La Princesse et la Grenouille : Humains pour la vie", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/dessins-animes/6_La-Princesse-et-la-Grenouille_Humains-pour-la-vie.mp3"},
+                    {"label":"La Belle et le Clochard : La chanson des siamois", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/dessins-animes/7_La-Belle-et-le-Clochard_La-chanson-des-siamois.mp3"},
+                    {"label":"Pocahontas : L'air du vent", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/dessins-animes/8_Pocahontas_L-air-du-vent.mp3"},
+                    {"label":"Robin des bois - Introduction", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/dessins-animes/9_Robin-des-Bois_Introduction.mp3"},
+                    {"label":"Bambi - La chanson du printemps", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/dessins-animes/10_Bambi_La-chanson-du-printemps.mp3"},
+                    {"label":"Peter Pan - À la file indienne", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/dessins-animes/11_Peter-Pan_A-la-file-indienne.mp3"},
+                    {"label":"Toy Story - Je suis ton ami", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/dessins-animes/12_Toy-Story_Je-suis-ton-ami.mp3"},
+                    {"label":"Les Aristochats - Tout le monde veut devenir un cat", "desc":"", "datas":{}, "file":"ressources/crazyshow/blindtest/dessins-animes/13_Les-Aristochats_Tout-le-monde-veut-devenir-un-cat.mp3"}
+                ]
+              }
+            },
             {
               "label":"2015 SERIE 1",
               "desc":"Musiques",
@@ -892,7 +1432,7 @@
         },
         {
           "label":"Tour en Folie",
-          "desc":"l'enfant doit réaliser une tour de gobelet et la ranger le plus vite possible. Chrono afficher à l'écran.",
+          "desc":"L'enfant doit réaliser une tour de gobelet et la ranger le plus vite possible. Chrono afficher à l'écran.",
           "background":"ressources/crazyshow/jingles/tourenfolie.svg",
           "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
           "tl":"",

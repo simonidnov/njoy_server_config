@@ -9,6 +9,9 @@
         <link rel="stylesheet" type="text/css" href="css/app.css">
         <link rel="stylesheet" type="text/css" href="css/receptor.css">
         <meta http-equiv="Access-Control-Allow-Origin" content="*">
+        <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="js/lettering.js"></script>
+        <script type="text/javascript" src="node_modules/gsap/TweenMax.js"></script>
         <script type="text/javascript" src="js/socket.io/socket.io.js"></script>
         <script src="node_modules/vue/dist/vue.min.js"></script>
     </head>
@@ -18,33 +21,35 @@
             <div class="pictureComponent" v-show="infos.datas.status === 'picture'">
                 <img v-bind:src="infos.datas.file"/>
             </div>
+            <div class="wordComponent" v-show="infos.datas.status === 'word'">
+                <div class="container">
+                    <h1 class="word_label">{{ infos.datas.word }}</h1>
+                </div>
+            </div>
             <div class="chronos" v-bind:class="chronosClass" v-show="typeof infos.datas.chronos !== 'undefined'">
                 <div class="chronos_bar" v-show="infos.datas.chronos > 0">
                     <div class="chronos_progress" v-bind:style="{ width : infos.datas.chronosProgress + '%' }"></div>
                 </div>
                 <div class="chronos_count" v-show="infos.datas.chronos > 0">{{ infos.datas.chronos }}</div>
                 <h1 v-show="infos.datas.chronos === 0">TIME'S UP</h1>
-                
             </div>
             <div class="teams" v-show="this.infos.datas.teams.length > 0">
-                NOUS AVONS DES EQUIPES
                 <ul>
                     <li v-for="team in this.infos.datas.teams">
-                        <div class="teamAsset" v-bind:style="{ backgroundColor : team.color }"></div>
+                        <div class="teamAsset" v-bind:style="{ backgroundColor : team.color }">
+                            <div class="teamScore">{{ team.score }}</div>
+                        </div>
                         <div class="teamLabel">{{ team.label }}</div>
-                        <div class="teamScore">{{ team.score }}</div>
                     </li>
                 </ul>
             </div>
             <div class="golden_family" v-show="typeof infos.datas.gf !== 'undefined'">
                 <ul class="choices">
-                    <li v-for="purposes in infos.datas.gf">
-                        <div class="panel" v-bind:class="{ selected : purposes.value }">
-                            <div class="front"></div>
-                            <div class="back">
-                                {{ purposes.label }}
-                                <div class="points">5</div>
-                            </div>
+                    <li v-for="purposes in infos.datas.gf" class="panel" v-bind:class="{ selected : purposes.value }">
+                        <div class="front"></div>
+                        <div class="back">
+                            {{ purposes.label }}
+                            <div class="points">5</div>
                         </div>
                     </li>
                 </ul>
@@ -85,6 +90,15 @@
                     });
                     this.socket.on('njoy', function(datas) {
                         console.log(datas);
+                        if(datas.datas.status === "FX"){
+                            console.log('TEAMS OR FX UPDATE');
+                            return false;
+                        }
+                        if(datas.status === "teams"){
+                            this.infos.datas.teams = datas.datas.teams;
+                            return false;
+                        }
+                        
                         if(typeof datas.datas !== "undefined"){
                             if(typeof datas.datas.tools === "undefined"){
                                 datas.datas.tools = this.infos.datas.tools;
@@ -93,8 +107,6 @@
                                 this.infos = datas;
                             }
                         }
-                        
-
                         switch (datas.datas.status) {
                             case 'success':
                                 console.log('SUCCESS');
@@ -111,8 +123,21 @@
                             case 'golden_family':
                                 this.infos.datas.gf[parseInt(datas.datas.response)].value = 1;
                                 break;
+                            case 'word':
+                                this.infos.datas.word = datas.datas.tools.menu[parseInt(datas.datas.menu)].components.word_component[parseInt(datas.datas.component_id)].label;
+                                $('.word_label').html(this.infos.datas.word);
+                                $(".word_label").lettering();
+                                var title1 = new TimelineMax();
+                                //title1.to(".button", 0, {visibility: 'hidden', opacity: 0})
+                                title1.staggerFromTo(".word_label span", 0.5, 
+                                {ease: Back.easeOut.config(1.7), opacity: 0, bottom: -80},
+                                {ease: Back.easeOut.config(1.7), opacity: 1, bottom: 0}, 0.05);
+                                //title1.to(".button", 0.2, {visibility: 'visible' ,opacity: 1})
+                                break;
                             case 'object':
+                                console.log('component ', datas.datas);
                                 if(datas.datas.component === "golden_family") {
+                                    console.log('GOLDEN FAMILY');
                                     var gf = [],
                                         choices = datas.datas.tools.menu[parseInt(datas.datas.menu)].components.golden_family[parseInt(datas.datas.component_id)].choices;
                                     for(var i=0; i<choices.length; i++){
