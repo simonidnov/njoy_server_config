@@ -97,23 +97,14 @@
                         console.log("socket_connected");
                     });
                     this.socket.on('njoy', function(datas) {
-                        console.log("NJOY datas :::: ", datas);
-                        if(datas.datas.status === "init_drawing"){
-                            console.log('init_drawing >>>> ', datas.datas.status);
-                            //datas.datas = datas.datas;
-                        }
-                        console.log("datas.datas.status.indexOf('audio') ", datas.datas.status.indexOf('audio'));
-                        console.log("datas.datas.status.indexOf('video') ", datas.datas.status.indexOf('video'));
                         if(datas.datas.status === "FX" || datas.datas.status.indexOf('audio') !== -1 || datas.datas.status.indexOf('video') !== -1){
-                            console.log('FX AUDIO VIDEO UPDATE ', datas.datas.status);
                             return false;
                         }
                         if(datas.status === "teams"){
                             this.infos.datas.teams = datas.datas.teams;
                             return false;
                         }
-                        console.log('BEFORE FAIL STATUS ==== ', datas.datas.status);
-
+                        
                         if(datas.datas.status === "fail" || datas.datas.status === "success"){
                             delete this.infos.datas.chronos;
                             delete this.infos.datas.chronosCount;
@@ -150,8 +141,7 @@
                         }
                         
                         
-                        console.log('BEFORE SWITCH STATUS ==== ', datas.datas.status);
-
+                        
                         if(typeof datas.datas !== "undefined"){
                             if(typeof datas.datas.tools === "undefined"){
                                 datas.datas.tools = this.infos.datas.tools;
@@ -160,10 +150,8 @@
                                 this.infos = datas;
                             }
                         }
-                        console.log('BEFORE SWITCH STATUS ==== ', datas.datas.status);
                         switch (datas.datas.status) {
                             case "init_drawing":
-                                console.log('INIT DRAWING ', datas);
                                 
                                 $('.module_drawing').html('');
                                 TweenMax.killAll();
@@ -176,12 +164,10 @@
                                 
                                 break;
                             case "drawing":
-                                console.log('DRAWING ', datas);
                                 datas.datas.status = "is_drawing";
                                 this.drawing(datas.datas);
                                 break;
                             case "drawing_point":
-                                console.log('drawing_point ', datas);
                                 datas.datas.status = "is_drawing";
                                 this.drawing_point(datas.datas);
                                 break;
@@ -205,9 +191,7 @@
                                 this.displayWord();
                                 break;
                             case 'object':
-                                console.log('component ', datas.datas);
                                 if(datas.datas.component === "golden_family") {
-                                    console.log('GOLDEN FAMILY');
                                     var gf = [],
                                         choices = datas.datas.tools.menu[parseInt(datas.datas.menu)].components.golden_family[parseInt(datas.datas.component_id)].choices;
                                     for(var i=0; i<choices.length; i++){
@@ -216,7 +200,6 @@
                                     this.infos.datas.gfLabel = datas.datas.tools.menu[parseInt(datas.datas.menu)].components.golden_family[parseInt(datas.datas.component_id)].label;
                                     this.infos.datas.gfDesc = datas.datas.tools.menu[parseInt(datas.datas.menu)].components.golden_family[parseInt(datas.datas.component_id)].desc;
                                     this.infos.datas.gf = gf;
-                                    console.log('this.infos.datas.choices ', this.infos.datas.gf);
                                 }
                                 break;
                             default:
@@ -259,7 +242,6 @@
                         delete this.infos.datas.chronos;
                     },
                     displayWord: function(){
-                        console.log('display word');
                         $('.word_label').html(this.infos.datas.word);
                         $(".word_label").lettering();
                         var title1 = new TimelineMax();
@@ -277,7 +259,6 @@
                         this.canvas.style.backgroundColor = "#FFFFFF";
 
 
-                        console.log('1');
                         // TODO REMOVE TEST SIZE
                         /*this.canvas.width = datas.width;
                         this.canvas.height = datas.height;
@@ -291,14 +272,12 @@
                         this.canvas.style.width = window.innerWidth;
                         this.canvas.style.height = window.innerHeight;
                         
-                        console.log('2');
-
+                        
                         $('#canvas_id').css({
                         "width":$('body').width()+'px !important',
                         "height":$('body').height()+'px !important'
                         });
                         
-                        console.log('3');
                         this.stage = new createjs.Stage("drawing");
                         this.stage.autoClear = true;
                         this.stage.update();
@@ -308,7 +287,6 @@
                         this.currentShape[0] = s;
                         var g = s.graphics;
                         
-                        console.log('4');
                         g.beginStroke("#000000");
                         this.stage.addChild(s);
 
@@ -316,10 +294,9 @@
                         this.stage.autoClear = true;
                         this.stage.update();
 
-                        console.log('5');
                     },
                     drawing: function(datas){
-                        console.log(this.oldX);
+                        console.log("drawing :::: ", this.oldX);
                         //console.log('draw ', this.currentShape[this.currentShape.length-1].graphics);
                         var pt = new createjs.Point(datas.x, datas.y);
                         var midPoint = new createjs.Point(this.oldX + pt.x>>1, this.oldY+pt.y>>1);
