@@ -98,13 +98,17 @@
                     });
                     this.socket.on('njoy', function(datas) {
                         console.log(datas);
-                        if(datas.datas.status === "FX" || datas.datas.status.indexOf('audio') !== -1 || datas.datas.status.indexOf('video') !== -1){
-                            return false;
-                        }
                         if(datas.status === "teams"){
                             this.infos.datas.teams = datas.datas.teams;
                             return false;
                         }
+                        if(typeof datas.datas === "undefined"){
+                            return false;
+                        }
+                        if(datas.datas.status === "FX" || datas.datas.status.indexOf('audio') !== -1 || datas.datas.status.indexOf('video') !== -1){
+                            return false;
+                        }
+                        
                         
                         if(datas.datas.status === "fail" || datas.datas.status === "success"){
                             delete this.infos.datas.chronos;
