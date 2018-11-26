@@ -296,7 +296,6 @@
 
                     },
                     drawing: function(datas){
-                        console.log("drawing :::: ", this.oldX);
                         //console.log('draw ', this.currentShape[this.currentShape.length-1].graphics);
                         var pt = new createjs.Point(datas.x, datas.y);
                         var midPoint = new createjs.Point(this.oldX + pt.x>>1, this.oldY+pt.y>>1);
@@ -313,7 +312,6 @@
                         this.stage.update();
                     },
                     drawing_point: function(datas){
-                        console.log('drawing_point with new shape then set oldX Y enstroke', datas.x );
                         this.oldX = datas.x;
                         this.oldY = datas.y;
                         //var pt = new createjs.Point(datas.x, datas.y);
