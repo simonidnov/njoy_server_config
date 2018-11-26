@@ -97,6 +97,7 @@
                         console.log("socket_connected");
                     });
                     this.socket.on('njoy', function(datas) {
+                        console.log(datas);
                         if(datas.datas.status === "FX" || datas.datas.status.indexOf('audio') !== -1 || datas.datas.status.indexOf('video') !== -1){
                             return false;
                         }
@@ -140,8 +141,6 @@
                             return false;
                         }
                         
-                        
-                        
                         if(typeof datas.datas !== "undefined"){
                             if(typeof datas.datas.tools === "undefined"){
                                 datas.datas.tools = this.infos.datas.tools;
@@ -152,7 +151,6 @@
                         }
                         switch (datas.datas.status) {
                             case "init_drawing":
-                                
                                 $('.module_drawing').html('');
                                 TweenMax.killAll();
                                 //this.socket.emit('njoy', {status:'stop_video'});
