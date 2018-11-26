@@ -11,6 +11,7 @@
         <meta http-equiv="Access-Control-Allow-Origin" content="*">
         <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="js/lettering.js"></script>
+        <script type="text/javascript" src="js/EaselJS/lib/easeljs-0.8.1.combined.js"></script>
         <script type="text/javascript" src="node_modules/gsap/TweenMax.js"></script>
         <script type="text/javascript" src="js/socket.io/socket.io.js"></script>
         <script src="node_modules/vue/dist/vue.min.js"></script>
@@ -56,7 +57,9 @@
                     </li>
                 </ul>
             </div>
-          
+            <div class="dessinezcestgagne" v-show="infos.datas.status === 'is_drawing'">
+                <div class="module_drawing"></div>
+            </div>
             <div class="contentBackground">
                 <div class="tl" v-bind:style="{ backgroundImage: 'url(' + infos.datas.tools.tl + ')' }"></div>
                 <div class="tc" v-bind:style="{ backgroundImage: 'url(' + infos.datas.tools.tc + ')' }"></div>
@@ -94,16 +97,23 @@
                         console.log("socket_connected");
                     });
                     this.socket.on('njoy', function(datas) {
-                        console.log(datas);
-                        if(datas.datas.status === "FX"){
-                            console.log('FX UPDATE');
+                        console.log("NJOY datas :::: ", datas);
+                        if(datas.datas.status === "init_drawing"){
+                            console.log('init_drawing >>>> ', datas.datas.status);
+                            //datas.datas = datas.datas;
+                        }
+                        console.log("datas.datas.status.indexOf('audio') ", datas.datas.status.indexOf('audio'));
+                        console.log("datas.datas.status.indexOf('video') ", datas.datas.status.indexOf('video'));
+                        if(datas.datas.status === "FX" || datas.datas.status.indexOf('audio') !== -1 || datas.datas.status.indexOf('video') !== -1){
+                            console.log('FX AUDIO VIDEO UPDATE ', datas.datas.status);
                             return false;
                         }
                         if(datas.status === "teams"){
                             this.infos.datas.teams = datas.datas.teams;
                             return false;
                         }
-                        
+                        console.log('BEFORE FAIL STATUS ==== ', datas.datas.status);
+
                         if(datas.datas.status === "fail" || datas.datas.status === "success"){
                             delete this.infos.datas.chronos;
                             delete this.infos.datas.chronosCount;
@@ -140,6 +150,8 @@
                         }
                         
                         
+                        console.log('BEFORE SWITCH STATUS ==== ', datas.datas.status);
+
                         if(typeof datas.datas !== "undefined"){
                             if(typeof datas.datas.tools === "undefined"){
                                 datas.datas.tools = this.infos.datas.tools;
@@ -148,7 +160,31 @@
                                 this.infos = datas;
                             }
                         }
+                        console.log('BEFORE SWITCH STATUS ==== ', datas.datas.status);
                         switch (datas.datas.status) {
+                            case "init_drawing":
+                                console.log('INIT DRAWING ', datas);
+                                
+                                $('.module_drawing').html('');
+                                TweenMax.killAll();
+                                //this.socket.emit('njoy', {status:'stop_video'});
+                                //this.socket.emit('njoy', {status:'stop_audio'});
+                                datas.datas.status = "is_drawing";
+                                setTimeout($.proxy(function(){
+                                    this.initDrawing(datas.datas);
+                                }, this), 300);
+                                
+                                break;
+                            case "drawing":
+                                console.log('DRAWING ', datas);
+                                datas.datas.status = "is_drawing";
+                                this.drawing(datas.datas);
+                                break;
+                            case "drawing_point":
+                                console.log('drawing_point ', datas);
+                                datas.datas.status = "is_drawing";
+                                this.drawing_point(datas.datas);
+                                break;
                             case 'success':
                                 console.log('SUCCESS');
                                 break;
@@ -167,7 +203,6 @@
                             case 'word':
                                 this.infos.datas.word = datas.datas.tools.menu[parseInt(datas.datas.menu)].components.word_component[parseInt(datas.datas.component_id)].label;
                                 this.displayWord();
-                                
                                 break;
                             case 'object':
                                 console.log('component ', datas.datas);
@@ -233,9 +268,119 @@
                         {ease: Back.easeOut.config(1.7), opacity: 0, bottom: -80},
                         {ease: Back.easeOut.config(1.7), opacity: 1, bottom: 0}, 0.05);
                         //title1.to(".button", 0.2, {visibility: 'visible' ,opacity: 1})
+                    },
+                    initDrawing: function(datas){
+                        $('.dessinezcestgagne').css('display', 'block');
+                        $('.module_drawing').append('<canvas id="drawing" width="'+datas.width+'" height="'+datas.height+'"></canvas>');
+                        //this.drawing_tool = new drawer("drawing", datas.width, datas.height);
+                        this.canvas = document.getElementById("drawing");
+                        this.canvas.style.backgroundColor = "#FFFFFF";
+
+
+                        console.log('1');
+                        // TODO REMOVE TEST SIZE
+                        /*this.canvas.width = datas.width;
+                        this.canvas.height = datas.height;
+
+                        this.canvas.style.width = datas.width;
+                        this.canvas.style.height = datas.height;*/
+
+                        this.canvas.width = datas.width;
+                        this.canvas.height = datas.height;
+
+                        this.canvas.style.width = window.innerWidth;
+                        this.canvas.style.height = window.innerHeight;
+                        
+                        console.log('2');
+
+                        $('#canvas_id').css({
+                        "width":$('body').width()+'px !important',
+                        "height":$('body').height()+'px !important'
+                        });
+                        
+                        console.log('3');
+                        this.stage = new createjs.Stage("drawing");
+                        this.stage.autoClear = true;
+                        this.stage.update();
+
+                        this.currentShape = [];
+                        var s = new createjs.Shape();
+                        this.currentShape[0] = s;
+                        var g = s.graphics;
+                        
+                        console.log('4');
+                        g.beginStroke("#000000");
+                        this.stage.addChild(s);
+
+                        //this.stage = new createjs.Stage("drawing");
+                        this.stage.autoClear = true;
+                        this.stage.update();
+
+                        console.log('5');
+                    },
+                    drawing: function(datas){
+                        console.log(this.oldX);
+                        //console.log('draw ', this.currentShape[this.currentShape.length-1].graphics);
+                        var pt = new createjs.Point(datas.x, datas.y);
+                        var midPoint = new createjs.Point(this.oldX + pt.x>>1, this.oldY+pt.y>>1);
+                        if(typeof this.currentShape[this.currentShape.length-1] != "undefined"){
+                            this.currentShape[this.currentShape.length-1].graphics.setStrokeStyle(datas.strokestyle.size, datas.strokestyle.stylingW, datas.strokestyle.stylingH);
+                            this.currentShape[this.currentShape.length-1].graphics.moveTo(midPoint.x, midPoint.y);
+                            this.currentShape[this.currentShape.length-1].graphics.curveTo(this.oldX, this.oldY, this.oldMidX, this.oldMidY);
+                        }
+                        this.oldX = pt.x;
+                        this.oldY = pt.y;
+
+                        this.oldMidX = midPoint.x;
+                        this.oldMidY = midPoint.y;
+                        this.stage.update();
+                    },
+                    drawing_point: function(datas){
+                        console.log('drawing_point with new shape then set oldX Y enstroke', datas.x );
+                        this.oldX = datas.x;
+                        this.oldY = datas.y;
+                        //var pt = new createjs.Point(datas.x, datas.y);
+                        this.currentShape[this.currentShape.length-1].graphics.endStroke().endFill();
+                        //this.currentShape[this.currentShape.length].graphics.endStroke();
+                        var s = new createjs.Shape();
+                        this.currentShape[this.currentShape.length] = s;
+                        var g = s.graphics;
+                        g.beginStroke("#000000");
+                        this.stage.addChild(s);
+                        g.moveTo(datas.x, datas.y);
                     }
                 }
             });
+
+
+
+            /*var drawer = function(canvas_id, width, height){
+                vm.canvas = document.getElementById(canvas_id);
+                // TODO REMOVE TEST SIZE
+                vm.canvas.width = width;
+                vm.canvas.height = height;
+
+                vm.canvas.style.width = width;
+                vm.canvas.style.height = height;
+                $('#canvas_id').css({
+                    "width":$('body').width()+'px !important',
+                    "height":$('body').height()+'px !important'
+                })
+                vm.stage = new createjs.Stage(canvas_id);
+                vm.stage.autoClear = true;
+                vm.stage.update();
+
+                vm.currentShape = [];
+                vm s = new createjs.Shape();
+                vm.currentShape[0] = s;
+                var g = s.graphics;
+
+                g.beginStroke("#000000");
+                vm.stage.addChild(s);
+                // TODO : on receive ticker from user update stage 
+                //createjs.Ticker.addEventListener("tick", $.proxy(function(){this.update();},this));
+            }*/
+
         </script>
         <style>
             
