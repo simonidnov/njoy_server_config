@@ -968,7 +968,7 @@
               "components":{
                 "word_component":[
                   {
-                      "label":"Soleil",
+                      "label":"Amour / aimer",
                       "desc":"Trouver des chansons qui contiennent le mot Soleil",
                       "datas":{
                           "chrono":60,
@@ -978,7 +978,7 @@
                       }
                   },
                   {
-                    "label":"Boule",
+                    "label":"Une couleur",
                     "desc":"Trouver des chansons qui contiennent le mot Soleil",
                     "datas":{
                         "chrono":60,
@@ -988,7 +988,77 @@
                     }
                   },
                   {
-                    "label":"Biere",
+                    "label":"Tête",
+                    "desc":"Trouver des chansons qui contiennent le mot Soleil",
+                    "datas":{
+                        "chrono":60,
+                        "display":"screen",
+                        "display_response":"regis",
+                        "type":"word_component"
+                    }
+                  },
+                  {
+                    "label":"Danse / danser",
+                    "desc":"Trouver des chansons qui contiennent le mot Soleil",
+                    "datas":{
+                        "chrono":60,
+                        "display":"screen",
+                        "display_response":"regis",
+                        "type":"word_component"
+                    }
+                  },
+                  {
+                    "label":"Un prénom de garçon",
+                    "desc":"Trouver des chansons qui contiennent le mot Soleil",
+                    "datas":{
+                        "chrono":60,
+                        "display":"screen",
+                        "display_response":"regis",
+                        "type":"word_component"
+                    }
+                  },
+                  {
+                    "label":"Un prénom de fille",
+                    "desc":"Trouver des chansons qui contiennent le mot Soleil",
+                    "datas":{
+                        "chrono":60,
+                        "display":"screen",
+                        "display_response":"regis",
+                        "type":"word_component"
+                    }
+                  },
+                  {
+                    "label":"Jour",
+                    "desc":"Trouver des chansons qui contiennent le mot Soleil",
+                    "datas":{
+                        "chrono":60,
+                        "display":"screen",
+                        "display_response":"regis",
+                        "type":"word_component"
+                    }
+                  },
+                  {
+                    "label":"Nuit",
+                    "desc":"Trouver des chansons qui contiennent le mot Soleil",
+                    "datas":{
+                        "chrono":60,
+                        "display":"screen",
+                        "display_response":"regis",
+                        "type":"word_component"
+                    }
+                  },
+                  {
+                    "label":"Beau / belle",
+                    "desc":"Trouver des chansons qui contiennent le mot Soleil",
+                    "datas":{
+                        "chrono":60,
+                        "display":"screen",
+                        "display_response":"regis",
+                        "type":"word_component"
+                    }
+                  },
+                  {
+                    "label":"Un animal",
                     "desc":"Trouver des chansons qui contiennent le mot Soleil",
                     "datas":{
                         "chrono":60,

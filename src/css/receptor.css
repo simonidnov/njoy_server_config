@@ -324,7 +324,7 @@
     position: absolute;
 }
 .wordComponent h1{
-    font-size: 170px;
+    font-size: 120px;
     color: #FFF;
     text-align: center;
     padding: 0;
@@ -338,8 +338,8 @@
     font-weight: bold;
     text-transform: uppercase;
     text-decoration: underline;
+    white-space: nowrap;
 }
-
 
 .wordComponent .container{
     transform: translate(-50%, -50%);
@@ -347,19 +347,22 @@
     left: 50%;
     display: block;
     position: absolute;
-    max-width: 100%;
+    max-width: 90%;
+    width:90%;
 }
   
 .wordComponent h1{
-    transform: translateX(0%) rotate(-10deg);
-    display: block;
-    float: left;
+    transform: skewY(-10deg);
+    display: table;
     position: relative;
+    left: 0;
+    right:0;
+    margin:auto;
+    white-space: nowrap;
 } 
 .wordComponent h1 span {
     transform: skew(-10deg);
-    display: block;
-    float: left;
+    display: inline-flex;
     text-shadow: #ca4a9a 1px 1px, #ca4a9a 2px 2px, #ca4a9a 3px 3px, #ca4a9a 4px 4px, #ca4a9a 5px 5px, #ca4a9a 6px 6px;
     min-width: 10px;
     min-height: 10px;
