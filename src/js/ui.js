@@ -270,7 +270,9 @@ var ui = {
                     app.socket.emit("njoy", {
                         "status":$(this).attr('data-type'),
                         "response":$(this).attr('data-id'),
-                        "type":$(this).attr('data-type')
+                        "type":$(this).attr('data-type'),
+                        "attributs":$(this).attr('data-attributs'),
+                        "word":$(this).attr('data-word')
                     });
                     break;
                 default:

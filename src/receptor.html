@@ -44,7 +44,9 @@
                 </ul>
             </div>
             <div class="golden_family" v-show="typeof infos.datas.gf !== 'undefined'">
+                
                 <ul class="choices">
+                    <h3>{{ infos.datas.gfDesc }}</h3>
                     <li v-for="purposes in infos.datas.gf" class="panel" v-bind:class="{ selected : purposes.value }">
                         <div class="front"></div>
                         <div class="back">
@@ -54,6 +56,7 @@
                     </li>
                 </ul>
             </div>
+          
             <div class="contentBackground">
                 <div class="tl" v-bind:style="{ backgroundImage: 'url(' + infos.datas.tools.tl + ')' }"></div>
                 <div class="tc" v-bind:style="{ backgroundImage: 'url(' + infos.datas.tools.tc + ')' }"></div>
@@ -93,13 +96,49 @@
                     this.socket.on('njoy', function(datas) {
                         console.log(datas);
                         if(datas.datas.status === "FX"){
-                            console.log('TEAMS OR FX UPDATE');
+                            console.log('FX UPDATE');
                             return false;
                         }
                         if(datas.status === "teams"){
                             this.infos.datas.teams = datas.datas.teams;
                             return false;
                         }
+                        
+                        if(datas.datas.status === "fail" || datas.datas.status === "success"){
+                            delete this.infos.datas.chronos;
+                            delete this.infos.datas.chronosCount;
+                            
+                            if(typeof datas.datas.word !== "undefined" && datas.datas.word !== ""){
+                                this.infos.datas.word = datas.datas.word;
+                                if(typeof datas.datas.attributs !== "undefined" && datas.datas.attributs !== ""){
+                                    //TODO lister les attributs et vérifier si le display est regis ?
+                                    if(typeof JSON.parse(datas.datas.attributs).prix !== "undefined"){
+                                        this.infos.datas.word += " "+JSON.parse(datas.datas.attributs).prix;
+                                    }
+                                }
+                                this.infos.datas.status = "word";
+                                this.displayWord();
+                            }
+                            switch(datas.datas.status){
+                                case 'success':
+                                    this.socket.emit("njoy", {
+                                        data: "ressources/crazyshow/fx/regis_applau.svg",
+                                        file: "ressources/audio/applau.mp3",
+                                        status: "FX"
+                                    });
+                                    break;
+                                case 'fail':
+                                    this.socket.emit("njoy", {
+                                        data: "ressources/crazyshow/fx/regis_huer.svg",
+                                        file: "ressources/audio/huee.mp3",
+                                        status: "FX"
+                                    });
+                                    break;
+                            }
+                            
+                            return false;
+                        }
+                        
                         
                         if(typeof datas.datas !== "undefined"){
                             if(typeof datas.datas.tools === "undefined"){
@@ -127,14 +166,8 @@
                                 break;
                             case 'word':
                                 this.infos.datas.word = datas.datas.tools.menu[parseInt(datas.datas.menu)].components.word_component[parseInt(datas.datas.component_id)].label;
-                                $('.word_label').html(this.infos.datas.word);
-                                $(".word_label").lettering();
-                                var title1 = new TimelineMax();
-                                //title1.to(".button", 0, {visibility: 'hidden', opacity: 0})
-                                title1.staggerFromTo(".word_label span", 0.5, 
-                                {ease: Back.easeOut.config(1.7), opacity: 0, bottom: -80},
-                                {ease: Back.easeOut.config(1.7), opacity: 1, bottom: 0}, 0.05);
-                                //title1.to(".button", 0.2, {visibility: 'visible' ,opacity: 1})
+                                this.displayWord();
+                                
                                 break;
                             case 'object':
                                 console.log('component ', datas.datas);
@@ -145,6 +178,8 @@
                                     for(var i=0; i<choices.length; i++){
                                         gf.push({label:choices[i], value:0});
                                     }
+                                    this.infos.datas.gfLabel = datas.datas.tools.menu[parseInt(datas.datas.menu)].components.golden_family[parseInt(datas.datas.component_id)].label;
+                                    this.infos.datas.gfDesc = datas.datas.tools.menu[parseInt(datas.datas.menu)].components.golden_family[parseInt(datas.datas.component_id)].desc;
                                     this.infos.datas.gf = gf;
                                     console.log('this.infos.datas.choices ', this.infos.datas.gf);
                                 }
@@ -187,6 +222,17 @@
                     },
                     deleteChronos: function() {
                         delete this.infos.datas.chronos;
+                    },
+                    displayWord: function(){
+                        console.log('display word');
+                        $('.word_label').html(this.infos.datas.word);
+                        $(".word_label").lettering();
+                        var title1 = new TimelineMax();
+                        //title1.to(".button", 0, {visibility: 'hidden', opacity: 0})
+                        title1.staggerFromTo(".word_label span", 0.5, 
+                        {ease: Back.easeOut.config(1.7), opacity: 0, bottom: -80},
+                        {ease: Back.easeOut.config(1.7), opacity: 1, bottom: 0}, 0.05);
+                        //title1.to(".button", 0.2, {visibility: 'visible' ,opacity: 1})
                     }
                 }
             });

@@ -171,9 +171,16 @@
     position: absolute;
     display: table;
 }
+.golden_family ul.choices h3{
+    color:#FFF;
+    font-size:50px;
+    font-weight: bold;
+    text-align:center;
+}
 
 .golden_family ul.choices li{
     list-style: none;    
+    font-weight: bold;
 }
 .golden_family ul.choices .panel{
     box-sizing: border-box;

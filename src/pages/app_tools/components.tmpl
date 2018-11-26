@@ -78,11 +78,11 @@
                                 <ul class="choices" style="display:none;">
                                     <li>
                                         GAGNÉ
-                                        <div id="0" class="radio_ui" data-checked="false" data-action="response" data-type="success"></div>
+                                        <div id="0" class="radio_ui" data-checked="false" data-action="response" data-type="success" data-word="BRAVO !" data-attributs='<%= JSON.stringify(comp_datas[g].datas) %>'></div>
                                     </li>
                                     <li>
                                         PERDU
-                                        <div id="1" class="radio_ui" data-checked="false" data-action="response" data-type="fail"></div>
+                                        <div id="1" class="radio_ui" data-checked="false" data-action="response" data-type="fail" data-word="PERDU !" data-attributs='<%= JSON.stringify(comp_datas[g].datas) %>'></div>
                                     </li>
                                 </ul>
                                 <% if(typeof comp_datas[g].action !== "undefined"){ %>
