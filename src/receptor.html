@@ -97,7 +97,6 @@
                         console.log("socket_connected");
                     });
                     this.socket.on('njoy', function(datas) {
-                        console.log(datas);
                         /* GESTION DE CAS SPECIFIQUES */
                         if(typeof datas.datas === "undefined"){
                             return false;
@@ -110,14 +109,11 @@
                             return false;
                         }
                         if(datas.datas.status.indexOf('audio') !== -1 || datas.datas.status.indexOf('video') !== -1){
-                            console.log("THIS IS A VIDEO ", datas.datas.tools);
                             if(typeof datas.datas.tools !== "undefined") {
-                                console.log('SET TOOLS IF EXIST ? ', datas.datas.tools);
                                 this.infos.datas.tools = datas.datas.tools;
                             }
                             return false;
                         }
-                        
                         
                         if(datas.datas.status === "fail" || datas.datas.status === "success"){
                             delete this.infos.datas.chronos;
@@ -128,7 +124,7 @@
                                 if(typeof datas.datas.attributs !== "undefined" && datas.datas.attributs !== ""){
                                     //TODO lister les attributs et vérifier si le display est regis ?
                                     if(typeof JSON.parse(datas.datas.attributs).prix !== "undefined"){
-                                        this.infos.datas.word += " "+JSON.parse(datas.datas.attributs).prix;
+                                        this.infos.datas.word = JSON.parse(datas.datas.attributs).prix;
                                     }
                                 }
                                 this.infos.datas.status = "word";
@@ -234,7 +230,7 @@
                     startChronos: function() {
                         if(typeof this.timeout === "undefined"){
                             this.socket.emit("njoy", {
-                                file: "ressources/audio/timesup.mp3",
+                                file: "ressources/audio/chronos.mp3",
                                 status: "FX"
                             });
                         }
@@ -248,6 +244,10 @@
                                 this.startChronos();
                             }.bind(this), 1000);
                         }else{
+                            this.socket.emit("njoy", {
+                                file: "ressources/audio/timesup.mp3",
+                                status: "FX"
+                            });
                             this.timeout = setTimeout(function () { 
                                 this.infos.datas.chronos = -1;
                                 this.deleteChronos();
@@ -257,10 +257,7 @@
                     deleteChronos: function() {
                         delete this.infos.datas.chronos;
                         delete this.timeout;
-                        this.socket.emit("njoy", {
-                            file: "ressources/audio/timesup.mp3",
-                            status: "FX"
-                        });
+                        
                     },
                     displayWord: function(){
                         $('.word_label').html(this.infos.datas.word);

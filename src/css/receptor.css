@@ -344,7 +344,6 @@
     height: 170px;
     font-weight: bold;
     text-transform: uppercase;
-    text-decoration: underline;
     white-space: nowrap;
 }
 
@@ -374,12 +373,8 @@
     min-width: 10px;
     min-height: 10px;
     position: relative;
-    text-decoration: underline;
     color:#f7e65e;
 }
-
-
-
 
 .dessinezcestgagne{
     width:100%;
