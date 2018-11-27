@@ -43,7 +43,7 @@ var ui = {
             $('body').append(this.templates.footer({}));
             this.navigate(this.page_params.page);
             this.setListeners();
-        }, this), 200);
+        }, this), 500);
     },
     test_popin : function(){
         ui.popin({
@@ -178,6 +178,10 @@ var ui = {
             if(typeof $(this).attr('data-direction') !== "undefined"){
                 ui.direction = $(this).attr('data-direction');
             }
+            console.log("$(this).attr('data-ambiant') :::: ", $(this).attr('data-ambiant'));
+            if($(this).attr('data-ambiant') !== ""){
+                app.socket.emit("njoy", {status:"audio", file:$(this).attr('data-ambiant'), data:"", tools:app.selected_tool});
+            }
             ui.navigate($(this).attr('data-navigate'));
             event.preventDefault();
             return false;
@@ -185,7 +189,6 @@ var ui = {
         $('[data-action]').off(ui.event).on(ui.event, function(){
             switch($(this).attr('data-action')){
                 case 'drawing':
-                    console.log('EMIT ::::::::: status ', status);
                     app.socket.emit("njoy", {status:"drawer"});
                     break;
                 case 'cast':
@@ -230,7 +233,7 @@ var ui = {
                         //delete app.selected_tool;
                         status['tools'] = app.selected_app;
                     }else{
-                        //status['tools'] = app.selected_tool;    
+                        status['tools'] = app.selected_tool;    
                     }
                     //console.log('EMIT ::::::::: status ', status);
                     app.socket.emit("njoy", status);
@@ -480,17 +483,16 @@ var ui = {
         $('.screen').css({'height':window.innerHeight-$('header').height(), "overflow":"hidden"});
         $('.screen .wrapper').css({'height':"100%", 'width':"100%", "overflow":"hidden"});
         $('.screen .wrapper .scroller').css({'display':"table", "width":"100%"});
-        if($('.screen .wrapper .scroller').length === 1){
+        /*if($('.screen .wrapper .scroller').length === 1){
             if(typeof IScroll !== "undefined"){
-                /*
+                
                 ui.page_scroll = new IScroll('#screen_wrapper',{
                     mouseWheel:true,
                     click: true,
                     useTransition: true
                 });
-                */
             }
-        }
+        }*/
     },
     open_wifi_settings : function(){
         if (window.cordova && window.cordova.plugins.settings) {

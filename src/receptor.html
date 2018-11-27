@@ -24,7 +24,7 @@
             </div>
             <div class="wordComponent" v-show="infos.datas.status === 'word'">
                 <div class="container">
-                    <h1 class="word_label">{{ infos.datas.word }}</h1>
+                    <h1 class="word_label">HELLO {{ infos.datas.word }}</h1>
                 </div>
             </div>
             <div class="chronos" v-bind:class="chronosClass" v-show="typeof infos.datas.chronos !== 'undefined'">
@@ -45,14 +45,13 @@
                 </ul>
             </div>
             <div class="golden_family" v-show="typeof infos.datas.gf !== 'undefined'">
-                
                 <ul class="choices">
                     <h3>{{ infos.datas.gfDesc }}</h3>
                     <li v-for="purposes in infos.datas.gf" class="panel" v-bind:class="{ selected : purposes.value }">
                         <div class="front"></div>
                         <div class="back">
                             {{ purposes.label }}
-                            <div class="points">5</div>
+                            <!--<div class="points">5</div>-->
                         </div>
                     </li>
                 </ul>
@@ -98,6 +97,7 @@
                     });
                     this.socket.on('njoy', function(datas) {
                         /* GESTION DE CAS SPECIFIQUES */
+                        console.log(datas);
                         if(typeof datas.datas === "undefined"){
                             return false;
                         }
@@ -109,6 +109,9 @@
                             return false;
                         }
                         if(datas.datas.status.indexOf('audio') !== -1 || datas.datas.status.indexOf('video') !== -1){
+                            delete this.infos.datas.word;
+                            this.deleteChronos();
+                            this.infos.datas.status = datas.datas.status;
                             if(typeof datas.datas.tools !== "undefined") {
                                 this.infos.datas.tools = datas.datas.tools;
                             }
@@ -129,6 +132,8 @@
                                 }
                                 this.infos.datas.status = "word";
                                 this.displayWord();
+                            }else{
+                                delete this.infos.datas.word;
                             }
                             switch(datas.datas.status){
                                 case 'success':
@@ -217,7 +222,7 @@
                             default:
                                 break;
                         }
-                        if(this.infos.datas.chronos !== "undefined"){
+                        if(typeof this.infos.datas.chronos !== "undefined"){
                             this.infos.datas.chronosCount = parseInt(this.infos.datas.chronos);
                             this.infos.datas.chronosProgress = 0;
                             this.openChronos();
@@ -290,7 +295,6 @@
                         this.canvas = document.getElementById("drawing");
                         this.canvas.style.backgroundColor = "#FFFFFF";
 
-
                         // TODO REMOVE TEST SIZE
                         /*this.canvas.width = datas.width;
                         this.canvas.height = datas.height;
@@ -303,7 +307,6 @@
 
                         this.canvas.style.width = window.innerWidth;
                         this.canvas.style.height = window.innerHeight;
-                        
                         
                         $('#canvas_id').css({
                         "width":$('body').width()+'px !important',
@@ -325,7 +328,6 @@
                         //this.stage = new createjs.Stage("drawing");
                         this.stage.autoClear = true;
                         this.stage.update();
-
                     },
                     drawing: function(datas){
                         //console.log('draw ', this.currentShape[this.currentShape.length-1].graphics);

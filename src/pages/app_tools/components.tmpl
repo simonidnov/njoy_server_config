@@ -7,6 +7,8 @@
                 <source src="<%= app.ip+"/"+(jingle.file.replace('webm', 'mp4')) %>" type="video/mp4">
             </video>
             <div class="cast_button" data-action="cast" data-type="video" data-file="<%= jingle.file %>" data-size="<%= jingle.size %>">Diffuser le Jingle</div>
+            <div class="cast_button" data-action="cast" data-type="splash" data-selectedapp="false">Afficher le splashscreen</div>
+            <!--<div class="cast_button" data-action="cast" data-type="splash" data-file="<%= jingle.file %>" data-size="<%= jingle.size %>">Afficher le splashscreen</div>-->
         </div>
     <% } %>
 <% } %>
@@ -59,7 +61,7 @@
                     });
                     }
                     </script>
-                <% } else if (_.keys(menu[i].components)[c] === "galery"){ %>
+                <% }else if (_.keys(menu[i].components)[c] === "galery"){ %>
                     <ul class="galery_list">
                         <% for(var g=0; g<comp_datas.length; g++){ %>
                             <li class="picture_gallery">
@@ -86,9 +88,9 @@
                                     </li>
                                 </ul>
                                 <% if(typeof comp_datas[g].action !== "undefined"){ %>
-                                    <div class="cast_button" data-navigate="<%= comp_datas[g].action %>" data-type="picture" data-file="<%= comp_datas[g].file %>" data-chronos="<%= comp_datas[g].chronos %>"><%= comp_datas[g].action_label %></div>
+                                    <div class="cast_button" data-navigate="<%= comp_datas[g].action %>" data-type="picture" data-file="<%= comp_datas[g].file %>" data-chronos="<%= comp_datas[g].chronos %>" data-ambiant="<%= comp_datas[g].ambiant %>"><%= comp_datas[g].action_label %></div>
                                 <% }else{ %>
-                                    <div class="cast_button" data-action="cast" data-type="picture" data-file="<%= comp_datas[g].file %>" data-chronos="<%= comp_datas[g].chronos %>">Diffuser</div>
+                                    <div class="cast_button" data-action="cast" data-type="picture" data-file="<%= comp_datas[g].file %>" data-chronos="<%= comp_datas[g].chronos %>" data-ambiant="<%= comp_datas[g].ambiant %>">Diffuser</div>
                                 <% } %>
                                 
                             </li>

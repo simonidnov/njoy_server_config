@@ -242,18 +242,8 @@
           "jingle":{"file":"ressources/crazyshow/jingles/dessinercestgagne.mp4", "type":"video", "event":null, "params":null, "display_cover":true},
           "menu":[
             {
-              "label":"Musiques d'ambiance",
-              "desc":"choisissez d'une musique d'ambiance pour l'activité",
-              "components":{
-                "playlist_audio":[
-                    {"label":"Musique de fond #1", "desc":"", "datas":{}, "file":"ressources/audio/ambiance/hall_of_the_Mountai_King.mp3"},
-                    {"label":"Musique de fond #2", "desc":"", "datas":{}, "file":"ressources/audio/ambiance/Quirky_Dog.mp3"}
-                ]
-              }
-            },
-            {
               "label":"4-6 ans",
-              "desc":"choisissez une musique d'ambiance pour l'activité",
+              "desc":"Sélectionnez le sujet à faire deviner en dessin.",
               "components":{
                 "galery":[
                   {
@@ -263,6 +253,7 @@
                     "action":"drawing",
                     "action_label":"Dessiner",
                     "chronos":30,
+                    "ambiant":"ressources/audio/ambiance/hall_of_the_Mountai_King.mp3",
                     "file":"ressources/crazyshow/dessinercestgagne/maison.jpg"
                   },
                   {
@@ -272,6 +263,7 @@
                     "action":"drawing",
                     "action_label":"Dessiner",
                     "chronos":30,
+                    "ambiant":"ressources/audio/ambiance/Quirky_Dog.mp3",
                     "file":"ressources/crazyshow/dessinercestgagne/bonhomme.jpg"
                   },
                   {
@@ -281,6 +273,7 @@
                     "action":"drawing",
                     "action_label":"Dessiner",
                     "chronos":30,
+                    "ambiant":"ressources/audio/ambiance/Quirky_Dog.mp3",
                     "file":"ressources/crazyshow/dessinercestgagne/soleil.jpg"
                   },
                   {
@@ -290,6 +283,7 @@
                     "action":"drawing",
                     "action_label":"Dessiner",
                     "chronos":30,
+                    "ambiant":"ressources/audio/ambiance/hall_of_the_Mountai_King.mp3",
                     "file":"ressources/crazyshow/dessinercestgagne/nuage.jpg"
                   },
                   {
@@ -299,6 +293,7 @@
                     "action":"drawing",
                     "action_label":"Dessiner",
                     "chronos":30,
+                    "ambiant":"ressources/audio/ambiance/Quirky_Dog.mp3",
                     "file":"ressources/crazyshow/dessinercestgagne/arbre.jpg"
                   }
                 ]
@@ -306,7 +301,7 @@
             },
             {
               "label":"6-9 ans",
-              "desc":"choisissez une musique d'ambiance pour l'activité",
+              "desc":"Sélectionnez le sujet à faire deviner en dessin.",
               "components":{
                 "galery":[
                   {
@@ -316,6 +311,7 @@
                     "action":"drawing",
                     "action_label":"Dessiner",
                     "chronos":30,
+                    "ambiant":"ressources/audio/ambiance/Quirky_Dog.mp3",
                     "file":"ressources/crazyshow/dessinercestgagne/voiture.jpg"
                   },
                   {
@@ -325,6 +321,7 @@
                     "action":"drawing",
                     "action_label":"Dessiner",
                     "chronos":30,
+                    "ambiant":"ressources/audio/ambiance/hall_of_the_Mountai_King.mp3",
                     "file":"ressources/crazyshow/dessinercestgagne/squelette.jpg"
                   },
                   {
@@ -334,6 +331,7 @@
                     "action":"drawing",
                     "action_label":"Dessiner",
                     "chronos":30,
+                    "ambiant":"ressources/audio/ambiance/Quirky_Dog.mp3",
                     "file":"ressources/crazyshow/dessinercestgagne/ordinateur.jpg"
                   },
                   {
@@ -343,6 +341,7 @@
                     "action":"drawing",
                     "action_label":"Dessiner",
                     "chronos":30,
+                    "ambiant":"ressources/audio/ambiance/hall_of_the_Mountai_King.mp3",
                     "file":"ressources/crazyshow/dessinercestgagne/avion.jpg"
                   },
                   {
@@ -352,6 +351,7 @@
                     "action":"drawing",
                     "action_label":"Dessiner",
                     "chronos":30,
+                    "ambiant":"ressources/audio/ambiance/Quirky_Dog.mp3",
                     "file":"ressources/crazyshow/dessinercestgagne/calculatrice.jpg"
                   }
                 ]
@@ -359,7 +359,7 @@
             },
             {
               "label":"9-12+",
-              "desc":"choisissez une musique d'ambiance pour l'activité",
+              "desc":"Sélectionnez le sujet à faire deviner en dessin.",
               "components":{
                 "galery":[
                   {
@@ -369,6 +369,7 @@
                     "action":"drawing",
                     "action_label":"Dessiner",
                     "chronos":30,
+                    "ambiant":"ressources/audio/ambiance/Quirky_Dog.mp3",
                     "file":"ressources/crazyshow/dessinercestgagne/machinealaver.jpg"
                   },
                   {
@@ -378,6 +379,7 @@
                     "action":"drawing",
                     "action_label":"Dessiner",
                     "chronos":30,
+                    "ambiant":"ressources/audio/ambiance/hall_of_the_Mountai_King.mp3",
                     "file":"ressources/crazyshow/dessinercestgagne/cleusb.jpg"
                   },
                   {
@@ -387,6 +389,7 @@
                     "action":"drawing",
                     "action_label":"Dessiner",
                     "chronos":30,
+                    "ambiant":"ressources/audio/ambiance/Quirky_Dog.mp3",
                     "file":"ressources/crazyshow/dessinercestgagne/frisbee.jpg"
                   },
                   {
@@ -396,6 +399,7 @@
                     "action":"drawing",
                     "action_label":"Dessiner",
                     "chronos":30,
+                    "ambiant":"ressources/audio/ambiance/hall_of_the_Mountai_King.mp3",
                     "file":"ressources/crazyshow/dessinercestgagne/saladedefruits.jpg"
                   },
                   {
@@ -405,6 +409,7 @@
                     "action":"drawing",
                     "action_label":"Dessiner",
                     "chronos":30,
+                    "ambiant":"ressources/audio/ambiance/Quirky_Dog.mp3",
                     "file":"ressources/crazyshow/dessinercestgagne/france.jpg"
                   }
                 ]
@@ -412,7 +417,7 @@
             },
             {
               "label":"Adultes (expressions)",
-              "desc":"choisissez une musique d'ambiance pour l'activité",
+              "desc":"Sélectionnez le sujet à faire deviner en dessin.",
               "components":{
                 "galery":[
                   {
@@ -422,6 +427,7 @@
                     "action":"drawing",
                     "action_label":"Dessiner",
                     "chronos":30,
+                    "ambiant":"ressources/audio/ambiance/Quirky_Dog.mp3",
                     "file":"ressources/crazyshow/dessinercestgagne/avoirlesyeuxplusgrosqueleventre.jpg"
                   },
                   {
@@ -431,6 +437,7 @@
                     "action":"drawing",
                     "action_label":"Dessiner",
                     "chronos":30,
+                    "ambiant":"ressources/audio/ambiance/hall_of_the_Mountai_King.mp3",
                     "file":"ressources/crazyshow/dessinercestgagne/lesmursontdesoreilles.jpg"
                   },
                   {
@@ -440,6 +447,7 @@
                     "action":"drawing",
                     "action_label":"Dessiner",
                     "chronos":30,
+                    "ambiant":"ressources/audio/ambiance/Quirky_Dog.mp3",
                     "file":"ressources/crazyshow/dessinercestgagne/prendresoussonaile.jpg"
                   },
                   {
@@ -449,6 +457,7 @@
                     "action":"drawing",
                     "action_label":"Dessiner",
                     "chronos":30,
+                    "ambiant":"ressources/audio/ambiance/hall_of_the_Mountai_King.mp3",
                     "file":"ressources/crazyshow/dessinercestgagne/avoirlapucealoreille.jpg"
                   },
                   {
@@ -458,6 +467,7 @@
                     "action":"drawing",
                     "action_label":"Dessiner",
                     "chronos":30,
+                    "ambiant":"ressources/audio/ambiance/Quirky_Dog.mp3",
                     "file":"ressources/crazyshow/dessinercestgagne/fairelateteaucarre.jpg"
                   }
                 ]
