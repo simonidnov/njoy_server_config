@@ -239,10 +239,12 @@
                             this.socket.emit("njoy", {
                                 status: "KILL_FX"
                             });
-                            this.socket.emit("njoy", {
-                                file: "ressources/audio/chronos.mp3",
-                                status: "FX"
-                            });
+                            setTimeout($.proxy(function() {
+                                this.socket.emit("njoy", {
+                                    file: "ressources/audio/chronos.mp3",
+                                    status: "FX"
+                                });
+                            }, this),50);
                         }
                         if(typeof this.timeout !== "undefined"){
                             clearTimeout(this.timeout);
