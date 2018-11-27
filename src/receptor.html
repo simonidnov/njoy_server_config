@@ -220,7 +220,7 @@
                         if(this.infos.datas.chronos !== "undefined"){
                             this.infos.datas.chronosCount = parseInt(this.infos.datas.chronos);
                             this.infos.datas.chronosProgress = 0;
-                            this.startChronos();
+                            this.openChronos();
                         }
                     }.bind(this));
                 },
@@ -233,19 +233,18 @@
                     }
                 },
                 methods: {
+                    openChronos: function(){
+                        this.socket.emit("njoy", {
+                            status: "KILL_FX"
+                        });
+                        this.socket.emit("njoy", {
+                            file: "ressources/audio/chronos.mp3",
+                            status: "FX"
+                        });
+                        this.startChronos();
+                    },
                     startChronos: function() {
                         console.log('startChronos');
-                        if(typeof this.timeout === "undefined"){
-                            this.socket.emit("njoy", {
-                                status: "KILL_FX"
-                            });
-                            setTimeout($.proxy(function() {
-                                this.socket.emit("njoy", {
-                                    file: "ressources/audio/chronos.mp3",
-                                    status: "FX"
-                                });
-                            }, this),50);
-                        }
                         if(typeof this.timeout !== "undefined"){
                             clearTimeout(this.timeout);
                         }
