@@ -55,11 +55,12 @@ if(typeof omx.quit() === "undefined") {
 module.exports = router;
 app.use(express.static('./src'));
 app.get('/receptor', function(req, res){
-  console.log('ROOT RECEPTOR ?');
   res.sendFile('njoy/src/receptor.html', { root: path.join(__dirname, '../')});
 });
+app.get('/crazy_show', function(req, res){
+  res.sendFile('njoy/src/crazy_show.html', { root: path.join(__dirname, '../')});
+});
 app.get('/', function(req, res){
-  console.log('ROOT DEFAULT');
   res.sendFile('njoy/src/index.html', { root: path.join(__dirname, '../')});
 });
 
@@ -304,7 +305,6 @@ io.on('connection', function(socket){
                 io.emit(call, {"status":"audio_position", "position":datas.position});
                 break;
             case 'stop_audio':
-                console.log('stop_audio');
                 omx.quit();
                 audio_is_playing = false;
                 if(playerTimer !== null){
@@ -314,7 +314,6 @@ io.on('connection', function(socket){
                 io.emit(call, {"status":"audio_stopped"});
                 break;
             case 'init_drawing':
-                console.log('init_drawing init_drawing init_drawing');
                 //omx.quit();
                 //video_is_playing = false;
                 //audio_is_playing = false;

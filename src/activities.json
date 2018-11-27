@@ -2,6 +2,7 @@
   "activities":[
     {
       "label":"Crazy Show",
+      "app_name":"crazy_show",
       "thumb":"ressources/crazyshow/crazy_show_logo.svg",
       "background":"ressources/crazyshow/crazy_show_logo.svg",
       "tr":"",
