@@ -226,13 +226,13 @@ var ui = {
                             $(this).find('img').attr('src', "img/pause_icon.svg");
                         }
                     }
-                    if(typeof $(this).attr('data-selectedapp') !== "undefined"){
+                    //if(typeof $(this).attr('data-selectedapp') !== "undefined"){
                         //delete app.selected_tool;
-                        status['tools'] = app.selected_app;
-                    }else{
+                        //status['tools'] = app.selected_app;
+                    //}else{
                         status['tools'] = app.selected_tool;    
-                    }
-                    console.log('EMIT ::::::::: status ', status);
+                    //}
+                    //console.log('EMIT ::::::::: status ', status);
                     app.socket.emit("njoy", status);
                     /*switch($(this).attr('data-type')){
                         case 'video':

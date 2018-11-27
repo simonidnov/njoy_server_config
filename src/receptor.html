@@ -106,6 +106,9 @@
                             return false;
                         }
                         if(datas.datas.status === "FX" || datas.datas.status.indexOf('audio') !== -1 || datas.datas.status.indexOf('video') !== -1){
+                            if(typeof datas.datas.tools === "undefined") {
+                                datas.datas.tools = this.infos.datas.tools;
+                            }
                             return false;
                         }
                         

@@ -31,6 +31,9 @@ var app_tools = {
                 app.selected_tool = app.selected_app.apps[parseInt($(this).attr('data-appid'))];
 
                 $('.column.components').html(app_tools.component_template(app.selected_tool));
+
+                $('#components_scroll').scrollTop(0);
+
                 app_tools.set_events();
                 //app_tools.components_scroll.refresh();
 
@@ -70,7 +73,7 @@ var app_tools = {
                             console.log('error loading ' + element.data('src'));
                         }
                     });
-                }, 250) );
+                }, 50) );
     		});
             $('#open_tools').on(ui.event, function(){
                 if($('#tools_scroll').position().top !== 0){
