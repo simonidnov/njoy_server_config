@@ -887,7 +887,7 @@
                     "label":"Beau / belle",
                     "desc":"Trouver des chansons qui contiennent le mot Soleil",
                     "datas":{
-                        "chrono":15,
+                        "chrono":20,
                         "display":"screen",
                         "display_response":"regis",
                         "type":"word_component"
@@ -897,7 +897,7 @@
                     "label":"Un animal",
                     "desc":"Trouver des chansons qui contiennent le mot Soleil",
                     "datas":{
-                        "chrono":15,
+                        "chrono":20,
                         "display":"screen",
                         "display_response":"regis",
                         "type":"word_component"
