@@ -27,6 +27,11 @@
                     <h1 class="word_label">HELLO {{ infos.datas.word }}</h1>
                 </div>
             </div>
+            <div class="wordComponent" v-show="infos.datas.status === 'prix'" style="background-color:rgba(0,0,0,0);">
+                <div class="container">
+                    <h1 class="word_label">HELLO {{ infos.datas.word }}</h1>
+                </div>
+            </div>
             <div class="chronos" v-bind:class="chronosClass" v-show="typeof infos.datas.chronos !== 'undefined'">
                 <div class="chronos_bar" v-show="infos.datas.chronos > 0">
                     <div class="chronos_progress" v-bind:style="{ width : infos.datas.chronosProgress + '%' }"></div>
@@ -128,9 +133,13 @@
                                     //TODO lister les attributs et vérifier si le display est regis ?
                                     if(typeof JSON.parse(datas.datas.attributs).prix !== "undefined") {
                                         this.infos.datas.word = JSON.parse(datas.datas.attributs).prix;
+                                        this.infos.datas.status = "prix";
+                                    }else{
+                                        this.infos.datas.status = "word";
                                     }
-                                }
-                                this.infos.datas.status = "word";
+                                }else{
+                                    this.infos.datas.status = "word";
+                                }                                
                                 this.displayWord();
                             }else{
                                 delete this.infos.datas.word;
