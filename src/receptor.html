@@ -211,6 +211,9 @@
                             default:
                                 break;
                         }
+                        if(this.infos.datas.chrono !== "undefined"){
+                            this.infos.datas.chronos = this.infos.datas.chrono;
+                        }
                         if(this.infos.datas.chronos !== "undefined"){
                             this.infos.datas.chronosCount = parseInt(this.infos.datas.chronos);
                             this.infos.datas.chronosProgress = 0;
