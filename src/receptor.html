@@ -98,16 +98,21 @@
                     });
                     this.socket.on('njoy', function(datas) {
                         console.log(datas);
+                        /* GESTION DE CAS SPECIFIQUES */
+                        if(typeof datas.datas === "undefined"){
+                            return false;
+                        }
                         if(datas.status === "teams"){
                             this.infos.datas.teams = datas.datas.teams;
                             return false;
                         }
-                        if(typeof datas.datas === "undefined"){
+                        if(datas.datas.status.indexOf('FX') !== -1){
                             return false;
                         }
-                        if(datas.datas.status === "FX" || datas.datas.status.indexOf('audio') !== -1 || datas.datas.status.indexOf('video') !== -1){
+                        if(datas.datas.status.indexOf('audio') !== -1 || datas.datas.status.indexOf('video') !== -1){
+                            console.log("THIS IS A VIDEO ", datas.datas.tools);
                             if(typeof datas.datas.tools === "undefined") {
-                                datas.datas.tools = this.infos.datas.tools;
+                                this.infos.datas.tools = datas.datas.tools;
                             }
                             return false;
                         }
@@ -166,7 +171,6 @@
                                 setTimeout($.proxy(function(){
                                     this.initDrawing(datas.datas);
                                 }, this), 300);
-                                
                                 break;
                             case "drawing":
                                 datas.datas.status = "is_drawing";
@@ -227,6 +231,12 @@
                 },
                 methods: {
                     startChronos: function() {
+                        if(typeof this.timeout === "undefined"){
+                            this.socket.emit("njoy", {
+                                file: "ressources/audio/timesup.mp3",
+                                status: "FX"
+                            });
+                        }
                         if(typeof this.timeout !== "undefined"){
                             clearTimeout(this.timeout);
                         }
@@ -245,6 +255,11 @@
                     },
                     deleteChronos: function() {
                         delete this.infos.datas.chronos;
+                        delete this.timeout;
+                        this.socket.emit("njoy", {
+                            file: "ressources/audio/timesup.mp3",
+                            status: "FX"
+                        });
                     },
                     displayWord: function(){
                         $('.word_label').html(this.infos.datas.word);
