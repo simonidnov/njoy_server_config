@@ -148,7 +148,7 @@
                                         </li>
                                     <% } %>
                                 </ul>
-                                <div class="cast_button" data-action="cast" data-type="object" data-menu="<%= i %>" data-component="golden_family" data-componentid="<%= q %>" data-chronos="<%= comp_datas[g].chronos %>" data-chronostype="bottom">Diffuser</div>
+                                <div class="cast_button" data-action="cast" data-type="object" data-menu="<%= i %>" data-component="golden_family" data-componentid="<%= q %>" data-chronos="<%= comp_datas[g].datas.chrono %>" data-chronostype="bottom">Diffuser</div>
                             </li>
                         <% } %>
                     </ul>
@@ -157,8 +157,8 @@
                         <% for(var q=0; q<comp_datas.length; q++){ %>
                             <li>
                                 <span><%= comp_datas[q].label %></span>
-                                <div class="cast_button" data-action="cast" data-type="word" data-word="<%= comp_datas[q].label %>" data-menu="<%= i %>" data-component="word_component" data-componentid="<%= q %>" data-chronos="<%= comp_datas[g].chronos %>" data-chronostype="bottom">Diffuser</div>
-                                <div class="cast_button" data-action="cast" data-type="word" data-word="<%= comp_datas[q].label %>" data-menu="<%= i %>" data-component="word_component" data-componentid="<%= q %>" data-chronos="<%= comp_datas[g].chronos %>" data-chronostype="bottom">Relancer le chronos</div>
+                                <div class="cast_button" data-action="cast" data-type="word" data-word="<%= comp_datas[q].label %>" data-menu="<%= i %>" data-component="word_component" data-componentid="<%= q %>" data-chronos="<%= comp_datas[g].datas.chrono %>" data-chronostype="bottom">Diffuser</div>
+                                <div class="cast_button" data-action="cast" data-type="word" data-word="<%= comp_datas[q].label %>" data-menu="<%= i %>" data-component="word_component" data-componentid="<%= q %>" data-chronos="<%= comp_datas[g].datas.chrono %>" data-chronostype="bottom">Relancer le chronos</div>
                             </li>
                         <% } %>
                     </ul>
