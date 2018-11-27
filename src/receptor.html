@@ -228,6 +228,7 @@
                 },
                 methods: {
                     startChronos: function() {
+                        console.log('startChronos');
                         if(typeof this.timeout === "undefined"){
                             this.socket.emit("njoy", {
                                 file: "ressources/audio/chronos.mp3",
@@ -244,11 +245,13 @@
                                 this.startChronos();
                             }.bind(this), 1000);
                         }else{
-                            this.socket.emit("njoy", {
-                                file: "ressources/audio/timesup.mp3",
-                                status: "FX"
-                            });
-                            
+                            console.log('WHY ?');
+                            if(this.infos.datas.chronos === 0){
+                                this.socket.emit("njoy", {
+                                    file: "ressources/audio/timesup.mp3",
+                                    status: "FX"
+                                });
+                            }
                             this.timeout = setTimeout(function () { 
                                 this.infos.datas.chronos = -1;
                                 this.deleteChronos();
@@ -257,8 +260,6 @@
                     },
                     deleteChronos: function() {
                         delete this.infos.datas.chronos;
-                        delete this.timeout;
-                        
                     },
                     displayWord: function(){
                         $('.word_label').html(this.infos.datas.word);
