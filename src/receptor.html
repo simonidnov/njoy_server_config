@@ -133,12 +133,18 @@
                             switch(datas.datas.status){
                                 case 'success':
                                     this.socket.emit("njoy", {
+                                        status: "KILL_FX"
+                                    });
+                                    this.socket.emit("njoy", {
                                         data: "ressources/crazyshow/fx/regis_applau.svg",
                                         file: "ressources/audio/applau.mp3",
                                         status: "FX"
                                     });
                                     break;
                                 case 'fail':
+                                    this.socket.emit("njoy", {
+                                        status: "KILL_FX"
+                                    });
                                     this.socket.emit("njoy", {
                                         data: "ressources/crazyshow/fx/regis_huer.svg",
                                         file: "ressources/audio/huee.mp3",
@@ -211,9 +217,6 @@
                             default:
                                 break;
                         }
-                        if(this.infos.datas.chrono !== "undefined"){
-                            this.infos.datas.chronos = this.infos.datas.chrono;
-                        }
                         if(this.infos.datas.chronos !== "undefined"){
                             this.infos.datas.chronosCount = parseInt(this.infos.datas.chronos);
                             this.infos.datas.chronosProgress = 0;
@@ -234,6 +237,9 @@
                         console.log('startChronos');
                         if(typeof this.timeout === "undefined"){
                             this.socket.emit("njoy", {
+                                status: "KILL_FX"
+                            });
+                            this.socket.emit("njoy", {
                                 file: "ressources/audio/chronos.mp3",
                                 status: "FX"
                             });
@@ -249,7 +255,9 @@
                             }.bind(this), 1000);
                         }else if(this.infos.datas.chronos === 0){
                             clearTimeout(this.timeout);
-                            
+                            this.socket.emit("njoy", {
+                                status: "KILL_FX"
+                            });
                             this.socket.emit("njoy", {
                                 file: "ressources/audio/timesup.mp3",
                                 status: "FX"

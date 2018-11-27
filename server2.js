@@ -92,6 +92,9 @@ io.on('connection', function(socket){
               omx.open(URI+datas.file, omx_audio_options);
               omx.setVolume(app_volume);
               break;
+            case 'KILL_FX':
+              omx.quit();
+              break;
             case 'reboot':
               cp.exec("/home/pi/njoy/startchromium.sh", function(error, stdout, stderr) {
                 if (error !== null) {
