@@ -112,6 +112,7 @@
                         if(datas.datas.status.indexOf('audio') !== -1 || datas.datas.status.indexOf('video') !== -1){
                             console.log("THIS IS A VIDEO ", datas.datas.tools);
                             if(typeof datas.datas.tools === "undefined") {
+                                console.log('SET TOOLS IF EXIST ? ', datas.datas.tools);
                                 this.infos.datas.tools = datas.datas.tools;
                             }
                             return false;
