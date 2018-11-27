@@ -244,14 +244,14 @@
                                 this.infos.datas.chronosProgress = (this.infos.datas.chronos / this.infos.datas.chronosCount) * 100;
                                 this.startChronos();
                             }.bind(this), 1000);
-                        }else{
-                            console.log('WHY ?');
-                            if(this.infos.datas.chronos === 0){
-                                this.socket.emit("njoy", {
-                                    file: "ressources/audio/timesup.mp3",
-                                    status: "FX"
-                                });
-                            }
+                        }else if(this.infos.datas.chronos === 0){
+                            clearTimeout(this.timeout);
+                            
+                            this.socket.emit("njoy", {
+                                file: "ressources/audio/timesup.mp3",
+                                status: "FX"
+                            });
+
                             this.timeout = setTimeout(function () { 
                                 this.infos.datas.chronos = -1;
                                 this.deleteChronos();
