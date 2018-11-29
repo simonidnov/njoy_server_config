@@ -43,7 +43,8 @@
               {"label":"Dinah Washington", "file":"ressources/audio/ambiance/7.mp3", "type":"audio"},
               {"label":"Marylin Monroe", "file":"ressources/audio/ambiance/8.mp3", "type":"audio"},
               {"label":"Dave Brubeck", "file":"ressources/audio/ambiance/9.mp3", "type":"audio"},
-              {"label":"Dean Martin", "file":"ressources/audio/ambiance/10.mp3", "type":"audio"}
+              {"label":"Dean Martin", "file":"ressources/audio/ambiance/10.mp3", "type":"audio"},
+              {"label":"Vegedream", "file":"ressources/crazyshow/blindtest/2018/12_Vegedream_Ramenez-la-coupe-a-la-maison.mp3", "type":"audio"}
           ]
         },
         {
