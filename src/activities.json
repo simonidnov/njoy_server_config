@@ -26,7 +26,12 @@
             {"label":"Applaudir", "file":"ressources/audio/applau.mp3", "type":"FX", "data":"ressources/crazyshow/fx/regis_applau.svg"},
             {"label":"Huer", "file":"ressources/audio/huee.mp3", "type":"FX", "data":"ressources/crazyshow/fx/regis_huer.svg"},
             {"label":"Mauvaise réponse", "file":"ressources/audio/faux.mp3", "type":"FX", "data":"ressources/crazyshow/fx/regis_wrong.svg"},
-            {"label":"Bonne réponse", "file":"ressources/audio/bon.mp3", "type":"FX", "data":"ressources/crazyshow/fx/regis_good.svg"}
+            {"label":"Bonne réponse", "file":"ressources/audio/bon.mp3", "type":"FX", "data":"ressources/crazyshow/fx/regis_good.svg"},
+            {"label":"Rires", "file":"ressources/audio/audience-laughing.mp3", "type":"FX"},
+            {"label":"Booooouh", "file":"ressources/audio/huee.mp3", "type":"FX", "data":"ressources/crazyshow/fx/regis_huer.svg"},
+            {"label":"Fail", "file":"ressources/audio/fail.mp3", "type":"FX"},
+            {"label":"Suspense", "file":"ressources/audio/suspense.mp3", "type":"FX"},
+            {"label":"Fin du round", "file":"ressources/audio/timesup.mp3", "type":"FX"}
           ]
         },
         {
