@@ -334,7 +334,7 @@ var onProgress = function(callback){
 	},1000);
 }
 
-/*
+/* TODO : END CALLED POTENTIAL BUG */
 end_called = false;
 var onEnd = function(callback){
 	setInterval(function(){
@@ -344,7 +344,7 @@ var onEnd = function(callback){
 		}
 	},1000);
 }
-*/
+
 
 var open = function (path, options) {
 	var settings = options || {};
@@ -406,8 +406,8 @@ var open = function (path, options) {
 		console.log('omxpipe done');
 		setTimeout( function() {
 			checkProgressHandler();
-		}, 100);
-  	console.log(stdout);
+		}, 250);
+  		console.log(stdout);
   });
   exec(' . > omxpipe');
 
