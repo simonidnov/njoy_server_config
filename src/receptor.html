@@ -110,7 +110,7 @@
                             this.infos.datas.teams = datas.datas.teams;
                             return false;
                         }
-                        if(datas.datas.status.indexOf('FX') !== -1){
+                        if(datas.datas.status.indexOf('FX') !== -1 || datas.datas.status.indexOf('audioOverlay')) {
                             return false;
                         }
                         if(datas.datas.status.indexOf('audio') !== -1 || datas.datas.status.indexOf('video') !== -1){
