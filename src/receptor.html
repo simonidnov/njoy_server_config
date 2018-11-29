@@ -14,7 +14,7 @@
         <script type="text/javascript" src="js/EaselJS/lib/easeljs-0.8.1.combined.js"></script>
         <script type="text/javascript" src="node_modules/gsap/TweenMax.js"></script>
         <script type="text/javascript" src="js/socket.io/socket.io.js"></script>
-        <script src="node_modules/vue/dist/vue.min.js"></script>    z
+        <script src="node_modules/vue/dist/vue.min.js"></script>
     </head>
     <body>
         <div id="receptor">
@@ -113,7 +113,10 @@
                         if(datas.datas.status.indexOf('FX') !== -1){
                             return false;
                         }
-                        if(datas.datas.status.indexOf('audio') !== -1 || datas.datas.status.indexOf('video') !== -1){
+                        if(datas.datas.status.indexOf('audio') !== -1) {
+                            return false;
+                        } 
+                        if(datas.datas.status.indexOf('video') !== -1) {
                             delete this.infos.datas.word;
                             this.deleteChronos();
                             this.infos.datas.status = datas.datas.status;
