@@ -472,6 +472,7 @@ function sendOmxAudioStatus() {
         "duration":omx.getCurrentDuration(),
         "volume":omx.getCurrentVolume()
       };
+      console.log('omx.getCurrentPosition() >= omx.getCurrentDuration() ', omx.getCurrentPosition() , " >= ", omx.getCurrentDuration());
       if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition() >= omx.getCurrentDuration()){
         io.emit("njoy", {"status":"stop_audio"});
       }else{
