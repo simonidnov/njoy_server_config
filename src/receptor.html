@@ -22,6 +22,18 @@
             <div class="pictureComponent" v-show="infos.datas.status === 'picture'">
                 <img v-bind:src="infos.datas.file"/>
             </div>
+            <div class="golden_family" v-show="typeof infos.datas.gf !== 'undefined'">
+                <ul class="choices">
+                    <h3>{{ infos.datas.gfDesc }}</h3>
+                    <li v-for="purposes in infos.datas.gf" class="panel" v-bind:class="{ selected : purposes.value }">
+                        <div class="front"></div>
+                        <div class="back">
+                            {{ purposes.label }}
+                            <!--<div class="points">5</div>-->
+                        </div>
+                    </li>
+                </ul>
+            </div>
             <div class="wordComponent" v-show="infos.datas.status === 'word'">
                 <div class="container">
                     <h1 class="word_label">HELLO {{ infos.datas.word }}</h1>
@@ -46,18 +58,6 @@
                             <div class="teamScore">{{ team.score }}</div>
                         </div>
                         <div class="teamLabel">{{ team.label }}</div>
-                    </li>
-                </ul>
-            </div>
-            <div class="golden_family" v-show="typeof infos.datas.gf !== 'undefined'">
-                <ul class="choices">
-                    <h3>{{ infos.datas.gfDesc }}</h3>
-                    <li v-for="purposes in infos.datas.gf" class="panel" v-bind:class="{ selected : purposes.value }">
-                        <div class="front"></div>
-                        <div class="back">
-                            {{ purposes.label }}
-                            <!--<div class="points">5</div>-->
-                        </div>
                     </li>
                 </ul>
             </div>
@@ -133,6 +133,7 @@
                                     //TODO lister les attributs et vérifier si le display est regis ?
                                     if(typeof JSON.parse(datas.datas.attributs).prix !== "undefined") {
                                         this.infos.datas.word = JSON.parse(datas.datas.attributs).prix;
+                                        this.infos.datas.tools.background = JSON.parse(datas.datas.attributs).background;
                                         this.infos.datas.status = "prix";
                                     }else{
                                         this.infos.datas.status = "word";

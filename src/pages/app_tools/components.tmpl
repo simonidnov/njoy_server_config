@@ -70,10 +70,12 @@
                                 <% if(_.keys(comp_datas[g].datas).length > 0){ %>
                                     <ul class="datas_list">
                                         <% for(var d=0; d<_.keys(comp_datas[g].datas).length; d++){ %>
-                                            <li>
-                                                <div class="label"><%= _.keys(comp_datas[g].datas)[d] %> : </div>
-                                                <%= comp_datas[g].datas[_.keys(comp_datas[g].datas)[d]] %>
-                                            </li>
+                                            <% if( _.keys(comp_datas[g].datas)[d] !== "background" ) { %>
+                                                <li>
+                                                    <div class="label"><%= _.keys(comp_datas[g].datas)[d] %> : </div>
+                                                    <%= comp_datas[g].datas[_.keys(comp_datas[g].datas)[d]] %>
+                                                </li>
+                                            <% } %>
                                         <% } %>
                                     </ul>
                                 <% } %>

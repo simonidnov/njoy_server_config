@@ -518,21 +518,21 @@
               "desc":"série de produits 1, devinez le prix",
               "components":{
                 "galery":[
-                    {"label":"PSP", "desc":"", "datas":{"prix":"119,78€"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/psp.jpg", "chronos":"30"},
-                    {"label":"IPAD", "desc":"", "datas":{"prix":"700,00€"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/IPAD.jpg", "chronos":"30"},
-                    {"label":"Poney", "desc":"", "datas":{"prix":"1000,00€"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/poney.jpg", "chronos":"30"},
-                    {"label":"BOA", "desc":"", "datas":{"prix":"120,00€"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/Boa.jpg", "chronos":"30"},
-                    {"label":"Ticket de cinéma", "desc":"", "datas":{"prix":"07,00€"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/ticket.jpg", "chronos":"30"},
-                    {"label":"Drone", "desc":"", "datas":{"prix":"234,99€"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/drone.jpg", "chronos":"30"},
-                    {"label":"Avion", "desc":"", "datas":{"prix":"12 000 000,00€"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/Avion.jpg", "chronos":"30"},
-                    {"label":"Ballon de foot", "desc":"", "datas":{"prix":"24,50€"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/ballon.jpg", "chronos":"30"},
-                    {"label":"Paire de basquette", "desc":"", "datas":{"prix":"70,00€"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/chaussure_sport.jpg", "chronos":"30"},
-                    {"label":"Iphone", "desc":"", "datas":{"prix":"800,00€"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/smarthphone.jpg", "chronos":"30"},
-                    {"label":"Trombonne (papeterie)", "desc":"", "datas":{"prix":"00,05€"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/trombone.jpg", "chronos":"30"},
-                    {"label":"Boite de conserve ravioli", "desc":"", "datas":{"prix":"1,90€"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/boite_conserve.jpg", "chronos":"30"},
-                    {"label":"Appareil à raclette", "desc":"", "datas":{"prix":"70,00€"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/Appareil_a_raclette.jpg", "chronos":"30"},
-                    {"label":"Yacht", "desc":"", "datas":{"prix":"2 500 000,00€"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/yatch.jpg", "chronos":"30"},
-                    {"label":"Go Pro", "desc":"", "datas":{"prix":"150,00€"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/camera_embarque.jpg", "chronos":"30"}
+                    {"label":"PSP", "desc":"", "datas":{"prix":"119,78€", "background":"ressources/crazyshow/Juste_prix/psp.jpg"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/psp.jpg", "chronos":"30"},
+                    {"label":"IPAD", "desc":"", "datas":{"prix":"700,00€", "background":"ressources/crazyshow/Juste_prix/IPAD.jpg"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/IPAD.jpg", "chronos":"30"},
+                    {"label":"Poney", "desc":"", "datas":{"prix":"1000,00€", "background":"ressources/crazyshow/Juste_prix/poney.jpg"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/poney.jpg", "chronos":"30"},
+                    {"label":"BOA", "desc":"", "datas":{"prix":"120,00€", "background":"ressources/crazyshow/Juste_prix/Boa.jpg"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/Boa.jpg", "chronos":"30"},
+                    {"label":"Ticket de cinéma", "desc":"", "datas":{"prix":"07,00€", "background":"ressources/crazyshow/Juste_prix/ticket.jpg"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/ticket.jpg", "chronos":"30"},
+                    {"label":"Drone", "desc":"", "datas":{"prix":"234,99€", "background":"ressources/crazyshow/Juste_prix/drone.jpg"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/drone.jpg", "chronos":"30"},
+                    {"label":"Avion", "desc":"", "datas":{"prix":"12 000 000,00€", "background":"ressources/crazyshow/Juste_prix/Avion.jpg"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/Avion.jpg", "chronos":"30"},
+                    {"label":"Ballon de foot", "desc":"", "datas":{"prix":"24,50€", "background":"ressources/crazyshow/Juste_prix/ballon.jpg"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/ballon.jpg", "chronos":"30"},
+                    {"label":"Paire de basquette", "desc":"", "datas":{"prix":"70,00€", "background":"ressources/crazyshow/Juste_prix/chaussure_sport.jpg"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/chaussure_sport.jpg", "chronos":"30"},
+                    {"label":"Iphone", "desc":"", "datas":{"prix":"800,00€", "background":"ressources/crazyshow/Juste_prix/smarthphone.jpg"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/smarthphone.jpg", "chronos":"30"},
+                    {"label":"Trombonne (papeterie)", "desc":"", "datas":{"prix":"00,05€", "background":"ressources/crazyshow/Juste_prix/trombone.jpg"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/trombone.jpg", "chronos":"30"},
+                    {"label":"Boite de conserve ravioli", "desc":"", "datas":{"prix":"1,90€", "background":"ressources/crazyshow/Juste_prix/boite_conserve.jpg"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/boite_conserve.jpg", "chronos":"30"},
+                    {"label":"Appareil à raclette", "desc":"", "datas":{"prix":"70,00€", "background":"ressources/crazyshow/Juste_prix/Appareil_a_raclette.jpg"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/Appareil_a_raclette.jpg", "chronos":"30"},
+                    {"label":"Yacht", "desc":"", "datas":{"prix":"2 500 000,00€", "background":"ressources/crazyshow/Juste_prix/yatch.jpg"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/yatch.jpg", "chronos":"30"},
+                    {"label":"Go Pro", "desc":"", "datas":{"prix":"150,00€", "background":"ressources/crazyshow/Juste_prix/camera_embarque.jpg"}, "display":true, "display_datas":false, "file":"ressources/crazyshow/Juste_prix/camera_embarque.jpg", "chronos":"30"}
                 ]
               }
             },

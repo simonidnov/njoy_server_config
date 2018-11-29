@@ -510,17 +510,20 @@ var ui = {
             console.log('openNativeSettingsTest is not active!');
         }
     },
-    check_wifi : function(){
-        if(typeof navigator.connection !== "undefined"){
-            if(navigator.connection.type !== "wifi"){
+    check_wifi : function() {
+        if(typeof navigator.connection !== "undefined") {
+            if(navigator.connection.type !== "wifi") {
                 ui.popin({
                     "illus":"img/logout_illus.svg",
                     "title":"WIFI",
                     "message":"Pour utiliser l'application vous devez activer la WIFI et vous connecter sur le réseau NJOY avec le mot de passe njoynjoy.",
                     "buttons":[
-                        {"label":"Activer la WIFI", class:"error"}
+                        {
+                            "label": "Activer la WIFI", 
+                            "class": "error"
+                        }
                     ]
-                }, function(e){
+                }, function(e) {
                     ui.open_wifi_settings();
                 });
             }
