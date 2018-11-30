@@ -307,7 +307,7 @@ io.on('connection', function(socket){
             case 'stop_audio':
                 omx.quit();
                 audio_is_playing = false;
-                if(playerTimer !== null){
+                if(playerTimer !== null) {
                   clearTimeout(playerTimer);
                   playerTimer = null;
                 }
