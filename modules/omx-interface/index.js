@@ -352,7 +352,7 @@ var onEnd = function(callback){
 	}
 	endHandler = setInterval(function(){
 		//console.log(cache);
-		if (cache.duration.valid && cache.position.value >= cache.duration.value) {
+		if (cache.duration.valid && getCurrentPosition() >= getCurrentDuration()) {
 			console.log('------------------------------------ video TERMINE ', cache);
 			clearInterval(progressHandler);
 			clearInterval(endHandler);
