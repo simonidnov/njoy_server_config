@@ -1,5 +1,6 @@
 /* START VIDEO INSTANCE */
 var omx = require('omx-interface'),
+delay = 30,
 omx_options = {
     audioOutput:'local',
     blackBackground:true,
@@ -27,7 +28,7 @@ function resetProgressListener() {
     });*/
     playerTimer = setTimeout(function(){
         sendOmxStatus();
-    }, 200);
+    }, delay);
 }
 function sendOmxStatus() {
     if(video_is_playing){
@@ -43,7 +44,7 @@ function sendOmxStatus() {
         io.emit("njoy", vid_status);
         playerTimer = setTimeout(function(){
             sendOmxStatus();
-        }, 500);
+        }, delay);
         }
     }
 }
@@ -67,7 +68,7 @@ function resetAudioProgressListener() {
     });
     playerTimer = setTimeout(function(){
         sendOmxAudioStatus();
-    }, 500);
+    }, delay);
 }
 function sendOmxAudioStatus() {
     if(audio_is_playing){
@@ -84,7 +85,7 @@ function sendOmxAudioStatus() {
             io.emit("njoy", audio_status);
             playerTimer = setTimeout(function(){
             sendOmxAudioStatus();
-            }, 500);
+            }, delay);
         }
         }
     }
