@@ -432,7 +432,9 @@ function resetProgressListener() {
   omx.onEnd(function(){
     console.log('VIDEO FINISHED');
     //io.emit("njoy", {"status":"stop_audio"});
-    io.emit("njoy", {"status":"stop_video"});
+    setTimeout(function(){
+      io.emit("njoy", {"status":"stop_video"});
+    },100);
     //io.emit("njoy", {"status":"video_stopped"});
   });
   //playerTimer = setTimeout(function(){
