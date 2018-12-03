@@ -230,12 +230,12 @@ io.on('connection', function(socket){
             case 'stop_video':
                 console.log('QUIT VIDEO');
                 omx.quit();
+                io.emit(call, {"status":"video_stopped"});
                 video_is_playing = false;
                 if(playerTimer !== null){
                   clearTimeout(playerTimer);
                   playerTimer = null;
                 }
-                io.emit(call, {"status":"video_stopped"});
                 break;
 
             case 'audio':
@@ -435,6 +435,7 @@ function resetProgressListener() {
     console.log('--------------------------------- LA VIDEO EST TERMINEE');
     //io.emit("njoy", {"status":"stop_audio"});
     io.emit("njoy", {"status":"stop_video"});
+    io.emit("njoy", {"status":"video_stopped"});
     console.log('--------------------------------- STOP EMITTED AT END');
   });
   //playerTimer = setTimeout(function(){
