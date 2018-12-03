@@ -336,8 +336,7 @@ var onProgress = function(callback){
 		}else{
 			console.log('onProgress false ', getCurrentStatus());
 		}
-		//();
-	},250);
+	}, 250);
 	console.log("progressHandler :::: ", progressHandler);
 }
 
@@ -347,8 +346,8 @@ var onEnd = function(callback){
 	endHandler = setInterval(function(){
 		//console.log(cache);
 		if (cache.duration.valid && cache.position.value >= cache.duration.value) {
-			console.log('video TERMINE ', cache);
-			clearInterval(progressHandler);
+			console.log('video TERMINE ');
+			//clearInterval(progressHandler);
 			clearInterval(endHandler);
 			callback();
 			end_called = true;

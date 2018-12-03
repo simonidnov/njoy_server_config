@@ -432,6 +432,8 @@ function resetProgressListener() {
   });
   omx.onEnd(function(){
     console.log('--------------------------------- LA VIDEO EST TERMINEE');
+    io.emit("njoy", {"status":"stop_audio"});
+    io.emit("njoy", {"status":"stop_video"});
   });
   //playerTimer = setTimeout(function(){
   //  sendOmxStatus();
