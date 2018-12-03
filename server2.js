@@ -439,7 +439,7 @@ function sendOmxStatus() {
       io.emit("njoy", vid_status);
       playerTimer = setTimeout(function(){
         sendOmxStatus();
-      }, 500);
+      }, 30);
     }
   }
 }
@@ -483,7 +483,7 @@ function sendOmxAudioStatus() {
         io.emit("njoy", audio_status);
         playerTimer = setTimeout(function(){
           sendOmxAudioStatus();
-        }, 500);
+        }, 30);
       }
     }
   }
