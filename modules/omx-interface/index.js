@@ -3,7 +3,7 @@ var path = require('path');
 
 exec('mkfifo omxpipe');
 
-var defaults, progressHandler;
+var defaults, progressHandler, endHandler;
 
 function setDefault ()	{
 	defaults = {
@@ -44,8 +44,8 @@ dbus = "bash "+__dirname+"/dbus.sh ";
 function checkProgressHandler() {
 	console.log('checkProgressHandler');
 	if (progressHandler) {
-		clearInterval(progressHandler);
-		console.log('progressHandler cancelled');
+		//clearInterval(progressHandler);
+		console.log('progressHandler NOT cancelled COMMENT');
 	}
 }
 
@@ -109,6 +109,7 @@ var stop = function() {
 var quitTryCount = 0;
 var quit = function() {
 	checkProgressHandler();
+	clearInterval(progressHandler);
 	exec(dbus + 'quit',function(error, stdout, stderr) {
 		if(error && (quitTryCount < 3)){
 			quitTryCount++;
@@ -345,10 +346,12 @@ var onEnd = function(callback){
 	endHandler = setInterval(function(){
 		if (cache.duration.valid && cache.position.value >= cache.duration.value) {
 			console.log('video TERMINE');
+			clearInterval(progressHandler);
+			clearInterval(endHandler);
 			callback();
 			end_called = true;
 		}
-	},1000);
+	},250);
 }
 
 
