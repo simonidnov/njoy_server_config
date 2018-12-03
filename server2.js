@@ -413,8 +413,8 @@ function resetProgressListener() {
   video_is_playing = true;
   /* PROGRESS FILL DOESNT WORK CORRECTLY */
   omx.onProgress(function(track){ //subscribe for track updates (every second while not paused for now)
-      //console.log("onProgress position :: ", track.position);
-      //console.log("onProgress duration :: ", track.duration);
+      console.log("onProgress position :: ", track.position);
+      console.log("onProgress duration :: ", track.duration);
       if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition() >= omx.getCurrentDuration()){
         io.emit("njoy", {"status":"stop_video"});
       }
