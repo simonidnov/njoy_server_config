@@ -25,7 +25,7 @@ var express = require('express'),
       is_on_seek = false,
       has_omx = false,
       URI = 'http://10.3.141.1:3000/',
-      omxDelay = 30;
+      omxDelay = 500;
 
 /* VIDEO INSTANCE */
 var omx = require('./modules/omx-interface/index.js'),
