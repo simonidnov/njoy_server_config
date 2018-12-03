@@ -70,12 +70,13 @@ io.on('connection', function(socket){
         console.log('user disconnected');
     });
     socket.on('njoy', function(datas){
+        console.log("CALL NJOY EMITTED SOCKET :::: ", datas);
+        
         users_activities.push(datas);
         datas = addParams(datas);
         var stat = {},
             call = "njoy";
 
-        console.log("CALL NJOY EMIT SOCKET :::: ", datas);
         //console.log("datas.status ::::::: ", datas.status);
         switch(datas.status){
             case 'chrono_start':
@@ -229,6 +230,7 @@ io.on('connection', function(socket){
                 io.emit(call, {"status":"video_position", "position":datas.position});
                 break;
             case 'stop_video':
+                console.log('VIDEO TERMINEE STOP VIDEO EMITTED RECEIVED');
                 omx.quit();
                 video_is_playing = false;
                 console.log('VIDEO NOT PLAYING ? ', video_is_playing);
