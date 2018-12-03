@@ -102,7 +102,7 @@
                     });
                     this.socket.on('njoy', function(datas) {
                         /* GESTION DE CAS SPECIFIQUES */
-                        console.log(datas);
+                        //console.log(datas);
                         if(typeof datas.datas === "undefined"){
                             return false;
                         }
@@ -262,7 +262,6 @@
                         this.startChronos();
                     },
                     startChronos: function() {
-                        console.log('startChronos');
                         if(typeof this.timeout !== "undefined"){
                             clearTimeout(this.timeout);
                         }
@@ -342,13 +341,14 @@
                         this.stage.autoClear = true;
                         this.stage.update();
                     },
-                    drawing: function(datas){
+                    drawing: function(datas) {
                         //console.log('draw ', this.currentShape[this.currentShape.length-1].graphics);
                         var pt = new createjs.Point(datas.x, datas.y);
                         var midPoint = new createjs.Point(this.oldX + pt.x>>1, this.oldY+pt.y>>1);
                         if(typeof this.currentShape[this.currentShape.length-1] != "undefined"){
                             this.currentShape[this.currentShape.length-1].graphics.setStrokeStyle(datas.strokestyle.size, datas.strokestyle.stylingW, datas.strokestyle.stylingH);
-                            this.currentShape[this.currentShape.length-1].graphics.moveTo(midPoint.x, midPoint.y);
+                            //this.currentShape[this.currentShape.length-1].graphics.moveTo(this.oldX, this.oldY);
+                            this.currentShape[this.currentShape.length-1].graphics.lineTo(midPoint.x, midPoint.y);
                             this.currentShape[this.currentShape.length-1].graphics.curveTo(this.oldX, this.oldY, this.oldMidX, this.oldMidY);
                         }
                         this.oldX = pt.x;
@@ -361,47 +361,18 @@
                     drawing_point: function(datas){
                         this.oldX = datas.x;
                         this.oldY = datas.y;
-                        //var pt = new createjs.Point(datas.x, datas.y);
-                        this.currentShape[this.currentShape.length-1].graphics.endStroke().endFill();
-                        //this.currentShape[this.currentShape.length].graphics.endStroke();
-                        var s = new createjs.Shape();
-                        this.currentShape[this.currentShape.length] = s;
-                        var g = s.graphics;
+                        this.oldMidX = datas.x;
+                        this.oldMidY = datas.y;
+                        //this.currentShape[this.currentShape.length-1].graphics.endStroke().endFill();
+                        this.currentShape[this.currentShape.length] = new createjs.Shape();
+                        var g = this.currentShape[this.currentShape.length-1].graphics;
                         g.beginStroke("#000000");
-                        this.stage.addChild(s);
-                        g.moveTo(datas.x, datas.y);
+                        g.moveTo(this.oldX, this.oldY);
+                        this.stage.addChild(this.currentShape[this.currentShape.length-1]);
                     }
                 }
             });
 
-
-
-            /*var drawer = function(canvas_id, width, height){
-                vm.canvas = document.getElementById(canvas_id);
-                // TODO REMOVE TEST SIZE
-                vm.canvas.width = width;
-                vm.canvas.height = height;
-
-                vm.canvas.style.width = width;
-                vm.canvas.style.height = height;
-                $('#canvas_id').css({
-                    "width":$('body').width()+'px !important',
-                    "height":$('body').height()+'px !important'
-                })
-                vm.stage = new createjs.Stage(canvas_id);
-                vm.stage.autoClear = true;
-                vm.stage.update();
-
-                vm.currentShape = [];
-                vm s = new createjs.Shape();
-                vm.currentShape[0] = s;
-                var g = s.graphics;
-
-                g.beginStroke("#000000");
-                vm.stage.addChild(s);
-                // TODO : on receive ticker from user update stage 
-                //createjs.Ticker.addEventListener("tick", $.proxy(function(){this.update();},this));
-            }*/
 
         </script>
         <style>
