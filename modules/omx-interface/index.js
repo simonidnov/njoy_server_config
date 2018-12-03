@@ -326,9 +326,13 @@ var getCurrentVolume = function(){
 }
 
 var onProgress = function(callback){
+	console.log('CALL onProgress');
 	progressHandler = setInterval(function(){
 		if(getCurrentStatus()){
+			console.log('onProgress');
 			callback({position:getCurrentPosition(), duration:getCurrentDuration()});
+		}else{
+			console.log('onProgress false ', getCurrentStatus());
 		}
 	},100);
 }
