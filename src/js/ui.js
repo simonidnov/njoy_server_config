@@ -17,8 +17,6 @@ var ui = {
         }
         this.load_templates();
         this.setListeners();
-
-
     },
     load_templates: function() {
         _.each(_.keys(this.templates), function(key, index) {
@@ -178,7 +176,6 @@ var ui = {
             if(typeof $(this).attr('data-direction') !== "undefined"){
                 ui.direction = $(this).attr('data-direction');
             }
-            console.log("$(this).attr('data-ambiant') :::: ", $(this).attr('data-ambiant'));
             if($(this).attr('data-ambiant') !== ""){
                 app.socket.emit("njoy", {status:"audio", file:$(this).attr('data-ambiant'), data:"", tools:app.selected_tool});
             }
