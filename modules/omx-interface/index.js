@@ -326,23 +326,22 @@ var getCurrentVolume = function(){
 }
 
 var onProgress = function(callback){
-	console.log('add new progress handler')
 	progressHandler = setInterval(function(){
 		if(getCurrentStatus()){
 			callback({position:getCurrentPosition(), duration:getCurrentDuration()});
 		}
-	},1000);
+	},100);
 }
 
 /* TODO : END CALLED POTENTIAL BUG */
 end_called = false;
 var onEnd = function(callback){
-	setInterval(function(){
+	//setInterval(function(){
 		if (cache.duration.valid && cache.position.value > cache.duration.value) {
 			callback();
 			end_called = true;
 		}
-	},1000);
+	//},1000);
 }
 
 
@@ -406,7 +405,7 @@ var open = function (path, options) {
 		console.log('omxpipe done');
 		setTimeout( function() {
 			checkProgressHandler();
-		}, 250);
+		}, 100);
   		console.log(stdout);
   });
   exec(' . > omxpipe');
