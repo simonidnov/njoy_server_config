@@ -470,7 +470,8 @@ function resetAudioProgressListener() {
         //io.emit("njoy", {"status":"audio_stopped"});
       //  io.emit("njoy", {"status":"stop_audio"});
       //}else{
-        sendOmxStatus();
+        console.log('SET OMX STATUS');
+        sendOmxAudioStatus();
       //}
       //var percent = track.position / track.duration;
       //io.emit(call, {"status":"progress_video", "position":track.position, "duration":track.duration, "percent":percent});
@@ -480,6 +481,7 @@ function resetAudioProgressListener() {
   //}, omxDelay);
 }
 function sendOmxAudioStatus() {
+  
   if(audio_is_playing){
     if(!is_on_seek){
       var audio_status = {

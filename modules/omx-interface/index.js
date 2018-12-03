@@ -333,9 +333,7 @@ var onProgress = function(callback){
 		clearInterval(progressHandler);
 	}
 	progressHandler = setInterval(function(){
-		console.log('progressHandler interval');
 		if(getCurrentStatus()){
-			console.log('onProgress');
 			callback({position:getCurrentPosition(), duration:getCurrentDuration()});
 		}else{
 			console.log('onProgress false ', getCurrentStatus());
