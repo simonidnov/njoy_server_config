@@ -74,7 +74,7 @@ io.on('connection', function(socket){
         datas = addParams(datas);
         var stat = {},
             call = "njoy";
-
+        console.log(datas.status);
         //console.log("datas.status ::::::: ", datas.status);
         switch(datas.status){
             case 'chrono_start':
@@ -228,7 +228,6 @@ io.on('connection', function(socket){
                 io.emit(call, {"status":"video_position", "position":datas.position});
                 break;
             case 'stop_video':
-                console.log('stop_video');
                 omx.quit();
                 video_is_playing = false;
                 console.log('VIDEO NOT PLAYING ? ', video_is_playing);
@@ -429,7 +428,7 @@ function resetProgressListener() {
   });
   omx.onEnd(function(){
     //io.emit("njoy", {"status":"stop_audio"});
-    io.emit("njoy", {"status":"stop_video", "datas":{"status":"stop_video"}});
+    io.emit("njoy", {"status":"stop_video"});
     //io.emit("njoy", {"status":"video_stopped"});
   });
   //playerTimer = setTimeout(function(){
