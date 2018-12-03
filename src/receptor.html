@@ -117,6 +117,12 @@
                             return false;
                         } 
                         if(datas.datas.status.indexOf('video') !== -1) {
+                            if(datas.datas.status === "stop_video"){
+                                console.log('RECEIVE STOP VIDEO');
+                                this.socket.emit("njoy", {
+                                    status: "video_stopped"
+                                });
+                            }
                             delete this.infos.datas.word;
                             this.deleteChronos();
                             this.infos.datas.status = datas.datas.status;
