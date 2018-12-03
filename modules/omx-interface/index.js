@@ -329,6 +329,9 @@ var getCurrentVolume = function(){
 
 var onProgress = function(callback){
 	console.log('CALL onProgress');
+	if(progressHandler){
+		clearInterval(progressHandler);
+	}
 	progressHandler = setInterval(function(){
 		if(getCurrentStatus()){
 			console.log('onProgress');
@@ -343,6 +346,9 @@ var onProgress = function(callback){
 /* TODO : END CALLED POTENTIAL BUG */
 end_called = false;
 var onEnd = function(callback){
+	if(endHandler){
+		clearInterval(endHandler);
+	}
 	endHandler = setInterval(function(){
 		//console.log(cache);
 		if (cache.duration.valid && cache.position.value > cache.duration.value) {
