@@ -433,7 +433,7 @@ function resetProgressListener() {
     console.log('VIDEO FINISHED');
     //io.emit("njoy", {"status":"stop_audio"});
     setTimeout(function(){
-      io.emit("njoy", {"status":"stop_video"});
+      socket.emit("njoy", {"status":"stop_video"});
     },100);
     //io.emit("njoy", {"status":"video_stopped"});
   });
