@@ -335,20 +335,20 @@ var onProgress = function(callback){
 		}else{
 			console.log('onProgress false ', getCurrentStatus());
 		}
-		onEnd();
-	},500);
+		//();
+	},250);
 }
 
 /* TODO : END CALLED POTENTIAL BUG */
 end_called = false;
 var onEnd = function(callback){
-	//setInterval(function(){
+	endHandler = setInterval(function(){
 		if (cache.duration.valid && cache.position.value >= cache.duration.value) {
 			console.log('video TERMINE');
 			callback();
 			end_called = true;
 		}
-	//},1000);
+	},1000);
 }
 
 
@@ -667,3 +667,4 @@ module.exports.getCurrentDuration = getCurrentDuration;
 module.exports.getCurrentVolume = getCurrentVolume;
 module.exports.getCurrentStatus = getCurrentStatus;
 module.exports.onProgress = onProgress;
+module.exports.onEnd = onEnd;
