@@ -358,7 +358,7 @@ var onEnd = function(callback){
 			callback();
 			end_called = true;
 		}
-	},50);
+	},500);
 }
 
 
