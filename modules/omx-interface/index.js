@@ -327,9 +327,6 @@ var getCurrentVolume = function(){
 
 var onProgress = function(callback){
 	console.log('CALL onProgress');
-	if(typeof progressHandler !== "undefined"){
-		clearInterval(progressHandler);
-	}
 	progressHandler = setInterval(function(){
 		if(getCurrentStatus()){
 			console.log('onProgress');
@@ -337,14 +334,16 @@ var onProgress = function(callback){
 		}else{
 			console.log('onProgress false ', getCurrentStatus());
 		}
-	},100);
+		onEnd();
+	},500);
 }
 
 /* TODO : END CALLED POTENTIAL BUG */
 end_called = false;
 var onEnd = function(callback){
 	//setInterval(function(){
-		if (cache.duration.valid && cache.position.value > cache.duration.value) {
+		if (cache.duration.valid && cache.position.value >= cache.duration.value) {
+			console.log('video TERMINE');
 			callback();
 			end_called = true;
 		}

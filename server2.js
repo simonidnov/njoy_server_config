@@ -425,10 +425,13 @@ function resetProgressListener() {
         //io.emit("njoy", {"status":"video_stopped"});
       //  io.emit("njoy", {"status":"stop_video"});
       //}else{
-        sendOmxStatus();
+      sendOmxStatus();
       //}
       //var percent = track.position / track.duration;
       //io.emit(call, {"status":"progress_video", "position":track.position, "duration":track.duration, "percent":percent});
+  });
+  omx.onEnd(function(){
+    console.log('--------------------------------- LA VIDEO EST TERMINEE');
   });
   //playerTimer = setTimeout(function(){
   //  sendOmxStatus();
@@ -446,9 +449,9 @@ function sendOmxStatus() {
       io.emit("njoy", {"status":"stop_video"});
     }else{
       io.emit("njoy", vid_status);
-      playerTimer = setTimeout(function(){
-        sendOmxStatus();
-      }, omxDelay);
+      //playerTimer = setTimeout(function(){
+      //sendOmxStatus();
+      //}, omxDelay);
     }
   }
 }
@@ -495,9 +498,9 @@ function sendOmxAudioStatus() {
         io.emit("njoy", {"status":"stop_audio"});
       }else{
         io.emit("njoy", audio_status);
-        playerTimer = setTimeout(function(){
-          sendOmxAudioStatus();
-        }, omxDelay);
+        //playerTimer = setTimeout(function(){
+        //  sendOmxAudioStatus();
+        //}, omxDelay);
       }
     }
   }
