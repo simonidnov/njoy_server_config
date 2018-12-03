@@ -74,7 +74,8 @@ io.on('connection', function(socket){
         datas = addParams(datas);
         var stat = {},
             call = "njoy";
-        console.log(datas.status);
+
+        console.log("CALL NJOY EMIT SOCKET :::: ", datas.status);
         //console.log("datas.status ::::::: ", datas.status);
         switch(datas.status){
             case 'chrono_start':
