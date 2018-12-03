@@ -420,19 +420,19 @@ function resetProgressListener() {
       console.log("onProgress position :: ", track.position);
       console.log("onProgress duration :: ", track.duration);
       
-      if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition()+1 >= omx.getCurrentDuration()){
-        console.log('PROGRESS IS FINISHED');
+      //if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition()+1 >= omx.getCurrentDuration()){
+      //  console.log('PROGRESS IS FINISHED');
         //io.emit("njoy", {"status":"video_stopped"});
-        io.emit("njoy", {"status":"stop_video"});
-      }else{
+      //  io.emit("njoy", {"status":"stop_video"});
+      //}else{
         sendOmxStatus();
-      }
+      //}
       //var percent = track.position / track.duration;
       //io.emit(call, {"status":"progress_video", "position":track.position, "duration":track.duration, "percent":percent});
   });
-  playerTimer = setTimeout(function(){
-    sendOmxStatus();
-  }, omxDelay);
+  //playerTimer = setTimeout(function(){
+  //  sendOmxStatus();
+  //}, omxDelay);
 }
 function sendOmxStatus() {
   if(video_is_playing){
@@ -442,7 +442,7 @@ function sendOmxStatus() {
       "duration":omx.getCurrentDuration(),
       "volume":omx.getCurrentVolume()
     };
-    if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition() >= omx.getCurrentDuration()){
+    if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition()+1 >= omx.getCurrentDuration()){
       io.emit("njoy", {"status":"stop_video"});
     }else{
       io.emit("njoy", vid_status);
@@ -469,18 +469,18 @@ function resetAudioProgressListener() {
       console.log("onProgress position :: ", track.position);
       console.log("onProgress duration :: ", track.duration);
       
-      if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition()+1 >= omx.getCurrentDuration()){
+      //if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition()+1 >= omx.getCurrentDuration()){
         //io.emit("njoy", {"status":"audio_stopped"});
-        io.emit("njoy", {"status":"stop_audio"});
-      }else{
+      //  io.emit("njoy", {"status":"stop_audio"});
+      //}else{
         sendOmxStatus();
-      }
+      //}
       //var percent = track.position / track.duration;
       //io.emit(call, {"status":"progress_video", "position":track.position, "duration":track.duration, "percent":percent});
   });
-  playerTimer = setTimeout(function(){
-    sendOmxAudioStatus();
-  }, omxDelay);
+  //playerTimer = setTimeout(function(){
+  //  sendOmxAudioStatus();
+  //}, omxDelay);
 }
 function sendOmxAudioStatus() {
   if(audio_is_playing){
