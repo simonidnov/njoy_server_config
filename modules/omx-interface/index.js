@@ -338,6 +338,7 @@ var onProgress = function(callback){
 		}
 		//();
 	},250);
+	console.log("progressHandler :::: ", progressHandler);
 }
 
 /* TODO : END CALLED POTENTIAL BUG */
@@ -351,7 +352,7 @@ var onEnd = function(callback){
 			callback();
 			end_called = true;
 		}
-	},250);
+	},500);
 }
 
 
