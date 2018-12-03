@@ -42,6 +42,7 @@ var cache = setDefault();
 dbus = "bash "+__dirname+"/dbus.sh ";
 
 function checkProgressHandler() {
+	console.log('checkProgressHandler');
 	if (progressHandler) {
 		clearInterval(progressHandler);
 		console.log('progressHandler cancelled');
