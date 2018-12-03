@@ -338,7 +338,7 @@ var onProgress = function(callback){
 		}else{
 			console.log('onProgress false ', getCurrentStatus());
 		}
-	}, 250);
+	},1000);
 	//console.log("progressHandler :::: ", progressHandler);
 }
 
@@ -356,7 +356,7 @@ var onEnd = function(callback){
 			callback();
 			end_called = true;
 		}
-	},250);
+	},1000);
 }
 
 
