@@ -229,8 +229,8 @@ io.on('connection', function(socket){
                 break;
             case 'stop_video':
                 omx.quit();
-                io.emit(call, {"status":"video_stopped"});
                 video_is_playing = false;
+                io.emit(call, {"status":"video_stopped"});
                 if(playerTimer !== null){
                   clearTimeout(playerTimer);
                   playerTimer = null;
