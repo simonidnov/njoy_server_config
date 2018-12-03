@@ -446,16 +446,16 @@ function sendOmxStatus() {
       "duration":omx.getCurrentDuration(),
       "volume":omx.getCurrentVolume()
     };
-    if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition()+1 >= omx.getCurrentDuration()){
-      console.log('VIDEO TERMINEE ', io);
-      io.emit("njoy", {"status":"stop_video"});
-    }else{
-      console.log('SEND STATUS VIDEO ', vid_status);
-      io.emit("njoy", vid_status);
+    //if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition()+1 >= omx.getCurrentDuration()){
+    //  console.log('VIDEO TERMINEE ');
+    //  io.emit("njoy", {"status":"stop_video"});
+    //}else{
+    console.log('SEND STATUS VIDEO ', vid_status);
+    io.emit("njoy", vid_status);
       //playerTimer = setTimeout(function(){
       //sendOmxStatus();
       //}, omxDelay);
-    }
+    //}
   }
 }
 function check_end_omx(){
