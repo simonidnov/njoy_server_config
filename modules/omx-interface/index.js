@@ -353,13 +353,12 @@ var onEnd = function(callback){
 	endHandler = setInterval(function(){
 		//console.log(cache);
 		if (cache.duration.valid && getCurrentPosition() >= getCurrentDuration()) {
-			console.log('------------------------------------ video TERMINE ', cache);
 			clearInterval(progressHandler);
 			clearInterval(endHandler);
 			callback();
 			end_called = true;
 		}
-	},500);
+	},50);
 }
 
 
@@ -367,7 +366,6 @@ var open = function (path, options) {
 	var settings = options || {};
 	var args = [];
 	var command = 'omxplayer';
-	console.log("OMX OPEN COMMAND :::: ", command);
 	cache = setDefault();
 
 	cache.path.value = path;
@@ -417,14 +415,11 @@ var open = function (path, options) {
 
 	args.push('--dbus_name');
 	args.push('org.mpris.MediaPlayer2.omxplayer');
-	console.log(command+' '+args.join(' ')+' < omxpipe');
   exec(command+' '+args.join(' ')+' < omxpipe',function(error, stdout, stderr) {
 		update_duration();
-		console.log('omxpipe done');
 		setTimeout( function() {
 			checkProgressHandler();
 		}, 100);
-  		console.log(stdout);
   });
   exec(' . > omxpipe');
 
