@@ -421,7 +421,7 @@ function stop_video(){
   video_is_playing = false;
   
   console.log('VIDEO NOT PLAYING ? ', video_is_playing);
-  io.emit(call, {"status":"video_stopped"});
+  io.emit("njoy", {"status":"video_stopped"});
 }
 function resetProgressListener() {
   video_is_playing = true;
