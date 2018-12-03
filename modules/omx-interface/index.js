@@ -327,6 +327,9 @@ var getCurrentVolume = function(){
 
 var onProgress = function(callback){
 	console.log('CALL onProgress');
+	if(typeof progressHandler !== "undefined"){
+		clearInterval(progressHandler);
+	}
 	progressHandler = setInterval(function(){
 		if(getCurrentStatus()){
 			console.log('onProgress');
