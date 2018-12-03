@@ -190,16 +190,16 @@ var ui = {
                     break;
                 case 'cast':
                     var status = {};
-                    if(typeof $(this).attr('data-type') !== "undefined"){
+                    if(typeof $(this).attr('data-type') !== "undefined") {
                         status['status'] = $(this).attr('data-type');
                     }
-                    if(typeof $(this).attr('data-file') !== "undefined"){
+                    if(typeof $(this).attr('data-file') !== "undefined") {
                         status['file'] = $(this).attr('data-file');
                     }
-                    if(typeof $(this).attr('data-size') !== "undefined"){
+                    if(typeof $(this).attr('data-size') !== "undefined") {
                         status['size'] = $(this).attr('data-size');
                     }
-                    if(typeof $(this).attr('data-menu') !== "undefined"){
+                    if(typeof $(this).attr('data-menu') !== "undefined") {
                         status['menu'] = $(this).attr('data-menu');
                     }
                     if(typeof $(this).attr('data-component') !== "undefined"){

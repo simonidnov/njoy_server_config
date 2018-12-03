@@ -201,6 +201,9 @@
                                 datas.datas.status = "is_drawing";
                                 this.drawing_point(datas.datas);
                                 break;
+                            case 'drawing_clear':
+                                this.drawing_clear(datas.datas);
+                                break;
                             case 'success':
                                 console.log('SUCCESS');
                                 break;
@@ -381,6 +384,11 @@
                         g.beginStroke("#000000");
                         g.moveTo(this.oldX, this.oldY);
                         this.stage.addChild(this.currentShape[this.currentShape.length-1]);
+                    },
+                    drawing_clear: function(datas){
+                        this.stage.removeAllChildren();
+                        this.stage.update();
+                        this.currentShape = [];
                     }
                 }
             });
