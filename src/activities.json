@@ -1160,7 +1160,7 @@
         {
           "label":"Cintre d'esprit",
           "desc":"Par équipe de 2, un enfant donne les cintres, l'autre doit en un temps record les empiler par le milieu. Chrono affiché à l'écran",
-          "background":"ressources/crazyshow/jingles/cintre_esprit.svg",
+          "background":"ressources/crazyshow/jingles/cintredesprit.svg",
           "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
           "tl":"",
           "tc":"ressources/crazyshow/habillage/cintreesprit.svg",
