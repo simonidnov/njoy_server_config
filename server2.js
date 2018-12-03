@@ -169,8 +169,8 @@ io.on('connection', function(socket){
                     io.emit(call, {"status":"video_stopped"});
                     io.emit(call, {"status":"error", datas:{"title":"video", "message":"Une vidéo était en cours de lecture et vient d'être coupée."}});
                   }else{
-                    video_is_playing = false;
                     omx.quit();
+                    video_is_playing = false;
                     setTimeout(function(){
                       cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
                       if(typeof datas.size !== "undefined") {
@@ -185,8 +185,8 @@ io.on('connection', function(socket){
                     }, 200);
                   }
                 }else{
-                  video_is_playing = false;
                   omx.quit();
+                  video_is_playing = false;
                   setTimeout(function(){
                     cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
                     omx.open(URI+datas.file, omx_options);
@@ -230,6 +230,7 @@ io.on('connection', function(socket){
             case 'stop_video':
                 omx.quit();
                 video_is_playing = false;
+                console.log('VIDEO NOT PLAYING ? ', video_is_playing);
                 io.emit(call, {"status":"video_stopped"});
                 if(playerTimer !== null){
                   clearTimeout(playerTimer);
