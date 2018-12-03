@@ -413,7 +413,10 @@ function getRandomColor() {
   return color;
 }
 
-
+function stop_video(){
+  console.log('call stop video function');
+  io.emit("njoy", {"status":"stop_video"});
+}
 function resetProgressListener() {
   video_is_playing = true;
   /* PROGRESS FILL DOESNT WORK CORRECTLY */
@@ -434,7 +437,8 @@ function resetProgressListener() {
     //io.emit("njoy", {"status":"stop_audio"});
     setTimeout(function(){
       console.log('APPEL IO EMIT NJOY ?');
-      io.emit("njoy", {"status":"stop_video"});
+      
+      stop_video();
     },100);
     //io.emit("njoy", {"status":"video_stopped"});
   });
