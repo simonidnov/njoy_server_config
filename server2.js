@@ -412,6 +412,7 @@ function getRandomColor() {
 
 function resetProgressListener() {
   video_is_playing = true;
+  console.log('RESET PROGRESS LISTENER SET ONPROGRESS');
   /* PROGRESS FILL DOESNT WORK CORRECTLY */
   omx.onProgress(function(track){ //subscribe for track updates (every second while not paused for now)
       
