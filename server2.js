@@ -217,11 +217,11 @@ io.on('connection', function(socket){
                 is_on_seek = true;
                 omx.pause();
                 omx.seek(datas.seek);
-                setTimeout(function(){
+                //setTimeout(function(){
                   io.emit(call, {"status":"video_seek", "seek":datas.seek});
                   //omx.play();
                   is_on_seek = false;
-                },500);
+                //},500);
                 break;
             case 'position_video':
                 omx.setPosition(datas.position);
@@ -292,11 +292,11 @@ io.on('connection', function(socket){
                 is_on_seek = true;
                 omx.pause();
                 omx.seek(datas.seek);
-                setTimeout(function(){
+                //setTimeout(function(){
                   io.emit(call, {"status":"audio_seek", "seek":datas.seek});
                   //omx.play();
                   is_on_seek = false;
-                },500);
+                //},500);
                 //omx.seek(datas.seek);
                 //io.emit(call, {"status":"audio_seek", "seek":datas.seek});
                 break;
