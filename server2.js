@@ -424,6 +424,8 @@ function resetProgressListener() {
         console.log('PROGRESS IS FINISHED');
         //io.emit("njoy", {"status":"video_stopped"});
         io.emit("njoy", {"status":"stop_video"});
+      }else{
+        sendOmxStatus();
       }
       //var percent = track.position / track.duration;
       //io.emit(call, {"status":"progress_video", "position":track.position, "duration":track.duration, "percent":percent});
@@ -470,6 +472,8 @@ function resetAudioProgressListener() {
       if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition()+1 >= omx.getCurrentDuration()){
         //io.emit("njoy", {"status":"audio_stopped"});
         io.emit("njoy", {"status":"stop_audio"});
+      }else{
+        sendOmxStatus();
       }
       //var percent = track.position / track.duration;
       //io.emit(call, {"status":"progress_video", "position":track.position, "duration":track.duration, "percent":percent});
