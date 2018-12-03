@@ -76,7 +76,7 @@ io.on('connection', function(socket){
         datas = addParams(datas);
         var stat = {},
             call = "njoy";
-
+        
         //console.log("datas.status ::::::: ", datas.status);
         switch(datas.status){
             case 'chrono_start':
@@ -416,6 +416,12 @@ function getRandomColor() {
 function stop_video(){
   console.log('call stop video function');
   io.emit("njoy", {"status":"stop_video"});
+
+  omx.quit();
+  video_is_playing = false;
+  
+  console.log('VIDEO NOT PLAYING ? ', video_is_playing);
+  io.emit(call, {"status":"video_stopped"});
 }
 function resetProgressListener() {
   video_is_playing = true;
