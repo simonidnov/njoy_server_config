@@ -43,7 +43,7 @@ dbus = "bash "+__dirname+"/dbus.sh ";
 
 function checkProgressHandler() {
 	if (progressHandler) {
-		//clearInterval(progressHandler);
+		clearInterval(progressHandler);
 		console.log('progressHandler cancelled');
 	}
 }
