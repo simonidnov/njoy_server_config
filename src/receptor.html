@@ -220,6 +220,9 @@
                             case 'video':
                                 break;
                             case 'golden_family':
+                                this.socket.emit("njoy", {
+                                    status: "KILL_FX"
+                                });
                                 this.infos.datas.gf[parseInt(datas.datas.response)].value = 1;
                                 break;
                             case 'word':

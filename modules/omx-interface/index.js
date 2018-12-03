@@ -561,14 +561,14 @@ var init_remote = function(options){
 		});
 
 		socket.on('stop', function (data) {
-			if(typeof progressHandler !== "undefined"){
+			if(progressHandler){
 				clearInterval(progressHandler);
 			}
 			stop();
 		});
 
 		socket.on('quit', function (data) {
-			if(typeof progressHandler !== "undefined"){
+			if(progressHandler){
 				clearInterval(progressHandler);
 			}
 			quit();
