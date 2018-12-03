@@ -557,10 +557,16 @@ var init_remote = function(options){
 		});
 
 		socket.on('stop', function (data) {
+			if(typeof progressHandler !== "undefined"){
+				clearInterval(progressHandler);
+			}
 			stop();
 		});
 
 		socket.on('quit', function (data) {
+			if(typeof progressHandler !== "undefined"){
+				clearInterval(progressHandler);
+			}
 			quit();
 			process.exit(1);
 		});
