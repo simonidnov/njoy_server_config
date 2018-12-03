@@ -219,7 +219,7 @@ io.on('connection', function(socket){
                 omx.seek(datas.seek);
                 setTimeout(function(){
                   io.emit(call, {"status":"video_seek", "seek":datas.seek});
-                  omx.play();
+                  //omx.play();
                   is_on_seek = false;
                 },500);
                 break;
@@ -294,7 +294,7 @@ io.on('connection', function(socket){
                 omx.seek(datas.seek);
                 setTimeout(function(){
                   io.emit(call, {"status":"audio_seek", "seek":datas.seek});
-                  omx.play();
+                  //omx.play();
                   is_on_seek = false;
                 },500);
                 //omx.seek(datas.seek);
