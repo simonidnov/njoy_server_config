@@ -189,7 +189,7 @@
                                 //this.socket.emit('njoy', {status:'stop_video'});
                                 //this.socket.emit('njoy', {status:'stop_audio'});
                                 datas.datas.status = "is_drawing";
-                                setTimeout($.proxy(function(){
+                                setTimeout($.proxy(function() {
                                     this.initDrawing(datas.datas);
                                 }, this), 300);
                                 break;
@@ -290,17 +290,21 @@
                     deleteChronos: function() {
                         delete this.infos.datas.chronos;
                     },
-                    displayWord: function(){
+                    displayWord: function() {
                         $('.word_label').html(this.infos.datas.word);
                         $(".word_label").lettering();
                         var title1 = new TimelineMax();
                         //title1.to(".button", 0, {visibility: 'hidden', opacity: 0})
-                        title1.staggerFromTo(".word_label span", 0.5, 
-                        {ease: Back.easeOut.config(1.7), opacity: 0, bottom: -80},
-                        {ease: Back.easeOut.config(1.7), opacity: 1, bottom: 0}, 0.05);
+                        title1.staggerFromTo(
+                            ".word_label span", 
+                            0.5, 
+                            {ease: Back.easeOut.config(1.7), opacity: 0, bottom: -80},
+                            {ease: Back.easeOut.config(1.7), opacity: 1, bottom: 0}, 
+                            0.05
+                        );
                         //title1.to(".button", 0.2, {visibility: 'visible' ,opacity: 1})
                     },
-                    initDrawing: function(datas){
+                    initDrawing: function(datas) {
                         $('.dessinezcestgagne').css('display', 'block');
                         $('.module_drawing').append('<canvas id="drawing" width="'+datas.width+'" height="'+datas.height+'"></canvas>');
                         //this.drawing_tool = new drawer("drawing", datas.width, datas.height);
@@ -342,9 +346,13 @@
                         this.stage.update();
                     },
                     drawing: function(datas) {
-                        //console.log('draw ', this.currentShape[this.currentShape.length-1].graphics);
+                        console.log(datas);
                         var pt = new createjs.Point(datas.x, datas.y);
                         var midPoint = new createjs.Point(this.oldX + pt.x>>1, this.oldY+pt.y>>1);
+                        if(typeof datas.color !== "undefined"){
+                            var g = this.currentShape[this.currentShape.length-1].graphics;
+                            g.beginStroke(datas.color);
+                        }
                         if(typeof this.currentShape[this.currentShape.length-1] != "undefined"){
                             this.currentShape[this.currentShape.length-1].graphics.setStrokeStyle(datas.strokestyle.size, datas.strokestyle.stylingW, datas.strokestyle.stylingH);
                             //this.currentShape[this.currentShape.length-1].graphics.moveTo(this.oldX, this.oldY);
@@ -358,11 +366,12 @@
                         this.oldMidY = midPoint.y;
                         this.stage.update();
                     },
-                    drawing_point: function(datas){
+                    drawing_point: function(datas) {
                         this.oldX = datas.x;
                         this.oldY = datas.y;
                         this.oldMidX = datas.x;
                         this.oldMidY = datas.y;
+                        console.log(datas);
                         //this.currentShape[this.currentShape.length-1].graphics.endStroke().endFill();
                         this.currentShape[this.currentShape.length] = new createjs.Shape();
                         var g = this.currentShape[this.currentShape.length-1].graphics;
