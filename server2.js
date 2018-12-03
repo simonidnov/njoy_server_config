@@ -24,7 +24,8 @@ var express = require('express'),
       app_volume = .5,
       is_on_seek = false,
       has_omx = false,
-      URI = 'http://10.3.141.1:3000/';
+      URI = 'http://10.3.141.1:3000/',
+      omxDelay = 30;
 
 /* VIDEO INSTANCE */
 var omx = require('./modules/omx-interface/index.js'),
@@ -413,6 +414,7 @@ function resetProgressListener() {
   video_is_playing = true;
   /* PROGRESS FILL DOESNT WORK CORRECTLY */
   omx.onProgress(function(track){ //subscribe for track updates (every second while not paused for now)
+      console.log('PROGRESS IS WORKING FINE');
       console.log("onProgress position :: ", track.position);
       console.log("onProgress duration :: ", track.duration);
       if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition() >= omx.getCurrentDuration()){
@@ -423,7 +425,7 @@ function resetProgressListener() {
   });
   playerTimer = setTimeout(function(){
     sendOmxStatus();
-  }, 500);
+  }, omxDelay);
 }
 function sendOmxStatus() {
   if(video_is_playing){
@@ -439,7 +441,7 @@ function sendOmxStatus() {
       io.emit("njoy", vid_status);
       playerTimer = setTimeout(function(){
         sendOmxStatus();
-      }, 30);
+      }, omxDelay);
     }
   }
 }
@@ -466,7 +468,7 @@ function resetAudioProgressListener() {
   });
   playerTimer = setTimeout(function(){
     sendOmxAudioStatus();
-  }, 500);
+  }, omxDelay);
 }
 function sendOmxAudioStatus() {
   if(audio_is_playing){
@@ -483,7 +485,7 @@ function sendOmxAudioStatus() {
         io.emit("njoy", audio_status);
         playerTimer = setTimeout(function(){
           sendOmxAudioStatus();
-        }, 30);
+        }, omxDelay);
       }
     }
   }
