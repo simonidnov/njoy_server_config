@@ -202,7 +202,9 @@
                                 this.drawing_point(datas.datas);
                                 break;
                             case 'drawing_clear':
+                                datas.datas.status = "is_drawing";
                                 this.drawing_clear(datas.datas);
+                                this.infos.datas.status = "is_drawing";
                                 return false;
                                 break;
                             case 'success':
