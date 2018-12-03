@@ -67,7 +67,7 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
     socket.on('disconnect', function(){
-        //console.log('user disconnected');
+        console.log('user disconnected');
     });
     socket.on('njoy', function(datas){
         users_activities.push(datas);
@@ -75,7 +75,7 @@ io.on('connection', function(socket){
         var stat = {},
             call = "njoy";
 
-        console.log("CALL NJOY EMIT SOCKET :::: ", datas.status);
+        console.log("CALL NJOY EMIT SOCKET :::: ", datas);
         //console.log("datas.status ::::::: ", datas.status);
         switch(datas.status){
             case 'chrono_start':
@@ -447,9 +447,10 @@ function sendOmxStatus() {
       "volume":omx.getCurrentVolume()
     };
     if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition()+1 >= omx.getCurrentDuration()){
-      console.log('VIDEO TERMINEE');
+      console.log('VIDEO TERMINEE ', io);
       io.emit("njoy", {"status":"stop_video"});
     }else{
+      console.log('SEND STATUS VIDEO ', vid_status);
       io.emit("njoy", vid_status);
       //playerTimer = setTimeout(function(){
       //sendOmxStatus();
