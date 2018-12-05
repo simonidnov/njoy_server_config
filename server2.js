@@ -61,6 +61,9 @@ app.get('/receptor', function(req, res){
 app.get('/crazy_show', function(req, res){
   res.sendFile('njoy/src/crazy_show.html', { root: path.join(__dirname, '../')});
 });
+app.get('/boardingpass', function(req, res){
+  res.sendFile('njoy/src/boardingpass.html', { root: path.join(__dirname, '../')});
+});
 app.get('/', function(req, res){
   res.sendFile('njoy/src/index.html', { root: path.join(__dirname, '../')});
 });
@@ -68,6 +71,10 @@ app.get('/', function(req, res){
 io.on('connection', function(socket){
     socket.on('disconnect', function(){
         console.log('user disconnected');
+    });
+    socket.on('boardingpass', function(){
+      console.log('boardingpass');
+      
     });
     socket.on('njoy', function(datas){
         console.log("CALL NJOY EMITTED SOCKET :::: ", datas);

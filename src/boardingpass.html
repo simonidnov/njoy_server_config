@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <meta http-equiv="Access-Control-Allow-Origin" content="*">
+        <title>NJOY</title>
+        <link rel="stylesheet" type="text/css" href="css/app.css">
+        <link rel="stylesheet" type="text/css" href="css/boardingpass.css">
+        <link rel="stylesheet" type="text/css" href="pages/boardingpass/flapper/css/flapper.css">
+        <meta http-equiv="Access-Control-Allow-Origin" content="*">
+        <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+        <!--<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>-->
+        <!--<script type="text/javascript" src="js/lettering.js"></script>
+        <script type="text/javascript" src="pages/boardingpass/flapper/jshashtable-2.1/jshashtable.js"></script>-->
+        <script type="text/javascript" src="pages/boardingpass/flapper/src/jquery.flapper.js"></script>
+        
+        <script type="text/javascript" src="js/EaselJS/lib/easeljs-0.8.1.combined.js"></script>
+        <script type="text/javascript" src="node_modules/gsap/TweenMax.js"></script>
+        <script type="text/javascript" src="js/socket.io/socket.io.js"></script>
+        <script src="node_modules/vue/dist/vue.min.js"></script>
+    </head>
+    <body>
+        <div id="boardingpass" class="boardingpass">
+            <div class="airportPanel">
+                <input class="display S" value="MA QUESTION TEST PERF RASPI                  "/>
+                <input class="display S" value="OU PART LE BALAIS DE PAILLE AVEC LE RAMASSE POUSSIERE"/>
+                <input class="display S" value="MA QUESTION TEST PERF RASPI                  "/>
+                <input class="display S" value="MA QUESTION TEST PERF RASPI                  "/>
+                <input class="display S" value="MA QUESTION TEST PERF RASPI                  "/>
+                <input class="display S" value="MA QUESTION TEST PERF RASPI                  "/>
+                <input class="display S" value="MA QUESTION TEST PERF RASPI                  "/>
+                <input class="display S" value="MA QUESTION TEST PERF RASPI                  "/>
+                <input class="display S" value="MA QUESTION TEST PERF RASPI                  "/>
+                <input class="display S" value="MA QUESTION TEST PERF RASPI                  "/>
+            </div>
+        </div>
+        <script>
+            var vm = new Vue({
+                el: '#boardingpass',
+                data: {
+                    activities: [],
+                    message: 'BOARDINGPASS',
+                    destinations:[
+                        {
+                            label:"PARIS",
+                            code:"CDG",
+                            country:"FRANCE"
+                        },
+                        {
+                            label:"BRUXELLES",
+                            code:"BX",
+                            country:"BELGIQUE"
+                        },
+                        {
+                            label:"BANGKOK",
+                            code:"BKK",
+                            country:"THAILANDE"
+                        }
+                    ],
+                    infos:{
+                        datas:{
+                            teams: []
+                        }
+                    },
+                    options: {
+                        width: 45,          // number of digits
+                        format: null,         // options for jquery.numberformatter, if loaded
+                        align: 'left',       // aligns values to the left or right of display
+                        padding: '&nbsp;',    // value to use for padding
+                        chars: null,          // array of characters that Flapper can display
+                        chars_preset: 'alphanum',  // 'num', 'hexnum', 'alpha' or 'alphanum'
+                        timing: 250,          // the maximum timing for digit animation
+                        min_timing: 10,       // the minimum timing for digit animation
+                        threshhold: 100,      // the point at which Flapper will switch from
+                        transform: false,      // Flapper automatically detects the jquery.transform
+                        on_anim_start: this.onAnimStart,   // Callback for start of animation
+                        on_anim_end: this.onAnimEnd     // Callback for end of animation
+                    },
+                    socket: io(window.location.origin, {transports: ['websocket', 'xhr-polling']})
+                },
+                created: function() {
+                    this.socket.on('error', function(e) {
+                        console.log('error socket');
+                    });
+                    this.socket.on('connect_failed', function(e) {
+                        console.log("connect_failed");
+                    });
+                    this.socket.on('connect', function(e) {
+                        console.log("socket_connected");
+                    });
+                    this.socket.on('boardingpass', function(datas) {
+                        /* GESTION DE CAS SPECIFIQUES */
+                        console.log(datas);
+                    }.bind(this));
+                    //SET DISPLAY
+                    $(document).ready(function(){
+                        setTimeout(function(){
+                            $('input.display').flapper(this.options);
+                        }.bind(this), 2000);
+                    }.bind(this));
+                },
+                computed: {
+                    setClass: function(){
+                        return {
+                            unknow: false,
+                            selected: true
+                        }
+                    }
+                },
+                methods: {
+                    defaultFunc: function(){
+                        console.log('default function');
+                    },
+                    displayLine: function(id, value){
+                        //$('input.display').flapper(this.options);
+
+                        target = $('input.display').eq(id);
+                        
+                        target.val(value);
+                        target.change();
+                    },
+                    onAnimStart: function(e) {
+                        console.log('start ', e);
+                        var $display = $(e.target);
+                        $display.prevUntil('.flapper', '.activity').addClass('active');
+                    },
+                    onAnimEnd: function(e) {
+                        console.log('end ', e);
+                        var $display = $(e.target);
+                        $display.prevUntil('.flapper', '.activity').removeClass('active');
+                    }
+                }
+            });
+
+
+        </script>
+        <style>
+            
+        </style>
+    </body>
+</html>
