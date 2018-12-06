@@ -219,25 +219,22 @@
 
             this.$back_top.show();
             this.$front_bottom.transform({ scaleY: 0.0 });
-            this.$front_top.transform({ scaleY: 1.0 }).stop().show().animate({ scaleY: 0.0 }, speed1, 'swing', function(){
-                _this.$front_bottom.stop().show().animate({ scaleY: 1.0 }, speed2, 'linear');
-                _this.$front_top.hide().transform({ scaleY: 1.0 });
-            });
+            this.$front_top.transform({ scaleY: 1.0 }).stop().show();
+            //.animate({ scaleY: 0.0 }, speed1, 'swing', function(){
+            //this.$front_bottom.stop().show().animate({ scaleY: 1.0 }, speed2, 'linear');
+            this.$front_top.hide().transform({ scaleY: 1.0 });
+            //});
         },
 
         animateFast: function(speed1, speed2) {
             var _this = this;
-
             if (this.timeout) {
                 clearTimeout(this.timeout);
             }
-
             this.timeout = setTimeout(function(){
                 _this.$front_top.hide();
-
                 _this.timeout = setTimeout(function(){
                     _this.$front_bottom.show();
-
                 }, speed2);
             }, speed1);
         },
