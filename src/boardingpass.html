@@ -27,23 +27,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
     <body>
         <div id="boardingpass" class="boardingpass">
             <div class="airportPanel">
-                <input class="display XS" value="OU PART LE BALAIS DE PAILLE AVEC LE RAMASSE POUSSIERE"/>
-                <input class="display XS" value="                                                                                    "/>
-                <input class="display XS" value="                                                                                    "/>
-                <input class="display XS" value="                                                                                    "/>
-                <input class="display XS" value="                                                                                    "/>
-                <input class="display XS" value="                                                                                    "/>
-                <input class="display XS" value="                                                                                    "/>
-                <input class="display XS" value="                                                                                    "/>
-                <input class="display XS" value="                                                                                    "/>
-                <input class="display XS" value="                                                                                    "/>
-                <input class="display XS" value="                                                                                    "/>
-                <input class="display XS" value="                                                                                    "/>
-                <input class="display XS" value="                                                                                    "/>
-                <input class="display XS" value="                                                                                    "/>
-                <input class="display XS" value="                                                                                    "/>
-                <input class="display XS" value="                                                                                    "/>
-                <input class="display XS" value="                                                                                    "/>
+                <input class="display XS" value=""/>
             </div>
         </div>
         <script>
@@ -52,22 +36,16 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                 data: {
                     activities: [],
                     message: 'BOARDINGPASS',
-                    destinations:[
-                        {
-                            label:"PARIS",
-                            code:"CDG",
-                            country:"FRANCE"
-                        },
-                        {
-                            label:"BRUXELLES",
-                            code:"BX",
-                            country:"BELGIQUE"
-                        },
-                        {
-                            label:"BANGKOK",
-                            code:"BKK",
-                            country:"THAILANDE"
-                        }
+                    enigmes:[
+                        "OU PART LE BALAIS DE PAILLE AVEC LE RAMASSE POUSSIERE",
+                        "                                                     ",
+                        "      BILLY BILLY                                    ",
+                        "                                                     ",
+                        "UR                                                   ",
+                        "J'aime les frites                                    ",
+                        "                                                     ",
+                        "BRAVIO JEAN MICHEL                                   ",
+                        "                                                     "
                     ],
                     infos:{
                         datas:{
@@ -75,9 +53,9 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                         }
                     },
                     options: {
-                        width: 54,          // number of digits
-                        format: null,         // options for jquery.numberformatter, if loaded
-                        align: 'left',       // aligns values to the left or right of display
+                        width: 53*9,          // number of digits
+                        format: null,         // optio  ns for jquery.numberformatter, if loaded
+                        align: 'left',        // aligns values to the left or right of display
                         padding: '&nbsp;',    // value to use for padding
                         chars: null,          // array of characters that Flapper can display
                         chars_preset: 'alphanum',  // 'num', 'hexnum', 'alpha' or 'alphanum'
@@ -103,10 +81,23 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                     this.socket.on('boardingpass', function(datas) {
                         /* GESTION DE CAS SPECIFIQUES */
                         console.log(datas);
+                        switch(datas.status){
+                            case 'updateLine':
+                                var space = " ";
+                                (datas.value.length < 53)? datas.value += space.repeat(53 - datas.value.length) : datas.value = datas.value.subString(0, 52);
+                                this.enigmes[datas.num] = datas.value;
+                                this.displayLine();
+                                break;
+                            default:
+                                break;
+                        }
+
                     }.bind(this));
                     //SET DISPLAY
                     $(document).ready(function(){
                         setTimeout(function(){
+                            var space = " ";
+                            $('input.display').val(this.enigmes.join(''));
                             $('input.display').flapper(this.options);
                         }.bind(this), 2000);
                     }.bind(this));
@@ -126,14 +117,17 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                     displayLine: function(id, value){
                         //$('input.display').flapper(this.options);
 
-                        target = $('input.display').eq(id);
+                        //target = $('input.display').eq(id);
                         
-                        target.val(value);
-                        target.change();
+                        //target.val(value);
+                        //target.change();
+                        $('input.display').val(this.enigmes.join(''));
+                        $('input.display').change();
                     },
                     onAnimStart: function(e) {
                         console.log('start ', e);
                         var $display = $(e.target);
+
                         $display.prevUntil('.flapper', '.activity').addClass('active');
                     },
                     onAnimEnd: function(e) {

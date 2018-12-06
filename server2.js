@@ -76,6 +76,9 @@ io.on('connection', function(socket){
       console.log('boardingpass');
       
     });
+    socket.on('boardingpass', function(datas){
+      io.emit('boardingpass', datas);
+    });
     socket.on('njoy', function(datas){
         console.log("CALL NJOY EMITTED SOCKET :::: ", datas);
         
