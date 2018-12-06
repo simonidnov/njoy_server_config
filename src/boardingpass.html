@@ -1,4 +1,7 @@
 <!-- TEST URL 
+
+killall chromium-browser
+export DISPLAY=:0
 chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disable-session-crashed-bubble --incognito --kiosk --start-maximized http://10.3.141.1:3000/boardingpass
 -->
 <!doctype html>
@@ -61,7 +64,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                         chars_preset: 'alphanum',  // 'num', 'hexnum', 'alpha' or 'alphanum'
                         timing: 50,          // the maximum timing for digit animation
                         min_timing: 10,       // the minimum timing for digit animation
-                        threshhold: 10,      // the point at which Flapper will switch from
+                        threshhold: 1,      // the point at which Flapper will switch from
                         transform: false,      // Flapper automatically detects the jquery.transform
                         on_anim_start: this.onAnimStart,   // Callback for start of animation
                         on_anim_end: this.onAnimEnd     // Callback for end of animation
