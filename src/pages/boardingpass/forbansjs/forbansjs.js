@@ -75,13 +75,13 @@ forbans.prototype.setValue = function(value){
         }
     }.bind(this));
 
-    var title1 = new TimelineLite();
+    var title1 = new TimelineMax();
     //title1.to(".button", 0, {visibility: 'hidden', opacity: 0})
     title1.staggerFromTo(
         this.charSet, 
         0.3,
-        {ease: Power4.easeOut, scaleY:0},
-        {ease: Power4.easeOut, scaleY:1}, 
+        {ease: Power4.easeOut, transform:"rotateX(-180deg)"},
+        {ease: Power4.easeOut, transform:"rotateX(0deg)"}, 
         0.05
     );
 }
