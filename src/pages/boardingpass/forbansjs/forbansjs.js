@@ -30,12 +30,12 @@ forbans.prototype.init = function(target, options, callback){
     if(typeof options.iterations !== "undefined") this.iterations = options.iterations;
 
     this.createGrid();
-    this.setValue(options.value);
+    //this.setValue(options.value);
 }
 forbans.prototype.createGrid = function(){
     if(this.target.classList.value.indexOf('forbans') === -1) this.target.classList.add("forbans");
-    //
-    var flapTemplate = '<div class="flipflap" data-value=""><div class="flip"></div><div class="flap"></div></div>';
+    //<div class="flip"></div><div class="flap"></div>
+    var flapTemplate = '<div class="flipflap" data-value=""></div>';
     this.target.innerHTML = flapTemplate.repeat(this.charMax);
     this.charSet = this.target.getElementsByClassName('flipflap');
 }
