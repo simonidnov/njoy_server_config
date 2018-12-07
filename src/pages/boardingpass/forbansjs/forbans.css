@@ -49,9 +49,11 @@
 .forbans .flipflap .flap{
     transform: rotateX(180deg);
 }
+/*
 .forbans .flipflap.turn .flip{
     transform: rotateX(180deg);
 }
 .forbans .flipflap.turn .flap{
     transform: rotateX(0deg);
 }
+*/

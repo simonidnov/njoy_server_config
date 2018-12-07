@@ -100,7 +100,11 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                         }
                     }.bind(this));
                     //SET DISPLAY
-                    
+                    /*
+                    killall chromium-browser
+                    export DISPLAY=:0
+                    chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disable-session-crashed-bubble --incognito --kiosk --start-maximized $
+                    */
                     $(document).ready(function(){
                         setTimeout(function(){
                             
