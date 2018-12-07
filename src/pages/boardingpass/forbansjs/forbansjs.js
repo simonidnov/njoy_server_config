@@ -67,21 +67,22 @@ forbans.prototype.setValue = function(value){
     (value.length < this.charMax)? this.value += space.repeat(this.charMax - value.length) : this.value = value.substring(0, this.charMax);
     this.charArray = this.value.split('');
 
-    this.charArray.forEach(function(char, index){ 
+    /*this.charArray.forEach(function(char, index){ 
         var character = this.charSet[index];
         //character.getElementsByClassName('flip')[0].innerHTML;
         if(character.innerHTML !== char){
             this.setChar(character, char, index);
         }
-        /*
-        TweenLite.set(character.getElementsByClassName('flip')[0], {rotateX:180});
-        TweenLite.set(character.getElementsByClassName('flap')[0], {rotateX:0});
+    }.bind(this));*/
 
-        TweenLite.to(character.getElementsByClassName('flip')[0], .3, {rotateX:0, delay:20+(40*index)});
-        TweenLite.to(character.getElementsByClassName('flap')[0], .3, {rotateX:180, delay:20+(40*index), onComplete:function(){
-            character.getElementsByClassName('flip')[0].innerHTML = char;
-        }});
-        */
-    }.bind(this));
+    var title1 = new TimelineMax();
+    //title1.to(".button", 0, {visibility: 'hidden', opacity: 0})
+    title1.staggerFromTo(
+        this.charSet, 
+        0.5, 
+        {ease: Back.easeOut.config(1.7), opacity: 0, bottom: -80},
+        {ease: Back.easeOut.config(1.7), opacity: 1, bottom: 0}, 
+        0.05
+    );
     //this.target.innerHTML = this.target.innerHTML;
 }
