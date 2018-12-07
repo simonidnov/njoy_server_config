@@ -66,7 +66,7 @@ forbans.prototype.setValue = function(value){
 
     this.charArray.forEach(function(char, index){ 
         var character = this.charSet[index];
-        if(character.getElementsByClassName('flip')[0].innerHTML !== value){
+        if(character.getElementsByClassName('flip')[0].innerHTML !== char){
             this.setChar(character, char, index);
         }
         /*
