@@ -60,9 +60,9 @@
 
 
 .motionTest{
-    width:200px;
-    height:200px;
-    position: absolute;
+    width:100px;
+    height:100px;
+    position: relative;
     left:0;
     right:0;
     top:0;
@@ -70,12 +70,13 @@
     margin:auto;
     transform-style: preserve-3d;
     perspective: 400px;
-    perspective-origin: 100px 100px;
+    perspective-origin: 50px 50px;
+    float: left;
 }
 .motionTest .front,
 .motionTest .back{
     position: absolute;
-    transform-origin: 100px 100px;
+    transform-origin: 50px 50px;
     width:100%;
     height:100%;
     backface-visibility: hidden;
@@ -84,7 +85,7 @@
     background:#F0F0F0;
     transform-style: preserve-3d;
     perspective: 400px;
-    perspective-origin: 100px 100px;
+    perspective-origin: 50px 50px;
 }
 .motionTest .front{
     -webkit-animation: ROTATEFRONT 1s infinite;
