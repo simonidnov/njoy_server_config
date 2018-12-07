@@ -126,7 +126,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                     },
                     setForban: function(value, index){
                         this.forbans[index] = new forbans();
-                        //setTimeout(function(){
+                        setTimeout(function(){
                             this.forbans[index].init(document.getElementById('flapper_'+index), {
                                 charMax:53,
                                 delat:2,
@@ -136,7 +136,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                             }, function(event){
                                 console.log(event);
                             });
-                        //}.bind(this), (index*100));
+                        }.bind(this), 20);
                         
                         //return value;
                     },
