@@ -52,6 +52,7 @@ forbans.prototype.setChar = function(letter, value, delay){
         }
     }.bind(this), 20+(250*delay));
 }
+
 forbans.prototype.setValue = function(value){
     var space = " ";
         
