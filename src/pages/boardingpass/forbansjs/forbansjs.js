@@ -80,9 +80,8 @@ forbans.prototype.setValue = function(value){
     title1.staggerFromTo(
         this.charSet, 
         0.8,
-        {ease: Back.easeOut.config(1.7), scaleY:0},
-        {ease: Back.easeOut.config(1.7), scaleY:1}, 
+        {ease: Power4.easeOut, scaleY:0},
+        {ease: Power4.easeOut, scaleY:1}, 
         0.05
     );
-    //this.target.innerHTML = this.target.innerHTML;
 }
