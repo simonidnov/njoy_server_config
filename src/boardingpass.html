@@ -14,13 +14,13 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
         <title>NJOY</title>
         <link rel="stylesheet" type="text/css" href="css/app.css">
         <link rel="stylesheet" type="text/css" href="css/boardingpass.css">
-        <link rel="stylesheet" type="text/css" href="pages/boardingpass/flapper/css/flapper.css">
+        <link rel="stylesheet" type="text/css" href="pages/boardingpass/forbansjs/forbans.css">
         <meta http-equiv="Access-Control-Allow-Origin" content="*">
         <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
         <!--<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>-->
         <!--<script type="text/javascript" src="js/lettering.js"></script>
         <script type="text/javascript" src="pages/boardingpass/flapper/jshashtable-2.1/jshashtable.js"></script>-->
-        <script type="text/javascript" src="pages/boardingpass/flapper/src/jquery.flapper.js"></script>
+        <script type="text/javascript" src="pages/boardingpass/forbansjs/forbansjs.js"></script>
         
         <script type="text/javascript" src="js/EaselJS/lib/easeljs-0.8.1.combined.js"></script>
         <script type="text/javascript" src="node_modules/gsap/TweenMax.js"></script>
@@ -30,7 +30,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
     <body>
         <div id="boardingpass" class="boardingpass">
             <div class="airportPanel">
-                <input class="display XS" value=""/>
+                <div v-for='(item, index) in enigmes' v-bind:id="'flapper_'+index">{{ setForban(item.value, index) }}</div>
             </div>
         </div>
         <script>
@@ -39,16 +39,20 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                 data: {
                     activities: [],
                     message: 'BOARDINGPASS',
+                    forbans:[],
+                    lines:15,
                     enigmes:[
-                        "OU PART LE BALAIS DE PAILLE AVEC LE RAMASSE POUSSIERE",
-                        "                                                     ",
-                        "      BILLY BILLY                                    ",
-                        "                                                     ",
-                        "UR                                                   ",
-                        "J'aime les frites                                    ",
-                        "                                                     ",
-                        "BRAVIO JEAN MICHEL                                   ",
-                        "                                                     "
+                        {value:"OU PART LE BALAIS DE PAILLE AVEC LE RAMASSE POUSSIERE"},
+                        {value:"TEST MY FLIP FLAP FORBANS LINE"},
+                        {value:"TEST MY FLIP FLAP FORBANS LINE"},
+                        {value:"TEST MY FLIP FLAP FORBANS LINE"},
+                        {value:"TEST MY FLIP FLAP FORBANS LINE"},
+                        {value:"TEST MY FLIP FLAP FORBANS LINE"},
+                        {value:"TEST MY FLIP FLAP FORBANS LINE"},
+                        {value:"TEST MY FLIP FLAP FORBANS LINE"},
+                        {value:"TEST MY FLIP FLAP FORBANS LINE"},
+                        {value:"TEST MY FLIP FLAP FORBANS LINE"},
+                        {value:"TEST MY FLIP FLAP FORBANS LINE"}
                     ],
                     infos:{
                         datas:{
@@ -83,25 +87,23 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                     });
                     this.socket.on('boardingpass', function(datas) {
                         /* GESTION DE CAS SPECIFIQUES */
-                        console.log(datas);
+                        // SAMPLE CALL EMIT : vm.socket.emit('boardingpass', {status:"updateLine", value:"BONJOUR TOUT LE MONDE", line:4})
                         switch(datas.status){
                             case 'updateLine':
-                                var space = " ";
-                                (datas.value.length < 53)? datas.value += space.repeat(53 - datas.value.length) : datas.value = datas.value.subString(0, 52);
-                                this.enigmes[datas.num] = datas.value;
-                                this.displayLine();
+                                //var space = " ";
+                                //(datas.value.length < 53)? datas.value += space.repeat(53 - datas.value.length) : datas.value = datas.value.subString(0, 52);
+                                //this.enigmes[datas.num] = datas.value;
+                                this.displayLine(datas.line, datas.value);
                                 break;
                             default:
                                 break;
                         }
-
                     }.bind(this));
                     //SET DISPLAY
+                    
                     $(document).ready(function(){
                         setTimeout(function(){
-                            var space = " ";
-                            $('input.display').val(this.enigmes.join(''));
-                            $('input.display').flapper(this.options);
+                            
                         }.bind(this), 2000);
                     }.bind(this));
                 },
@@ -117,15 +119,25 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                     defaultFunc: function(){
                         console.log('default function');
                     },
-                    displayLine: function(id, value){
-                        //$('input.display').flapper(this.options);
-
-                        //target = $('input.display').eq(id);
+                    setForban: function(value, index){
+                        this.forbans[index] = new forbans();
+                        setTimeout(function(){
+                            this.forbans[index].init(document.getElementById('flapper_'+index), {
+                                charMax:53,
+                                delat:2,
+                                duration:200,
+                                iteration:0,
+                                value:value
+                            }, function(event){
+                                console.log(event);
+                            });
+                        }.bind(this), (index*250));
                         
-                        //target.val(value);
-                        //target.change();
-                        $('input.display').val(this.enigmes.join(''));
-                        $('input.display').change();
+                        //return value;
+                    },
+                    displayLine: function(id, value){
+                        console.log(id, value);
+                        this.forbans[id].setValue(value);
                     },
                     onAnimStart: function(e) {
                         console.log('start ', e);
