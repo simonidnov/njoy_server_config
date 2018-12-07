@@ -67,13 +67,13 @@ forbans.prototype.setValue = function(value){
     (value.length < this.charMax)? this.value += space.repeat(this.charMax - value.length) : this.value = value.substring(0, this.charMax);
     this.charArray = this.value.split('');
 
-    /*this.charArray.forEach(function(char, index){ 
+    this.charArray.forEach(function(char, index){ 
         var character = this.charSet[index];
         //character.getElementsByClassName('flip')[0].innerHTML;
         if(character.innerHTML !== char){
             this.setChar(character, char, index);
         }
-    }.bind(this));*/
+    }.bind(this));
 
     var title1 = new TimelineMax();
     //title1.to(".button", 0, {visibility: 'hidden', opacity: 0})
