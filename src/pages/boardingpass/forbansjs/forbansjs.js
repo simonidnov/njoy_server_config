@@ -80,8 +80,8 @@ forbans.prototype.setValue = function(value){
     title1.staggerFromTo(
         this.charSet, 
         0.3,
-        {ease: Power4.easeOut, transform:"rotateX(-180deg)"},
-        {ease: Power4.easeOut, transform:"rotateX(0deg)"}, 
+        {ease: Power4.easeOut, scaleY:-1},
+        {ease: Power4.easeOut, scaleY:1}, 
         0.05
     );
 }
