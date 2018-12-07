@@ -53,7 +53,7 @@ forbans.prototype.setValue = function(value){
         var character = this.charSet[index];
             character.setAttribute('data-value', char);
         setTimeout(function(){
-            if(character.innerHTML !== char){
+            if(character.getElementsByClassName('flip')[0].innerHTML !== char){
                 character.getElementsByClassName('flip')[0].innerHTML = char;
                 character.getElementsByClassName('flap')[0].innerHTML = char;
                 //character.innerHTML = char;
