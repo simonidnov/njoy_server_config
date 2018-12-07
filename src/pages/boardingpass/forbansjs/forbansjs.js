@@ -33,7 +33,8 @@ forbans.prototype.init = function(target, options, callback){
 }
 forbans.prototype.createGrid = function(){
     if(this.target.classList.value.indexOf('forbans') === -1) this.target.classList.add("forbans");
-    var flapTemplate = '<div class="flipflap" data-value=""><div class="flip"></div><div class="flap"></div></div>';
+    //<div class="flip"></div><div class="flap"></div>
+    var flapTemplate = '<div class="flipflap" data-value=""></div>';
     this.target.innerHTML = flapTemplate.repeat(this.charMax);
     this.charSet = this.target.getElementsByClassName('flipflap');
 }
@@ -52,10 +53,10 @@ forbans.prototype.setValue = function(value){
         var character = this.charSet[index];
             character.setAttribute('data-value', char);
         setTimeout(function(){
-            if(character.getElementsByClassName('flip')[0].innerHTML !== char){
-                character.getElementsByClassName('flip')[0].innerHTML = char;
-                character.getElementsByClassName('flap')[0].innerHTML = char;
-                
+            if(character.innerHTML !== char){
+                //character.getElementsByClassName('flip')[0].innerHTML = char;
+                //character.getElementsByClassName('flap')[0].innerHTML = char;
+                character.innerHTML = char;
                 if(character.classList.value.indexOf('turn') !== -1){
                     character.classList.remove('turn');
                 }else{

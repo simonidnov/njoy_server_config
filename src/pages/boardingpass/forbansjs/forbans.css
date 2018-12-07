@@ -19,6 +19,7 @@
     height:30px;
     overflow: hidden;
     border-radius: 4px;
+    line-height: 22px;
 }
 .forbans .flipflap:before{
     content:"";
