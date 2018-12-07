@@ -63,7 +63,7 @@ forbans.prototype.setValue = function(value){
                     character.classList.add('turn');
                 }                
             }
-        }.bind(this), 200+(100*index));
+        }.bind(this), 20+(20*index));
         /*
         TweenLite.set(character.getElementsByClassName('flip')[0], {rotateX:180});
         TweenLite.set(character.getElementsByClassName('flap')[0], {rotateX:0});
