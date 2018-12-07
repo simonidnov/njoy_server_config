@@ -52,14 +52,26 @@ forbans.prototype.setValue = function(value){
         var character = this.charSet[index];
             character.setAttribute('data-value', char);
         setTimeout(function(){
+            if(character.getElementsByClassName('flip')[0].innerHTML !== char){
+                character.getElementsByClassName('flip')[0].innerHTML = char;
+                character.getElementsByClassName('flap')[0].innerHTML = char;
+                
+                if(character.classList.value.indexOf('turn') !== -1){
+                    character.classList.remove('turn');
+                }else{
+                    character.classList.add('turn');
+                }                
+            }
+        }.bind(this), 200+(100*index));
+        /*
+        TweenLite.set(character.getElementsByClassName('flip')[0], {rotateX:180});
+        TweenLite.set(character.getElementsByClassName('flap')[0], {rotateX:0});
+
+        TweenLite.to(character.getElementsByClassName('flip')[0], .3, {rotateX:0, delay:20+(40*index)});
+        TweenLite.to(character.getElementsByClassName('flap')[0], .3, {rotateX:180, delay:20+(40*index), onComplete:function(){
             character.getElementsByClassName('flip')[0].innerHTML = char;
-            character.getElementsByClassName('flap')[0].innerHTML = char;
-            if(character.classList.value.indexOf('turn') !== -1){
-                character.classList.remove('turn');
-            }else{
-                character.classList.add('turn');
-            } 
-        }.bind(this), 20+(40*index));
+        }});
+        */
     }.bind(this));
     //this.target.innerHTML = this.target.innerHTML;
 }
