@@ -43,6 +43,8 @@ forbans.prototype.setChar = function(letter, value, delay){
     var possibility = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"; 
     letter.setAttribute('data-value', value);
     setTimeout(function(){
+        letter.innerHTML = value;
+        /*
         letter.getElementsByClassName('flip')[0].innerHTML = value;
         letter.getElementsByClassName('flap')[0].innerHTML = value;
         if(letter.classList.value.indexOf('turn') !== -1){
@@ -50,6 +52,7 @@ forbans.prototype.setChar = function(letter, value, delay){
         }else{
             letter.classList.add('turn');
         }
+        */
     }.bind(this), 20+(50*delay));
 }
 
