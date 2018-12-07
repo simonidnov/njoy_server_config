@@ -80,8 +80,8 @@ forbans.prototype.setValue = function(value){
     title1.staggerFromTo(
         this.charSet, 
         0.5, 
-        {ease: Back.easeOut.config(1.7), opacity: 0, bottom: -80},
-        {ease: Back.easeOut.config(1.7), opacity: 1, bottom: 0}, 
+        {ease: Back.easeOut.config(1.7), transform:"rotateX(180deg)"},
+        {ease: Back.easeOut.config(1.7), transform:"rotateX(0deg)"}, 
         0.05
     );
     //this.target.innerHTML = this.target.innerHTML;
