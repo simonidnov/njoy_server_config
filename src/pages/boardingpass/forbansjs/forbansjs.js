@@ -59,7 +59,7 @@ forbans.prototype.setValue = function(value){
             }else{
                 character.classList.add('turn');
             } 
-        }.bind(this), 20+(20*index));
+        }.bind(this), 20+(40*index));
     }.bind(this));
     //this.target.innerHTML = this.target.innerHTML;
 }
