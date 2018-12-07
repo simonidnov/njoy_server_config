@@ -32,7 +32,11 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
     <body>
         <div id="boardingpass" class="boardingpass">
             <div class="airportPanel">
-                <div v-for='(item, index) in enigmes' v-bind:id="'flapper_'+index">{{ setForban(item.value, index) }}</div>
+                <!--<div v-for='(item, index) in enigmes' v-bind:id="'flapper_'+index">{{ setForban(item.value, index) }}</div>-->
+            </div>
+            <div class="motionTest">
+                <div class="front">A</div>
+                <div class="back">B</div>
             </div>
         </div>
         <script>

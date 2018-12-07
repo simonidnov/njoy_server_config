@@ -56,3 +56,49 @@
 .forbans .flipflap.turn .flap{
     transform: rotateX(0deg);
 }
+
+
+
+.motionTest{
+    width:200px;
+    height:200px;
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin:auto;
+    transform-style: preserve-3d;
+    perspective: 400px;
+    perspective-origin: 100px 100px;
+}
+.motionTest .front,
+.motionTest .back{
+    position: absolute;
+    transform-origin: 100px 100px;
+    width:100%;
+    height:100%;
+    backface-visibility: hidden;
+    transform: rotateX(0deg) perspective(400px);
+    font-size: 80px;
+    background:#F0F0F0;
+    transform-style: preserve-3d;
+    perspective: 400px;
+    perspective-origin: 100px 100px;
+}
+.motionTest .front{
+    -webkit-animation: ROTATEFRONT 1s infinite;
+}
+.motionTest .back{
+    transform: rotateX(180deg);
+    -webkit-animation: ROTATEBACK 1s infinite;
+}
+
+@-webkit-keyframes ROTATEFRONT {
+    0%   { transform: rotateX(0deg) perspective(400px); }
+    100% { transform: rotateX(180deg) perspective(400px); }
+}
+@-webkit-keyframes ROTATEBACK {
+    0%   { transform: rotateX(180deg) perspective(400px); }
+    100% { transform: rotateX(0deg) perspective(400px); }
+}
