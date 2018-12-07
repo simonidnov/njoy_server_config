@@ -79,7 +79,7 @@ forbans.prototype.setValue = function(value){
     //title1.to(".button", 0, {visibility: 'hidden', opacity: 0})
     title1.staggerFromTo(
         this.charSet, 
-        0.8,
+        0.3,
         {ease: Power4.easeOut, scaleY:0},
         {ease: Power4.easeOut, scaleY:1}, 
         0.05
