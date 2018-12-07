@@ -1,5 +1,6 @@
 <!-- TEST URL 
-
+NOTE IMPORTANT 
+on a supprimé  --disable-gpu-compositing dans la config chromium du fichier  /etc/chromium-browser/customizations/00-rpi-var
 killall chromium-browser
 export DISPLAY=:0
 chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disable-session-crashed-bubble --incognito --kiosk --start-maximized http://10.3.141.1:3000/boardingpass
@@ -106,11 +107,6 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                     export DISPLAY=:0
                     chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disable-session-crashed-bubble --incognito --kiosk --start-maximized $
                     */
-                    $(document).ready(function(){
-                        setTimeout(function(){
-                            
-                        }.bind(this), 2000);
-                    }.bind(this));
                 },
                 computed: {
                     setClass: function(){

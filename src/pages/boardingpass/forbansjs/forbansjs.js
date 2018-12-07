@@ -50,7 +50,7 @@ forbans.prototype.setChar = function(letter, value, delay){
         }else{
             letter.classList.add('turn');
         }
-    }.bind(this), 20+(250*delay));
+    }.bind(this), 20+(50*delay));
 }
 
 forbans.prototype.setValue = function(value){
