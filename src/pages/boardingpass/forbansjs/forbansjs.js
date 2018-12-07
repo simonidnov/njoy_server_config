@@ -75,7 +75,7 @@ forbans.prototype.setValue = function(value){
         }
     }.bind(this));
 
-    var title1 = new TimelineMax();
+    var title1 = new TimelineLite();
     //title1.to(".button", 0, {visibility: 'hidden', opacity: 0})
     title1.staggerFromTo(
         this.charSet, 
