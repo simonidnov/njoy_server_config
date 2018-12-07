@@ -9,6 +9,7 @@ var forbans = function() {
     this.value      = "";
     this.delta      = 0;
 }
+window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 forbans.prototype.init = function(target, options, callback){
     if(typeof target === "undefined" || target === null){
         callback({status:"error", msg:"your target is undefined"});
@@ -38,9 +39,22 @@ forbans.prototype.createGrid = function(){
     this.target.innerHTML = flapTemplate.repeat(this.charMax);
     this.charSet = this.target.getElementsByClassName('flipflap');
 }
+forbans.prototype.setChar = function(letter, value, delay){
+    var possibility = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"; 
+    letter.setAttribute('data-value', value);
+    setTimeout(function(){
+        letter.getElementsByClassName('flip')[0].innerHTML = value;
+        letter.getElementsByClassName('flap')[0].innerHTML = value;
+        if(letter.classList.value.indexOf('turn') !== -1){
+            letter.classList.remove('turn');
+        }else{
+            letter.classList.add('turn');
+        }
+    }.bind(this), 20+(250*delay));
+}
 forbans.prototype.setValue = function(value){
-    var space = " ",
-        possibility = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"; 
+    var space = " ";
+        
     this.value = value;
     
     this.target = document.getElementById(this.target.getAttribute('id'));
@@ -51,19 +65,9 @@ forbans.prototype.setValue = function(value){
 
     this.charArray.forEach(function(char, index){ 
         var character = this.charSet[index];
-            character.setAttribute('data-value', char);
-        setTimeout(function(){
-            if(character.getElementsByClassName('flip')[0].innerHTML !== char){
-                character.getElementsByClassName('flip')[0].innerHTML = char;
-                character.getElementsByClassName('flap')[0].innerHTML = char;
-                //character.innerHTML = char;
-                if(character.classList.value.indexOf('turn') !== -1){
-                    character.classList.remove('turn');
-                }else{
-                    character.classList.add('turn');
-                }         
-            }
-        }.bind(this), 20+(80*index));
+        if(character.getElementsByClassName('flip')[0].innerHTML !== value){
+            this.setChar(character, char, index);
+        }
         /*
         TweenLite.set(character.getElementsByClassName('flip')[0], {rotateX:180});
         TweenLite.set(character.getElementsByClassName('flap')[0], {rotateX:0});
