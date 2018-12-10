@@ -91,7 +91,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                 <div class="splitflap" id="flap_6" data-line="6">{{ questions[6].question }}</div>
                 <div class="splitflap" id="flap_7" data-line="7">{{ questions[7].question }}</div>
                 <div class="splitflap" id="flap_8" data-line="8">{{ questions[8].question }}</div>
-                <div class="splitflap" id="flap_9" data-line="9">{{ questions[9].question }}</div>
+                <!--<div class="splitflap" id="flap_9" data-line="9">{{ questions[9].question }}</div>
                 <div class="splitflap" id="flap_10" data-line="10">{{ questions[10].question }}</div>
                 <div class="splitflap" id="flap_11" data-line="11">{{ questions[11].question }}</div>
                 <div class="splitflap" id="flap_12" data-line="12">{{ questions[12].question }}</div>
@@ -101,7 +101,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                 <div class="splitflap" id="flap_16" data-line="16">{{ questions[16].question }}</div>
                 <div class="splitflap" id="flap_17" data-line="17">{{ questions[17].question }}</div>
                 <div class="splitflap" id="flap_18" data-line="18">{{ questions[18].question }}</div>
-                <div class="splitflap" id="flap_19" data-line="19">{{ questions[19].question }}</div>
+                <div class="splitflap" id="flap_19" data-line="19">{{ questions[19].question }}</div>-->
             </div>
         </div>
         <script>
@@ -195,7 +195,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                     activities: [],
                     message: 'BOARDINGPASS',
                     forbans:[],
-                    questions:_.shuffle(_.where(global_questions['co-pilote'], {success:0})),
+                    questions:_.shuffle(_.where(global_questions['co-pilote'], {success:0})).slice(0, 9),
                     lines:15,
                     ratio:.4,
                     enigmes:[
@@ -302,34 +302,26 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                 },
                 methods: {
                     init_flaps : function(){
-                        init_table.forEach((element, index) => {
-                            var ratio = this.ratio,
-                                value = this.questions[index].question,
-                                self = this,
-                                space = " ";
-                            (value.length < 54)? value += space.repeat(54 - value.length) : value = value.substring(0, 54);
-                        
-                            $("#flap_"+index)
-                            .splitFlap({
-                                charWidth:  50 * ratio,
-                                charHeight: 100 * ratio,
-                                imageSize:  (2500 * ratio) + 'px ' + (100 * ratio) + 'px',
-                                autoplay:   true,
-                                text:           space.repeat(54),
-                                textInit:       space.repeat(54),
-                                speed:          20,
-                                onComplete: function () {
-                                    console.log('Done !');
-                                    index++;
-                                    if(index === 20){
-                                        console.log('init flap set flap');
-                                        self.settingFlap(0);
-                                    }
-                                }
-                            });
+                        var ratio = this.ratio,
+                            self = this,
+                            space = " ";
+                        $(".splitflap")
+                        .splitFlap({
+                            charWidth:  50 * ratio,
+                            charHeight: 100 * ratio,
+                            imageSize:  (2500 * ratio) + 'px ' + (100 * ratio) + 'px',
+                            autoplay:   true,
+                            text:           space.repeat(54),
+                            textInit:       space.repeat(54),
+                            speed:          20,
+                            onComplete: function () {
+                                
+                            }
                         });
+                        self.settingFlap(0);
                     },
                     settingFlap:function(index){
+                        console.log("settingFlap ::: ", this.questions);
                         var ratio = this.ratio,
                             value = this.questions[index].question,
                             self = this,
@@ -347,7 +339,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                                 speed:          20,
                                 onComplete: function () {
                                     console.log('Done !');
-                                    if(index<19){
+                                    if(index < self.questions.length-1){
                                         index++;
                                         self.settingFlap(index);
                                     }
