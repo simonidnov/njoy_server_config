@@ -81,13 +81,54 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
             </div>-->
             <div class="example">
                 <div v-for='(item, index) in questions' class="splitflap" v-bind:id="'flap_'+index">{{ setFlap(item.question, index) }}</div>
-                <!--<div class="splitflap" id="'flap_0'">{{ setFlap(questions[0].question, 0) }}</div>-->
+                <!--<div class="splitflap" id="flap_0" data-line="0">{{ setFlap(questions[0].question, 0) }}</div>
+                <div class="splitflap" id="flap_1" data-line="1">{{ setFlap(questions[1].question, 1) }}</div>
+                <div class="splitflap" id="flap_2" data-line="2">{{ setFlap(questions[2].question, 2) }}</div>
+                <div class="splitflap" id="flap_3" data-line="3">{{ setFlap(questions[3].question, 3) }}</div>
+                <div class="splitflap" id="flap_4" data-line="4">{{ setFlap(questions[4].question, 4) }}</div>
+                <div class="splitflap" id="flap_5" data-line="5">{{ setFlap(questions[5].question, 5) }}</div>
+                <div class="splitflap" id="flap_6" data-line="6">{{ setFlap(questions[6].question, 6) }}</div>
+                <div class="splitflap" id="flap_7" data-line="7">{{ setFlap(questions[7].question, 7) }}</div>
+                <div class="splitflap" id="flap_8" data-line="8">{{ setFlap(questions[8].question, 8) }}</div>
+                <div class="splitflap" id="flap_9" data-line="9">{{ setFlap(questions[9].question, 9) }}</div>
+                <div class="splitflap" id="flap_10" data-line="10">{{ setFlap(questions[10].question, 10) }}</div>
+                <div class="splitflap" id="flap_11" data-line="11">{{ setFlap(questions[11].question, 11) }}</div>
+                <div class="splitflap" id="flap_12" data-line="12">{{ setFlap(questions[12].question, 12) }}</div>
+                <div class="splitflap" id="flap_12" data-line="13">{{ setFlap(questions[12].question, 13) }}</div>
+                <div class="splitflap" id="flap_12" data-line="14">{{ setFlap(questions[12].question, 14) }}</div>
+                <div class="splitflap" id="flap_12" data-line="15">{{ setFlap(questions[12].question, 15) }}</div>-->
             </div>
         </div>
         <script>
+            var init_table = [],
+                space = " ",
+                init_question = space.repeat(54);
+
+            for(var t=0; t<20; t++){
+                init_table.push({id:t, "question":init_question, "answer":"undefined", success:false, refreshed : false})
+            }
             var global_questions = {
                 "co-pilote":[
-                    {"question":"Ou partent la brosse à cheveux et la brosse a dent ?", "answer":"Abidjan"}
+                    {"question":"Ou partent la brosse à cheveux et la brosse a dent ?", "answer":"Abidjan"},
+                    {"question":"Dans quelle ville part le poivrier ?", "answer":"Abidjan"},
+                    {"question":"Dans quelle ville part le balai synthétique ?", "answer":"Abidjan"},
+                    {"question":"Dans quelle ville part les menottes ?", "answer":"Abidjan"},
+                    {"question":"Dans quelle ville part la télécommande ?", "answer":"Abu Dhabi"},
+                    {"question":"Dans quelle ville part la raquette de ping-pong ?", "answer":"Abu Dhabi"},
+                    {"question":"Dans quelle ville part l'écrou ?", "answer":"Abu Dhabi"},
+                    {"question":"Dans quelle ville part le verre ?", "answer":"Abu Dhabi"},
+                    {"question":"Dans quelle ville part l'aspirateur ?", "answer":"Ajaccio"},
+                    {"question":"Dans quelle ville part le cuter ?", "answer":"Ajaccio"},
+                    {"question":"Dans quelle ville part le porte monnaie ?", "answer":"Ajaccio"},
+                    {"question":"Dans quelle ville part le puzzle ?", "answer":"Ajaccio"},
+                    {"question":"Dans quelle ville part la poire ?", "answer":"Alger"},
+                    {"question":"Dans quelle ville part le ballon de rugby ?", "answer":"Alger"},
+                    {"question":"Dans quelle ville part le CD ?", "answer":"Alger"},
+                    {"question":"Dans quelle ville part le livre ?", "answer":"Alger"},
+                    {"question":"Dans quelle ville part l'aimant ?", "answer":"Amman"},
+                    {"question":"Dans quelle ville part la marguerite ?", "answer":"Amman"},
+                    {"question":"Dans quelle ville part le boule de bowling ?", "answer":"Amman"},
+                    {"question":"Dans quelle ville part le réveil ?", "answer":"Amman"}
                 ],
                 "pilote":[
                     {"question":"NIVEAU 2 Dans quelle ville part la boite de conserve ?", "answer":"Abidjan"},
@@ -258,7 +299,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                         console.log('ON AFFICHE LES QUESTIONS');
                     },
                     setFlap: function(value, index){
-                        console.log('setflap ', value, index);
+                        //console.log('setflap ', value, index);
                         var space = " ";
                         (value.length < 54)? value += space.repeat(54 - value.length) : value = value.substring(0, 54);
                         $("#flap_"+index).html(value);

@@ -59,11 +59,11 @@ boardingpass.set_events = function(){
         switch($(this).attr('data-bpaction')){
             case 'refresh':
                 // LE REGISSEUR A APPUYÉ SUR LA DEMANDE DE RAFRAICHISSEMENT D'UNE LIGNE
-                app.socket.emit('boardingpass', {"status":"refreshLine", "id":$(this).attr('data-id'), "line":$(this).attr('data-line')});
+                app.socket.emit('boardingpass', {"status":"refreshLine", "id":$(this).attr('data-id'), "line":$(this).attr('data-line'), "value":""});
                 break;
             case 'validate':
                 // LE REGISSEUR A VALIDÉ UNE DESTINATION
-                app.socket.emit('boardingpass', {"status":"updateLine", "id":$(this).attr('data-id'), "line":$(this).attr('data-line')});
+                app.socket.emit('boardingpass', {"status":"updateLine", "id":$(this).attr('data-id'), "line":$(this).attr('data-line'), "value":""});
                 break;
         }
     });
