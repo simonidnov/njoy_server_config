@@ -27,6 +27,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
 
         <script src="pages/boardingpass/js/jquery/jquery.splitflap.js"></script>
 
+        <script type="text/javascript" src="node_modules/underscore/underscore-min.js"></script>
         <script type="text/javascript" src="node_modules/gsap/TweenMax.js"></script>
         <script type="text/javascript" src="node_modules/gsap/TweenLite.js"></script>
         <script type="text/javascript" src="js/socket.io/socket.io.js"></script>
@@ -80,23 +81,27 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                 <div v-for='(item, index) in enigmes' v-bind:id="'flapper_'+index">{{ setForban(item.value, index) }}</div>
             </div>-->
             <div class="example">
-                <div v-for='(item, index) in questions' class="splitflap" v-bind:id="'flap_'+index">{{ setFlap(item.question, index) }}</div>
-                <!--<div class="splitflap" id="flap_0" data-line="0">{{ setFlap(questions[0].question, 0) }}</div>
-                <div class="splitflap" id="flap_1" data-line="1">{{ setFlap(questions[1].question, 1) }}</div>
-                <div class="splitflap" id="flap_2" data-line="2">{{ setFlap(questions[2].question, 2) }}</div>
-                <div class="splitflap" id="flap_3" data-line="3">{{ setFlap(questions[3].question, 3) }}</div>
-                <div class="splitflap" id="flap_4" data-line="4">{{ setFlap(questions[4].question, 4) }}</div>
-                <div class="splitflap" id="flap_5" data-line="5">{{ setFlap(questions[5].question, 5) }}</div>
-                <div class="splitflap" id="flap_6" data-line="6">{{ setFlap(questions[6].question, 6) }}</div>
-                <div class="splitflap" id="flap_7" data-line="7">{{ setFlap(questions[7].question, 7) }}</div>
-                <div class="splitflap" id="flap_8" data-line="8">{{ setFlap(questions[8].question, 8) }}</div>
-                <div class="splitflap" id="flap_9" data-line="9">{{ setFlap(questions[9].question, 9) }}</div>
-                <div class="splitflap" id="flap_10" data-line="10">{{ setFlap(questions[10].question, 10) }}</div>
-                <div class="splitflap" id="flap_11" data-line="11">{{ setFlap(questions[11].question, 11) }}</div>
-                <div class="splitflap" id="flap_12" data-line="12">{{ setFlap(questions[12].question, 12) }}</div>
-                <div class="splitflap" id="flap_12" data-line="13">{{ setFlap(questions[12].question, 13) }}</div>
-                <div class="splitflap" id="flap_12" data-line="14">{{ setFlap(questions[12].question, 14) }}</div>
-                <div class="splitflap" id="flap_12" data-line="15">{{ setFlap(questions[12].question, 15) }}</div>-->
+                <!--<div v-for='(item, index) in questions' class="splitflap" v-bind:id="'flap_'+index">{{ setFlap(item.question, index) }}</div>-->
+                <div class="splitflap" id="flap_0" data-line="0">{{ questions[0].question }}</div>
+                <div class="splitflap" id="flap_1" data-line="1">{{ questions[1].question }}</div>
+                <div class="splitflap" id="flap_2" data-line="2">{{ questions[2].question }}</div>
+                <div class="splitflap" id="flap_3" data-line="3">{{ questions[3].question }}</div>
+                <div class="splitflap" id="flap_4" data-line="4">{{ questions[4].question }}</div>
+                <div class="splitflap" id="flap_5" data-line="5">{{ questions[5].question }}</div>
+                <div class="splitflap" id="flap_6" data-line="6">{{ questions[6].question }}</div>
+                <div class="splitflap" id="flap_7" data-line="7">{{ questions[7].question }}</div>
+                <div class="splitflap" id="flap_8" data-line="8">{{ questions[8].question }}</div>
+                <div class="splitflap" id="flap_9" data-line="9">{{ questions[9].question }}</div>
+                <div class="splitflap" id="flap_10" data-line="10">{{ questions[10].question }}</div>
+                <div class="splitflap" id="flap_11" data-line="11">{{ questions[11].question }}</div>
+                <div class="splitflap" id="flap_12" data-line="12">{{ questions[12].question }}</div>
+                <div class="splitflap" id="flap_13" data-line="13">{{ questions[13].question }}</div>
+                <div class="splitflap" id="flap_14" data-line="14">{{ questions[14].question }}</div>
+                <div class="splitflap" id="flap_15" data-line="15">{{ questions[15].question }}</div>
+                <div class="splitflap" id="flap_16" data-line="16">{{ questions[16].question }}</div>
+                <div class="splitflap" id="flap_17" data-line="17">{{ questions[17].question }}</div>
+                <div class="splitflap" id="flap_18" data-line="18">{{ questions[18].question }}</div>
+                <div class="splitflap" id="flap_19" data-line="19">{{ questions[19].question }}</div>
             </div>
         </div>
         <script>
@@ -190,8 +195,9 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                     activities: [],
                     message: 'BOARDINGPASS',
                     forbans:[],
-                    questions:global_questions['co-pilote'],
+                    questions:_.shuffle(_.where(global_questions['co-pilote'], {success:0})),
                     lines:15,
+                    ratio:.4,
                     enigmes:[
                         {value:""},
                         {value:""},
@@ -227,6 +233,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                     socket: io(window.location.origin, {transports: ['websocket', 'xhr-polling']})
                 },
                 created: function() {
+                    //this.questions = init_table;
                     this.socket.on('error', function(e) {
                         console.log('error socket');
                     });
@@ -276,6 +283,8 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                                 break;
                         }
                     }.bind(this));
+
+                    this.init_flaps(0);
                     //SET DISPLAY
                     /*
                     killall chromium-browser
@@ -292,6 +301,59 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                     }
                 },
                 methods: {
+                    init_flaps : function(){
+                        init_table.forEach((element, index) => {
+                            var ratio = this.ratio,
+                                value = this.questions[index].question,
+                                self = this,
+                                space = " ";
+                            (value.length < 54)? value += space.repeat(54 - value.length) : value = value.substring(0, 54);
+                        
+                            $("#flap_"+index)
+                            .splitFlap({
+                                charWidth:  50 * ratio,
+                                charHeight: 100 * ratio,
+                                imageSize:  (2500 * ratio) + 'px ' + (100 * ratio) + 'px',
+                                autoplay:   true,
+                                text:           space.repeat(54),
+                                textInit:       space.repeat(54),
+                                speed:          20,
+                                onComplete: function () {
+                                    console.log('Done !');
+                                    index++;
+                                    if(index === 20){
+                                        console.log('init flap set flap');
+                                        self.settingFlap(0);
+                                    }
+                                }
+                            });
+                        });
+                    },
+                    settingFlap:function(index){
+                        var ratio = this.ratio,
+                            value = this.questions[index].question,
+                            self = this,
+                            space = " ";
+                            console.log("HELLO :::: ", this.questions[index]);
+                            (value.length < 54)? value += space.repeat(54 - value.length) : value = value.substring(0, 54);
+                        $("#flap_"+index)
+                            .splitFlap({
+                                charWidth:  50 * ratio,
+                                charHeight: 100 * ratio,
+                                imageSize:  (2500 * ratio) + 'px ' + (100 * ratio) + 'px',
+                                autoplay:   true,
+                                text:           value,
+                                textInit:       space.repeat(54),
+                                speed:          20,
+                                onComplete: function () {
+                                    console.log('Done !');
+                                    if(index<19){
+                                        index++;
+                                        self.settingFlap(index);
+                                    }
+                                }
+                            });
+                    },
                     defaultFunc: function(){
                         console.log('default function');
                     },
@@ -303,7 +365,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                         var space = " ";
                         (value.length < 54)? value += space.repeat(54 - value.length) : value = value.substring(0, 54);
                         $("#flap_"+index).html(value);
-                        var ratio = 0.5;
+                        var ratio = this.ratio;
                         setTimeout(function(){
                             $("#flap_"+index)
                                 .splitFlap({
@@ -322,24 +384,9 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                         
                         //$("#flap_"+id).splitFlap('splitflap').animate();
                     },
-                    setForban: function(value, index){
-                        this.forbans[index] = new forbans();
-                        setTimeout(function(){
-                            this.forbans[index].init(document.getElementById('flapper_'+index), {
-                                charMax:53,
-                                delat:2,
-                                duration:200,
-                                iteration:0,
-                                value:value
-                            }, function(event){
-                                console.log(event);
-                            });
-                        }.bind(this), 20);
-                        //return value;
-                    },
                     displayLine: function(id, value){
                         console.log(id, value);
-                        this.questions[id].question = "HELL BILLU";
+                        //this.questions[id].question = "HELL BILLU";
                         /*var space = " ";
                         (value.length < 54)? value += space.repeat(54 - value.length) : value = value.substring(0, 54);
                         $("#flap_"+id).html(value);
