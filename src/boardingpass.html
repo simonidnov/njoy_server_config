@@ -189,7 +189,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                     forbans:[],
                     questions:_.shuffle(_.where(global_questions['co-pilote'], {success:0})).slice(0, 19),
                     ratio:.4,
-                    maxChar:60,
+                    maxChar:70,
                     speed:100,
                     variation:5,
                     enigmes:[
@@ -329,7 +329,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                                 index++;
                                 self.settingFlap(index);
                             }
-                        }.bind(this), 1000);
+                        }.bind(this), 250);
                     },
                     defaultFunc: function(){
                         console.log('default function');
