@@ -80,8 +80,8 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                 <div v-for='(item, index) in enigmes' v-bind:id="'flapper_'+index">{{ setForban(item.value, index) }}</div>
             </div>-->
             <div class="example">
-                <!--<div v-for='(item, index) in questions' class="splitflap" v-bind:id="'flap_'+index">{{ setFlap(item.question, index) }}</div>-->
-                <div class="splitflap" id="'flap_0'">{{ setFlap(questions[0].question, 0) }}</div>
+                <div v-for='(item, index) in questions' class="splitflap" v-bind:id="'flap_'+index">{{ setFlap(item.question, index) }}</div>
+                <!--<div class="splitflap" id="'flap_0'">{{ setFlap(questions[0].question, 0) }}</div>-->
             </div>
         </div>
         <script>
