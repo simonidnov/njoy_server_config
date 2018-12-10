@@ -318,22 +318,25 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                                 
                             }
                         });
-                        self.settingFlap(0);
+                        setTimeout(function(){
+                            self.settingFlap(0);
+                        }, 400);
                     },
                     settingFlap:function(index){
                         var ratio = this.ratio,
                             value = this.questions[index].question,
                             self = this,
                             space = " ";
-                            (value.length < 54)? value += space.repeat(54 - value.length) : value = value.substring(0, 54);
+                        (value.length < 54)? value += space.repeat(54 - value.length) : value = value.substring(0, 54);
+                        console.log('VALUE ', value, index);
                         $("#flap_"+index)
                             .splitFlap({
                                 charWidth:  50 * ratio,
                                 charHeight: 100 * ratio,
                                 imageSize:  (2500 * ratio) + 'px ' + (100 * ratio) + 'px',
                                 autoplay:   true,
-                            	charsMap:   'ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789.,!?#@()+-=',
-                                text:           value,
+                            	charsMap:   "ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789.,!?#@()+-=É'",
+                                text:           value.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toUpperCase(),
                                 textInit:       space.repeat(54),
                                 speed:          100,
                                 speedVariation: 2,
