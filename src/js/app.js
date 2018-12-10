@@ -157,7 +157,9 @@ var app = {
         });
         app.set_video_assets();
         app.set_audio_assets();
-        
+        app.socket.on('boardingpass', function(datas){
+            app.socket_callback(datas);
+        });
         app.socket.on('njoy', function(datas) {
             switch (datas.status) {
                 case 'activities':

@@ -72,12 +72,11 @@ io.on('connection', function(socket){
     socket.on('disconnect', function(){
         console.log('user disconnected');
     });
-    socket.on('boardingpass', function(){
-      console.log('boardingpass');
-      
+    socket.on('redirect', function(datas){
+        io.emit('redirect', datas);
     });
     socket.on('boardingpass', function(datas){
-      io.emit('boardingpass', datas);
+        io.emit('boardingpass', datas);
     });
     socket.on('njoy', function(datas){
         console.log("CALL NJOY EMITTED SOCKET :::: ", datas);

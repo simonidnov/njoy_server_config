@@ -3,6 +3,7 @@
     {
       "label":"Crazy Show",
       "app_name":"crazy_show",
+      "redirect":"/receptor",
       "thumb":"ressources/crazyshow/crazy_show_logo.svg",
       "background":"ressources/crazyshow/crazy_show_logo.svg",
       "tr":"",
@@ -1189,12 +1190,7 @@
       "label":"Boarding Pass",
       "thumb":"ressources/boarding_pass/app_icon.png",
       "background":"ressources/boarding_pass/app_icon.png",
-      "tr":"",
-      "tl":"",
-      "tc":"",
-      "br":"",
-      "bl":"",
-      "bc":"",
+      "redirect":"/boardingpass",
       "desc":"Plongé dans l'univers d'un aéroport, les enfants doivent venir en aide à Swen notre bagagiste surchargé !",
       "datas":{},
       "template":"boardingpass",
@@ -1241,18 +1237,18 @@
       "apps":[
         {
           "label":"Mode Chronos",
-          "desc":"Jouer avec ou sans chronos",
-          "background":"ressources/crazyshow/jingles/photomime.svg",
-          "tr":"ressources/crazyshow/habillage/logo_crazyshow_TR.svg",
-          "tl":"",
-          "tc":"ressources/crazyshow/habillage/photomime.svg",
-          "br":"",
-          "bl":"",
-          "bc":"",
+          "desc":"Jouer avec un chronos",
           "form":[
             {
-              "input":"number", "default":"30", "dataset":"timer"
+              "input":"number", "default":"30", "dataset":"timer", "label":"durée du chrono"
             }
+          ],
+          "javascripts":[
+            "pages/boardingpass/boardingpass.js"
+          ],
+          "component_template":"pages/boardingpass/boardingpass.tmpl",
+          "actions":[
+            {"type":"javascript", "class":"boardingpass", "function":"init"}
           ],
           "datas":{
             "boarding_questions":{
@@ -1324,7 +1320,6 @@
               ]
             }
           },
-          "jingle":{"file":"ressources/crazyshow/jingles/photomime.mp4", "type":"video", "event":null, "params":null},
           "menu":[
             {
               "label":"Pilote Stagiaire",

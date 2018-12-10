@@ -100,6 +100,11 @@
                     this.socket.on('connect', function(e) {
                         console.log("socket_connected");
                     });
+
+                    this.socket.on('redirect', function(datas){
+                        console.log('datas redirect ', datas);
+                        window.location.href = datas.url;
+                    });
                     this.socket.on('njoy', function(datas) {
                         /* GESTION DE CAS SPECIFIQUES */
                         //console.log(datas);

@@ -1,0 +1,21 @@
+<div class="boardingpass">
+
+    <link rel="stylesheet" type="text/css" href="pages/boardingpass/css/boardingpass.css">
+    <ul class="destinations">
+        <% for(var q=0; q<questions.length; q++) { %>
+            <li class="line" data-id="<%= questions[q].id %>" data-line="<%= q %>">
+                <div class="ID">
+                    <% if(parseInt(questions[q].id)+1 < 10){ %>0<%= parseInt(questions[q].id)+1 %><% }else{ %><%= parseInt(questions[q].id)+1 %><% } %>
+                </div>
+                <div class="infos">
+                    <div class="question"><%= questions[q].question %></div>
+                    <div class="answer"><%= questions[q].answer %></div>
+                </div>
+                <ul class="actions">
+                    <li data-bpaction="refresh" data-id="<%= questions[q].id %>" data-line="<%= q %>">R</li>
+                    <li data-bpaction="validate" data-id="<%= questions[q].id %>" data-line="<%= q %>">V</li>
+                </ul>
+            </li>
+        <% } %>
+    </ul>
+</div>

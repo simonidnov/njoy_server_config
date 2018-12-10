@@ -24,24 +24,151 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
         <script type="text/javascript" src="pages/boardingpass/forbansjs/forbansjs.js"></script>
         
         <script type="text/javascript" src="js/EaselJS/lib/easeljs-0.8.1.combined.js"></script>
+
+        <script src="pages/boardingpass/js/jquery/jquery.splitflap.js"></script>
+
         <script type="text/javascript" src="node_modules/gsap/TweenMax.js"></script>
         <script type="text/javascript" src="node_modules/gsap/TweenLite.js"></script>
         <script type="text/javascript" src="js/socket.io/socket.io.js"></script>
         <script src="node_modules/vue/dist/vue.min.js"></script>
+
+
+        <style>
+            body {
+                margin: 0;
+                padding: 20px;
+                background: grey;
+                color: white;
+    
+                font-family: Tahoma, Geneva, sans-serif;
+                font-size: 24px;
+            }
+    
+            .example {
+                padding: 0 0 10px;
+                margin-bottom: 20px;
+    
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            }
+    
+            h1 {
+                margin: 0 0 10px;
+                padding: 10px;
+                font-size: 16px;
+                font-weight: normal;
+                background: #333333;
+            }
+    
+            .splitflap {
+                margin: 0 auto;
+    
+                -webkit-perspective-origin: top center;
+                -moz-perspective-origin: top center;
+                -ms-perspective-origin: top center;
+                perspective-origin: top center;
+    
+                -webkit-perspective: 900px;
+                -moz-perspective: 900px;
+                -ms-perspective: 900px;
+                perspective: 900px;
+            }
+        </style>
     </head>
     <body>
         <div id="boardingpass" class="boardingpass">
-            <div class="airportPanel">
+            <!--<div class="airportPanel">
                 <div v-for='(item, index) in enigmes' v-bind:id="'flapper_'+index">{{ setForban(item.value, index) }}</div>
+            </div>-->
+            <div class="example">
+                <!--<div v-for='(item, index) in questions' class="splitflap" v-bind:id="'flap_'+index">{{ setFlap(item.question, index) }}</div>-->
+                <div class="splitflap" id="'flap_0'">{{ setFlap(questions[0].question, 0) }}</div>
             </div>
         </div>
         <script>
+            var global_questions = {
+                "co-pilote":[
+                    {"question":"Ou partent la brosse à cheveux et la brosse a dent ?", "answer":"Abidjan"},
+                    {"question":"Dans quelle ville part le poivrier ?", "answer":"Abidjan"},
+                    {"question":"Dans quelle ville part le balai synthétique ?", "answer":"Abidjan"},
+                    {"question":"Dans quelle ville part les menottes ?", "answer":"Abidjan"},
+                    {"question":"Dans quelle ville part la télécommande ?", "answer":"Abu Dhabi"},
+                    {"question":"Dans quelle ville part la raquette de ping-pong ?", "answer":"Abu Dhabi"},
+                    {"question":"Dans quelle ville part l'écrou ?", "answer":"Abu Dhabi"},
+                    {"question":"Dans quelle ville part le verre ?", "answer":"Abu Dhabi"},
+                    {"question":"Dans quelle ville part l'aspirateur ?", "answer":"Ajaccio"},
+                    {"question":"Dans quelle ville part le cuter ?", "answer":"Ajaccio"},
+                    {"question":"Dans quelle ville part le porte monnaie ?", "answer":"Ajaccio"},
+                    {"question":"Dans quelle ville part le puzzle ?", "answer":"Ajaccio"},
+                    {"question":"Dans quelle ville part la poire ?", "answer":"Alger"},
+                    {"question":"Dans quelle ville part le ballon de rugby ?", "answer":"Alger"},
+                    {"question":"Dans quelle ville part le CD ?", "answer":"Alger"},
+                    {"question":"Dans quelle ville part le livre ?", "answer":"Alger"},
+                    {"question":"Dans quelle ville part l'aimant ?", "answer":"Amman"},
+                    {"question":"Dans quelle ville part la marguerite ?", "answer":"Amman"},
+                    {"question":"Dans quelle ville part le boule de bowling ?", "answer":"Amman"},
+                    {"question":"Dans quelle ville part le réveil ?", "answer":"Amman"}
+                ],
+                "pilote":[
+                    {"question":"NIVEAU 2 Dans quelle ville part la boite de conserve ?", "answer":"Abidjan"},
+                    {"question":"Dans quelle ville part le poivrier ?", "answer":"Abidjan"},
+                    {"question":"Dans quelle ville part le balai synthétique ?", "answer":"Abidjan"},
+                    {"question":"Dans quelle ville part les menottes ?", "answer":"Abidjan"},
+                    {"question":"Dans quelle ville part la télécommande ?", "answer":"Abu Dhabi"},
+                    {"question":"Dans quelle ville part la raquette de ping-pong ?", "answer":"Abu Dhabi"},
+                    {"question":"Dans quelle ville part l'écrou ?", "answer":"Abu Dhabi"},
+                    {"question":"Dans quelle ville part le verre ?", "answer":"Abu Dhabi"},
+                    {"question":"Dans quelle ville part l'aspirateur ?", "answer":"Ajaccio"},
+                    {"question":"Dans quelle ville part le cuter ?", "answer":"Ajaccio"},
+                    {"question":"Dans quelle ville part le porte monnaie ?", "answer":"Ajaccio"},
+                    {"question":"Dans quelle ville part le puzzle ?", "answer":"Ajaccio"},
+                    {"question":"Dans quelle ville part la poire ?", "answer":"Alger"},
+                    {"question":"Dans quelle ville part le ballon de rugby ?", "answer":"Alger"},
+                    {"question":"Dans quelle ville part le CD ?", "answer":"Alger"},
+                    {"question":"Dans quelle ville part le livre ?", "answer":"Alger"},
+                    {"question":"Dans quelle ville part l'aimant ?", "answer":"Amman"},
+                    {"question":"Dans quelle ville part la marguerite ?", "answer":"Amman"},
+                    {"question":"Dans quelle ville part le boule de bowling ?", "answer":"Amman"},
+                    {"question":"Dans quelle ville part le réveil ?", "answer":"Amman"}
+                ],
+                "expert":[
+                    {"question":"Dans quelle ville part la boite de conserve ?", "answer":"Abidjan"},
+                    {"question":"Dans quelle ville part le poivrier ?", "answer":"Abidjan"},
+                    {"question":"Dans quelle ville part le balai synthétique ?", "answer":"Abidjan"},
+                    {"question":"Dans quelle ville part les menottes ?", "answer":"Abidjan"},
+                    {"question":"Dans quelle ville part la télécommande ?", "answer":"Abu Dhabi"},
+                    {"question":"Dans quelle ville part la raquette de ping-pong ?", "answer":"Abu Dhabi"},
+                    {"question":"Dans quelle ville part l'écrou ?", "answer":"Abu Dhabi"},
+                    {"question":"Dans quelle ville part le verre ?", "answer":"Abu Dhabi"},
+                    {"question":"Dans quelle ville part l'aspirateur ?", "answer":"Ajaccio"},
+                    {"question":"Dans quelle ville part le cuter ?", "answer":"Ajaccio"},
+                    {"question":"Dans quelle ville part le porte monnaie ?", "answer":"Ajaccio"},
+                    {"question":"Dans quelle ville part le puzzle ?", "answer":"Ajaccio"},
+                    {"question":"Dans quelle ville part la poire ?", "answer":"Alger"},
+                    {"question":"Dans quelle ville part le ballon de rugby ?", "answer":"Alger"},
+                    {"question":"Dans quelle ville part le CD ?", "answer":"Alger"},
+                    {"question":"Dans quelle ville part le livre ?", "answer":"Alger"},
+                    {"question":"Dans quelle ville part l'aimant ?", "answer":"Amman"},
+                    {"question":"Dans quelle ville part la marguerite ?", "answer":"Amman"},
+                    {"question":"Dans quelle ville part le boule de bowling ?", "answer":"Amman"},
+                    {"question":"Dans quelle ville part le réveil ?", "answer":"Amman"}
+                ]
+            }
+            for(var i=0; i<Object.keys(global_questions).length; i++){
+                console.log(Object.keys(global_questions)[i]);
+                var key = Object.keys(global_questions)[i];
+                for(var a=0; a<global_questions[key].length; a++){
+                    global_questions[key][a].id = a;
+                    global_questions[key][a].success = 0;
+                    global_questions[key][a].refreshed = 0;
+                }
+            }
             var vm = new Vue({
                 el: '#boardingpass',
                 data: {
                     activities: [],
                     message: 'BOARDINGPASS',
                     forbans:[],
+                    questions:global_questions['co-pilote'],
                     lines:15,
                     enigmes:[
                         {value:""},
@@ -87,15 +214,41 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                     this.socket.on('connect', function(e) {
                         console.log("socket_connected");
                     });
+                    this.socket.on('redirect', function(datas){
+                        console.log('datas redirect ', datas);
+                        window.location.href = datas.url;
+                    });
                     this.socket.on('boardingpass', function(datas) {
                         /* GESTION DE CAS SPECIFIQUES */
                         // SAMPLE CALL EMIT : vm.socket.emit('boardingpass', {status:"updateLine", value:"BONJOUR TOUT LE MONDE", line:4})
                         switch(datas.status){
+                            case 'getQuestions':
+                                // ON CREE UN RANDOM DE QUESTIONS SELON LE LEVEL ENVOYE
+                                this.questions = global_questions[datas.level];
+                                // ON ENVOIE LES QUESTIONS A L APP
+                                this.socket.emit('boardingpass', {status:"sendQuestions", questions:this.questions});
+                                // ON MET A JOUR LE TABLEAU COTE DISPLAY PUBLIC
+                                this.show_questions();
+                                break;
+                            case 'sendQuestions':
+                                // DE CE COTE ON NE FAIT RIEN CAR NOUS VENONS DE RENVOYER LES QUESTIONS A L APP
+                                break;
+                            case 'refreshLine':
+                                // TODO REFFRESSH LINE
+                                break;
+                            case 'valideLine':
+                                // TODO VALIDE LINE
+                                break;
+                            case 'sendLine':
+                                // ICI ON NE FAIS RIEN
+                                this.update_line();
+                                break;
                             case 'updateLine':
+                                console.log(datas);
                                 //var space = " ";
                                 //(datas.value.length < 53)? datas.value += space.repeat(53 - datas.value.length) : datas.value = datas.value.subString(0, 52);
                                 //this.enigmes[datas.num] = datas.value;
-                                this.displayLine(datas.line, datas.value);
+                                this.displayLine(datas.line, this.questions[datas.line].question);
                                 break;
                             default:
                                 break;
@@ -120,6 +273,33 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                     defaultFunc: function(){
                         console.log('default function');
                     },
+                    show_questions : function(){
+                        console.log('ON AFFICHE LES QUESTIONS');
+                    },
+                    setFlap: function(value, index){
+                        console.log('setflap ', value, index);
+                        var space = " ";
+                        (value.length < 54)? value += space.repeat(54 - value.length) : value = value.substring(0, 54);
+                        $("#flap_"+index).html(value);
+                        var ratio = 0.5;
+                        setTimeout(function(){
+                            $("#flap_"+index)
+                                .splitFlap({
+                                    charWidth:  50 * ratio,
+                                    charHeight: 100 * ratio,
+                                    imageSize:  (2500 * ratio) + 'px ' + (100 * ratio) + 'px',
+                                    autoplay:   true,
+                                    text:           value,
+                                    textInit:       space.repeat(54),
+                                    speed:          20,
+                                    onComplete: function () {
+                                        console.log('Done !');
+                                    }
+                                });
+                        }.bind(this), 200);
+                        
+                        //$("#flap_"+id).splitFlap('splitflap').animate();
+                    },
                     setForban: function(value, index){
                         this.forbans[index] = new forbans();
                         setTimeout(function(){
@@ -137,7 +317,26 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                     },
                     displayLine: function(id, value){
                         console.log(id, value);
-                        this.forbans[id].setValue(value);
+                        this.questions[id].question = "HELL BILLU";
+                        /*var space = " ";
+                        (value.length < 54)? value += space.repeat(54 - value.length) : value = value.substring(0, 54);
+                        $("#flap_"+id).html(value);
+                        var ratio = 0.5;
+                        $("#flap_"+id)
+                                .splitFlap({
+                                    charWidth:  50 * ratio,
+                                    charHeight: 100 * ratio,
+                                    imageSize:  (2500 * ratio) + 'px ' + (100 * ratio) + 'px',
+                                    textInit:   'Click me                                   ',
+                                    autoplay:   true,
+                                    text:           value,
+                                    speed:          20,
+                                    onComplete: function () {
+                                        console.log('Done !');
+                                    }
+                                });*/
+                        //$("#flap_"+id).splitFlap('splitflap').animate();
+                        //this.forbans[id].setValue(value);
                     },
                     onAnimStart: function(e) {
                         console.log('start ', e);
@@ -153,8 +352,49 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                 }
             });
 
-
+            
         </script>
+
+
+
+        <!--<script>
+            (function ($) {
+                $(document).ready(function () {
+                    console.log('SET FLAP');
+                    var space = " ";
+                    spaces = space.repeat(54);
+                    $('.splitflap').html(spaces);
+                    var ratio = 0.5;
+                    $('.splitflap')
+                            .splitFlap({
+                                charWidth:  50 * ratio,
+                                charHeight: 100 * ratio,
+                                imageSize:  (2500 * ratio) + 'px ' + (100 * ratio) + 'px',
+                                textInit:   spaces,
+                                autoplay:   false,
+                                onComplete: function () {
+                                    console.log('Done !');
+                                }
+                            });
+
+                    /*
+                    $('.empty-splitflap')
+                            .splitFlap({
+                                text: 'This is JS'
+                            });
+
+                    var ratio = 0.5;
+                    $('.resized-splitflap')
+                            .splitFlap({
+                                charWidth:  50 * ratio,
+                                charHeight: 100 * ratio,
+                                imageSize:  (2500 * ratio) + 'px ' + (100 * ratio) + 'px'
+                            });
+                            */
+                });
+            })(jQuery);
+        </script>-->
+
         <style>
             
         </style>
