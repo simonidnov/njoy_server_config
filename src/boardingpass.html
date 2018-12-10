@@ -334,17 +334,21 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                                 charHeight: 100 * ratio,
                                 imageSize:  (2500 * ratio) + 'px ' + (100 * ratio) + 'px',
                                 autoplay:   true,
+                            	charsMap:   'ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789.,!?#@()+-=',
                                 text:           value,
                                 textInit:       space.repeat(54),
-                                speed:          20,
+                                speed:          10,
+                                speedVariation: 10,
                                 onComplete: function () {
                                     console.log('Done !');
-                                    if(index < self.questions.length-1){
-                                        index++;
-                                        self.settingFlap(index);
-                                    }
                                 }
                             });
+                        setTimeout(function(){
+                            if(index < self.questions.length-1){
+                                index++;
+                                self.settingFlap(index);
+                            }
+                        }.bind(this), 1000);
                     },
                     defaultFunc: function(){
                         console.log('default function');
