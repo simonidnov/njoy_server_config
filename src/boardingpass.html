@@ -203,7 +203,6 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                 ]
             }
             for(var i=0; i<Object.keys(global_questions).length; i++){
-                console.log(Object.keys(global_questions)[i]);
                 var key = Object.keys(global_questions)[i];
                 for(var a=0; a<global_questions[key].length; a++){
                     global_questions[key][a].id = a;
@@ -217,10 +216,10 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                     activities: [],
                     message: 'BOARDINGPASS',
                     forbans:[],
-                    questions:_.shuffle(_.where(global_questions['co-pilote'], {success:0})).slice(0, 19),
+                    questions:_.shuffle(_.where(global_questions['co-pilote'], {success:0})).slice(0, 10),
                     ratio:.4,
                     maxChar:70,
-                    delay:600,
+                    delay:10,
                     chronos:[],
                     chronosValue:[],
                     flapParams:{
@@ -264,7 +263,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                             case 'getQuestions':
                                 // ON CREE UN RANDOM DE QUESTIONS SELON LE LEVEL ENVOYE
                                 this.level = datas.level;
-                                this.questions = _.shuffle(_.where(global_questions[this.level], {success:0})).slice(0, 20);
+                                this.questions = _.shuffle(_.where(global_questions[this.level], {success:0})).slice(0, 10);
                                 // ON ENVOIE LES QUESTIONS A L APP
                                 this.socket.emit('boardingpass', {status:"sendQuestions", questions:this.questions});
                                 // ON MET A JOUR LE TABLEAU COTE DISPLAY PUBLIC
@@ -286,13 +285,10 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                                 this.update_line();
                                 break;
                             case 'updateLine':
-                                console.log(datas);
                                 //var space = " ";
                                 //(datas.value.length < 53)? datas.value += space.repeat(53 - datas.value.length) : datas.value = datas.value.subString(0, 52);
                                 //this.enigmes[datas.num] = datas.value;
-                                console.log("shuffle ::: ", _.shuffle(_.where(global_questions[this.level], {success:0})));
-                                this.questions[parseInt(datas.line)] = _.shuffle(_.where(global_questions[this.level], {success:0})).slice(0, 1)[0];
-                                console.log(this.questions[parseInt(datas.line)]);
+                                _.where(global_questions[this.level], {id:parseInt(datas.id)})[0].success = 1;
                                 this.displayLine(parseInt(datas.line), this.questions[parseInt(datas.line)].question);
                                 break;
                             default:
@@ -321,7 +317,6 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                         var ratio = this.ratio,
                             self = this,
                             space = " ";
-                            console.log(this.flapParams.charWidth * this.ratio);
                         $(".splitflap")
                         .splitFlap({
                             charWidth:  this.flapParams.charWidth * this.ratio,
@@ -381,12 +376,18 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                         }.bind(this), 500);
                     },
                     startChronos : function(index){
-                        console.log('startchronos ', index);
                         this.chronos[index] = setInterval(function(){
                             if(typeof this.chronosValue[index] === "undefined"){
                                 this.chronosValue[index] = this.delay;
                             }else{
                                 this.chronosValue[index] = this.chronosValue[index]-1;
+                            }
+                            if(this.chronosValue[index] === 0){
+                                clearInterval(this.chronos[index]);
+                                //lorsqu'un chronos se termine on rafraichis la ligne
+                                //console.log(this.questions[index].id);
+                                _.where(global_questions[this.level], {id:this.questions[index].id})[0].refreshed++;
+                                this.displayLine(index, "", null, 1);
                             }
                             //if(index === 1){
                                 //.log(this.chronosValue[index]);
@@ -419,8 +420,39 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                     },
                     displayLine: function(id, value){
                         //this.questions[id].question = "HELL BILLU";
-                        this.questions[parseInt(id)].success = 1;
+                        var self = this;
+                        // ON CREE UN ARRAY DEPUIS global_questions EN SUPPRIMANT LES QUESTIONS EN COURS D'AFFICHAGE POUR EVITER LES DOUBLONS
+                        var possibilities = this.withoutCurrentQuestions();
+                        //console.log(possibilities);
+                        //TODO GET WITHOUT REFRESH
+                        //this.questions[id] = _.shuffle(_.where(possibilities, {success:0, refreshed:0})).slice(0, 1)[0];
+                        //TODO IF NO RESPONSE GET INSIDE REFRESH
+                        //if(typeof this.questions[id] === "undefined"){
+                        
+                            console.log('TOUTES LES QUESTIONS ON ETE RAFRAICHIES ON CHERCHE LES MOINS RAFERAICHIES DU COUP');
+                            // SORTBY on reorganise par frequence de rafraichissement retourne du plus grand au plus petit
+                            // SHUFFLE on melange le tableau dans le cas ou tous auraient le meme refreshed pour créer un random
+                            // WHERE on check les questions non répondues avec un status refreshed différent de 0 car dans le IF exception
+                            // REVERSE on reorganise pour avoir le moins rafrazichi en premier
+                            // SLICE on ne retourne que la premiere ligne du tableau
+                            // [0] comme c'est un tableau on ne retourne que le premier object de ce dernier...
+                            this.questions[id] = _.sortBy(
+                                _.shuffle(_.where(possibilities, {success:0}))
+                                , function(o) { 
+                                    // ICI ON REOGRANISE PAR ORDRE DE RAFRAICHISSEMENTs
+                                    return possibilities.refreshed; 
+                                }
+                            ).reverse().slice(0, 1)[0];
+                        //}
+                        if(typeof this.questions[id] === "undefined"){
+                            console.log('il n\'y a plus de questions');
+                            this.questions[id] = {question:(' ').repeat(this.maxChar)};
+                            //return false;
+                        }
+                        value = this.questions[id].question;  
+                        
                         value = this.configValue(id, value);
+                        clearInterval(this.chronos[id]);
                         this.chronosValue[id] = this.delay;
                         $("#flap_"+id).html(value);
                         $("#flap_"+id)
@@ -435,7 +467,8 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                                 autoplay:   true,
                             	text:       value,
                                 onComplete: function () {
-                                    console.log('Done !');
+                                    //console.log('Done !');
+                                    self.startChronos(id);
                                 }
                             });
                         //$("#flap_"+id).splitFlap('splitflap').animate();
@@ -451,6 +484,25 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                             value = id+" "+value;
                         }
                         return value;
+                    },
+                    withoutCurrentQuestions: function(){
+                        a = global_questions[this.level];
+                        b = this.questions;
+
+                        function comparer(otherArray){
+                            return function(current){
+                                return otherArray.filter(function(other){
+                                    return other.id == current.id;
+                                }).length == 0;
+                            }
+                        }
+
+                        var onlyInA = a.filter(comparer(b));
+                        var onlyInB = b.filter(comparer(a));
+                        
+                        //var without = onlyInA.concat(onlyInB);
+                        
+                        return onlyInA.concat(onlyInB);
                     }
                 }
             });
