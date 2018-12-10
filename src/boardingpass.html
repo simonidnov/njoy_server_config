@@ -216,7 +216,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                     activities: [],
                     message: 'BOARDINGPASS',
                     forbans:[],
-                    questions:_.shuffle(_.where(global_questions['co-pilote'], {success:0})).slice(0, 10),
+                    questions:_.shuffle(_.where(global_questions['co-pilote'], {success:0})).slice(0, 20),
                     ratio:.4,
                     maxChar:70,
                     delay:600,
@@ -263,7 +263,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                             case 'getQuestions':
                                 // ON CREE UN RANDOM DE QUESTIONS SELON LE LEVEL ENVOYE
                                 this.level = datas.level;
-                                this.questions = _.shuffle(_.where(global_questions[this.level], {success:0})).slice(0, 10);
+                                this.questions = _.shuffle(_.where(global_questions[this.level], {success:0})).slice(0, 20);
                                 // ON ENVOIE LES QUESTIONS A L APP
                                 this.socket.emit('boardingpass', {status:"sendQuestions", questions:this.questions});
                                 // ON MET A JOUR LE TABLEAU COTE DISPLAY PUBLIC
