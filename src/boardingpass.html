@@ -321,12 +321,10 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                         self.settingFlap(0);
                     },
                     settingFlap:function(index){
-                        console.log("settingFlap ::: ", this.questions);
                         var ratio = this.ratio,
                             value = this.questions[index].question,
                             self = this,
                             space = " ";
-                            console.log("HELLO :::: ", this.questions[index]);
                             (value.length < 54)? value += space.repeat(54 - value.length) : value = value.substring(0, 54);
                         $("#flap_"+index)
                             .splitFlap({
@@ -337,8 +335,8 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                             	charsMap:   'ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789.,!?#@()+-=',
                                 text:           value,
                                 textInit:       space.repeat(54),
-                                speed:          10,
-                                speedVariation: 10,
+                                speed:          100,
+                                speedVariation: 2,
                                 onComplete: function () {
                                     console.log('Done !');
                                 }
@@ -348,7 +346,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                                 index++;
                                 self.settingFlap(index);
                             }
-                        }.bind(this), 1000);
+                        }.bind(this), 100);
                     },
                     defaultFunc: function(){
                         console.log('default function');
