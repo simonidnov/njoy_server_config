@@ -44,12 +44,18 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                 font-family: Tahoma, Geneva, sans-serif;
                 font-size: 24px;
             }
-    
-            .example {
-                padding: 0 0 10px;
-                margin-bottom: 20px;
-    
-                box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            .flap_content{
+                width:1500px;
+                height:800px;
+                position: absolute;
+                left:0;
+                right:0;
+                top:0;
+                bottom:0;
+                margin:auto;
+            }
+            .flap_quiz, .flap_chronos {
+                float: left;
             }
     
             h1 {
@@ -80,27 +86,51 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
             <!--<div class="airportPanel">
                 <div v-for='(item, index) in enigmes' v-bind:id="'flapper_'+index">{{ setForban(item.value, index) }}</div>
             </div>-->
-            <div class="example">
-                <div class="splitflap" id="flap_0" data-line="0">{{ questions[0].question }}</div>
-                <div class="splitflap" id="flap_1" data-line="1">{{ questions[1].question }}</div>
-                <div class="splitflap" id="flap_2" data-line="2">{{ questions[2].question }}</div>
-                <div class="splitflap" id="flap_3" data-line="3">{{ questions[3].question }}</div>
-                <div class="splitflap" id="flap_4" data-line="4">{{ questions[4].question }}</div>
-                <div class="splitflap" id="flap_5" data-line="5">{{ questions[5].question }}</div>
-                <div class="splitflap" id="flap_6" data-line="6">{{ questions[6].question }}</div>
-                <div class="splitflap" id="flap_7" data-line="7">{{ questions[7].question }}</div>
-                <div class="splitflap" id="flap_8" data-line="8">{{ questions[8].question }}</div>
-                <div class="splitflap" id="flap_9" data-line="9">{{ questions[9].question }}</div>
-                <div class="splitflap" id="flap_10" data-line="10">{{ questions[10].question }}</div>
-                <div class="splitflap" id="flap_11" data-line="11">{{ questions[11].question }}</div>
-                <div class="splitflap" id="flap_12" data-line="12">{{ questions[12].question }}</div>
-                <div class="splitflap" id="flap_13" data-line="13">{{ questions[13].question }}</div>
-                <div class="splitflap" id="flap_14" data-line="14">{{ questions[14].question }}</div>
-                <div class="splitflap" id="flap_15" data-line="15">{{ questions[15].question }}</div>
-                <div class="splitflap" id="flap_16" data-line="16">{{ questions[16].question }}</div>
-                <div class="splitflap" id="flap_17" data-line="17">{{ questions[17].question }}</div>
-                <div class="splitflap" id="flap_18" data-line="18">{{ questions[18].question }}</div>
-                <div class="splitflap" id="flap_19" data-line="19">{{ questions[19].question }}</div>
+            <div class="flap_content">
+                <div class="flap_quiz">
+                    <div class="splitflap" id="flap_0" data-line="0">{{ questions[0].question }}</div>
+                    <div class="splitflap" id="flap_1" data-line="1">{{ questions[1].question }}</div>
+                    <div class="splitflap" id="flap_2" data-line="2">{{ questions[2].question }}</div>
+                    <div class="splitflap" id="flap_3" data-line="3">{{ questions[3].question }}</div>
+                    <div class="splitflap" id="flap_4" data-line="4">{{ questions[4].question }}</div>
+                    <div class="splitflap" id="flap_5" data-line="5">{{ questions[5].question }}</div>
+                    <div class="splitflap" id="flap_6" data-line="6">{{ questions[6].question }}</div>
+                    <div class="splitflap" id="flap_7" data-line="7">{{ questions[7].question }}</div>
+                    <div class="splitflap" id="flap_8" data-line="8">{{ questions[8].question }}</div>
+                    <div class="splitflap" id="flap_9" data-line="9">{{ questions[9].question }}</div>
+                    <div class="splitflap" id="flap_10" data-line="10">{{ questions[10].question }}</div>
+                    <div class="splitflap" id="flap_11" data-line="11">{{ questions[11].question }}</div>
+                    <div class="splitflap" id="flap_12" data-line="12">{{ questions[12].question }}</div>
+                    <div class="splitflap" id="flap_13" data-line="13">{{ questions[13].question }}</div>
+                    <div class="splitflap" id="flap_14" data-line="14">{{ questions[14].question }}</div>
+                    <div class="splitflap" id="flap_15" data-line="15">{{ questions[15].question }}</div>
+                    <div class="splitflap" id="flap_16" data-line="16">{{ questions[16].question }}</div>
+                    <div class="splitflap" id="flap_17" data-line="17">{{ questions[17].question }}</div>
+                    <div class="splitflap" id="flap_18" data-line="18">{{ questions[18].question }}</div>
+                    <div class="splitflap" id="flap_19" data-line="19">{{ questions[19].question }}</div>
+                </div>
+                <div class="flap_chronos">
+                    <div id="flap_chronos_0" class="splitflapchronos"></div>
+                    <div id="flap_chronos_1" class="splitflapchronos"></div>
+                    <div id="flap_chronos_2" class="splitflapchronos"></div>
+                    <div id="flap_chronos_3" class="splitflapchronos"></div>
+                    <div id="flap_chronos_4" class="splitflapchronos"></div>
+                    <div id="flap_chronos_5" class="splitflapchronos"></div>
+                    <div id="flap_chronos_6" class="splitflapchronos"></div>
+                    <div id="flap_chronos_7" class="splitflapchronos"></div>
+                    <div id="flap_chronos_8" class="splitflapchronos"></div>
+                    <div id="flap_chronos_9" class="splitflapchronos"></div>
+                    <div id="flap_chronos_10" class="splitflapchronos"></div>
+                    <div id="flap_chronos_11" class="splitflapchronos"></div>
+                    <div id="flap_chronos_12" class="splitflapchronos"></div>
+                    <div id="flap_chronos_13" class="splitflapchronos"></div>
+                    <div id="flap_chronos_14" class="splitflapchronos"></div>
+                    <div id="flap_chronos_15" class="splitflapchronos"></div>
+                    <div id="flap_chronos_16" class="splitflapchronos"></div>
+                    <div id="flap_chronos_17" class="splitflapchronos"></div>
+                    <div id="flap_chronos_18" class="splitflapchronos"></div>
+                    <div id="flap_chronos_19" class="splitflapchronos"></div>
+                </div>
             </div>
         </div>
         <script>
@@ -190,21 +220,22 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                     questions:_.shuffle(_.where(global_questions['co-pilote'], {success:0})).slice(0, 19),
                     ratio:.4,
                     maxChar:70,
-                    speed:100,
-                    variation:5,
-                    enigmes:[
-                        {value:""},
-                        {value:""},
-                        {value:""},
-                        {value:""},
-                        {value:""},
-                        {value:""},
-                        {value:""},
-                        {value:""},
-                        {value:""},
-                        {value:""},
-                        {value:""}
-                    ],
+                    delay:600,
+                    chronos:[],
+                    chronosValue:[],
+                    flapParams:{
+                        charWidth:  50,
+                        charHeight: 100,
+                        imageSize:  {
+                            width:2600,
+                            height:100
+                        },
+                        autoplay:   true,
+                        charsMap:   "ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789.,!?#@()+-=É':",
+                        charSubstitute: ' ',
+                        speed:          100,
+                        speedVariation: 20
+                    },
                     infos:{
                         datas:{
                             teams: []
@@ -233,7 +264,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                             case 'getQuestions':
                                 // ON CREE UN RANDOM DE QUESTIONS SELON LE LEVEL ENVOYE
                                 this.level = datas.level;
-                                this.questions = _.shuffle(_.where(global_questions[this.level], {success:0})).slice(0, 19);
+                                this.questions = _.shuffle(_.where(global_questions[this.level], {success:0})).slice(0, 20);
                                 // ON ENVOIE LES QUESTIONS A L APP
                                 this.socket.emit('boardingpass', {status:"sendQuestions", questions:this.questions});
                                 // ON MET A JOUR LE TABLEAU COTE DISPLAY PUBLIC
@@ -290,71 +321,136 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                         var ratio = this.ratio,
                             self = this,
                             space = " ";
+                            console.log(this.flapParams.charWidth * this.ratio);
                         $(".splitflap")
                         .splitFlap({
-                            charWidth:  50 * ratio,
-                            charHeight: 100 * ratio,
-                            imageSize:  (2500 * ratio) + 'px ' + (100 * ratio) + 'px',
+                            charWidth:  this.flapParams.charWidth * this.ratio,
+                            charHeight: this.flapParams.charHeight * this.ratio,
+                            imageSize:  (this.flapParams.imageSize.width * this.ratio) + 'px ' + (this.flapParams.imageSize.height * this.ratio) + 'px',
+                            charsMap:   this.flapParams.charsMap,
+                            charSubstitute: this.flapParams.charSubstitute,
+                            speed:          this.flapParams.speed,
+                            speedVariation: this.flapParams.speedVariation,
                             autoplay:   true,
                             text:           space.repeat(this.maxChar),
-                            textInit:       space.repeat(this.maxChar),
-                            speed:          this.speed,
-                            onComplete: function () {
-                                
-                            }
+                            textInit:       space.repeat(this.maxChar)
                         });
+                        $('.splitflapchronos')
+                            .splitFlap({
+                                charWidth:  this.flapParams.charWidth * this.ratio,
+                                charHeight: this.flapParams.charHeight * this.ratio,
+                                imageSize:  (this.flapParams.imageSize.width * this.ratio) + 'px ' + (this.flapParams.imageSize.height * this.ratio) + 'px',
+                                charsMap:   this.flapParams.charsMap,
+                                charSubstitute: this.flapParams.charSubstitute,
+                                speed:          this.flapParams.speed,
+                                speedVariation: this.flapParams.speedVariation,
+                                autoplay:   true,
+                                text:           "10:00",
+                                textInit:       "10:00"
+                            });
+                        
                     },
                     settingFlap:function(index){
                         var value = this.questions[index].question,
                             self = this,
                             space = " ";
-                        (value.length < this.maxChar)? value += space.repeat(this.maxChar - value.length) : value = value.substring(0, this.maxChar);
+
+                        value = this.configValue(index, value);
+                        //(value.length < this.maxChar)? value += space.repeat(this.maxChar - value.length) : value = value.substring(0, this.maxChar);
                         $("#flap_"+index)
                             .splitFlap({
-                                charWidth:  50 * this.ratio,
-                                charHeight: 100 * this.ratio,
-                                imageSize:  (2500 * this.ratio) + 'px ' + (100 * this.ratio) + 'px',
-                                autoplay:   true,
-                            	charsMap:   "ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789.,!?#@()+-=É'",
-                                text:           value.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toUpperCase(),
+                                charWidth:  this.flapParams.charWidth * this.ratio,
+                                charHeight: this.flapParams.charHeight * this.ratio,
+                                imageSize:  (this.flapParams.imageSize.width * this.ratio) + 'px ' + (this.flapParams.imageSize.height * this.ratio) + 'px',
+                                charsMap:   this.flapParams.charsMap,
+                                charSubstitute: this.flapParams.charSubstitute,
+                                speed:          this.flapParams.speed,
+                                speedVariation: this.flapParams.speedVariation,
+                                text:           value,
                                 textInit:       space.repeat(this.maxChar),
-                                speed:          this.speed,
-                                speedVariation: this.variation,
                                 onComplete: function () {
-                                    console.log('Done !');
+                                    self.startChronos(index);
+                                    if(index < self.questions.length-1){
+                                        index++;
+                                        self.settingFlap(index);
+                                    }
                                 }
                             });
                         setTimeout(function(){
-                            if(index < self.questions.length-1){
-                                index++;
-                                self.settingFlap(index);
+                            
+                        }.bind(this), 500);
+                    },
+                    startChronos : function(index){
+                        console.log('startchronos ', index);
+                        this.chronos[index] = setInterval(function(){
+                            if(typeof this.chronosValue[index] === "undefined"){
+                                this.chronosValue[index] = this.delay;
+                            }else{
+                                this.chronosValue[index] = this.chronosValue[index]-1;
                             }
-                        }.bind(this), 250);
+                            //if(index === 1){
+                                //.log(this.chronosValue[index]);
+                                //console.log($('#flap_chronos_'+index));
+                                var minutes = Math.floor(this.chronosValue[index] / 60);
+                                var seconds = this.chronosValue[index] - minutes * 60;
+                                function str_pad_left(string,pad,length) {
+                                    return (new Array(length+1).join(pad)+string).slice(-length);
+                                }
+                                var finalTime = str_pad_left(minutes,'0',2)+':'+str_pad_left(seconds,'0',2);
+                                $('#flap_chronos_'+index)
+                                    .splitFlap({
+                                        charWidth:  this.flapParams.charWidth * this.ratio,
+                                        charHeight: this.flapParams.charHeight * this.ratio,
+                                        imageSize:  (this.flapParams.imageSize.width * this.ratio) + 'px ' + (this.flapParams.imageSize.height * this.ratio) + 'px',
+                                        charsMap:   this.flapParams.charsMap,
+                                        charSubstitute: this.flapParams.charSubstitute,
+                                        speed:          0,
+                                        speedVariation: 0,
+                                        autoplay:   true,
+                                        text:       finalTime,
+                                        textInit: finalTime
+                                    });
+                                //.setText(this.chronosValue[index]/60);
+                            //}
+                        }.bind(this), 1000);
                     },
                     defaultFunc: function(){
                         console.log('default function');
                     },
                     displayLine: function(id, value){
-                        console.log(id, value);
                         //this.questions[id].question = "HELL BILLU";
-                        var space = " ";
-                        (value.length < this.maxChar)? value += space.repeat(this.maxChar - value.length) : value = value.substring(0, this.maxChar);
+                        this.questions[parseInt(id)].success = 1;
+                        value = this.configValue(id, value);
+                        this.chronosValue[id] = this.delay;
                         $("#flap_"+id).html(value);
                         $("#flap_"+id)
                             .splitFlap({
-                                charWidth:  50 * this.ratio,
-                                charHeight: 100 * this.ratio,
-                                imageSize:  (2500 * this.ratio) + 'px ' + (100 * this.ratio) + 'px',
+                                charWidth:  this.flapParams.charWidth * this.ratio,
+                                charHeight: this.flapParams.charHeight * this.ratio,
+                                imageSize:  (this.flapParams.imageSize.width * this.ratio) + 'px ' + (this.flapParams.imageSize.height * this.ratio) + 'px',
+                                charsMap:   this.flapParams.charsMap,
+                                charSubstitute: this.flapParams.charSubstitute,
+                                speed:          this.flapParams.speed,
+                                speedVariation: this.flapParams.speedVariation,
                                 autoplay:   true,
-                                text:       value.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toUpperCase(),
-                                speed:      this.speed,
-                                speedVariation: this.variation,
+                            	text:       value,
                                 onComplete: function () {
                                     console.log('Done !');
                                 }
                             });
                         //$("#flap_"+id).splitFlap('splitflap').animate();
                         //this.forbans[id].setValue(value);
+                    },
+                    configValue:function(id, value){
+                        var space = " ";
+                        (value.length < this.maxChar-3)? value += space.repeat((this.maxChar-3) - value.length) : value = value.substring(0, this.maxChar-3);
+                        value = value.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toUpperCase();
+                        if(id < 10){
+                            value = "0"+id+" "+value;
+                        }else{
+                            value = id+" "+value;
+                        }
+                        return value;
                     }
                 }
             });

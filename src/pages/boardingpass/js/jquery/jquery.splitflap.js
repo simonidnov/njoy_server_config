@@ -208,7 +208,6 @@
 
 		this.domObject = document.createElement('div');
 		this.letters = new Array();
-
 		$(this.domObject).addClass("splitflap");
 	}
 
@@ -322,17 +321,15 @@
 
 		for ( var i = 0, l = this.animation.letters.length; i < l; i++ ) {
 			var letter = this.letters[ i ];
+		
 			var al = this.animation.letters[ i ];
-
+		
 			if ( al.letters.length > 1 ) {
 				al.ratio += al.speed * dt;
 				if ( (al.ratio > 1) && (al.letters.length > 1) ) {
 					al.ratio = 0;
 					al.letters.shift();
 				}
-			}
-
-			if ( al.letters.length > 1 ) {
 				letter.setChar(al.letters[ 1 ], al.letters[ 0 ], al.ratio);
 				n++;
 			}
@@ -365,7 +362,6 @@
 			if ( typeof o.splitflap == 'undefined' ) {
 				return false;
 			}
-
 			return o.splitflap;
 		}
 
