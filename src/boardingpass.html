@@ -91,7 +91,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                 <div class="splitflap" id="flap_6" data-line="6">{{ questions[6].question }}</div>
                 <div class="splitflap" id="flap_7" data-line="7">{{ questions[7].question }}</div>
                 <div class="splitflap" id="flap_8" data-line="8">{{ questions[8].question }}</div>
-                <!--<div class="splitflap" id="flap_9" data-line="9">{{ questions[9].question }}</div>
+                <div class="splitflap" id="flap_9" data-line="9">{{ questions[9].question }}</div>
                 <div class="splitflap" id="flap_10" data-line="10">{{ questions[10].question }}</div>
                 <div class="splitflap" id="flap_11" data-line="11">{{ questions[11].question }}</div>
                 <div class="splitflap" id="flap_12" data-line="12">{{ questions[12].question }}</div>
@@ -101,7 +101,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                 <div class="splitflap" id="flap_16" data-line="16">{{ questions[16].question }}</div>
                 <div class="splitflap" id="flap_17" data-line="17">{{ questions[17].question }}</div>
                 <div class="splitflap" id="flap_18" data-line="18">{{ questions[18].question }}</div>
-                <div class="splitflap" id="flap_19" data-line="19">{{ questions[19].question }}</div>-->
+                <div class="splitflap" id="flap_19" data-line="19">{{ questions[19].question }}</div>
             </div>
         </div>
         <script>
@@ -195,9 +195,9 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                     activities: [],
                     message: 'BOARDINGPASS',
                     forbans:[],
-                    questions:_.shuffle(_.where(global_questions['co-pilote'], {success:0})).slice(0, 9),
-                    lines:15,
+                    questions:_.shuffle(_.where(global_questions['co-pilote'], {success:0})).slice(0, 19),
                     ratio:.4,
+                    maxChar:60,
                     enigmes:[
                         {value:""},
                         {value:""},
@@ -215,20 +215,6 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                         datas:{
                             teams: []
                         }
-                    },
-                    options: {
-                        width: 53*9,          // number of digits
-                        format: null,         // optio  ns for jquery.numberformatter, if loaded
-                        align: 'left',        // aligns values to the left or right of display
-                        padding: '&nbsp;',    // value to use for padding
-                        chars: null,          // array of characters that Flapper can display
-                        chars_preset: 'alphanum',  // 'num', 'hexnum', 'alpha' or 'alphanum'
-                        timing: 50,          // the maximum timing for digit animation
-                        min_timing: 10,       // the minimum timing for digit animation
-                        threshhold: 1,      // the point at which Flapper will switch from
-                        transform: false,      // Flapper automatically detects the jquery.transform
-                        on_anim_start: this.onAnimStart,   // Callback for start of animation
-                        on_anim_end: this.onAnimEnd     // Callback for end of animation
                     },
                     socket: io(window.location.origin, {transports: ['websocket', 'xhr-polling']})
                 },
@@ -253,11 +239,14 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                         switch(datas.status){
                             case 'getQuestions':
                                 // ON CREE UN RANDOM DE QUESTIONS SELON LE LEVEL ENVOYE
-                                this.questions = global_questions[datas.level];
+                                this.level = datas.level;
+                                this.questions = _.shuffle(_.where(global_questions[this.level], {success:0})).slice(0, 19);
                                 // ON ENVOIE LES QUESTIONS A L APP
                                 this.socket.emit('boardingpass', {status:"sendQuestions", questions:this.questions});
                                 // ON MET A JOUR LE TABLEAU COTE DISPLAY PUBLIC
-                                this.show_questions();
+                                setTimeout(function(){
+                                    this.settingFlap(0);
+                                }.bind(this), 400);
                                 break;
                             case 'sendQuestions':
                                 // DE CE COTE ON NE FAIT RIEN CAR NOUS VENONS DE RENVOYER LES QUESTIONS A L APP
@@ -277,7 +266,10 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                                 //var space = " ";
                                 //(datas.value.length < 53)? datas.value += space.repeat(53 - datas.value.length) : datas.value = datas.value.subString(0, 52);
                                 //this.enigmes[datas.num] = datas.value;
-                                this.displayLine(datas.line, this.questions[datas.line].question);
+                                console.log("shuffle ::: ", _.shuffle(_.where(global_questions[this.level], {success:0})));
+                                this.questions[parseInt(datas.line)] = _.shuffle(_.where(global_questions[this.level], {success:0})).slice(0, 1)[0];
+                                console.log(this.questions[parseInt(datas.line)]);
+                                this.displayLine(parseInt(datas.line), this.questions[parseInt(datas.line)].question);
                                 break;
                             default:
                                 break;
@@ -311,29 +303,24 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                             charHeight: 100 * ratio,
                             imageSize:  (2500 * ratio) + 'px ' + (100 * ratio) + 'px',
                             autoplay:   true,
-                            text:           space.repeat(54),
-                            textInit:       space.repeat(54),
+                            text:           space.repeat(this.maxChar),
+                            textInit:       space.repeat(this.maxChar),
                             speed:          20,
                             onComplete: function () {
                                 
                             }
                         });
-                        setTimeout(function(){
-                            self.settingFlap(0);
-                        }, 400);
                     },
                     settingFlap:function(index){
-                        var ratio = this.ratio,
-                            value = this.questions[index].question,
+                        var value = this.questions[index].question,
                             self = this,
                             space = " ";
-                        (value.length < 54)? value += space.repeat(54 - value.length) : value = value.substring(0, 54);
-                        console.log('VALUE ', value, index);
+                        (value.length < 54)? value += space.repeat(54 - value.length) : value = value.substring(0, this.maxChar);
                         $("#flap_"+index)
                             .splitFlap({
-                                charWidth:  50 * ratio,
-                                charHeight: 100 * ratio,
-                                imageSize:  (2500 * ratio) + 'px ' + (100 * ratio) + 'px',
+                                charWidth:  50 * this.ratio,
+                                charHeight: 100 * this.ratio,
+                                imageSize:  (2500 * this.ratio) + 'px ' + (100 * this.ratio) + 'px',
                                 autoplay:   true,
                             	charsMap:   "ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789.,!?#@()+-=É'",
                                 text:           value.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toUpperCase(),
@@ -362,17 +349,17 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                         var space = " ";
                         (value.length < 54)? value += space.repeat(54 - value.length) : value = value.substring(0, 54);
                         $("#flap_"+index).html(value);
-                        var ratio = this.ratio;
                         setTimeout(function(){
                             $("#flap_"+index)
                                 .splitFlap({
-                                    charWidth:  50 * ratio,
-                                    charHeight: 100 * ratio,
-                                    imageSize:  (2500 * ratio) + 'px ' + (100 * ratio) + 'px',
+                                    charWidth:  50 * this.ratio,
+                                    charHeight: 100 * this.ratio,
+                                    imageSize:  (2500 * this.ratio) + 'px ' + (100 * this.ratio) + 'px',
                                     autoplay:   true,
-                                    text:           value,
+                                    text:           value.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toUpperCase(),
                                     textInit:       space.repeat(54),
-                                    speed:          20,
+                                    speed:          100,
+                                    speedVariation: 2,
                                     onComplete: function () {
                                         console.log('Done !');
                                     }
@@ -384,23 +371,22 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                     displayLine: function(id, value){
                         console.log(id, value);
                         //this.questions[id].question = "HELL BILLU";
-                        /*var space = " ";
+                        var space = " ";
                         (value.length < 54)? value += space.repeat(54 - value.length) : value = value.substring(0, 54);
                         $("#flap_"+id).html(value);
-                        var ratio = 0.5;
                         $("#flap_"+id)
-                                .splitFlap({
-                                    charWidth:  50 * ratio,
-                                    charHeight: 100 * ratio,
-                                    imageSize:  (2500 * ratio) + 'px ' + (100 * ratio) + 'px',
-                                    textInit:   'Click me                                   ',
-                                    autoplay:   true,
-                                    text:           value,
-                                    speed:          20,
-                                    onComplete: function () {
-                                        console.log('Done !');
-                                    }
-                                });*/
+                            .splitFlap({
+                                charWidth:  50 * this.ratio,
+                                charHeight: 100 * this.ratio,
+                                imageSize:  (2500 * this.ratio) + 'px ' + (100 * this.ratio) + 'px',
+                                autoplay:   true,
+                                text:       value.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toUpperCase(),
+                                speed:      100,
+                                speedVariation: 2,
+                                onComplete: function () {
+                                    console.log('Done !');
+                                }
+                            });
                         //$("#flap_"+id).splitFlap('splitflap').animate();
                         //this.forbans[id].setValue(value);
                     },
