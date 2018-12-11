@@ -376,7 +376,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                                 index++;
                                 self.settingFlap(index);
                             }
-                        }.bind(this), 500);
+                        }.bind(this), 1000);
                     },
                     startChronos : function(index){
                         this.chronos[index] = setInterval(function(){
