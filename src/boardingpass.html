@@ -221,7 +221,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                     questions:_.shuffle(_.where(global_questions['co-pilote'], {success:0})).slice(0, 20),
                     ratio:.4,
                     maxChar:70,
-                    delay:600,
+                    delay:400,
                     chronos:[],
                     chronosValue:[],
                     flapParams:{
@@ -234,7 +234,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                         autoplay:   true,
                         charsMap:   "ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789.,!?#@()+-=É':",
                         charSubstitute: ' ',
-                        speed:          100,
+                        speed:          50,
                         speedVariation: 20
                     },
                     infos:{

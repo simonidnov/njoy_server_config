@@ -234,9 +234,7 @@
 				left:     i * this.settings.charWidth,
 				top:      0
 			});
-
 			$(this.domObject).append(o);
-
 			this.letters[ i ] = letter;
 		}
 	}
