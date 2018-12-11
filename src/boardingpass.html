@@ -109,6 +109,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                     <div class="splitflap" id="flap_18" data-line="18">{{ questions[18].question }}</div>
                     <div class="splitflap" id="flap_19" data-line="19">{{ questions[19].question }}</div>
                 </div>
+                <!--
                 <div class="flap_chronos">
                     <div id="flap_chronos_0" class="splitflapchronos"></div>
                     <div id="flap_chronos_1" class="splitflapchronos"></div>
@@ -131,6 +132,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                     <div id="flap_chronos_18" class="splitflapchronos"></div>
                     <div id="flap_chronos_19" class="splitflapchronos"></div>
                 </div>
+                -->
             </div>
         </div>
         <script>
@@ -330,7 +332,8 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                             text:           space.repeat(this.maxChar),
                             textInit:       space.repeat(this.maxChar)
                         });
-                        $('.splitflapchronos')
+                        
+                        /*$('.splitflapchronos')
                             .splitFlap({
                                 charWidth:  this.flapParams.charWidth * this.ratio,
                                 charHeight: this.flapParams.charHeight * this.ratio,
@@ -342,7 +345,8 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                                 autoplay:   true,
                                 text:           "10:00",
                                 textInit:       "10:00"
-                            });
+                            });*/
+                        
                         
                     },
                     settingFlap:function(index){
@@ -392,6 +396,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                             //if(index === 1){
                                 //.log(this.chronosValue[index]);
                                 //console.log($('#flap_chronos_'+index));
+                                /*
                                 var minutes = Math.floor(this.chronosValue[index] / 60);
                                 var seconds = this.chronosValue[index] - minutes * 60;
                                 function str_pad_left(string,pad,length) {
@@ -411,6 +416,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                                         text:       finalTime,
                                         textInit: finalTime
                                     });
+                                */
                                 //.setText(this.chronosValue[index]/60);
                             //}
                         }.bind(this), 1000);
