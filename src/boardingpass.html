@@ -221,7 +221,7 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                     questions:_.shuffle(_.where(global_questions['co-pilote'], {success:0})).slice(0, 20),
                     ratio:.4,
                     maxChar:70,
-                    delay:400,
+                    delay:600,
                     chronos:[],
                     chronosValue:[],
                     flapParams:{
@@ -369,14 +369,13 @@ chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disa
                                 textInit:       space.repeat(this.maxChar),
                                 onComplete: function () {
                                     self.startChronos(index);
-                                    if(index < self.questions.length-1){
-                                        index++;
-                                        self.settingFlap(index);
-                                    }
                                 }
                             });
                         setTimeout(function(){
-                            
+                            if(index < self.questions.length-1){
+                                index++;
+                                self.settingFlap(index);
+                            }
                         }.bind(this), 500);
                     },
                     startChronos : function(index){
