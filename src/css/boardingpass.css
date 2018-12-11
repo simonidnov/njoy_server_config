@@ -65,3 +65,61 @@ h1 {
 .display{
     width:100%;
 }
+
+
+
+
+body {
+    margin: 0;
+    padding: 20px;
+    background: grey;
+    color: white;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 24px;
+}
+.flap_content{
+    width: 1440px;
+    height: 970px;
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin:auto;
+    border:20px solid #000;
+    background-color:#000;
+}
+.flap_content .header{
+    height:60px;
+    width:100%;
+    background-color:#000;
+}
+.flap_content .header .pix{
+    height:60px;
+}
+
+.flap_quiz div.splitflap{
+    margin-bottom:4px;
+}
+
+h1 {
+    margin: 0 0 10px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: normal;
+    background: #333333;
+}
+
+.splitflap {
+    margin: 0 auto;
+
+    -webkit-perspective-origin: top center;
+    -moz-perspective-origin: top center;
+    -ms-perspective-origin: top center;
+    perspective-origin: top center;
+
+    -webkit-perspective: 900px;
+    -moz-perspective: 900px;
+    -ms-perspective: 900px;
+    perspective: 900px;
+}
