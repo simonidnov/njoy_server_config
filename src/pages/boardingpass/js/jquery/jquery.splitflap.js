@@ -364,7 +364,7 @@
 		}
 
 		var settings = $.extend({
-			image:          './pages/boardingpass/images/chars.png',
+			image:          './pages/boardingpass/images/1x/CHARS.png',
 			imageSize:      '',
 			charsMap:       'ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789.,!?#@()+-=',
 			charWidth:      50,

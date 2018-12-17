@@ -1,6 +1,4 @@
-.boardingpass{
-    background-color:#333;
-}
+
 .boardingpass .destinations{
     margin:0;
     padding:0;
@@ -11,7 +9,7 @@
     margin:0;
     padding:0;
     border-bottom:1px solid #E3E3E3;
-    color:#FFF000;
+    color:#333;
     position: relative;
     height:55px;
     text-align:left;
@@ -47,5 +45,10 @@
     width:48px;
     height:48px;
     margin:2px;
-    background-color:lightgreen;
+}
+.section_tab{
+    padding-bottom:0px;
+}
+.section_tab p{
+    display: none;
 }

@@ -5,15 +5,25 @@
         <% for(var q=0; q<questions.length; q++) { %>
             <li class="line" data-id="<%= questions[q].id %>" data-line="<%= q %>">
                 <div class="ID">
-                    <% if(parseInt(questions[q].id)+1 < 10){ %>0<%= parseInt(questions[q].id)+1 %><% }else{ %><%= parseInt(questions[q].id)+1 %><% } %>
+                    <% if(questions[q].id.toString().length === 1){ %>
+                        00<%= parseInt(questions[q].id)+1 %>
+                    <% }else if(questions[q].id.toString().length === 2){ %>
+                        0<%= parseInt(questions[q].id)+1 %>
+                    <% }else{ %>
+                        <%= parseInt(questions[q].id)+1 %>
+                    <% } %>
                 </div>
                 <div class="infos">
                     <div class="question"><%= questions[q].question %></div>
                     <div class="answer"><%= questions[q].answer %></div>
                 </div>
                 <ul class="actions">
-                    <li data-bpaction="refresh" data-id="<%= questions[q].id %>" data-line="<%= q %>">R</li>
-                    <li data-bpaction="validate" data-id="<%= questions[q].id %>" data-line="<%= q %>">V</li>
+                    <li data-bpaction="refresh" data-id="<%= questions[q].id %>" data-line="<%= q %>">
+                        <img src="/pages/boardingpass/images/svg/refresh.svg" />
+                    </li>
+                    <li data-bpaction="validate" data-id="<%= questions[q].id %>" data-line="<%= q %>">
+                        <img src="/pages/boardingpass/images/svg/validate.svg"/>
+                    </li>
                 </ul>
             </li>
         <% } %>

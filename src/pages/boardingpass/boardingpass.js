@@ -7,10 +7,11 @@ boardingpass.init = function(){
     //ON CREE UN ARRAY DE QUESTIONS VIDE EN ATTENTE DE RECEPTION DE LA SELECTIOND DU RECEPTOR
     this.questions = [];
     // LORSUQ'ON LANCE L'APPLI PAR DEFAUT ON EST SUR LA PREMIERE TAB DONC ON SET LE LEVEL SUR ZERO
-    this.level = this.levels[0];
+    this.level = 0;
     // ON SET LE TAB CALLBACK DE L'APP TOOLS POUR CHANGER DE NIVEAU DE QUESTION
     app_tools.tab_callback = function(e){
-        this.level = this.levels[e];
+        console.log(e);
+        this.level = e;
         // TODO, AVANT DE RAFRAICHIR ON AFFICHE UNE POPIN CAR LES QUESTIONS PRÉCÉDENTES SERONT PERDUES
         // LORSQU'ON CHANGE DE NIVEAU ON DEMANDE LES QUESTION DU NIVEAU SSELECTIONNÉ
         app.socket.emit('boardingpass', {"status":"getQuestions", "level":this.level});
@@ -29,7 +30,6 @@ boardingpass.init = function(){
                 break;
             case 'sendQuestions':
                 // SEND QUESTION EST ENVOYÉ DEPUIS LE RECEPTOR, LORSQU'ON LE RECOIS ON MET À JOUR TOUT LE TEMPLATE
-                console.log(e);
                 this.questions = e.questions;
                 this.reset_template();
                 break;
@@ -42,6 +42,18 @@ boardingpass.init = function(){
             case 'sendLine':
                 // Lorsqu'on reçois une nouvelle ligne, on met à jour la ligne dans le template :
                 this.update_line();
+                break;
+            case 'questionRefreshed':
+                //console.log(e.id, e.question);
+                this.questions[e.id] = e.question;
+                var element = $('.line[data-line="'+e.id+'"]').eq(0);
+                element[0].setAttribute('data-id', e.question.id);
+                element.find('.ID').html(e.question.id);
+                element.find('.question').html(e.question.question);
+                element.find('.answer').html(e.question.answer);
+                element.find('[data-bpaction="refresh"]').eq(0)[0].setAttribute('data-id', e.question.id);
+                element.find('[data-bpaction="validate"]').eq(0)[0].setAttribute('data-id', e.question.id);
+                //element.find('[data-line]').setAttribute(e.id);
                 break;
         }
     }.bind(this);
