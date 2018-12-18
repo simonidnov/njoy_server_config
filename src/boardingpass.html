@@ -31,6 +31,7 @@
         <script type="text/javascript" src="node_modules/underscore/underscore-min.js"></script>
         <script type="text/javascript" src="node_modules/gsap/TweenMax.js"></script>
         <script type="text/javascript" src="node_modules/gsap/TweenLite.js"></script>
+        <script type="text/javascript" src="js/lettering.js"></script>
         <script type="text/javascript" src="js/socket.io/socket.io.js"></script>
         <script src="node_modules/vue/dist/vue.min.js"></script>
 
@@ -41,12 +42,50 @@
             <!--<div class="airportPanel">
                 <div v-for='(item, index) in enigmes' v-bind:id="'flapper_'+index">{{ setForban(item.value, index) }}</div>
             </div>-->
+            <div class="textMotion">
+
+            </div>
             <div class="screener">
                 <div class="flap_content" v-if="questions">
                     <div class="header">
-                        <div class="left"><img class="pix" src="pages/boardingpass/images/SVG/plane.svg"/></div>
-                        <div class="center"></div>
-                        <div class="right"></div>
+                        <div class="panelTitle">
+                            <img class="pix" src="pages/boardingpass/images/SVG/plane.svg"/>
+                            DEPARTURES
+                        </div>
+                        <div class="labelColumns">
+                            <div class="column1"><img height="35" src="/pages/boardingpass/images/svg/gate.svg"/></div>
+                            <div class="column2">QUESTIONS</div>
+                            <div class="column3">TIME</div>
+                        </div>
+                        <!--
+                        <div class="left">
+                            <img class="pix" src="/pages/boardingpass/images/svg/gate.svg"/>
+                            <img class="pix" v-bind:src="'/pages/boardingpass/images/svg/level_'+level+'.svg'"/>
+                            <div class="label">DEPARTURE</div>
+                        </div>
+                        -->
+                        <div class="gameInfos">
+                            <div class="score panelFlap">
+                                <img class="pix" v-bind:src="'/pages/boardingpass/images/svg/level_'+level+'.svg'"/>
+                            </div>
+                            <div class="score panelFlap">
+                                <div class="label">SCORE</div>
+                                <div class="scoreflap">{{ str_pad_left(score, '0', 4) }}</div>
+                            </div>
+                            <div class="chrono panelFlap" v-if="settings.chronolap">
+                                <div class="label">TIME REMAINING</div>
+                                <div class="chronoflap">{{ datetime }}</div>
+                            </div>
+                            <div class="chrono panelFlap" v-if="!settings.chronolap">
+                                <div class="label">CLOCK</div>
+                                <div class="chronoflap">{{ datetime }}</div>
+                            </div>
+                        </div>
+                        <!--
+                        <div class="right">
+                            <img class="pix" src="pages/boardingpass/images/SVG/time.svg"/>
+                        </div>
+                        -->
                     </div>
                     <div class="flap_quiz">
                         <div class="splitflap" id="flap_0" data-line="0">{{ questions[0].question }}</div>
@@ -66,9 +105,9 @@
                         <div class="splitflap" id="flap_14" data-line="14">{{ questions[14].question }}</div>
                         <div class="splitflap" id="flap_15" data-line="15">{{ questions[15].question }}</div>
                         <div class="splitflap" id="flap_16" data-line="16">{{ questions[16].question }}</div>
-                        <div class="splitflap" id="flap_17" data-line="17">{{ questions[17].question }}</div>
+                        <!--<div class="splitflap" id="flap_17" data-line="17">{{ questions[17].question }}</div>
                         <div class="splitflap" id="flap_18" data-line="18">{{ questions[18].question }}</div>
-                        <div class="splitflap" id="flap_19" data-line="19">{{ questions[19].question }}</div>
+                        <div class="splitflap" id="flap_19" data-line="19">{{ questions[19].question }}</div>-->
                     </div>
                     <div class="flap_quiz flap_chronos">
                         <div id="flap_chronos_0" class="splitflapchronos"></div>
@@ -88,14 +127,21 @@
                         <div id="flap_chronos_14" class="splitflapchronos"></div>
                         <div id="flap_chronos_15" class="splitflapchronos"></div>
                         <div id="flap_chronos_16" class="splitflapchronos"></div>
-                        <div id="flap_chronos_17" class="splitflapchronos"></div>
+                        <!--<div id="flap_chronos_17" class="splitflapchronos"></div>
                         <div id="flap_chronos_18" class="splitflapchronos"></div>
-                        <div id="flap_chronos_19" class="splitflapchronos"></div>
+                        <div id="flap_chronos_19" class="splitflapchronos"></div>-->
                     </div>
                 </div>
             </div>
             <div class="screener decors">
-
+                <div class="levelinfos">
+                    <div class="icon">
+                        <img v-bind:src="'/pages/boardingpass/images/svg/level_'+(level)+'.svg'"/>
+                    </div>
+                    <!--<div class="name">
+                        Co-Pilote
+                    </div>-->
+                </div>
             </div>
         </div>
         <script>
@@ -113,6 +159,11 @@
             var vm = new Vue({
                 el: '#boardingpass',
                 data: {
+                    score:0,
+                    totalQuestion : 17,
+                    startingDate : new Date().getTime(),
+                    datetime : new Date().getHours()+":"+new Date().getMinutes(),
+                    level:1,
                     activities: [],
                     message: 'BOARDINGPASS',
                     forbans:[],
@@ -122,6 +173,12 @@
                     delay:600,
                     chronos:[],
                     chronosValue:[],
+                    settings:{
+                        chronoline:false,
+                        chronolineduration:"00:00",
+                        chronolap:false,
+                        chronolapduration:"00:00"
+                    },
                     flapParams: {
                         image:   './pages/boardingpass/images/1x/CHARS.png',
                         charWidth:  50,
@@ -151,7 +208,7 @@
                         global_questions.forEach((element, index) => {
                             element.id = index;
                         });
-                        this.questions = _.shuffle(_.where(global_questions, {success:0, level:1})).slice(0, 20)
+                        this.questions = _.shuffle(_.where(global_questions, {success:0, level:1})).slice(0, this.totalQuestion)
                     }.bind(this));
                     this.socket.on('error', function(e) {
                         console.log('error socket');
@@ -171,17 +228,29 @@
                         // SAMPLE CALL EMIT : vm.socket.emit('boardingpass', {status:"updateLine", value:"BONJOUR TOUT LE MONDE", line:4})
                         switch(datas.status){
                             case 'getQuestions':
+                                console.log("GET QUESTIONS CHECK SETTINGS ", datas);
+                                this.settings = datas.settings;
                                 // ON CREE UN RANDOM DE QUESTIONS SELON LE LEVEL ENVOYE
                                 this.level = parseInt(datas.level)+1;
-                                this.questions = _.shuffle(_.where(global_questions, {success:0, level:this.level})).slice(0, 20);
+                                this.questions = _.shuffle(_.where(global_questions, {success:0, level:this.level})).slice(0, this.totalQuestion);
                                 // ON ENVOIE LES QUESTIONS A L APP
                                 this.socket.emit('boardingpass', {status:"sendQuestions", questions:this.questions});
                                 // ON MET A JOUR LE TABLEAU COTE DISPLAY PUBLIC
-                                this.decollage("");
-
+                                this.changeLevel("");
                                 setTimeout(function(){
+                                    this.startGlobalChrono();
                                     this.settingFlap(0);
                                 }.bind(this), 400);
+                                
+                                // ON CHECK SI ON A UN CHRONO GLOBAL
+                                if(this.settings.chronolap){
+                                    var hours = this.settings.chronolapduration.split(":");
+                                    console.log(hours[0], " hours in ms = ", (hours[0] * (1000 * 60 * 60)));
+                                    console.log(hours[1], " minutes in ms = ", (hours[0] * (1000 * 60)));
+                                    
+                                    this.remainingTime = (hours[0] * (1000 * 60 * 60)) + (hours[1] * (1000 * 60));
+                                    this.startingDate = new Date().getTime();
+                                }
                                 break;
                             case 'sendQuestions':
                                 // DE CE COTE ON NE FAIT RIEN CAR NOUS VENONS DE RENVOYER LES QUESTIONS A L APP
@@ -202,7 +271,8 @@
                                 //var space = " ";
                                 //(datas.value.length < 53)? datas.value += space.repeat(53 - datas.value.length) : datas.value = datas.value.subString(0, 52);
                                 //this.enigmes[datas.num] = datas.value;
-                                this.decollage("");
+                                this.score++;
+                                //this.changeLevel("");
                                 _.where(global_questions, {id:parseInt(datas.id)})[0].success = 1;
                                 this.displayLine(parseInt(datas.line), this.questions[parseInt(datas.line)].question);
                                 break;
@@ -228,11 +298,13 @@
                     }
                 },
                 methods: {
-                    decollage: function(destination){
+                    changeLevel: function(destination){
+                        
                         $('#boardingpass').addClass('decollage');
                         setTimeout(function(){
                             $('#boardingpass').removeClass('decollage');
-                        }, 3000);  
+                        }, 3000); 
+                        
                     },
                     init_flaps : function(){
                         var ratio = this.ratio,
@@ -265,13 +337,15 @@
                                 speed:          this.flapParams.speed,
                                 speedVariation: this.flapParams.speedVariation,
                                 autoplay:       true,
-                                text:           "10:00",
-                                textInit:       "10:00"
+                                text:           "  N/C",
+                                textInit:       "  N/C"
                             });
                         
-                        setTimeout(function(){
-                            $('#boardingpass').removeClass('decollage');
-                        }, 2000);
+                    },
+                    startGlobalChrono: function(){
+                        if(this.settings.chronolap){
+                            //console.log(this.settings.chronolapduration);
+                        }
                     },
                     settingFlap:function(index){
                         var value = this.questions[index].question,
@@ -293,7 +367,15 @@
                                 text:           value,
                                 textInit:       space.repeat(this.maxChar),
                                 onComplete: function () {
-                                    self.startChronos(index);
+                                    if(self.settings.chronoline){
+                                        var splitval = self.settings.chronolineduration.split(':');
+                                        self.delay = (parseInt(splitval[0]) * 60) + parseInt(splitval[1]);
+                                        self.startChronos(index);
+                                    }else{
+                                        self.chronos.forEach(function(element, index) {
+                                            clearInterval(self.chronos[index]);
+                                        });
+                                    }
                                     if(index < self.questions.length-1){
                                         index++;
                                         self.settingFlap(index);
@@ -301,21 +383,46 @@
                                 }
                             });
                     },
+                    clockUpdate: function() {
+                        if(this.settings.chronolap){
+                            var totremaining = this.startingDate + this.remainingTime,
+                                now = new Date().getTime(),
+                                diff = Math.abs(totremaining - now),
+                                diffHours = Math.floor(diff / (1000 * 60 * 60)),
+                                diffMins = Math.floor((diff - (diffHours * (1000 * 60 * 60))) / (1000 * 60)); 
+                            
+                            this.datetime = str_pad_left(diffHours, '0', 2) +' : '+ str_pad_left(diffMins, '0', 2);
+                            if(now >= totremaining){
+                                
+                                vm.settings.chronolap = false;
+                                this.questions.forEach(function(element, index){
+                                    this.questions[index].question = (' ').repeat(70);
+                                }.bind(this));
+                                
+                                this.settingFlap(0);
+                                //alert('LE TEMPS EST ECOULE');
+                            }
+                        }else{
+                            var now = new Date();
+                            this.datetime = now.getHours() + ':' + now.getMinutes();
+                        }
+                        
+                    },
                     startChronos : function(index){
-                        if(typeof this.chronos[index] !== "undefined"){
+                        if(typeof this.chronos[index] !== "undefined") {
                             clearInterval(this.chronos[index]);
                         }
-                        this.chronos[index] = setInterval(function(){
-                            if(typeof this.chronosValue[index] === "undefined"){
+                        //this.chronos[index] = setInterval(function(){   
+                            if(typeof this.chronosValue[index] === "undefined") {
                                 this.chronosValue[index] = this.delay;
                             }else{
                                 this.chronosValue[index] = this.chronosValue[index]-1;
                             }
-                            if(this.chronosValue[index] === 0){
+                            if(this.chronosValue[index] === 0) {
                                 clearInterval(this.chronos[index]);
                                 //lorsqu'un chronos se termine on rafraichis la ligne
                                 //console.log(this.questions[index].id);
-                                _.where(global_questions[this.level], {id:this.questions[index].id})[0].refreshed++;
+                                _.where(global_questions, {id:this.questions[index].id})[0].refreshed++;
                                 this.displayLine(index, "", null, 1);
                             }
                             //if(index === 1){
@@ -324,15 +431,20 @@
                                 
                                 var minutes = Math.floor(this.chronosValue[index] / 60);
                                 var seconds = this.chronosValue[index] - minutes * 60;
-                                function str_pad_left(string,pad,length) {
-                                    return (new Array(length+1).join(pad)+string).slice(-length);
+                                
+                                var finalTime = str_pad_left(minutes,'0',2)+':'+str_pad_left(seconds,'0',2),
+                                    pix = './pages/boardingpass/images/1x/CHARS_GREEN.png';
+
+                                if(parseInt(minutes) < 3 && parseInt(minutes) >= 1){
+                                    pix = './pages/boardingpass/images/1x/CHARS_YELLOW.png';
+                                }else if(parseInt(minutes) < 1){
+                                    pix = './pages/boardingpass/images/1x/CHARS_RED.png';
                                 }
-                                var finalTime = str_pad_left(minutes,'0',2)+':'+str_pad_left(seconds,'0',2);
 
                                 
                                 $('#flap_chronos_'+index)
                                     .splitFlap({
-                                        image: './pages/boardingpass/images/1x/CHARS_YELLOW.png',
+                                        image: pix,
                                         charWidth:  this.flapParams.charWidth * this.ratio,
                                         charHeight: this.flapParams.charHeight * this.ratio,
                                         imageSize:  (this.flapParams.imageSize.width * this.ratio) + 'px ' + (this.flapParams.imageSize.height * this.ratio) + 'px',
@@ -348,7 +460,7 @@
                                 
                                 //.setText(this.chronosValue[index]/60);
                             //}
-                        }.bind(this), 1000);
+                        //}.bind(this), 1000);
                     },
                     defaultFunc: function(){
                         console.log('default function');
@@ -416,12 +528,12 @@
                         var space = " ";
                         (value.length < this.maxChar-4)? value += space.repeat((this.maxChar-4) - value.length) : value = value.substring(0, this.maxChar-4);
                         value = value.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toUpperCase();
-                        console.log(id.toString().length);
+                        //console.log(id.toString().length);
                         if(id.toString().length === 1){
-                            console.log('ADD 00');
+                            //console.log('ADD 00');
                             value = "00"+id+" "+value;
                         }else if(id.toString().length === 2){
-                            console.log('ADD 0');
+                            //console.log('ADD 0');
                             value = "0"+id+" "+value;
                         }else{
                             value = id+" "+value;
@@ -429,7 +541,7 @@
                         return value;
                     },
                     withoutCurrentQuestions: function(){
-                        a = _.where(global_questions, {level:this.level});
+                        a = _.where(global_questions, {"level <=" : this.level});
                         b = this.questions;
 
                         function comparer(otherArray){
@@ -450,7 +562,45 @@
                 }
             });
 
-            
+            window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+                              window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+
+
+            var start = null,
+                progress = null;
+
+            //var d = document.getElementById("SomeElementYouWantToAnimate");
+
+            function step(timestamp) {
+                if (start === null) start = timestamp;
+                progress = timestamp - start;
+                
+                //d.style.left = Math.min(progress/10, 200) + "px";
+                if (progress > 1000) {
+                    if(typeof vm.chronos !== "undefined"){
+                        //console.log('tot : ',Math.min(progress/10, 200));
+                        if(vm.settings.chronoline){
+                            vm.chronosValue.forEach(function(element, index){
+                                //console.log(element);
+                                element--;
+                                vm.startChronos(index);
+                            });
+                        }
+                        //if(vm.settings.chronolap){
+                            //console.log("update chronos ", new Date().getTime(), " : ", vm.remainingTime);
+                            vm.clockUpdate();
+                        //}
+                    }
+                    start = timestamp
+                }else{
+                }
+                requestAnimationFrame(step);
+            }
+
+            requestAnimationFrame(step);
+            function str_pad_left(string, pad, length) {
+                return (new Array(length+1).join(pad)+string).slice(-length);
+            }
         </script>
 
 

@@ -67,8 +67,10 @@ var ui = {
         $('[data-popbutton]').on(ui.event, function(e){
            ui.close_popin($(this).attr('data-popbutton'));
         });
-        $('#close_popin').on(ui.event, function(){ui.close_popin();});
-        setTimeout(function(){ui.close_popin();}, 2000);
+        $('#close_popin').on(ui.event, function(){
+            ui.close_popin();
+        });
+        //setTimeout(function(){ui.close_popin();}, 2000);
     },
     close_popin:function(e){
         TweenMax.to($('#popin_ui_content .popin'), .5, {top:"100%", opacity:0, ease:Back.easeIn});
@@ -479,7 +481,7 @@ var ui = {
     init_scroll_view: function() {
         $('.screen').css({'height':window.innerHeight-$('header').height(), "overflow":"hidden"});
         $('.screen .wrapper').css({'height':"100%", 'width':"100%", "overflow":"hidden"});
-        $('.screen .wrapper .scroller').css({'display':"table", "width":"100%"});
+        $('.screen .wrapper .scroller').css({'display':"block", "width":"100%"});
         /*if($('.screen .wrapper .scroller').length === 1){
             if(typeof IScroll !== "undefined"){
                 

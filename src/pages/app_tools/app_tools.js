@@ -20,6 +20,7 @@ var app_tools = {
                 useTransition: true
             });
             */
+            var self = this;
             console.log('----------------------------------------- APP TOOLS');
             if(typeof app.selected_app.redirect !== "undefined"){
                 console.log('app.selected_app.redirect ', app.selected_app.redirect);
@@ -37,78 +38,9 @@ var app_tools = {
                 this.component_template = _.template(e);
             }, this));
             $('[data-appid]').on(ui.event, function() {
-
-                app.selected_tool = app.selected_app.apps[parseInt($(this).attr('data-appid'))];
-
-                $('.column.components').html(app_tools.component_template(app.selected_tool));
-                
-                // ON s'assure de bien supprimer les sous componsant des apps precedentes 
-                delete this.subcomponent_template;
-                $('.column.components .subcomponent').html('');
-
-                // SI ON A UNE CLASS JAVASCRIPT SPECIFIQUE ON LA CHARGE ICI 
-                if(typeof app.selected_tool.javascripts !== "undefined"){
-                    for(var j=0; j<app.selected_tool.javascripts.length; j++){
-                        console.log(app.selected_tool.javascripts[j]);
-
-                        console.log("ALREADY LOADED ? ", $('script[src="'+app.selected_tool.javascripts[j]+'"]').length);
-
-                        if($('script[src="'+app.selected_tool.javascripts[j]+'"]').length === 0){
-                            var scriptElement = document.createElement('script');
-                            scriptElement.src = app.selected_tool.javascripts[j];
-                            document.body.appendChild(scriptElement);    
-                        }
-
-                        // LORSQUE LE JS EST CHARGÉ on regarde si il y a des actions à executer sur le dom 
-                        setTimeout(function(){
-                            if(typeof app.selected_tool.actions !== "undefined"){
-                                for(var a=0; a<app.selected_tool.actions.length; a++){
-                                    var action = app.selected_tool.actions[a];
-                                    switch(action.type){
-                                        case 'javascript':
-                                            window[action.class][action.function]();
-                                            break;
-                                        default:
-                                            break;
-                                    }
-                                }
-                            }
-                        }.bind(this), 200);
-                    }
-                }
-                
-                
-                $('#components_scroll').scrollTop(0);
-
-                app_tools.set_events();
-                //app_tools.components_scroll.refresh();
-
-                ui.setListeners();
-                if(app_tools.is_mobile){
-                    $('header .left_nav .head_button').off(ui.event).on(ui.event, function(e){
-                        e.preventDefault();
-                        TweenMax.to($('#components_scroll'), .5, {
-                            "left":"100%",
-                            onComplete:function(){
-                                ui.setListeners();
-                            }
-                        });
-                        return false;
-                    });
-                    TweenMax.to($('#components_scroll'), .5, {
-                        "left":0,
-                        delay:.5
-                    });
-                }
-                /*
-                $('[data-component="golden_family"]').on('click', function(){
-                    console.log('is golden family');
-                });
-                $('[data-type="response"]').on('click', function(){
-                    console.log('intercept hitted area');
-                });
-                */
+                self.setAppId($(this).attr('data-appid'));
             });
+
             $( "#components_scroll" ).scroll(function() {
 		    	clearTimeout( $.data( this, "scrollCheck" ) );
     			$.data( this, "scrollCheck", setTimeout(function() {
@@ -157,6 +89,78 @@ var app_tools = {
             }
             //app_tools.components_scroll.refresh();
         });
+    },
+    setAppId : function(appid){
+        app.selected_tool = app.selected_app.apps[parseInt(appid)];
+
+        $('.column.components').html(app_tools.component_template(app.selected_tool));
+        
+        // ON s'assure de bien supprimer les sous componsant des apps precedentes 
+        delete self.subcomponent_template;
+        $('.column.components .subcomponent').html('');
+
+        // SI ON A UNE CLASS JAVASCRIPT SPECIFIQUE ON LA CHARGE ICI 
+        if(typeof app.selected_tool.javascripts !== "undefined"){
+            for(var j=0; j<app.selected_tool.javascripts.length; j++){
+                console.log(app.selected_tool.javascripts[j]);
+
+                console.log("ALREADY LOADED ? ", $('script[src="'+app.selected_tool.javascripts[j]+'"]').length);
+
+                if($('script[src="'+app.selected_tool.javascripts[j]+'"]').length === 0){
+                    var scriptElement = document.createElement('script');
+                    scriptElement.src = app.selected_tool.javascripts[j];
+                    document.body.appendChild(scriptElement);    
+                }
+
+                // LORSQUE LE JS EST CHARGÉ on regarde si il y a des actions à executer sur le dom 
+                setTimeout(function(){
+                    if(typeof app.selected_tool.actions !== "undefined"){
+                        for(var a=0; a<app.selected_tool.actions.length; a++){
+                            var action = app.selected_tool.actions[a];
+                            switch(action.type){
+                                case 'javascript':
+                                    window[action.class][action.function]();
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                    }
+                }.bind(this), 200);
+            }
+        }
+        
+        
+        $('#components_scroll').scrollTop(0);
+
+        app_tools.set_events();
+        //app_tools.components_scroll.refresh();
+
+        ui.setListeners();
+        if(app_tools.is_mobile){
+            $('header .left_nav .head_button').off(ui.event).on(ui.event, function(e){
+                e.preventDefault();
+                TweenMax.to($('#components_scroll'), .5, {
+                    "left":"100%",
+                    onComplete:function(){
+                        ui.setListeners();
+                    }
+                });
+                return false;
+            });
+            TweenMax.to($('#components_scroll'), .5, {
+                "left":0,
+                delay:.5
+            });
+        }
+        /*
+        $('[data-component="golden_family"]').on('click', function(){
+            console.log('is golden family');
+        });
+        $('[data-type="response"]').on('click', function(){
+            console.log('intercept hitted area');
+        });
+        */
     },
     destroy: function() {
         console.log('destroy app_tools');

@@ -1,10 +1,10 @@
 
-.boardingpass .destinations{
+.boardingpass .destinations {
     margin:0;
     padding:0;
     position: relative;
 }
-.boardingpass .destinations li.line{
+.boardingpass .destinations li.line {
     list-style: none;
     margin:0;
     padding:0;
@@ -14,23 +14,23 @@
     height:55px;
     text-align:left;
 }
-.boardingpass .destinations li.line .ID{
+.boardingpass .destinations li.line .ID {
     padding:10px;
     width:10%;
     max-width: 41px;
     display: inline-block;
     float: left;
 }
-.boardingpass .destinations li.line .infos{
+.boardingpass .destinations li.line .infos {
     padding:10px;
     display: inline-block;
-    width:90%;
+    width:65%;
     overflow: hidden;
 }
-.boardingpass .destinations li.line .infos .question{
+.boardingpass .destinations li.line .infos .question {
     font-size: 12px;
 }
-.boardingpass .destinations .actions{
+.boardingpass .destinations .actions {
     position: absolute;
     top: 0;
     right: 0;
@@ -40,7 +40,7 @@
     margin: 0;
     padding: 0;
 }
-.boardingpass .destinations .actions li{
+.boardingpass .destinations .actions li {
     display:inline-block;
     width:48px;
     height:48px;
@@ -49,6 +49,66 @@
 .section_tab{
     padding-bottom:0px;
 }
+/*
 .section_tab p{
     display: none;
+}
+*/
+.settingsForm{
+    padding:20px;
+    border-bottom:1px solid #E3E3E3;
+    margin:0;
+    padding:0;
+    width:90%;
+    max-width: 550px;
+    left:0;
+    right:0;
+    margin:auto;
+}
+.settingsForm .line{
+    width:100%;
+    list-style: none;
+    border-bottom:1px solid #CCCCCC;
+    text-align: left;
+    font-weight: bold;
+    padding:10px;
+    line-height: 50px;
+    box-sizing: border-box;
+    position: relative;
+    height:70px;
+}
+.settingsForm .line label{
+    float:left;
+}
+.settingsForm .line input{
+    float:right;
+    position: absolute;
+    right:0;
+}
+
+
+.task_list{
+    margin:0;
+    padding:0;
+    width:100%;
+    max-width: 550px;
+    left:0;
+    right:0;
+    margin:auto;
+}
+.task_list li{
+    width:100%;
+    list-style: none;
+    border-bottom:1px solid #CCCCCC;
+    text-align: left;
+    font-weight: bold;
+    padding:10px;
+    line-height: 50px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+
+input[type="time"]{
+    font-size: 30px;
 }

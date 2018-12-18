@@ -23,6 +23,27 @@ html, body{
 .boardingpass .screener.decors{
     background-image: url(/pages/boardingpass/images/1x/decors.png);
 }
+
+
+.boardingpass .screener.decors .levelinfos{
+    position: absolute;
+    left:200px;
+    top:100px;
+    display: inline;
+}
+.boardingpass .screener.decors .levelinfos .icon{
+    height:600px;
+}
+.boardingpass .screener.decors .levelinfos .icon img{
+    height:600px;
+}
+.boardingpass .screener.decors .levelinfos .name{
+    font-size: 180px;
+    color: #FFCC33;
+    padding-left: 110px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
 .boardingpass.decollage{
     transform:translateX(-1920px);
 }
@@ -149,14 +170,106 @@ body {
     transform-origin: 0 0;
 }
 .flap_content .header{
-    height:60px;
     width:100%;
+}
+.flap_content .header .panelTitle{
+    width:100%;
+    font-size: 60px;
+    height:100px;
+    line-height: 100px;   
+    color:#FFF04B;
+    font-weight: medium;
+}
+.flap_content .header .panelTitle img{
+    height:100px;
+    float: left;
+    margin-right:20px;
 }
 .flap_quiz, .flap_chronos{
     float:left;
 }
+.flap_content .header .right{
+    float:right;
+}
+.flap_content .header .left{
+    display: inline-flex;
+    float:left;
+}
 .flap_content .header .pix{
     height:60px;
+}
+.flap_content .header .label{
+    color:#FFF04B;
+    line-height: 60px;
+    padding-left:20px;
+    font-size: 24px;
+}
+
+.flap_content .header .gameInfos{
+    position: absolute;
+    right: 40px;
+    margin: auto;
+    display: inline-flex;
+    top: 20px;
+    padding: 10px;
+    background-color: #000;
+    -webkit-box-shadow: 0px 3px 102px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 3px 102px 1px rgba(0,0,0,0.75);
+    box-shadow: 0px 3px 102px 1px rgba(0,0,0,0.75);
+}
+.flap_content .header .gameInfos .score{
+    display: inline-flex;
+}
+.flap_content .header .gameInfos .chrono{
+    display: inline-flex;  
+}
+.flap_content .header .gameInfos .scoreflap,
+.flap_content .header .gameInfos .chronoflap,
+.flap_content .header .gameInfos .levelflap{
+    padding: 10px;
+    font-size: 34px;
+    line-height: 40px;
+    padding-left: 20px;
+}
+
+
+.flap_content .header .gameInfos:before{
+    content:"";
+    height:100%;
+    width:20px;
+    transform: skewY(45deg);
+    position: absolute;
+    left:100%;
+    top:0px;
+    background: #333;
+    transform-origin: 0 0;
+}
+.flap_content .header .gameInfos:after{
+    content:"";
+    height:20px;
+    width:100%;
+    transform: skewX(45deg);
+    position: absolute;
+    top:100%;
+    background: #212121;
+    left:0px;
+    transform-origin: 0 0;
+}
+
+.flap_content .header .labelColumns{
+    display: inline-flex;
+    padding-top:30px;
+    padding-bottom:10px;
+    color:#FFF04B;
+}
+.flap_content .header .labelColumns .column1{
+    width:85px;
+}
+.flap_content .header .labelColumns .column2{
+    width:1320px;
+}
+.flap_content .header .labelColumns .column3{
+    width:100px;
 }
 
 .flap_quiz div.splitflap{

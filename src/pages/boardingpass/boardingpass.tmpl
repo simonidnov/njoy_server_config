@@ -1,31 +1,50 @@
 <div class="boardingpass">
-
     <link rel="stylesheet" type="text/css" href="pages/boardingpass/css/boardingpass.css">
-    <ul class="destinations">
-        <% for(var q=0; q<questions.length; q++) { %>
-            <li class="line" data-id="<%= questions[q].id %>" data-line="<%= q %>">
-                <div class="ID">
-                    <% if(questions[q].id.toString().length === 1){ %>
-                        00<%= parseInt(questions[q].id)+1 %>
-                    <% }else if(questions[q].id.toString().length === 2){ %>
-                        0<%= parseInt(questions[q].id)+1 %>
-                    <% }else{ %>
-                        <%= parseInt(questions[q].id)+1 %>
-                    <% } %>
-                </div>
-                <div class="infos">
-                    <div class="question"><%= questions[q].question %></div>
-                    <div class="answer"><%= questions[q].answer %></div>
-                </div>
-                <ul class="actions">
-                    <li data-bpaction="refresh" data-id="<%= questions[q].id %>" data-line="<%= q %>">
-                        <img src="/pages/boardingpass/images/svg/refresh.svg" />
-                    </li>
-                    <li data-bpaction="validate" data-id="<%= questions[q].id %>" data-line="<%= q %>">
-                        <img src="/pages/boardingpass/images/svg/validate.svg"/>
-                    </li>
-                </ul>
-            </li>
-        <% } %>
-    </ul>
+    <% if(questions.length > 0){ %>
+        <h3>Liste des destinations en cours</h3>
+        <ul class="destinations">
+            <% for(var q=0; q<questions.length; q++) { %>
+                <li class="line" data-id="<%= questions[q].id %>" data-line="<%= q %>">
+                    <div class="ID">
+                        <%= str_pad_left((parseInt(questions[q].id)+1), 0, 3) %>
+                    </div>
+                    <div class="infos">
+                        <div class="question"><%= questions[q].question %></div>
+                        <div class="answer"><%= questions[q].answer %></div>
+                    </div>
+                    <ul class="actions">
+                        <li data-bpaction="refresh" data-id="<%= questions[q].id %>" data-line="<%= q %>">
+                            <img src="/pages/boardingpass/images/svg/refresh.svg" />
+                        </li>
+                        <li data-bpaction="validate" data-id="<%= questions[q].id %>" data-line="<%= q %>">
+                            <img src="/pages/boardingpass/images/svg/validate.svg"/>
+                        </li>
+                    </ul>
+                </li>
+            <% } %>
+        </ul>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+    <% }else { %>
+        <h3>Settings</h3>
+        <div class="settingsForm">
+            <ul class="task_list">
+                <li id="linechronocheck">Activer le temps par question<div class="radio_ui" data-checked="false" id="activechronoline"></div></li>
+            </ul>
+            <div class="line" id="linechrono" style="display:none;">
+                <label for="chronotime">Durée d'une question MM:ss: </label>
+                <input name="chronotime" id="chronoline" type="time" value="10:00" max="60:00" min="05:00"/>
+            </div>
+            <ul class="task_list">
+                <li id="globalchronocheck">Activer un chrono global<div class="radio_ui" data-checked="true" id="activechronoline"></div></li>
+            </ul>
+            <div class="line" id="globalchrono" style="display:none;">
+                <label for="chronotime">Durée de l'animation HH:mm: </label>
+                <input name="chronotime" id="chronotime" type="time" value="03:00"/>
+            </div>
+            <button class="classic_button" data-bpaction="start">Lancer l'animation</button>
+        </div>
+    <% } %>
 </div>

@@ -348,8 +348,8 @@
                         this.canvas.style.height = window.innerHeight;
                         
                         $('#canvas_id').css({
-                        "width":$('body').width()+'px !important',
-                        "height":$('body').height()+'px !important'
+                            "width":$('body').width()+'px !important',
+                            "height":$('body').height()+'px !important'
                         });
                         
                         this.stage = new createjs.Stage("drawing");
@@ -369,7 +369,6 @@
                         this.stage.update();
                     },
                     drawing: function(datas) {
-                        console.log(datas);
                         var pt = new createjs.Point(datas.x, datas.y);
                         var midPoint = new createjs.Point(this.oldX + pt.x>>1, this.oldY+pt.y>>1);
                         if(typeof datas.color !== "undefined"){
