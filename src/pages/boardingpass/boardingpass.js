@@ -30,7 +30,7 @@ boardingpass.init = function(){
                 self.level = level;
                 // TODO, AVANT DE RAFRAICHIR ON AFFICHE UNE POPIN CAR LES QUESTIONS PRÉCÉDENTES SERONT PERDUES
                 // LORSQU'ON CHANGE DE NIVEAU ON DEMANDE LES QUESTION DU NIVEAU SSELECTIONNÉ
-                // app.socket.emit('boardingpass', {"status":"getQuestions", "level":self.level});
+                app.socket.emit('boardingpass', {"status":"boarding"});
                 this.questions = [];
                 this.reset_template();
             }
@@ -68,11 +68,11 @@ boardingpass.init = function(){
             case 'questionRefreshed':
                 //console.log(e.id, e.question);
                 this.questions[e.id] = e.question;
-                var element = $('.line[data-line="'+e.id+'"]').eq(0);
+                var element = $('.destinations li[data-line="'+e.id+'"]').eq(0);
                 element[0].setAttribute('data-id', e.question.id);
                 element.find('.ID').html(e.question.id);
                 element.find('.question').html(e.question.question);
-                element.find('.answer').html(e.question.answer);
+                element.find('.answer').html('<span>réponse : </span>'+e.question.answer);
                 element.find('[data-bpaction="refresh"]').eq(0)[0].setAttribute('data-id', e.question.id);
                 element.find('[data-bpaction="validate"]').eq(0)[0].setAttribute('data-id', e.question.id);
                 //element.find('[data-line]').setAttribute(e.id);
@@ -94,19 +94,53 @@ boardingpass.reset_template = function(){
 }
 boardingpass.set_events = function(){
     var self = this;
-    $('[data-bpaction]').off(ui.event).on(ui.event, function(e){
+    $('[data-bpaction]').off(ui.event).on(ui.event, function(event){
         // ON CHECK LA DEMANDE DU REGISSEUR
+        var ID = $(this).attr('data-id'),
+            LINE = $(this).attr('data-line');
 
+        var QUESTION = self.questions[LINE];
+
+        console.log('QUESTION ::: ', QUESTION, " ID ::: ", ID, " :::  WHERE :::: ", QUESTION);
+        
         switch($(this).attr('data-bpaction')){
             case 'refresh':
                 // LE REGISSEUR A APPUYÉ SUR LA DEMANDE DE RAFRAICHISSEMENT D'UNE LIGNE
-                app.socket.emit('boardingpass', {"status":"refreshLine", "id":$(this).attr('data-id'), "line":$(this).attr('data-line'), "value":""});
+                ui.popin({
+                    "title":"Rafraîchir",
+                    "message":"Êtes-vous sure de vouloir rafraîchir la ligne "+ LINE+ " : "+ ID+ " ?",
+                    "buttons":[
+                        {"label":"Oui", "class":"error"},
+                        {"label":"Annuler", "class":"success"}
+                    ]
+                }, function(e){
+                    if(parseInt(e) === 0){
+                        app.socket.emit('boardingpass', {"status":"refreshLine", "id":ID, "line":LINE, "value":""});
+                        event.preventDefault();
+                        return false;
+                    }
+                });
                 break;
             case 'validate':
                 // LE REGISSEUR A VALIDÉ UNE DESTINATION
-                app.socket.emit('boardingpass', {"status":"updateLine", "id":$(this).attr('data-id'), "line":$(this).attr('data-line'), "value":""});
+
+                ui.popin({
+                    "title":"Valider la réponse",
+                    "message":"êtes-vous sure de valider cette réponse : <b>"+QUESTION.answer+"</b> ?",
+                    "buttons":[
+                        {"label":"Oui", "class":"error"},
+                        {"label":"Annuler", "class":"success"}
+                    ]
+                }, function(e){
+                    if(parseInt(e) === 0){
+                        app.socket.emit('boardingpass', {"status":"updateLine", "id":ID, "line":LINE, "value":QUESTION.answer, "question":QUESTION});
+                        event.preventDefault();
+                        return false;
+                    }
+                });
                 break;
             case 'start':
+                console.log(self.settings);
                 app.socket.emit('boardingpass', {"status":"getQuestions", "level":self.level, "settings":self.settings});
                 break;
         }
@@ -173,7 +207,8 @@ boardingpass.set_events = function(){
     });
 
     $('[data-appid]').off(ui.event).on(ui.event, function(event) {
-        var appid = $(this).attr('data-appid');
+        var appid = $(this).attr('data-appid'),
+            self = this;
         ui.popin({
             "title":"Attention",
             "message":"Vous allez réinitialiser l'état du jeu, êtes-vous certain de vouloir quitter le jeu actuel ?",
@@ -187,6 +222,12 @@ boardingpass.set_events = function(){
                 // TODO, AVANT DE RAFRAICHIR ON AFFICHE UNE POPIN CAR LES QUESTIONS PRÉCÉDENTES SERONT PERDUES
                 // LORSQU'ON CHANGE DE NIVEAU ON DEMANDE LES QUESTION DU NIVEAU SSELECTIONNÉ
                 // app.socket.emit('boardingpass', {"status":"getQuestions", "level":self.level});
+                self.settings = {
+                    chronoline:false,
+                    chronolineduration:"00:00",
+                    chronolap:false,
+                    chronolapduration:"00:00"
+                }
                 app_tools.setAppId(appid);
                 event.preventDefault();
                 return false;

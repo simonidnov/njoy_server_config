@@ -1205,7 +1205,7 @@
           "label":"Afficher le Splash Screen ci-dessus", "checked":false
         }
       ],
-      "introduction":{"video":"ressources/crazyshow/jingles/intro_crazy_show.mp4", "size":"0 0 720 480", "audio":"", "pix":"ressources/boarding_pass/app_icon.png"},
+      "introduction":{"video":"ressources/crazyshow/jingles/intro_crazy_show.mp4", "size":"0 0 720 480", "audio":""},
       "tools":[
         {
           "label":"Émotions",

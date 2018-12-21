@@ -49,8 +49,9 @@
                 <div class="flap_content" v-if="questions">
                     <div class="header">
                         <div class="panelTitle">
-                            <img class="pix" src="pages/boardingpass/images/SVG/plane.svg"/>
-                            DEPARTURES
+                            <img class="pix" src="pages/boardingpass/images/SVG/icon_njoy.svg"/>
+                            <!--<img class="pix" src="pages/boardingpass/images/SVG/plane.svg"/>-->
+                            N'JOY DEPARTURES
                         </div>
                         <div class="labelColumns">
                             <div class="column1"><img height="35" src="/pages/boardingpass/images/svg/gate.svg"/></div>
@@ -135,9 +136,11 @@
             </div>
             <div class="screener decors">
                 <div class="levelinfos">
+                    <!--
                     <div class="icon">
                         <img v-bind:src="'/pages/boardingpass/images/svg/level_'+(level)+'.svg'"/>
                     </div>
+                    -->
                     <!--<div class="name">
                         Co-Pilote
                     </div>-->
@@ -245,12 +248,13 @@
                                 // ON CHECK SI ON A UN CHRONO GLOBAL
                                 if(this.settings.chronolap){
                                     var hours = this.settings.chronolapduration.split(":");
-                                    console.log(hours[0], " hours in ms = ", (hours[0] * (1000 * 60 * 60)));
-                                    console.log(hours[1], " minutes in ms = ", (hours[0] * (1000 * 60)));
-                                    
                                     this.remainingTime = (hours[0] * (1000 * 60 * 60)) + (hours[1] * (1000 * 60));
                                     this.startingDate = new Date().getTime();
                                 }
+                                break;
+                            case 'boarding':
+                                this.questions = [];
+                                $('#boardingpass').addClass('decollage');
                                 break;
                             case 'sendQuestions':
                                 // DE CE COTE ON NE FAIT RIEN CAR NOUS VENONS DE RENVOYER LES QUESTIONS A L APP
@@ -303,7 +307,7 @@
                         $('#boardingpass').addClass('decollage');
                         setTimeout(function(){
                             $('#boardingpass').removeClass('decollage');
-                        }, 3000); 
+                        }, 2000); 
                         
                     },
                     init_flaps : function(){
@@ -375,6 +379,22 @@
                                         self.chronos.forEach(function(element, index) {
                                             clearInterval(self.chronos[index]);
                                         });
+                                        var hour = str_pad_left(15 + Math.floor(Math.random() * 8), '0', 2);
+                                        var min = str_pad_left(Math.floor(Math.random() * 60), '0', 2);
+                                        $('#flap_chronos_'+index)
+                                            .splitFlap({
+                                                image: './pages/boardingpass/images/1x/CHARS_YELLOW.png',
+                                                charWidth:  self.flapParams.charWidth * self.ratio,
+                                                charHeight: self.flapParams.charHeight * self.ratio,
+                                                imageSize:  (self.flapParams.imageSize.width * self.ratio) + 'px ' + (self.flapParams.imageSize.height * self.ratio) + 'px',
+                                                charsMap:   self.flapParams.charsMap,
+                                                charSubstitute: self.flapParams.charSubstitute,
+                                                speed:          0,
+                                                speedVariation: 0,
+                                                autoplay:   true,
+                                                text:       hour+':'+min,
+                                                textInit:   hour+':'+min
+                                            });
                                     }
                                     if(index < self.questions.length-1){
                                         index++;
@@ -384,16 +404,23 @@
                             });
                     },
                     clockUpdate: function() {
-                        if(this.settings.chronolap){
+                        if(this.settings.chronolap) {
                             var totremaining = this.startingDate + this.remainingTime,
                                 now = new Date().getTime(),
                                 diff = Math.abs(totremaining - now),
                                 diffHours = Math.floor(diff / (1000 * 60 * 60)),
                                 diffMins = Math.floor((diff - (diffHours * (1000 * 60 * 60))) / (1000 * 60)); 
+                                diffSecs = Math.floor((diff - (diffHours * (1000 * 60 * 60)) - (diffMins * (1000 * 60))) / 1000); 
                             
-                            this.datetime = str_pad_left(diffHours, '0', 2) +' : '+ str_pad_left(diffMins, '0', 2);
-                            if(now >= totremaining){
-                                
+                            if(diffHours === 0 && diffMins < 10) {
+                                this.datetime = str_pad_left(diffMins, '0', 2) +' : '+ str_pad_left(diffSecs, '0', 2);
+                            }else {
+                                this.datetime = str_pad_left(diffHours, '0', 2) +' : '+ str_pad_left(diffMins, '0', 2);                                
+                            }
+
+
+                            if(now >= totremaining) {
+                                console.log('TIME IS FINISHED');
                                 vm.settings.chronolap = false;
                                 this.questions.forEach(function(element, index){
                                     this.questions[index].question = (' ').repeat(70);

@@ -66,4 +66,13 @@
     line-height: 50px;
     box-sizing: border-box;
     position: relative;
+    display: inline-flex;
+}
+
+.task_list li .radio_ui{
+}
+.task_list li .label{
+    max-width: 80%;
+    line-height: 20px;
+    float: left;
 }
