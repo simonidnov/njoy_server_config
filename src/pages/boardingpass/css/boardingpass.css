@@ -108,8 +108,6 @@
     position: absolute;
     right:0;
 }
-
-
 .task_list{
     margin:0;
     padding:0;
@@ -130,12 +128,9 @@
     box-sizing: border-box;
     position: relative;
 }
-
-
 input[type="time"]{
     font-size: 30px;
 }
-
 .section_tab p,
 .section_tab h3{
     display: none;
