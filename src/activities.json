@@ -1205,7 +1205,9 @@
           "label":"Afficher le Splash Screen ci-dessus", "checked":false
         }
       ],
-      "introduction":{"video":"ressources/crazyshow/jingles/intro_crazy_show.mp4", "size":"0 0 720 480", "audio":""},
+      "introduction":{"video":"ressources/boarding_pass/videos/boardingpass-intro.mp4", "size":"0 0 1920 1080", "audio":""},
+      "final":{"video":"ressources/boarding_pass/videos/boardingpass-conclusion.mp4", "size":"0 0 1920 1080", "audio":""},
+  
       "tools":[
         {
           "label":"Émotions",
