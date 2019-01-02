@@ -54,7 +54,7 @@ html, body{
     text-transform: uppercase;
 }
 .boardingpass.decollage{
-    transform:translateX(-100%);
+    transform:translateX(-50%);
 }
 
 .boardingpass .airportPanel{
