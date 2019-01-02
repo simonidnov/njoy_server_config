@@ -9,13 +9,13 @@ html, body{
 }
 
 .boardingpass{
-    width:3840px;
-    height:1080px;
+    width:200%;
+    height:100%;
     transition:transform 1s;
 }
 .boardingpass .screener{
-    width:1920px;
-    height:1080px;
+    width:50%;
+    height:100%;
     float: left;
     background-color:#0C2947;
     position: relative;
