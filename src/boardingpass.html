@@ -42,6 +42,9 @@
             <!--<div class="airportPanel">
                 <div v-for='(item, index) in enigmes' v-bind:id="'flapper_'+index">{{ setForban(item.value, index) }}</div>
             </div>-->
+            <div class="winplane">
+                <img src="pages/boardingpass/images/SVG/airplane.svg" />
+            </div>
             <div class="textMotion">
 
             </div>
@@ -274,6 +277,7 @@
                                 this.update_line();
                                 break;
                             case 'updateLine':
+                                this.winMotion();
                                 //var space = " ";
                                 //(datas.value.length < 53)? datas.value += space.repeat(53 - datas.value.length) : datas.value = datas.value.subString(0, 52);
                                 //this.enigmes[datas.num] = datas.value;
@@ -304,13 +308,24 @@
                     }
                 },
                 methods: {
-                    changeLevel: function(destination){
-                        
+                    changeLevel: function(destination) {
                         $('#boardingpass').addClass('decollage');
                         setTimeout(function(){
                             $('#boardingpass').removeClass('decollage');
-                        }, 2000); 
-                        
+                        }, 2000);
+                    },
+                    winMotion : function() {
+                        this.socket.emit("njoy", {
+                            status: "KILL_FX"
+                        });
+                        this.socket.emit("njoy", {
+                            file: "ressources/audio/applau.mp3",
+                            status: "FX"
+                        });
+                        // alert('win motion');
+                        TweenMax.set($('.winplane'), {x:-400, y:window.innerHeight, rotation:10});
+                        TweenMax.to($('.winplane'), 2, {x:window.outerWidth, y:-100, rotation:-45});
+                        //$('#winplane').addClass('playMotion');
                     },
                     init_flaps : function(){
                         var ratio = this.ratio,
@@ -546,8 +561,33 @@
                                 autoplay:   true,
                             	text:       value,
                                 onComplete: function () {
-                                    //console.log('Done !');
-                                    self.startChronos(id);
+                                    // console.log('Done !');
+                                    // self.startChronos(id);
+                                    if(self.settings.chronoline) {
+                                        var splitval = self.settings.chronolineduration.split(':');
+                                        self.delay = (parseInt(splitval[0]) * 60) + parseInt(splitval[1]);
+                                        self.startChronos(index);
+                                    } else {
+                                        self.chronos.forEach(function(element, index) {
+                                            clearInterval(self.chronos[index]);
+                                        });
+                                        var hour = str_pad_left(15 + Math.floor(Math.random() * 8), '0', 2);
+                                        var min = str_pad_left(Math.floor(Math.random() * 60), '0', 2);
+                                        $('#flap_chronos_'+id)
+                                            .splitFlap({
+                                                image: './pages/boardingpass/images/1x/CHARS_YELLOW.png',
+                                                charWidth:  self.flapParams.charWidth * self.ratio,
+                                                charHeight: self.flapParams.charHeight * self.ratio,
+                                                imageSize:  (self.flapParams.imageSize.width * self.ratio) + 'px ' + (self.flapParams.imageSize.height * self.ratio) + 'px',
+                                                charsMap:   self.flapParams.charsMap,
+                                                charSubstitute: self.flapParams.charSubstitute,
+                                                speed:          0,
+                                                speedVariation: 0,
+                                                autoplay:   true,
+                                                text:       hour+':'+min,
+                                                textInit:   hour+':'+min
+                                            });
+                                    }
                                 }
                             });
                         //$("#flap_"+id).splitFlap('splitflap').animate();

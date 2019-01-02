@@ -2,7 +2,17 @@ html, body{
     padding:0 !important;
     margin:0;
 }
-
+.winplane{
+    position: absolute;
+    width:400px;
+    height:400px;
+    transform: translate(-400px, 100%);
+    z-index: 999;
+}
+.winplane img{
+    width:100%;
+    height: 100%;
+}
 .boardingpass{
     width:100%;
     height:100%;
