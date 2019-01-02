@@ -506,6 +506,9 @@ function resetAudioProgressListener() {
       //}else{
         console.log('SET OMX STATUS');
         sendOmxAudioStatus();
+        if(!track.status){
+          stop_video();
+        }
       //}
       //var percent = track.position / track.duration;
       //io.emit(call, {"status":"progress_video", "position":track.position, "duration":track.duration, "percent":percent});
