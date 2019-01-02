@@ -87,12 +87,12 @@ boardingpass.init = function(){
         this.reset_template();
     }, this));
 }
-boardingpass.reset_template = function(){
+boardingpass.reset_template = function() {
     console.log('reset template ', this.questions);
     $('.column.components .subcomponent').html(this.subcomponent_template({"questions":this.questions}));
     this.set_events();
 }
-boardingpass.set_events = function(){
+boardingpass.set_events = function() {
     var self = this;
     $('[data-bpaction]').off(ui.event).on(ui.event, function(event){
         // ON CHECK LA DEMANDE DU REGISSEUR
