@@ -17,7 +17,6 @@ html, body{
     width:100%;
     height:100%;
 }
-
 .boardingpass{
     width:200%;
     height:100%;
@@ -55,7 +54,7 @@ html, body{
     text-transform: uppercase;
 }
 .boardingpass.decollage{
-    transform:translateX(-1920px);
+    transform:translateX(-100%);
 }
 
 .boardingpass .airportPanel{
