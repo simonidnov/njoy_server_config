@@ -21,16 +21,18 @@ html, body{
     width:200%;
     height:100%;
     transition:transform 1s;
+    background-image: url(/pages/boardingpass/images/background.png);
+    background-size: cover;
+    background-position: center center;
 }
 .boardingpass .screener{
     width:50%;
     height:100%;
     float: left;
-    background-color:#0C2947;
     position: relative;
 }
 .boardingpass .screener.decors{
-    background-image: url(/pages/boardingpass/images/1x/decors.png);
+    background-image: url(/pages/boardingpass/images/logo.png);
 }
 
 
