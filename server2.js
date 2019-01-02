@@ -435,6 +435,7 @@ function stop_video(){
 function resetProgressListener() {
   video_is_playing = true;
   /* PROGRESS FILL DOESNT WORK CORRECTLY */
+
   omx.onProgress(function(track){ //subscribe for track updates (every second while not paused for now)
       console.log('VIDEO PROGRESS');
       //if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition()+1 >= omx.getCurrentDuration()){
@@ -443,6 +444,9 @@ function resetProgressListener() {
       //  io.emit("njoy", {"status":"stop_video"});
       //}else{
       sendOmxStatus();
+      if(!track.status){
+        stop_video();
+      }
       //}
       //var percent = track.position / track.duration;
       //io.emit(call, {"status":"progress_video", "position":track.position, "duration":track.duration, "percent":percent});

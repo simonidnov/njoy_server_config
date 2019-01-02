@@ -334,8 +334,9 @@ var onProgress = function(callback){
 	}
 	progressHandler = setInterval(function(){
 		if(getCurrentStatus()){
-			callback({position:getCurrentPosition(), duration:getCurrentDuration()});
+			callback({position:getCurrentPosition(), duration:getCurrentDuration(), status:true});
 		}else{
+			callback({position:0, status:false});
 			console.log('onProgress false ', getCurrentStatus());
 		}
 	},1000);
@@ -348,7 +349,7 @@ var onEnd = function(callback){
 	if(endHandler){
 		clearInterval(endHandler);
 	}
-	endHandler = setInterval(function(){
+	endHandler = setInterval(function() {
 		//console.log(cache);
 		if (cache.duration.valid && getCurrentPosition() >= getCurrentDuration()) {
 			clearInterval(progressHandler);
