@@ -444,9 +444,7 @@ function resetProgressListener() {
       //  io.emit("njoy", {"status":"stop_video"});
       //}else{
       sendOmxStatus();
-      if(!track.status){
-        stop_video();
-      }
+      
       //}
       //var percent = track.position / track.duration;
       //io.emit(call, {"status":"progress_video", "position":track.position, "duration":track.duration, "percent":percent});
@@ -474,16 +472,16 @@ function sendOmxStatus() {
       "duration":omx.getCurrentDuration(),
       "volume":omx.getCurrentVolume()
     };
-    //if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition()+1 >= omx.getCurrentDuration()){
-    //  console.log('VIDEO TERMINEE ');
-    //  io.emit("njoy", {"status":"stop_video"});
-    //}else{
-    console.log('SEND STATUS VIDEO ', vid_status);
-    io.emit("njoy", vid_status);
+    if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition()+1 >= omx.getCurrentDuration()){
+      console.log('VIDEO TERMINEE ');
+      io.emit("njoy", {"status":"stop_video"});
+    }else{
+      console.log('SEND STATUS VIDEO ', vid_status);
+      io.emit("njoy", vid_status);
       //playerTimer = setTimeout(function(){
       //sendOmxStatus();
       //}, omxDelay);
-    //}
+    }
   }
 }
 function check_end_omx(){
@@ -506,9 +504,6 @@ function resetAudioProgressListener() {
       //}else{
         console.log('SET OMX STATUS');
         sendOmxAudioStatus();
-        if(!track.status){
-          stop_video();
-        }
       //}
       //var percent = track.position / track.duration;
       //io.emit(call, {"status":"progress_video", "position":track.position, "duration":track.duration, "percent":percent});
