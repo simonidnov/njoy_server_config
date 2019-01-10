@@ -309,12 +309,10 @@
                 },
                 methods: {
                     changeLevel: function(destination) {
-                        /*
                         $('#boardingpass').addClass('decollage');
                         setTimeout(function(){
                             $('#boardingpass').removeClass('decollage');
                         }, 2000);
-                        */
                     },
                     winMotion : function() {
                         this.socket.emit("njoy", {
@@ -325,9 +323,9 @@
                             status: "FX"
                         });
                         // alert('win motion');
-                        TweenMax.set($('.winplane'), {x:-400, y:window.innerHeight, rotation:10});
-                        TweenMax.to($('.winplane'), 2, {x:window.outerWidth, y:-100, rotation:-45});
-                        //$('#winplane').addClass('playMotion');
+                        // TweenMax.set($('.winplane'), {x:-400, y:window.innerHeight, rotation:10});
+                        // TweenMax.to($('.winplane'), 2, {x:window.outerWidth, y:-100, rotation:-45});
+                        // $('#winplane').addClass('playMotion');
                     },
                     init_flaps : function(){
                         var ratio = this.ratio,
