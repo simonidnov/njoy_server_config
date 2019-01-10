@@ -454,7 +454,6 @@ function resetProgressListener() {
     //io.emit("njoy", {"status":"stop_audio"});
     setTimeout(function(){
       console.log('APPEL IO EMIT NJOY ?');
-      
       stop_video();
     },100);
     //io.emit("njoy", {"status":"video_stopped"});
