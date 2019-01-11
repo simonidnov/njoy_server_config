@@ -250,7 +250,7 @@ io.on('connection', function(socket) {
                 }
                 break;
             case 'MUSIC_LOOP':
-                console.log('PLAY MUSIC LOOP');
+                console.log('PLAY MUSIC LOOP ', URI+datas.file);
                 omx.quit();
                 omx.open(URI+datas.file, omx_audio_loop_options);
                 omx.setVolume(app_volume);
