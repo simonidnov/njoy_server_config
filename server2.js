@@ -467,12 +467,13 @@ function check_end_omx(){
 function resetAudioProgressListener() {
   audio_is_playing = true;
   omx.onProgress(function(track){ //subscribe for track updates (every second while not paused for now)
-    if(track.status) {
-      sendOmxAudioStatus();
-    }
+    // if(track.status) {
+    sendOmxAudioStatus();
+    // }
   });
 }
 function sendOmxAudioStatus() {
+  console.log('sendOmxAudioStatus');
   if(audio_is_playing){
     if(!is_on_seek){
       var audio_status = {
