@@ -261,9 +261,7 @@ io.on('connection', function(socket) {
                 }
                 break;
             case 'MUSIC_LOOP':
-                console.log('PLAY MUSIC LOOP ', URI+datas.file);
                 omx.quit();
-                
                 setTimeout(function(){
                   audio_is_playing = false;
                   cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});

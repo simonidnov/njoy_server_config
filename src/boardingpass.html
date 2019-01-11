@@ -303,11 +303,12 @@
                 },
                 methods: {
                     changeLevel: function(destination) {
+                        this.init_flaps();
                         this.socket.emit("njoy", {"status":"KILL_OMX"});
                         $('#boardingpass').addClass('decollage');
                         setTimeout(function(){
                             $('#boardingpass').removeClass('decollage');
-                        }, 2000);
+                        }, 200);
                     },
                     winMotion : function() {
                         console.log('winMotion');
