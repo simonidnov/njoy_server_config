@@ -1200,42 +1200,12 @@
         },
         {
           "label":"Installer l'écran principal", "checked":false
-        },
-        {
-          "label":"Afficher le Splash Screen ci-dessus", "checked":false
         }
       ],
       "introduction":{"video":"ressources/boarding_pass/videos/boardingpass-intro.mp4", "size":"0 0 1920 1080", "audio":""},
       "final":{"video":"ressources/boarding_pass/videos/boardingpass-conclusion.mp4", "size":"0 0 1920 1080", "audio":""},
   
-      "tools":[
-        {
-          "label":"Émotions",
-          "desc":"Court samples audio pour rythmer les évènements, à lancer à tout instant !",
-          "playlist":[
-            {"label":"Applaudir", "file":"ressources/audio/applau.mp3", "type":"FX", "data":"ressources/crazyshow/fx/regis_applau.svg"},
-            {"label":"Huer", "file":"ressources/audio/huee.mp3", "type":"FX", "data":"ressources/crazyshow/fx/regis_huer.svg"},
-            {"label":"Mauvaise réponse", "file":"ressources/audio/faux.mp3", "type":"FX", "data":"ressources/crazyshow/fx/regis_wrong.svg"},
-            {"label":"Bonne réponse", "file":"ressources/audio/bon.mp3", "type":"FX", "data":"ressources/crazyshow/fx/regis_good.svg"}
-          ]
-        },
-        {
-          "label":"Ambiance",
-          "desc":"Des musiques d'ambiance selon les humeurs pour combler les vides.",
-          "playlist":[
-              {"label":"Ray Charles", "file":"ressources/audio/ambiance/1.mp3", "type":"audio"},
-              {"label":"Franck Sinatra", "file":"ressources/audio/ambiance/2.mp3", "type":"audio"},
-              {"label":"Nate King Cole", "file":"ressources/audio/ambiance/3.mp3", "type":"audio"},
-              {"label":"Louis Prima", "file":"ressources/audio/ambiance/4.mp3", "type":"audio"},
-              {"label":"Nina Simone", "file":"ressources/audio/ambiance/5.mp3", "type":"audio"},
-              {"label":"Amstrong", "file":"ressources/audio/ambiance/6.mp3", "type":"audio"},
-              {"label":"Dinah Washington", "file":"ressources/audio/ambiance/7.mp3", "type":"audio"},
-              {"label":"Marylin Monroe", "file":"ressources/audio/ambiance/8.mp3", "type":"audio"},
-              {"label":"Dave Brubeck", "file":"ressources/audio/ambiance/9.mp3", "type":"audio"},
-              {"label":"Dean Martin", "file":"ressources/audio/ambiance/10.mp3", "type":"audio"}
-          ]
-        }
-      ],
+      "tools":[],
       "apps":[
         {
           "label":"Afficher le panneau",
@@ -1252,76 +1222,7 @@
           "actions":[
             {"type":"javascript", "class":"boardingpass", "function":"init"}
           ],
-          "datas":{
-            "boarding_questions":{
-              "easy":[
-                {"question":"Dans quelle ville part la boite de conserve ?", "answer":"Abidjan"},
-                {"question":"Dans quelle ville part le poivrier ?", "answer":"Abidjan"},
-                {"question":"Dans quelle ville part le balai synthétique ?", "answer":"Abidjan"},
-                {"question":"Dans quelle ville part les menottes ?", "answer":"Abidjan"},
-                {"question":"Dans quelle ville part la télécommande ?", "answer":"Abu Dhabi"},
-                {"question":"Dans quelle ville part la raquette de ping-pong ?", "answer":"Abu Dhabi"},
-                {"question":"Dans quelle ville part l'écrou ?", "answer":"Abu Dhabi"},
-                {"question":"Dans quelle ville part le verre ?", "answer":"Abu Dhabi"},
-                {"question":"Dans quelle ville part l'aspirateur ?", "answer":"Ajaccio"},
-                {"question":"Dans quelle ville part le cuter ?", "answer":"Ajaccio"},
-                {"question":"Dans quelle ville part le porte monnaie ?", "answer":"Ajaccio"},
-                {"question":"Dans quelle ville part le puzzle ?", "answer":"Ajaccio"},
-                {"question":"Dans quelle ville part la poire ?", "answer":"Alger"},
-                {"question":"Dans quelle ville part le ballon de rugby ?", "answer":"Alger"},
-                {"question":"Dans quelle ville part le CD ?", "answer":"Alger"},
-                {"question":"Dans quelle ville part le livre ?", "answer":"Alger"},
-                {"question":"Dans quelle ville part l'aimant ?", "answer":"Amman"},
-                {"question":"Dans quelle ville part la marguerite ?", "answer":"Amman"},
-                {"question":"Dans quelle ville part le boule de bowling ?", "answer":"Amman"},
-                {"question":"Dans quelle ville part le réveil ?", "answer":"Amman"}
-              ],
-              "medium":[
-                {"question":"Dans quelle ville part la boite de conserve ?", "answer":"Abidjan"},
-                {"question":"Dans quelle ville part le poivrier ?", "answer":"Abidjan"},
-                {"question":"Dans quelle ville part le balai synthétique ?", "answer":"Abidjan"},
-                {"question":"Dans quelle ville part les menottes ?", "answer":"Abidjan"},
-                {"question":"Dans quelle ville part la télécommande ?", "answer":"Abu Dhabi"},
-                {"question":"Dans quelle ville part la raquette de ping-pong ?", "answer":"Abu Dhabi"},
-                {"question":"Dans quelle ville part l'écrou ?", "answer":"Abu Dhabi"},
-                {"question":"Dans quelle ville part le verre ?", "answer":"Abu Dhabi"},
-                {"question":"Dans quelle ville part l'aspirateur ?", "answer":"Ajaccio"},
-                {"question":"Dans quelle ville part le cuter ?", "answer":"Ajaccio"},
-                {"question":"Dans quelle ville part le porte monnaie ?", "answer":"Ajaccio"},
-                {"question":"Dans quelle ville part le puzzle ?", "answer":"Ajaccio"},
-                {"question":"Dans quelle ville part la poire ?", "answer":"Alger"},
-                {"question":"Dans quelle ville part le ballon de rugby ?", "answer":"Alger"},
-                {"question":"Dans quelle ville part le CD ?", "answer":"Alger"},
-                {"question":"Dans quelle ville part le livre ?", "answer":"Alger"},
-                {"question":"Dans quelle ville part l'aimant ?", "answer":"Amman"},
-                {"question":"Dans quelle ville part la marguerite ?", "answer":"Amman"},
-                {"question":"Dans quelle ville part le boule de bowling ?", "answer":"Amman"},
-                {"question":"Dans quelle ville part le réveil ?", "answer":"Amman"}
-              ],
-              "hard":[
-                {"question":"Dans quelle ville part la boite de conserve ?", "answer":"Abidjan"},
-                {"question":"Dans quelle ville part le poivrier ?", "answer":"Abidjan"},
-                {"question":"Dans quelle ville part le balai synthétique ?", "answer":"Abidjan"},
-                {"question":"Dans quelle ville part les menottes ?", "answer":"Abidjan"},
-                {"question":"Dans quelle ville part la télécommande ?", "answer":"Abu Dhabi"},
-                {"question":"Dans quelle ville part la raquette de ping-pong ?", "answer":"Abu Dhabi"},
-                {"question":"Dans quelle ville part l'écrou ?", "answer":"Abu Dhabi"},
-                {"question":"Dans quelle ville part le verre ?", "answer":"Abu Dhabi"},
-                {"question":"Dans quelle ville part l'aspirateur ?", "answer":"Ajaccio"},
-                {"question":"Dans quelle ville part le cuter ?", "answer":"Ajaccio"},
-                {"question":"Dans quelle ville part le porte monnaie ?", "answer":"Ajaccio"},
-                {"question":"Dans quelle ville part le puzzle ?", "answer":"Ajaccio"},
-                {"question":"Dans quelle ville part la poire ?", "answer":"Alger"},
-                {"question":"Dans quelle ville part le ballon de rugby ?", "answer":"Alger"},
-                {"question":"Dans quelle ville part le CD ?", "answer":"Alger"},
-                {"question":"Dans quelle ville part le livre ?", "answer":"Alger"},
-                {"question":"Dans quelle ville part l'aimant ?", "answer":"Amman"},
-                {"question":"Dans quelle ville part la marguerite ?", "answer":"Amman"},
-                {"question":"Dans quelle ville part le boule de bowling ?", "answer":"Amman"},
-                {"question":"Dans quelle ville part le réveil ?", "answer":"Amman"}
-              ]
-            }
-          },
+          "datas":{},
           "menu":[
             {
               "label":"Pilote Stagiaire",
