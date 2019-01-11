@@ -252,10 +252,15 @@ io.on('connection', function(socket) {
             case 'MUSIC_LOOP':
                 console.log('PLAY MUSIC LOOP ', URI+datas.file);
                 omx.quit();
-                omx.open(URI+datas.file, omx_audio_loop_options);
-                omx.setVolume(app_volume);
-                io.emit(call, {"status":"audio_started", "duration":omx.getCurrentDuration(), "position":omx.getCurrentPosition()});
-                resetAudioProgressListener();
+                
+                setTimeout(function(){
+                  audio_is_playing = false;
+                  cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
+                  omx.open(URI+datas.file, omx_audio_loop_options);
+                  omx.setVolume(app_volume);
+                  io.emit(call, {"status":"audio_started", "duration":omx.getCurrentDuration(), "position":omx.getCurrentPosition()});
+                  resetAudioProgressListener();
+                },200);
                 break;
             case 'audio':
                 if(typeof audio_is_playing !== "undefined"){

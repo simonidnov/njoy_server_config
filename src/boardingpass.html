@@ -280,6 +280,7 @@
                                 this.update_line();
                                 break;
                             case 'updateLine':
+                                console.log('UPDATE LINE TWICE ?');
                                 this.winMotion();
                                 this.score++;
                                 _.where(global_questions, {id:parseInt(datas.id)})[0].success = 1;
@@ -309,6 +310,7 @@
                         }, 2000);
                     },
                     winMotion : function() {
+                        console.log('winMotion');
                         this.socket.emit("njoy", {
                             status: "KILL_FX"
                         });
