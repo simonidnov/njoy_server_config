@@ -1210,7 +1210,7 @@
       "apps":[
         {
           "label":"Afficher le panneau",
-          "desc":"Pour commencer, veuillez sélectionner un niveau ci-dessous<br/>Pilote stagiaire étant le niveau le plus facile et confirmé le niveau le plus difficile.<br/>Pour plus de difficulté, vous pouvez activer le temps par question, cette fonctionnalité ajoutera un chrono par question.",
+          "desc":"Configurer et afficher les destinations.",
           "form":[
             {
               "input":"number", "default":"30", "dataset":"timer", "label":"durée du chrono"
