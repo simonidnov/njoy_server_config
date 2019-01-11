@@ -534,13 +534,13 @@
                             // REVERSE on reorganise pour avoir le moins rafrazichi en premier
                             // SLICE on ne retourne que la premiere ligne du tableau
                             // [0] comme c'est un tableau on ne retourne que le premier object de ce dernier...
-                            this.questions[id] = _.sortBy(
-                                _.shuffle(_.where(possibilities, {success:0}))
-                                , function(o) { 
-                                    // ICI ON REOGRANISE PAR ORDRE DE RAFRAICHISSEMENTs
-                                    return possibilities.refreshed; 
-                                }
-                            ).reverse().slice(0, 1)[0];
+                        this.questions[id] = _.sortBy(
+                            _.shuffle(_.where(possibilities, {success:0}))
+                            , function(o) { 
+                                // ICI ON REOGRANISE PAR ORDRE DE RAFRAICHISSEMENTs
+                                return possibilities.refreshed; 
+                            }
+                        ).reverse().slice(0, 1)[0];
                         //}
                         if(typeof this.questions[id] === "undefined"){
                             console.log('il n\'y a plus de questions');
@@ -618,23 +618,57 @@
                         return value;
                     },
                     withoutCurrentQuestions: function() {
-                        a = _.where(global_questions, {"level <=" : this.level});
-                        b = this.questions;
-
-                        function comparer(otherArray){
-                            return function(current){
-                                return otherArray.filter(function(other){
-                                    return other.id == current.id;
-                                }).length == 0;
+                        // on selectionne les questions inférieures ou égales au level en cours
+                        var a = _.clone( _.where(global_questions, {"level" : this.level, "success" : 0}) );
+                        var next = [];
+                        var prev = [];
+                        // seulement si il y a moins de 17 questions non validées dans le level en cours :
+                        if(a.length < this.totalQuestion) {
+                            // ON DOIT AJOUTER LE LEVEL INTERMEDIAIRE DANS LA RECHERCHE
+                            switch(this.level){
+                                case 1 :
+                                    var next =  _.clone( _.where(global_questions, {"level" : 2, "success" : 0}) );
+                                    break;
+                                case 2 :
+                                    var next =  _.clone( _.where(global_questions, {"level" : 3, "success" : 0}) );
+                                    break;
+                                case 3 : 
+                                    var next =  _.clone( _.where(global_questions, {"level" : 2, "success" : 0}) );
+                                    break;
                             }
                         }
+                        // si pas assez de question on fait une concatenation du level supérieur ou inférieur
+                        a = a.concat(next);
 
-                        var onlyInA = a.filter(comparer(b));
-                        var onlyInB = b.filter(comparer(a));
-                        
-                        //var without = onlyInA.concat(onlyInB);
-                        
-                        return onlyInA.concat(onlyInB);
+                        // si le level suivant + le level en cours a moins de 17 questions non validées on concat le level inférieur
+                        if(a.length < this.totalQuestion) {
+                            // ON DOIT AJOUTER LE LEVEL INTERMEDIAIRE DANS LA RECHERCHE
+                            switch(this.level){
+                                case 1 :
+                                    var prev =  _.clone( _.where(global_questions, {"level" : 3, "success" : 0}) );
+                                    break;
+                                case 2 :
+                                    var prev =  _.clone( _.where(global_questions, {"level" : 1, "success" : 0}) );
+                                    break;
+                                case 3 : 
+                                    var prev =  _.clone( _.where(global_questions, {"level" : 1, "success" : 0}) );
+                                    break;
+                            }
+                        }
+                        // on réitére la concatenation car on c'est plus simple...
+                        a = a.concat(prev);
+
+                        // _.where(global_questions, {"level" : "<=" + this.level});
+                        // on observe les questions en cours
+                        var b = _.clone( this.questions );
+                        // on supprimer les entrées B de A
+                        b.forEach( function(item, index) {
+                            a = _.without( a, _.findWhere(a, {id: item.id}) );
+                            // _.where(a, {id:item.id});
+                        });
+                        // on retourne par ordre des moins rafraichis pour éviter de retomber sur les mêmes questions
+                        return _.sortBy(a, function(item){ return item.refreshed; }).reverse();
+                        // onlyInA.concat(onlyInB);
                     }
                 }
             });
