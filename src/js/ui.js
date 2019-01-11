@@ -180,6 +180,7 @@ var ui = {
             }
             console.log("--------------- > ", $(this).attr('data-ambiant'));
             if(typeof $(this).attr('data-ambiant') !== "undefined" && $(this).attr('data-ambiant') !== ""){
+                console.log('ON EMET UN STATUS AUDIO SI ON A UNE AMBIANCE UNIQUEMENT');
                 app.socket.emit("njoy", {status:"audio", file:$(this).attr('data-ambiant'), data:"", tools:app.selected_tool});
             }
             ui.navigate($(this).attr('data-navigate'));
