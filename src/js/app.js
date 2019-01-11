@@ -75,13 +75,11 @@ var app = {
     set_video_assets:function(){
         $(".video_asset #seeker").off("change").on("change", function(e) { 
             var sec = Math.round((app.current_video.duration/100)*$('.video_asset #seeker').val());
-            console.log("seek to ", sec);
             //app.socket.emit("njoy", {status:"seek_video", seek:sec});
             app.socket.emit("njoy", {status:"position_video", position:sec});
         });
         $(".video_asset #volume").off("change").on("change", function(e) { 
             var vol = Math.abs($(".video_asset #volume").val()/100).toFixed(1);
-            console.log("set volume ::::::::::::::::: ", vol);
             app.socket.emit("njoy", {status:"volume_video", volume:vol});
         });
         
@@ -92,8 +90,6 @@ var app = {
                 app.socket.emit("njoy", {status:"pause_video"});
             }
             e.preventDefault();
-            //app.socket.emit("njoy", {status:"pause_video"});
-            console.log('play pause video');
         });
         
         $('.video_asset #quit_video_button').off(ui.event).on(ui.event, function(){
@@ -101,16 +97,12 @@ var app = {
         });
     },
     set_audio_assets:function(){
-        
         $(".audio_asset #seeker").off("change").on("change", function(e) { 
             var sec = Math.round((app.current_video.duration/100)*$('.audio_asset #seeker').val());
-            console.log("seek to ", sec);
-            //app.socket.emit("njoy", {status:"seek_video", seek:sec});
             app.socket.emit("njoy", {status:"position_audio", position:sec});
         });
         $(".audio_asset #volume").off("change").on("change", function(e) { 
             var vol = Math.abs($(".audio_asset #volume").val()/100).toFixed(1);
-            console.log("set volume ::::::::::::::::: ", vol);
             app.socket.emit("njoy", {status:"volume_audio", volume:vol});
         });
         
@@ -121,8 +113,6 @@ var app = {
                 app.socket.emit("njoy", {status:"pause_audio"});
             }
             e.preventDefault();
-            //app.socket.emit("njoy", {status:"pause_video"});
-            console.log('play pause audio');
         });
         
         $('.audio_asset #quit_video_button').off(ui.event).on(ui.event, function(){
@@ -182,7 +172,6 @@ var app = {
                     $('.screen').css({'height':window.innerHeight-$('header').height(), "overflow":"hidden"});
                     $('.video_asset').removeClass('started');
                     $('.audio_asset').removeClass('started');
-                    console.log('VIDEO STOPPED');
                     break;
                 case 'video_position':
                     console.log("position_video ", datas);
@@ -191,22 +180,15 @@ var app = {
                     console.log("video_seek ", datas);
                     break;
                 case 'video_volume':
-                    console.log("video_volume :::: ", datas.volume);
                     app.current_video.volume = datas.volume;
                     $('.video_asset #volume').val(parseFloat(datas.volume)*100);
                     $('.audio_asset #volume').val(parseFloat(datas.volume)*100);
                     break;
                 case 'progress_video':
-                    //datas.position;
-                    //datas.duration;
-                    //datas.volume;
                     app.current_video.position = datas.position;
                     app.current_video.duration = datas.duration;
-                    //app.current_video.volume = datas.volume;
                     $('.video_asset #seeker').val(((datas.position/datas.duration)*100));
-                    //$('#volume').val((datas.volume*100));
                     break;
-                    
                 case 'audio_started':
                     app.set_audio_assets();
                     $('.audio_asset #play_pause_button img').attr('src', "img/pause_icon.svg");
@@ -224,7 +206,6 @@ var app = {
                     $('.screen').css({'height':window.innerHeight-$('header').height(), "overflow":"hidden"});
                     $('.audio_asset').removeClass('started');
                     $('.video_asset').removeClass('started');
-                    console.log('AUDIO STOPPED');
                     break;
                 case 'audio_position':
                     console.log("position_audio ", datas);
@@ -233,41 +214,28 @@ var app = {
                     console.log("audio_seek ", datas);
                     break;
                 case 'audio_volume':
-                    console.log("audio_volume :::: ", datas.volume);
                     app.current_video.volume = datas.volume;
                     $('.audio_asset #volume').val(parseFloat(datas.volume)*100);
                     $('.video_asset #volume').val(parseFloat(datas.volume)*100);
                     break;
                 case 'progress_audio':
-                    //datas.position;
-                    //datas.duration;
-                    //datas.volume;
                     app.current_video.position = datas.position;
                     app.current_video.duration = datas.duration;
-                    //app.current_video.volume = datas.volume;
                     $('.audio_asset #seeker').val(((datas.position/datas.duration)*100));
-                    //$('#volume').val((datas.volume*100));
                     break;
                     
                 case 'drawer':
                     /* TODO CREATE DRAWING CANVAS drawing page load */
                     break;
                 case 'fast_forward':
-                    
                     break;
                 case 'fast_backward':
-                    
                     break;
                 case 'video_audio':
-                    //$('.video_asset').removeClass('started');
-                    //$('.screen').css({'height':window.innerHeight-$('header').height(), "overflow":"hidden"});
                     break;
                 case 'teams':
                     app.teams = datas.datas.teams;
                     ui.set_teams();
-                    console.log("teams ", datas.datas.teams);
-                    //$('.video_asset').removeClass('started');
-                    //$('.screen').css({'height':window.innerHeight-$('header').height(), "overflow":"hidden"});
                     break;
                 case 'error':
                     ui.popin({
@@ -283,7 +251,6 @@ var app = {
                     break;
             }
             if(typeof datas.teams !== "undefined"){
-                console.log("teams is defined :::: ", datas.teams);
                 app.teams = datas.teams;
                 ui.set_teams();
             }
@@ -333,111 +300,3 @@ var app = {
     }
 };
 app.initialize();
-
-/* SERVER VERSION 20 11 2018
-var app = {
-    infos: {
-        user_name: "",
-        uuid: "",
-        regis: false,
-        users: []
-    },
-    activities: null,
-    ip: window.location.origin,
-    //ip:"http://192.168.0.10:3000",
-    //ip:"http://10.213.1.231:3000",
-    callback: null,
-    socket: null,
-    init: function(callback) {
-        this.get_activities();
-        this.callback = callback;
-        this.init_socket();
-    },
-    get_activities: function() {
-        $.getJSON("activities.json", function(json) {
-            app.activities = json;
-        });
-    },
-    check_server: function() {
-
-    },
-    init_socket: function() {
-        //this.ip = window.location.origin;
-        app.infos.uuid = new Date().getTime();
-        app.socket_callback = function(e) {
-            console.log(e);
-        }
-        app.socket = io(this.ip, {
-            transports: ['websocket', 'xhr-polling']
-        });
-        app.socket.on('error', function(e) {
-            app.callback({
-                status: "error_socket",
-                datas: e
-            });
-        });
-        app.socket.on('connect_failed', function(e) {
-            app.callback({
-                status: "connect_failed"
-            });
-        });
-        app.socket.on('connect', function(e) {
-            app.callback({
-                status: "socket_connected"
-            });
-        });
-        app.socket.on('njoy', function(datas) {
-            $('.over_motion').remove();
-            switch (datas.status) {
-                case 'activities':
-                    app.infos.activities = datas.activities;
-                    break;
-                default:
-                    break;
-            }
-            app.socket_callback(datas);
-        });
-        app.socket.on('njoy_' + app.infos.uuid, function(datas) {
-            switch (datas.status) {
-                case 'animations':
-                    break;
-                case 'login_success':
-                    app.infos.users = datas.datas.users;
-                    if (_.where(app.infos.users, {
-                            uuid: app.infos.uuid
-                        })[0].regis !== "undefined" && _.where(app.infos.users, {
-                            uuid: app.infos.uuid
-                        })[0].regis === "true") {
-                        app.infos.regis = true;
-                    }
-                    break;
-                case 'login_error':
-                    app.infos.users = datas.datas.users;
-                    break;
-                default:
-                    break;
-            }
-            if (typeof datas.datas.animations !== "undefined") {
-                animations = datas.datas.animations;
-            }
-            app.socket_callback(datas);
-        });
-        app.socket.emit('njoy', {
-            status: "new"
-        });
-        app.socket.on('chat_message', function(msg) {
-            $('#messages').append($('<li>').text(JSON.stringify(msg)));
-        });
-        window.onbeforeunload = function(e) {
-            app.socket.emit('njoy', {
-                status: "disconnect",
-                user_name: app.infos.user_name,
-                uuid: app.infos.uuid
-            });
-        };
-    },
-    destroy: function() {
-
-    }
-}
-*/

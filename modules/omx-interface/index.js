@@ -42,10 +42,8 @@ var cache = setDefault();
 dbus = "bash "+__dirname+"/dbus.sh ";
 
 function checkProgressHandler() {
-	console.log('checkProgressHandler');
 	if (progressHandler) {
 		clearInterval(progressHandler);
-		console.log('progressHandler NOT cancelled COMMENT');
 	}
 }
 
@@ -328,7 +326,6 @@ var getCurrentVolume = function(){
 }
 
 var onProgress = function(callback){
-	console.log('CALL onProgress');
 	if(progressHandler){
 		clearInterval(progressHandler);
 	}
@@ -337,10 +334,8 @@ var onProgress = function(callback){
 			callback({position:getCurrentPosition(), duration:getCurrentDuration(), status:true});
 		}else{
 			callback({position:0, status:false});
-			console.log('onProgress false ', getCurrentStatus());
 		}
 	},1000);
-	//console.log("progressHandler :::: ", progressHandler);
 }
 
 /* TODO : END CALLED POTENTIAL BUG */
@@ -350,7 +345,6 @@ var onEnd = function(callback){
 		clearInterval(endHandler);
 	}
 	endHandler = setInterval(function() {
-		//console.log(cache);
 		if (cache.duration.valid && getCurrentPosition() >= getCurrentDuration()) {
 			clearInterval(progressHandler);
 			clearInterval(endHandler);

@@ -92,7 +92,7 @@ io.on('connection', function(socket) {
         var stat = {},
             call = "njoy";
         
-        //console.log("datas.status ::::::: ", datas.status);
+        console.log("datas.status ::::::: ", datas.status);
         switch(datas.status){
             case 'chrono_start':
               omx.quit();
@@ -429,13 +429,10 @@ function stop_video(){
 function resetProgressListener() {
   video_is_playing = true;
   omx.onProgress(function(track){ //subscribe for track updates (every second while not paused for now)
-      console.log('VIDEO PROGRESS');
       sendOmxStatus();
   });
   omx.onEnd(function(){
-    console.log('VIDEO FINISHED');
     setTimeout(function(){
-      console.log('APPEL IO EMIT NJOY ?');
       stop_video();
     },100);
   });
@@ -449,10 +446,8 @@ function sendOmxStatus() {
       "volume":omx.getCurrentVolume()
     };
     if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition()+1 >= omx.getCurrentDuration()){
-      console.log('VIDEO TERMINEE ');
       io.emit("njoy", {"status":"stop_video"});
     }else{
-      console.log('SEND STATUS VIDEO ', vid_status);
       io.emit("njoy", vid_status);
     }
   }
@@ -469,8 +464,9 @@ function check_end_omx(){
 function resetAudioProgressListener() {
   audio_is_playing = true;
   omx.onProgress(function(track){ //subscribe for track updates (every second while not paused for now)
-    console.log('SET OMX STATUS');
-    sendOmxAudioStatus();
+    if(track.status) {
+      sendOmxAudioStatus();
+    }
   });
 }
 function sendOmxAudioStatus() {
