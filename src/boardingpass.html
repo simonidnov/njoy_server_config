@@ -312,9 +312,12 @@
                     },
                     winMotion : function() {
                         console.log('winMotion');
+                        /*
+                        DON'T KILL OMX PRESERVE CURRENT LOOP MUSIC ONLY PLAY FX
                         this.socket.emit("njoy", {
                             status: "KILL_FX"
                         });
+                        */
                         this.socket.emit("njoy", {
                             file: "pages/boardingpass/sons/win.mp3",
                             status: "FX"
