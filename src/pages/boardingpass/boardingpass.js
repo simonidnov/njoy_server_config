@@ -88,7 +88,6 @@ boardingpass.init = function(){
     }, this));
 }
 boardingpass.reset_template = function() {
-    console.log('reset template ', this.questions);
     $('.column.components .subcomponent').html(this.subcomponent_template({"questions":this.questions}));
     this.set_events();
 }
@@ -101,14 +100,12 @@ boardingpass.set_events = function() {
 
         var QUESTION = self.questions[LINE];
 
-        console.log('QUESTION ::: ', QUESTION, " ID ::: ", ID, " :::  WHERE :::: ", QUESTION);
-        
         switch($(this).attr('data-bpaction')){
             case 'refresh':
                 // LE REGISSEUR A APPUYÉ SUR LA DEMANDE DE RAFRAICHISSEMENT D'UNE LIGNE
                 ui.popin({
                     "title":"Rafraîchir",
-                    "message":"Êtes-vous sure de vouloir rafraîchir la ligne "+ LINE+ " : "+ ID+ " ?",
+                    "message":"Êtes-vous sure de vouloir rafraîchir la ligne " + ID + " ?",
                     "buttons":[
                         {"label":"Oui", "class":"error"},
                         {"label":"Annuler", "class":"success"}
@@ -140,7 +137,6 @@ boardingpass.set_events = function() {
                 });
                 break;
             case 'start':
-                console.log(self.settings);
                 app.socket.emit('boardingpass', {"status":"getQuestions", "level":self.level, "settings":self.settings});
                 break;
         }
