@@ -106,11 +106,6 @@ io.on('connection', function(socket) {
               io.emit(call, {"status":"video_stopped"});
               io.emit(call, {"status":"audio_stopped"});
               break;
-            case 'MUSIC_LOOP':
-              omx.quit();
-              omx.open(URI+datas.file, omx_audio_loop_options);
-              omx.setVolume(app_volume);
-              break;
             case 'FX':
               omx.open(URI+datas.file, omx_audio_options);
               omx.setVolume(app_volume);
@@ -253,6 +248,14 @@ io.on('connection', function(socket) {
                   clearTimeout(playerTimer);
                   playerTimer = null;
                 }
+                break;
+            case 'MUSIC_LOOP':
+                console.log('PLAY MUSIC LOOP');
+                omx.quit();
+                omx.open(URI+datas.file, omx_audio_loop_options);
+                omx.setVolume(app_volume);
+                io.emit(call, {"status":"audio_started", "duration":omx.getCurrentDuration(), "position":omx.getCurrentPosition()});
+                resetAudioProgressListener();
                 break;
             case 'audio':
                 if(typeof audio_is_playing !== "undefined"){

@@ -280,11 +280,7 @@
                                 break;
                             case 'updateLine':
                                 this.winMotion();
-                                //var space = " ";
-                                //(datas.value.length < 53)? datas.value += space.repeat(53 - datas.value.length) : datas.value = datas.value.subString(0, 52);
-                                //this.enigmes[datas.num] = datas.value;
                                 this.score++;
-                                //this.changeLevel("");
                                 _.where(global_questions, {id:parseInt(datas.id)})[0].success = 1;
                                 this.displayLine(parseInt(datas.line), this.questions[parseInt(datas.line)].question);
                                 break;
@@ -294,12 +290,6 @@
                     }.bind(this));
 
                     this.init_flaps(0);
-                    //SET DISPLAY
-                    /*
-                    killall chromium-browser
-                    export DISPLAY=:0
-                    chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disable-session-crashed-bubble --incognito --kiosk --start-maximized $
-                    */
                 },
                 computed: {
                     setClass: function() {
