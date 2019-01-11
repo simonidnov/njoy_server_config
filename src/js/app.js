@@ -4,6 +4,7 @@ var app = {
     prodip: "http://10.3.141.1:3000",
     activities : null,
     callback:null,
+    version: '1.0.6',
     infos: {
         user_name: "",
         uuid: "",
@@ -18,7 +19,7 @@ var app = {
     },
     socket: null,
     initialize: function() {
-        if(typeof cordova == "undefined"){
+        if(typeof cordova == "undefined") {
             this.onDeviceReady();
         }else{
             document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
@@ -34,7 +35,7 @@ var app = {
             window.addEventListener("batterylow", this.onBatteryLow, false);
         }
     },
-    load_activities : function(call){
+    load_activities : function(call) {
         /*$.getJSON(app.ip+'/activities.json', function(e){
             app.activities = e;
         });*/
@@ -66,13 +67,13 @@ var app = {
             
         });
     },
-    is_offline : function(){
+    is_offline : function() {
         ui.check_wifi();
     },
-    onBatteryLow : function(){
+    onBatteryLow : function() {
         ui.battery_low();
     },
-    set_video_assets:function(){
+    set_video_assets:function() {
         $(".video_asset #seeker").off("change").on("change", function(e) { 
             var sec = Math.round((app.current_video.duration/100)*$('.video_asset #seeker').val());
             //app.socket.emit("njoy", {status:"seek_video", seek:sec});
@@ -96,7 +97,7 @@ var app = {
             app.socket.emit("njoy", {status:"stop_video"});
         });
     },
-    set_audio_assets:function(){
+    set_audio_assets:function() {
         $(".audio_asset #seeker").off("change").on("change", function(e) { 
             var sec = Math.round((app.current_video.duration/100)*$('.audio_asset #seeker').val());
             app.socket.emit("njoy", {status:"position_audio", position:sec});
@@ -106,8 +107,8 @@ var app = {
             app.socket.emit("njoy", {status:"volume_audio", volume:vol});
         });
         
-        $('.audio_asset #play_pause_button').off(ui.event).on(ui.event, function(e){
-            if($('.audio_asset #play_pause_button img').attr('src') === "img/play_icon.svg"){
+        $('.audio_asset #play_pause_button').off(ui.event).on(ui.event, function(e) {
+            if($('.audio_asset #play_pause_button img').attr('src') === "img/play_icon.svg") {
                 app.socket.emit("njoy", {status:"resume_audio"});
             }else{
                 app.socket.emit("njoy", {status:"pause_audio"});
@@ -115,7 +116,7 @@ var app = {
             e.preventDefault();
         });
         
-        $('.audio_asset #quit_video_button').off(ui.event).on(ui.event, function(){
+        $('.audio_asset #quit_video_button').off(ui.event).on(ui.event, function() {
             app.socket.emit("njoy", {status:"stop_audio"});
         });
     },
@@ -147,7 +148,7 @@ var app = {
         });
         app.set_video_assets();
         app.set_audio_assets();
-        app.socket.on('boardingpass', function(datas){
+        app.socket.on('boardingpass', function(datas) {
             app.socket_callback(datas);
         });
         app.socket.on('njoy', function(datas) {

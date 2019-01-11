@@ -2,6 +2,7 @@
   "activities": [
     {
       "label":"Crazy Show",
+      "version":"2.0.1",
       "app_name":"crazy_show",
       "redirect":"/receptor",
       "thumb":"ressources/crazyshow/crazy_show_logo.svg",
@@ -1188,6 +1189,7 @@
     },
     {
       "label":"Boarding Pass",
+      "version":"1.0.1",
       "thumb":"ressources/boarding_pass/app_icon.png",
       "background":"ressources/boarding_pass/app_icon.png",
       "redirect":"/boardingpass",
@@ -1204,7 +1206,6 @@
       ],
       "introduction":{"video":"ressources/boarding_pass/videos/boardingpass-intro.mp4", "size":"0 0 1920 1080", "audio":""},
       "final":{"video":"ressources/boarding_pass/videos/boardingpass-conclusion.mp4", "size":"0 0 1920 1080", "audio":""},
-  
       "tools":[],
       "apps":[
         {
