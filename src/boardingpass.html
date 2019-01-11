@@ -231,6 +231,7 @@
                         window.location.href = datas.url;
                     });
                     this.socket.on('boardingpass', function(datas) {
+                        console.log('status', datas.status);
                         /* GESTION DE CAS SPECIFIQUES */
                         // SAMPLE CALL EMIT : vm.socket.emit('boardingpass', {status:"updateLine", value:"BONJOUR TOUT LE MONDE", line:4})
                         switch(datas.status){
@@ -262,6 +263,8 @@
                                 break;
                             case 'boarding':
                                 this.questions = [];
+                                this.init_flaps();
+                                this.socket.emit("njoy", {"status":"KILL_OMX"});
                                 $('#boardingpass').addClass('decollage');
                                 break;
                             case 'sendQuestions':
@@ -290,9 +293,9 @@
                                 break;
                         }
                     }.bind(this));
-                    
+
                     setTimeout($.proxy(function(){
-                        this.init_flaps(0);
+                        this.init_flaps();
                     }, this), 300);
                 },
                 computed: {
@@ -305,8 +308,7 @@
                 },
                 methods: {
                     changeLevel: function(destination) {
-                        this.init_flaps();
-                        this.socket.emit("njoy", {"status":"KILL_OMX"});
+                        console.log('ZAP OR CHANGE LEVEL ?')
                         $('#boardingpass').addClass('decollage');
                         setTimeout(function(){
                             $('#boardingpass').removeClass('decollage');
@@ -333,7 +335,6 @@
                             self = this,
                             space = " ";
                         
-                        console.log('init_flaps');
 
                         $(".splitflap")
                             .splitFlap({
