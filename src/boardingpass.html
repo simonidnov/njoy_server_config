@@ -302,7 +302,7 @@
                 },
                 methods: {
                     changeLevel: function(destination) {
-                        io.emit("njoy", {"status":"stop_audio"});
+                        this.socket.emit("njoy", {"status":"stop_audio"});
                         $('#boardingpass').addClass('decollage');
                         setTimeout(function(){
                             $('#boardingpass').removeClass('decollage');
