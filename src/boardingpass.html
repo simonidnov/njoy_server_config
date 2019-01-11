@@ -331,6 +331,8 @@
                             self = this,
                             space = " ";
                         
+                        console.log('init_flaps');
+
                         $(".splitflap")
                             .splitFlap({
                                 image: this.flapParams.image,
@@ -360,7 +362,8 @@
                                 text:           "  N/C",
                                 textInit:       "  N/C"
                             });
-                        
+
+                        console.log('init_flaps_END');
                     },
                     startGlobalChrono: function() {
                         if(this.settings.chronolap){
