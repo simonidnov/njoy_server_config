@@ -35,13 +35,20 @@ var omx = require('./modules/omx-interface/index.js'),
         disableKeys:true,
         disableOnScreenDisplay:true,
         sizes:"fullscreen"
-    };
+    },
     omx_audio_options = {
         audioOutput:'local',
         blackBackground:false,
         disableKeys:true,
         disableOnScreenDisplay:true
-    };
+    },
+    omx_audio_loop_options = {
+      audioOutput:'local',
+      blackBackground:false,
+      disableKeys:true,
+      disableOnScreenDisplay:true,
+      loop:true
+  };
 omx.init_remote({port:8080});
 
 if(typeof omx.quit() === "undefined") {
@@ -68,18 +75,17 @@ app.get('/', function(req, res){
   res.sendFile('njoy/src/index.html', { root: path.join(__dirname, '../')});
 });
 
-io.on('connection', function(socket){
-    socket.on('disconnect', function(){
+io.on('connection', function(socket) {
+    socket.on('disconnect', function() {
         console.log('user disconnected');
     });
-    socket.on('redirect', function(datas){
+    socket.on('redirect', function(datas) {
         io.emit('redirect', datas);
     });
-    socket.on('boardingpass', function(datas){
+    socket.on('boardingpass', function(datas) {
         io.emit('boardingpass', datas);
     });
-    socket.on('njoy', function(datas){
-        console.log("CALL NJOY EMITTED SOCKET :::: ", datas);
+    socket.on('njoy', function(datas) {
         
         users_activities.push(datas);
         datas = addParams(datas);
@@ -99,6 +105,11 @@ io.on('connection', function(socket){
               omx.quit();
               io.emit(call, {"status":"video_stopped"});
               io.emit(call, {"status":"audio_stopped"});
+              break;
+            case 'MUSIC_LOOP':
+              omx.quit();
+              omx.open(URI+datas.file, omx_audio_loop_options);
+              omx.setVolume(app_volume);
               break;
             case 'FX':
               omx.open(URI+datas.file, omx_audio_options);
@@ -226,30 +237,23 @@ io.on('connection', function(socket){
                 break;
             case 'seek_video':
                 is_on_seek = true;
-                //omx.pause();
                 omx.seek(datas.seek);
-                //setTimeout(function(){
-                  io.emit(call, {"status":"video_seek", "seek":datas.seek});
-                  //omx.play();
-                  is_on_seek = false;
-                //},500);
+                io.emit(call, {"status":"video_seek", "seek":datas.seek});
+                is_on_seek = false;
                 break;
             case 'position_video':
                 omx.setPosition(datas.position);
                 io.emit(call, {"status":"video_position", "position":datas.position});
                 break;
             case 'stop_video':
-                console.log('VIDEO TERMINEE STOP VIDEO EMITTED RECEIVED');
                 omx.quit();
                 video_is_playing = false;
-                console.log('VIDEO NOT PLAYING ? ', video_is_playing);
                 io.emit(call, {"status":"video_stopped"});
                 if(playerTimer !== null){
                   clearTimeout(playerTimer);
                   playerTimer = null;
                 }
                 break;
-
             case 'audio':
                 if(typeof audio_is_playing !== "undefined"){
                   if(audio_is_playing){
@@ -303,15 +307,9 @@ io.on('connection', function(socket){
                 break;
             case 'seek_audio':
                 is_on_seek = true;
-                //omx.pause();
                 omx.seek(datas.seek);
-                //setTimeout(function(){
-                  io.emit(call, {"status":"audio_seek", "seek":datas.seek});
-                  //omx.play();
-                  is_on_seek = false;
-                //},500);
-                //omx.seek(datas.seek);
-                //io.emit(call, {"status":"audio_seek", "seek":datas.seek});
+                io.emit(call, {"status":"audio_seek", "seek":datas.seek});
+                is_on_seek = false;
                 break;
             case 'position_audio':
                 omx.setPosition(datas.position);
@@ -423,47 +421,26 @@ function getRandomColor() {
 }
 
 function stop_video(){
-  console.log('call stop video function');
   io.emit("njoy", {"status":"stop_video"});
-
   omx.quit();
   video_is_playing = false;
-  
-  console.log('VIDEO NOT PLAYING ? ', video_is_playing);
   io.emit("njoy", {"status":"video_stopped"});
 }
 function resetProgressListener() {
   video_is_playing = true;
-  /* PROGRESS FILL DOESNT WORK CORRECTLY */
-
   omx.onProgress(function(track){ //subscribe for track updates (every second while not paused for now)
       console.log('VIDEO PROGRESS');
-      //if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition()+1 >= omx.getCurrentDuration()){
-      //  console.log('PROGRESS IS FINISHED');
-        //io.emit("njoy", {"status":"video_stopped"});
-      //  io.emit("njoy", {"status":"stop_video"});
-      //}else{
       sendOmxStatus();
-      
-      //}
-      //var percent = track.position / track.duration;
-      //io.emit(call, {"status":"progress_video", "position":track.position, "duration":track.duration, "percent":percent});
   });
   omx.onEnd(function(){
     console.log('VIDEO FINISHED');
-    //io.emit("njoy", {"status":"stop_audio"});
     setTimeout(function(){
       console.log('APPEL IO EMIT NJOY ?');
       stop_video();
     },100);
-    //io.emit("njoy", {"status":"video_stopped"});
   });
-  //playerTimer = setTimeout(function(){
-  //  sendOmxStatus();
-  //}, omxDelay);
 }
 function sendOmxStatus() {
-  console.log('sendOmxStatus');
   if(video_is_playing){
     var vid_status = {
       "status":"progress_video",
@@ -477,9 +454,6 @@ function sendOmxStatus() {
     }else{
       console.log('SEND STATUS VIDEO ', vid_status);
       io.emit("njoy", vid_status);
-      //playerTimer = setTimeout(function(){
-      //sendOmxStatus();
-      //}, omxDelay);
     }
   }
 }
@@ -494,25 +468,12 @@ function check_end_omx(){
 }
 function resetAudioProgressListener() {
   audio_is_playing = true;
-  //PROGRESS FILL DOESNT WORK CORRECTLY
   omx.onProgress(function(track){ //subscribe for track updates (every second while not paused for now)
-      
-      //if(omx.getCurrentPosition() > 0 && omx.getCurrentPosition()+1 >= omx.getCurrentDuration()){
-        //io.emit("njoy", {"status":"audio_stopped"});
-      //  io.emit("njoy", {"status":"stop_audio"});
-      //}else{
-        console.log('SET OMX STATUS');
-        sendOmxAudioStatus();
-      //}
-      //var percent = track.position / track.duration;
-      //io.emit(call, {"status":"progress_video", "position":track.position, "duration":track.duration, "percent":percent});
+    console.log('SET OMX STATUS');
+    sendOmxAudioStatus();
   });
-  //playerTimer = setTimeout(function(){
-  //  sendOmxAudioStatus();
-  //}, omxDelay);
 }
 function sendOmxAudioStatus() {
-  
   if(audio_is_playing){
     if(!is_on_seek){
       var audio_status = {
@@ -525,9 +486,6 @@ function sendOmxAudioStatus() {
         io.emit("njoy", {"status":"stop_audio"});
       }else{
         io.emit("njoy", audio_status);
-        //playerTimer = setTimeout(function(){
-        //  sendOmxAudioStatus();
-        //}, omxDelay);
       }
     }
   }

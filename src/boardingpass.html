@@ -209,7 +209,6 @@
                     socket: io(window.location.origin, {transports: ['websocket', 'xhr-polling']})
                 },
                 created: function() {
-                    
                     $.get('/pages/boardingpass/questions-boardingpass.json', function(data, status){
                         //console.log("Data: ", data ,"\nStatus: ", status);
                         global_questions = data;
@@ -236,7 +235,6 @@
                         // SAMPLE CALL EMIT : vm.socket.emit('boardingpass', {status:"updateLine", value:"BONJOUR TOUT LE MONDE", line:4})
                         switch(datas.status){
                             case 'getQuestions':
-                                console.log("GET QUESTIONS CHECK SETTINGS ", datas);
                                 this.settings = datas.settings;
                                 // ON CREE UN RANDOM DE QUESTIONS SELON LE LEVEL ENVOYE
                                 this.level = parseInt(datas.level)+1;
@@ -256,6 +254,10 @@
                                     this.remainingTime = (hours[0] * (1000 * 60 * 60)) + (hours[1] * (1000 * 60));
                                     this.startingDate = new Date().getTime();
                                 }
+                                this.socket.emit("njoy", {
+                                    file: "pages/boardingpass/music_loop.mp3",
+                                    status: "MUSIC_LOOP"
+                                });
                                 break;
                             case 'boarding':
                                 this.questions = [];
@@ -300,7 +302,7 @@
                     */
                 },
                 computed: {
-                    setClass: function(){
+                    setClass: function() {
                         return {
                             unknow: false,
                             selected: true
@@ -322,12 +324,11 @@
                             file: "pages/boardingpass/sons/win.mp3",
                             status: "FX"
                         });
-                        // alert('win motion');
                         // TweenMax.set($('.winplane'), {x:-400, y:window.innerHeight, rotation:10});
                         // TweenMax.to($('.winplane'), 2, {x:window.outerWidth, y:-100, rotation:-45});
                         // $('#winplane').addClass('playMotion');
                     },
-                    init_flaps : function(){
+                    init_flaps : function() {
                         var ratio = this.ratio,
                             self = this,
                             space = " ";
@@ -363,12 +364,12 @@
                             });
                         
                     },
-                    startGlobalChrono: function(){
+                    startGlobalChrono: function() {
                         if(this.settings.chronolap){
                             //console.log(this.settings.chronolapduration);
                         }
                     },
-                    settingFlap:function(index){
+                    settingFlap:function(index) {
                         var value = this.questions[index].question,
                             self = this,
                             space = " ";
@@ -452,7 +453,7 @@
                         }
                         
                     },
-                    startChronos : function(index){
+                    startChronos : function(index) {
                         if(typeof this.chronos[index] !== "undefined") {
                             clearInterval(this.chronos[index]);
                         }
@@ -506,10 +507,10 @@
                             //}
                         //}.bind(this), 1000);
                     },
-                    defaultFunc: function(){
+                    defaultFunc: function() {
                         console.log('default function');
                     },
-                    displayLine: function(id, value){
+                    displayLine: function(id, value) {
                         // this.questions[id].question = "HELL BILLU";
                         var self = this;
                         // ON CREE UN ARRAY DEPUIS global_questions EN SUPPRIMANT LES QUESTIONS EN COURS D'AFFICHAGE POUR EVITER LES DOUBLONS
@@ -593,7 +594,7 @@
                         //$("#flap_"+id).splitFlap('splitflap').animate();
                         //this.forbans[id].setValue(value);
                     },
-                    configValue:function(id, value){
+                    configValue:function(id, value) {
                         var space = " ";
                         (value.length < this.maxChar-4)? value += space.repeat((this.maxChar-4) - value.length) : value = value.substring(0, this.maxChar-4);
                         value = value.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toUpperCase();
@@ -609,7 +610,7 @@
                         }
                         return value;
                     },
-                    withoutCurrentQuestions: function(){
+                    withoutCurrentQuestions: function() {
                         a = _.where(global_questions, {"level <=" : this.level});
                         b = this.questions;
 
