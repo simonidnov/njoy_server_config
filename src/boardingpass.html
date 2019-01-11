@@ -181,6 +181,7 @@
                     delay:600,
                     chronos:[],
                     chronosValue:[],
+                    boarding: true,
                     settings:{
                         chronoline:false,
                         chronolineduration:"00:00",
@@ -245,6 +246,7 @@
                                 // ON MET A JOUR LE TABLEAU COTE DISPLAY PUBLIC
                                 this.changeLevel("");
                                 setTimeout(function(){
+                                    this.boarding = false;
                                     this.startGlobalChrono();
                                     this.settingFlap(0);
                                 }.bind(this), 400);
@@ -262,6 +264,7 @@
                                 });
                                 break;
                             case 'boarding':
+                                this.boarding = true;
                                 this.questions = [];
                                 this.socket.emit("njoy", {"status":"KILL_OMX"});
                                 $('#boardingpass').addClass('decollage');
@@ -418,7 +421,9 @@
                                     }
                                     if(index < self.questions.length-1){
                                         index++;
-                                        self.settingFlap(index);
+                                        if(!self.boarding){
+                                            self.settingFlap(index);
+                                        }
                                     }
                                 }
                             });
