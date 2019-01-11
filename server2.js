@@ -110,6 +110,12 @@ io.on('connection', function(socket) {
               omx.open(URI+datas.file, omx_audio_options);
               omx.setVolume(app_volume);
               break;
+            case 'KILL_OMX':
+              cp.exec("killall omxplayer.bin", function(error, stdout, stderr) {
+                if (error !== null) {
+                }
+              });
+              break;
             case 'KILL_FX':
               omx.quit();
               break;
@@ -175,6 +181,11 @@ io.on('connection', function(socket) {
                 break;
             case 'video':
                 //omx.quit();
+                cp.exec("killall omxplayer.bin", function(error, stdout, stderr) {
+                  if (error !== null) {
+                  }
+                });
+
                 if(typeof video_is_playing !== "undefined"){
                   if(video_is_playing){
                     omx.quit();
@@ -258,8 +269,8 @@ io.on('connection', function(socket) {
                   cp.exec("export DISPLAY=:0", function(error, stdout, stderr) {});
                   omx.open(URI+datas.file, omx_audio_loop_options);
                   omx.setVolume(app_volume);
-                  io.emit(call, {"status":"audio_started", "duration":omx.getCurrentDuration(), "position":omx.getCurrentPosition()});
-                  resetAudioProgressListener();
+                  // io.emit(call, {"status":"audio_started", "duration":omx.getCurrentDuration(), "position":omx.getCurrentPosition()});
+                  // resetAudioProgressListener();
                 },200);
                 break;
             case 'audio':
