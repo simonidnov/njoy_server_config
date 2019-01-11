@@ -465,9 +465,11 @@ function check_end_omx(){
   }
 }
 function resetAudioProgressListener() {
+  console.log('resetAudioProgressListener');
   audio_is_playing = true;
   omx.onProgress(function(track){ //subscribe for track updates (every second while not paused for now)
     // if(track.status) {
+    console.log('on progress ', track);
     sendOmxAudioStatus();
     // }
   });
