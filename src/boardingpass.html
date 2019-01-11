@@ -267,7 +267,7 @@
                                 $('#boardingpass').addClass('decollage');
                                 setTimeout($.proxy(function(){
                                     this.init_flaps();
-                                }, this), 500);
+                                }, this), 1500);
                                 break;
                             case 'sendQuestions':
                                 // DE CE COTE ON NE FAIT RIEN CAR NOUS VENONS DE RENVOYER LES QUESTIONS A L APP
@@ -345,8 +345,7 @@
                                 charHeight: this.flapParams.charHeight * this.ratio,
                                 imageSize:  (this.flapParams.imageSize.width * this.ratio) + 'px ' + (this.flapParams.imageSize.height * this.ratio) + 'px',
                                 charsMap:   this.flapParams.charsMap,
-                                charSubstitute: this.flapParams.charSubstitute,
-                                speed:          0,
+                                speed:          1,
                                 autoplay:       true,
                                 text:           space.repeat(this.maxChar),
                                 textInit:       space.repeat(this.maxChar)
@@ -359,7 +358,7 @@
                                 charHeight: this.flapParams.charHeight * this.ratio,
                                 imageSize:  (this.flapParams.imageSize.width * this.ratio) + 'px ' + (this.flapParams.imageSize.height * this.ratio) + 'px',
                                 charsMap:   this.flapParams.charsMap,
-                                speed:          this.flapParams.speed,
+                                speed:          1,
                                 autoplay:       true,
                                 text:           "  N/C",
                                 textInit:       "  N/C"
