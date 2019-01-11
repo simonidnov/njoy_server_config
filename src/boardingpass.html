@@ -263,9 +263,11 @@
                                 break;
                             case 'boarding':
                                 this.questions = [];
-                                this.init_flaps();
                                 this.socket.emit("njoy", {"status":"KILL_OMX"});
                                 $('#boardingpass').addClass('decollage');
+                                setTimeout($.proxy(function(){
+                                    this.init_flaps();
+                                }, this), 500);
                                 break;
                             case 'sendQuestions':
                                 // DE CE COTE ON NE FAIT RIEN CAR NOUS VENONS DE RENVOYER LES QUESTIONS A L APP
