@@ -34,8 +34,6 @@
         <script type="text/javascript" src="js/lettering.js"></script>
         <script type="text/javascript" src="js/socket.io/socket.io.js"></script>
         <script src="node_modules/vue/dist/vue.min.js"></script>
-
-
     </head>
     <body>
         <div id="boardingpass" class="boardingpass decollage">
@@ -175,7 +173,25 @@
                     activities: [],
                     message: 'BOARDINGPASS',
                     forbans:[],
-                    questions:[], //_.shuffle(_.where(global_questions['co-pilote'], {success:0})).slice(0, 20),
+                    questions:[
+                        {id:0, question:(' ').repeat(70), value:' ', level:0},
+                        {id:0, question:(' ').repeat(70), value:' ', level:0},
+                        {id:0, question:(' ').repeat(70), value:' ', level:0},
+                        {id:0, question:(' ').repeat(70), value:' ', level:0},
+                        {id:0, question:(' ').repeat(70), value:' ', level:0},
+                        {id:0, question:(' ').repeat(70), value:' ', level:0},
+                        {id:0, question:(' ').repeat(70), value:' ', level:0},
+                        {id:0, question:(' ').repeat(70), value:' ', level:0},
+                        {id:0, question:(' ').repeat(70), value:' ', level:0},
+                        {id:0, question:(' ').repeat(70), value:' ', level:0},
+                        {id:0, question:(' ').repeat(70), value:' ', level:0},
+                        {id:0, question:(' ').repeat(70), value:' ', level:0},
+                        {id:0, question:(' ').repeat(70), value:' ', level:0},
+                        {id:0, question:(' ').repeat(70), value:' ', level:0},
+                        {id:0, question:(' ').repeat(70), value:' ', level:0},
+                        {id:0, question:(' ').repeat(70), value:' ', level:0},
+                        {id:0, question:(' ').repeat(70), value:' ', level:0}
+                    ], //_.shuffle(_.where(global_questions['co-pilote'], {success:0})).slice(0, 20),
                     ratio:.4,
                     maxChar:70,
                     delay:600,
@@ -216,8 +232,9 @@
                         global_questions.forEach((element, index) => {
                             element.id = index;
                         });
-                        this.questions = _.shuffle(_.where(global_questions, {success:0, level:1})).slice(0, this.totalQuestion)
+                        // this.questions = _.shuffle(_.where(global_questions, {success:0})).slice(0, this.totalQuestion);
                     }.bind(this));
+
                     this.socket.on('error', function(e) {
                         console.log('error socket');
                     });
@@ -232,20 +249,34 @@
                         window.location.href = datas.url;
                     });
                     this.socket.on('boardingpass', function(datas) {
-                        console.log('status', datas.status);
                         /* GESTION DE CAS SPECIFIQUES */
                         // SAMPLE CALL EMIT : vm.socket.emit('boardingpass', {status:"updateLine", value:"BONJOUR TOUT LE MONDE", line:4})
                         switch(datas.status){
                             case 'getQuestions':
                                 this.settings = datas.settings;
                                 // ON CREE UN RANDOM DE QUESTIONS SELON LE LEVEL ENVOYE
-                                this.level = parseInt(datas.level)+1;
-                                this.questions = _.shuffle(_.where(global_questions, {success:0, level:this.level})).slice(0, this.totalQuestion);
+
+                                this.level = parseInt(datas.level) + 1;
+
+                                var possibilities = this.withoutCurrentQuestions();
+                                this.questions = possibilities.slice(0, this.totalQuestion);
+                                
+                                if(this.questions.length < this.totalQuestion){
+                                    console.log('IL Y A MOINS DE QUESTIONS QUE PREVU ', (this.totalQuestion - this.questions.length));
+                                    var tot = (this.totalQuestion - this.questions.length);
+                                    for(var i = 0; i < tot; i++) {
+                                        console.log('ON AJOUTE UNE QUESTION ', i);
+                                        this.questions.push({id:0, question:(' ').repeat(this.maxChar), value:" ", level:0, success:1, refreshed:99});
+                                    }
+                                }
+                                console.log('on a toujours 17 ? ', this.questions);
+                                // this.questions = _.shuffle(_.where(global_questions, {success:0, level:this.level})).slice(0, this.totalQuestion);
+                                
                                 // ON ENVOIE LES QUESTIONS A L APP
                                 this.socket.emit('boardingpass', {status:"sendQuestions", questions:this.questions});
                                 // ON MET A JOUR LE TABLEAU COTE DISPLAY PUBLIC
                                 this.changeLevel("");
-                                setTimeout(function(){
+                                setTimeout(function() {
                                     this.boarding = false;
                                     this.startGlobalChrono();
                                     this.settingFlap(0);
@@ -288,17 +319,18 @@
                                 this.update_line();
                                 break;
                             case 'updateLine':
-                                console.log('UPDATE LINE TWICE ?');
                                 this.winMotion();
                                 this.score++;
-                                _.where(global_questions, {id:parseInt(datas.id)})[0].success = 1;
+                                var updtSuccess = _.where(global_questions, {id:parseInt(datas.id)});
+                                if(updtSuccess.length > 0){
+                                    _.where(global_questions, {id:parseInt(datas.id)})[0].success = 1;
+                                }
                                 this.displayLine(parseInt(datas.line), this.questions[parseInt(datas.line)].question);
                                 break;
                             default:
                                 break;
                         }
                     }.bind(this));
-
                     setTimeout($.proxy(function(){
                         this.init_flaps();
                     }, this), 300);
@@ -378,6 +410,8 @@
                         var value = this.questions[index].question,
                             self = this,
                             space = " ";
+
+                        console.log('BEFORE CONFIG VALUE ', this.questions[index]);
                         
                         value = this.configValue(this.questions[index].id, value);
                         //(value.length < this.maxChar)? value += space.repeat(this.maxChar - value.length) : value = value.substring(0, this.maxChar);
@@ -446,19 +480,105 @@
 
                             if(now >= totremaining) {
                                 console.log('TIME IS FINISHED');
+
                                 vm.settings.chronolap = false;
-                                this.questions.forEach(function(element, index){
-                                    this.questions[index].question = (' ').repeat(70);
-                                }.bind(this));
+                                // ON VIDE TOUTE LES LIGNES
+                                // this.questions.forEach(function(element, index){
+                                //    this.questions[index].question = (' ').repeat(70);
+                                // }.bind(this));
                                 
-                                this.settingFlap(0);
-                                //alert('LE TEMPS EST ECOULE');
+                                // this.settingFlap(0);
+
+                                // FINALEMENT ON NE VIDE PAS LES LIGNES MAIS ON AFFICHE LE SCORE EN ASSCII
+                                this.setFinalScore(this.score);
                             }
                         }else{
                             var now = new Date();
                             this.datetime = now.getHours() + ':' + now.getMinutes();
                         }
                         
+                    },
+                    setFinalScore : function(score) {
+                        score = score.toString();
+                        score = str_pad_left(score,'0',3);
+                        $('#boardingpass').removeClass('decollage');
+                        var lines = [
+                            {question:(' ').repeat(this.maxChar)},
+                            {question:(' ').repeat(this.maxChar)},
+                            {question:(' ').repeat(this.maxChar)},
+                            {question:(' ').repeat(this.maxChar)},
+                            {question:(' ').repeat(this.maxChar)},
+                            {question:this.getFinalScoreLine(0, score)},
+                            {question:this.getFinalScoreLine(1, score)},
+                            {question:this.getFinalScoreLine(2, score)},
+                            {question:this.getFinalScoreLine(3, score)},
+                            {question:this.getFinalScoreLine(4, score)},
+                            {question:this.getFinalScoreLine(5, score)},
+                            {question:this.getFinalScoreLine(6, score)},
+                            {question:(' ').repeat(this.maxChar)},
+                            {question:(' ').repeat(this.maxChar)},
+                            {question:(' ').repeat(this.maxChar)},
+                            {question:(' ').repeat(this.maxChar)},
+                            {question:(' ').repeat(this.maxChar)},
+                            {question:(' ').repeat(this.maxChar)}
+                        ];
+                        this.questions = lines;
+                        for(var index = 0; index < 17; index++){
+                            $("#flap_"+index)
+                                .splitFlap({
+                                    image: './pages/boardingpass/images/1x/CHARS_GREEN.png',
+                                    charWidth:  this.flapParams.charWidth * this.ratio,
+                                    charHeight: this.flapParams.charHeight * this.ratio,
+                                    imageSize:  (this.flapParams.imageSize.width * this.ratio) + 'px ' + (this.flapParams.imageSize.height * this.ratio) + 'px',
+                                    charsMap:   this.flapParams.charsMap,
+                                    charSubstitute: this.flapParams.charSubstitute,
+                                    speed:          100,
+                                    speedVariation: 0,
+                                    text:           this.questions[index].question,
+                                    autoplay: false,
+                                    onComplete: function () {
+                                    }
+                                });
+                            $('#flap_chronos_'+index)
+                                .splitFlap({
+                                    image: './pages/boardingpass/images/1x/CHARS_YELLOW.png',
+                                    charWidth:  this.flapParams.charWidth * this.ratio,
+                                    charHeight: this.flapParams.charHeight * this.ratio,
+                                    imageSize:  (this.flapParams.imageSize.width * this.ratio) + 'px ' + (this.flapParams.imageSize.height * this.ratio) + 'px',
+                                    charsMap:   this.flapParams.charsMap,
+                                    charSubstitute: this.flapParams.charSubstitute,
+                                    speed:          50,
+                                    speedVariation: 0,
+                                    autoplay:   true,
+                                    text:       '     ',
+                                    textInit:   '     '
+                                });
+                        }
+                        this.setScoreFlap(0);
+                    },
+                    setScoreFlap : function(index) {
+                        $("#flap_"+index).splitFlap('splitflap').animate();
+                        setTimeout($.proxy(function() {
+                            if(index < 16) {
+                                this.setScoreFlap(index+1);
+                            }
+                        }, this), 500);
+
+                    },
+                    getFinalScoreLine : function(line, score) {
+                        console.log(line);
+                        var scoreArray = score.toString().split('');
+                        console.log("scoreArray[0] ::: ", scoreArray[0]);
+                        console.log("LINE ::: ", line);
+                        console.log("asciNumbers[0] ::: ", asciNumbers[parseInt(scoreArray[0])]);
+                        var strLine = (' ').repeat(19);
+                            strLine+= asciNumbers[parseInt(scoreArray[0])][line];
+                            strLine+= (' ').repeat(3);
+                            strLine+= asciNumbers[parseInt(scoreArray[1])][line];
+                            strLine+= (' ').repeat(3);
+                            strLine+= asciNumbers[parseInt(scoreArray[2])][line];
+                            strLine+= (' ').repeat(15);
+                        return strLine;
                     },
                     startChronos : function(index) {
                         if(typeof this.chronos[index] !== "undefined") {
@@ -542,9 +662,17 @@
                             }
                         ).reverse().slice(0, 1)[0];
                         //}
-                        if(typeof this.questions[id] === "undefined"){
-                            console.log('il n\'y a plus de questions');
-                            this.questions[id] = {question:(' ').repeat(this.maxChar)};
+                        var removeHour = false;
+                        if (typeof this.questions[id] === "undefined") {
+                            var noq = 'il n\'y a plus de questions';
+                            this.questions[id] = {
+                                "question": noq + (' ').repeat(this.maxChar - noq.length), 
+                                "answer": " ",
+                                "success": 0,
+                                "refreshed": 0,
+                                "level": 0
+                            };
+                            removeHour = true;
                             //return false;
                         }
 
@@ -552,9 +680,12 @@
 
                         value = this.questions[id].question;  
                         
+                        console.log('BEFORE CONFIG VALUE DISPLAY LINE ', this.questions[id]);
+
                         value = this.configValue(this.questions[id].id, value);
                         clearInterval(this.chronos[id]);
                         this.chronosValue[id] = this.delay;
+
                         $("#flap_"+id).html(value);
                         $("#flap_"+id)
                             .splitFlap({
@@ -579,8 +710,13 @@
                                         self.chronos.forEach(function(element, index) {
                                             clearInterval(self.chronos[index]);
                                         });
-                                        var hour = str_pad_left(15 + Math.floor(Math.random() * 8), '0', 2);
-                                        var min = str_pad_left(Math.floor(Math.random() * 60), '0', 2);
+                                        if(removeHour){
+                                            var hour = '00';
+                                            var min = '00';
+                                        }else{
+                                            var hour = str_pad_left(15 + Math.floor(Math.random() * 8), '0', 2);
+                                            var min = str_pad_left(Math.floor(Math.random() * 60), '0', 2);
+                                        }
                                         $('#flap_chronos_'+id)
                                             .splitFlap({
                                                 image: './pages/boardingpass/images/1x/CHARS_YELLOW.png',
@@ -606,20 +742,39 @@
                         (value.length < this.maxChar-4)? value += space.repeat((this.maxChar-4) - value.length) : value = value.substring(0, this.maxChar-4);
                         value = value.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toUpperCase();
                         //console.log(id.toString().length);
-                        if(id.toString().length === 1){
-                            //console.log('ADD 00');
-                            value = "00"+id+" "+value;
-                        }else if(id.toString().length === 2){
-                            //console.log('ADD 0');
-                            value = "0"+id+" "+value;
+                        if(typeof id !== "undefined"){
+                            if(id.toString().length === 1){
+                                //console.log('ADD 00');
+                                value = "00"+id+" "+value;
+                            }else if(id.toString().length === 2){
+                                //console.log('ADD 0');
+                                value = "0"+id+" "+value;
+                            }else{
+                                value = id+" "+value;
+                            }
                         }else{
-                            value = id+" "+value;
+                            value = "000 "+space.repeat(this.maxChar-4);
                         }
+
                         return value;
                     },
                     withoutCurrentQuestions: function() {
+                        var a = [];
+                        switch(this.level){
+                            case 1:
+                                a = _.clone( _.where(global_questions, {"level" : 1, "success" : 0}) );
+                                break;
+                            case 2:
+                                a = _.clone( _.where(global_questions, {"level" : 2, "success" : 0}) );
+                                a.concat(_.clone( _.where(global_questions, {"level" : 1, "success" : 0}) ));
+                                break;
+                            case 3:
+                                a = _.clone( _.where(global_questions, {"success" : 0}) );
+                                break;
+                        }
+                        console.log("without :::: ", a);
                         // on selectionne les questions inférieures ou égales au level en cours
-                        var a = _.clone( _.where(global_questions, {"level" : this.level, "success" : 0}) );
+                        // var a = _.clone( _.where(global_questions, {"level" : this.level, "success" : 0}) );
                         var next = [];
                         var prev = [];
                         // seulement si il y a moins de 17 questions non validées dans le level en cours :
@@ -639,7 +794,7 @@
                         }
                         // si pas assez de question on fait une concatenation du level supérieur ou inférieur
                         a = a.concat(next);
-
+                        console.log('concat without ', a);
                         // si le level suivant + le level en cours a moins de 17 questions non validées on concat le level inférieur
                         if(a.length < this.totalQuestion) {
                             // ON DOIT AJOUTER LE LEVEL INTERMEDIAIRE DANS LA RECHERCHE
@@ -657,17 +812,22 @@
                         }
                         // on réitére la concatenation car on c'est plus simple...
                         a = a.concat(prev);
+                        console.log('concat without prev ', a);
 
                         // _.where(global_questions, {"level" : "<=" + this.level});
                         // on observe les questions en cours
                         var b = _.clone( this.questions );
                         // on supprimer les entrées B de A
                         b.forEach( function(item, index) {
+                            console.log("item ::: ", item);
+                            console.log("find where ::: ", item.id, _.findWhere(a, {id: item.id}) );
                             a = _.without( a, _.findWhere(a, {id: item.id}) );
                             // _.where(a, {id:item.id});
                         });
+                        console.log('concat without prev current ', a);
                         // on retourne par ordre des moins rafraichis pour éviter de retomber sur les mêmes questions
-                        return _.sortBy(a, function(item){ return item.refreshed; }).reverse();
+                        
+                        return _.sortBy(_.shuffle(a), function(item){ return item.refreshed; }).reverse();
                         // onlyInA.concat(onlyInB);
                     }
                 }
@@ -712,6 +872,100 @@
             function str_pad_left(string, pad, length) {
                 return (new Array(length+1).join(pad)+string).slice(-length);
             }
+
+
+            var asciNumbers = [
+                [
+                    " 00000000 ",
+                    "000    000",
+                    "000    000",
+                    "000    000",
+                    "000    000",
+                    "000    000",
+                    " 00000000 "
+                ],
+                [
+                    "   1111   ",
+                    "  11111   ",
+                    " 111111   ",
+                    "    111   ",
+                    "    111   ",
+                    "    111   ",
+                    " 111111111"
+                ],
+                [
+                    "222222222 ",
+                    "       222",
+                    "       222",
+                    "     222  ",
+                    "   222    ",
+                    " 222      ",
+                    "2222222222"
+                ],
+                [
+                    "333333333 ",
+                    "       333",
+                    "       333",
+                    "   333333 ",
+                    "       333",
+                    "       333",
+                    "333333333 "
+                ],
+                [
+                    "    4444  ",
+                    "   44444  ",
+                    "  44 444  ",
+                    " 44  444  ",
+                    "4444444444",
+                    "     444  ",
+                    "     444  " 
+                ],
+                [
+                    "5555555555",
+                    "555       ",
+                    "555       ",
+                    "555555555 ",
+                    "       555",
+                    "       555",
+                    "555555555 "
+                ],
+                [
+                    "  6666666 ",
+                    " 666      ",
+                    "666       ",
+                    "666666666 ",
+                    "666    666",
+                    "666    666",
+                    " 66666666 "
+                ],
+                [
+                    "7777777777",
+                    "       777",
+                    "       777",
+                    "   777777 ",
+                    "     777  ",
+                    "    777   ",
+                    "   777    "
+                ],
+                [
+                    " 88888888 ",
+                    "888    888",
+                    "888    888",
+                    "  888888  ",
+                    "888    888",
+                    "888    888",
+                    " 88888888 "
+                ],
+                [
+                    " 99999999 ",
+                    "999    999",
+                    "999    999",
+                    "  99999999",
+                    "       999",
+                    "      999 ",
+                    "  999999  "
+                ]
+            ];
         </script>
 
 
@@ -723,3 +977,4 @@
         </style>
     </body>
 </html>
+
