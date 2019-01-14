@@ -499,13 +499,15 @@
                         
                     },
                     setFinalScore : function(score) {
+                        var finalScoreText = "Nombre d'avion ayant décollés :";
+                        finalScoreText = (' ').repeat( ((this.maxChar - finalScoreText.length)/2) + 2 )+finalScoreText+(' ').repeat( ((this.maxChar - finalScoreText.length)/2) - 2 );
                         score = score.toString();
                         score = str_pad_left(score,'0',3);
                         $('#boardingpass').removeClass('decollage');
                         var lines = [
                             {question:(' ').repeat(this.maxChar)},
                             {question:(' ').repeat(this.maxChar)},
-                            {question:(' ').repeat(this.maxChar)},
+                            {question:finalScoreText},
                             {question:(' ').repeat(this.maxChar)},
                             {question:(' ').repeat(this.maxChar)},
                             {question:this.getFinalScoreLine(0, score)},
