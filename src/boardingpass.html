@@ -477,22 +477,23 @@
                                 this.datetime = str_pad_left(diffHours, '0', 2) +' : '+ str_pad_left(diffMins, '0', 2);                                
                             }
                             if(now >= totremaining) {
-                                console.log('TIME IS FINISHED');
-
                                 vm.settings.chronolap = false;
+                                this.datetime = '00:00';
                                 // ON VIDE TOUTE LES LIGNES
                                 // this.questions.forEach(function(element, index){
                                 //    this.questions[index].question = (' ').repeat(70);
                                 // }.bind(this));
-                                
                                 // this.settingFlap(0);
-
                                 // FINALEMENT ON NE VIDE PAS LES LIGNES MAIS ON AFFICHE LE SCORE EN ASSCII
                                 this.setFinalScore(this.score);
                             }
                         }else{
-                            var now = new Date();
-                            this.datetime = now.getHours() + ':' + now.getMinutes();
+                            if(this.remainingTime){
+                                this.datetime = '00:00';    
+                            }else{
+                                var now = new Date();
+                                this.datetime = now.getHours() + ':' + now.getMinutes();
+                            }
                         }
                         
                     },
