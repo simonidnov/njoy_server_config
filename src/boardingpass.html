@@ -488,21 +488,21 @@
                                 this.setFinalScore(this.score);
                             }
                         }else{
-                            if(this.remainingTime){
+                            /*if(this.remainingTime){
                                 this.datetime = '00:00';    
-                            }else{
+                            }else{*/
                                 var now = new Date();
                                 this.datetime = now.getHours() + ':' + now.getMinutes();
-                            }
+                            //}
                         }
                         
                     },
                     setFinalScore : function(score) {
                         var finalScoreText = "Bravo, vous avez fait décoller :";
-                        finalScoreText = (' ').repeat( ((this.maxChar - finalScoreText.length)/2) + 3 ) + finalScoreText + (' ').repeat( ((this.maxChar - finalScoreText.length)/2) - 2 );
+                        finalScoreText = (' ').repeat( ((this.maxChar - finalScoreText.length)/2) + 3 ) + finalScoreText + (' ').repeat( ((this.maxChar - finalScoreText.length)/2) - 3 );
                         
                         var lastLine = "avions";
-                        lastLine = (' ').repeat( ((this.maxChar - lastLine.length)/2) + 3 ) + lastLine + (' ').repeat( ((this.maxChar - lastLine.length)/2) - 2 );
+                        lastLine = (' ').repeat( ((this.maxChar - lastLine.length)/2) + 3 ) + lastLine + (' ').repeat( ((this.maxChar - lastLine.length)/2) - 3 );
                         
                         score = score.toString();
                         score = str_pad_left(score,'0',3);
