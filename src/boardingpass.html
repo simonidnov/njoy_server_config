@@ -476,8 +476,6 @@
                             }else {
                                 this.datetime = str_pad_left(diffHours, '0', 2) +' : '+ str_pad_left(diffMins, '0', 2);                                
                             }
-
-
                             if(now >= totremaining) {
                                 console.log('TIME IS FINISHED');
 
@@ -499,8 +497,12 @@
                         
                     },
                     setFinalScore : function(score) {
-                        var finalScoreText = "Nombre d'avion ayant décollés :";
-                        finalScoreText = (' ').repeat( ((this.maxChar - finalScoreText.length)/2) + 2 )+finalScoreText+(' ').repeat( ((this.maxChar - finalScoreText.length)/2) - 2 );
+                        var finalScoreText = "Bravo, vous avez fait décoller :";
+                        finalScoreText = (' ').repeat( ((this.maxChar - finalScoreText.length)/2) + 3 ) + finalScoreText + (' ').repeat( ((this.maxChar - finalScoreText.length)/2) - 2 );
+                        
+                        var lastLine = "avions";
+                        lastLine = (' ').repeat( ((this.maxChar - lastLine.length)/2) + 3 ) + lastLine + (' ').repeat( ((this.maxChar - lastLine.length)/2) - 2 );
+                        
                         score = score.toString();
                         score = str_pad_left(score,'0',3);
                         $('#boardingpass').removeClass('decollage');
@@ -519,7 +521,7 @@
                             {question:this.getFinalScoreLine(6, score)},
                             {question:(' ').repeat(this.maxChar)},
                             {question:(' ').repeat(this.maxChar)},
-                            {question:(' ').repeat(this.maxChar)},
+                            {question:lastLine},
                             {question:(' ').repeat(this.maxChar)},
                             {question:(' ').repeat(this.maxChar)},
                             {question:(' ').repeat(this.maxChar)}
@@ -537,6 +539,7 @@
                                     speed:          100,
                                     speedVariation: 0,
                                     text:           this.questions[index].question,
+                                    textInit: (' ').repeat(this.maxChar),
                                     autoplay: false,
                                     onComplete: function () {
                                     }
