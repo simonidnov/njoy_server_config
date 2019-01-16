@@ -262,14 +262,13 @@
                                 this.questions = possibilities.slice(0, this.totalQuestion);
                                 
                                 if(this.questions.length < this.totalQuestion){
-                                    console.log('IL Y A MOINS DE QUESTIONS QUE PREVU ', (this.totalQuestion - this.questions.length));
+                                    // 'IL Y A MOINS DE QUESTIONS QUE PREVU ', (this.totalQuestion - this.questions.length));
                                     var tot = (this.totalQuestion - this.questions.length);
                                     for(var i = 0; i < tot; i++) {
-                                        console.log('ON AJOUTE UNE QUESTION ', i);
+                                        // ON AJOUTE UNE QUESTION VIDE
                                         this.questions.push({id:0, question:(' ').repeat(this.maxChar), value:" ", level:0, success:1, refreshed:99});
                                     }
                                 }
-                                console.log('on a toujours 17 ? ', this.questions);
                                 // this.questions = _.shuffle(_.where(global_questions, {success:0, level:this.level})).slice(0, this.totalQuestion);
                                 
                                 // ON ENVOIE LES QUESTIONS A L APP
@@ -280,7 +279,7 @@
                                     this.boarding = false;
                                     this.startGlobalChrono();
                                     this.settingFlap(0);
-                                }.bind(this), 400);
+                                }.bind(this), 1000);
                                 
                                 // ON CHECK SI ON A UN CHRONO GLOBAL
                                 if(this.settings.chronolap){
@@ -288,7 +287,7 @@
                                     this.remainingTime = (hours[0] * (1000 * 60 * 60)) + (hours[1] * (1000 * 60));
                                     this.startingDate = new Date().getTime();
                                 }
-                                console.log('EMIT MUSIC LOOP');
+                                // ON LANCE LE SON D'AMBIANCE EN BOUCLE SANS PLAYER
                                 this.socket.emit("njoy", {
                                     file: "ressources/boarding_pass/music_loop.mp3",
                                     status: "MUSIC_LOOP"
@@ -345,14 +344,13 @@
                 },
                 methods: {
                     changeLevel: function(destination) {
-                        console.log('ZAP OR CHANGE LEVEL ?')
+                        // 'ZAP OR CHANGE LEVEL ?')
                         $('#boardingpass').addClass('decollage');
                         setTimeout(function(){
                             $('#boardingpass').removeClass('decollage');
                         }, 200);
                     },
                     winMotion : function() {
-                        console.log('winMotion');
                         /*
                         DON'T KILL OMX PRESERVE CURRENT LOOP MUSIC ONLY PLAY FX
                         this.socket.emit("njoy", {
@@ -476,6 +474,9 @@
                                 this.datetime = str_pad_left(diffHours, '0', 2) +' : '+ str_pad_left(diffMins, '0', 2);                                
                             }
                             if(now >= totremaining) {
+                                
+                                this.socket.emit("njoy", {"status":"KILL_OMX"});
+
                                 vm.settings.chronolap = false;
                                 this.datetime = '00:00';
                                 this.chronoEnded = true;
