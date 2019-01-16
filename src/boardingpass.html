@@ -372,7 +372,6 @@
                             self = this,
                             space = " ";
                         
-
                         $(".splitflap")
                             .splitFlap({
                                 image: this.flapParams.image,
@@ -479,6 +478,7 @@
                             if(now >= totremaining) {
                                 vm.settings.chronolap = false;
                                 this.datetime = '00:00';
+                                this.chronoEnded = true;
                                 // ON VIDE TOUTE LES LIGNES
                                 // this.questions.forEach(function(element, index){
                                 //    this.questions[index].question = (' ').repeat(70);
@@ -488,14 +488,13 @@
                                 this.setFinalScore(this.score);
                             }
                         }else{
-                            /*if(this.remainingTime){
+                            if(this.chronoEnded){
                                 this.datetime = '00:00';    
-                            }else{*/
+                            }else{
                                 var now = new Date();
-                                this.datetime = now.getHours() + ':' + now.getMinutes();
-                            //}
+                                this.datetime = str_pad_left(now.getHours(), '0',2) + ':' + str_pad_left(now.getMinutes(), '0', 2);
+                            }
                         }
-                        
                     },
                     setFinalScore : function(score) {
                         var finalScoreText = "Bravo, vous avez fait décoller :";
@@ -771,14 +770,13 @@
                                 a = _.clone( _.where(global_questions, {"level" : 1, "success" : 0}) );
                                 break;
                             case 2:
-                                a = _.clone( _.where(global_questions, {"level" : 2, "success" : 0}) );
-                                a.concat(_.clone( _.where(global_questions, {"level" : 1, "success" : 0}) ));
+                                a = _.union( _.where(global_questions, {"level" : 2, "success" : 0}), _.clone( _.where(global_questions, {"level" : 1, "success" : 0}) ));
                                 break;
                             case 3:
                                 a = _.clone( _.where(global_questions, {"success" : 0}) );
                                 break;
                         }
-                        console.log("without :::: ", a);
+
                         // on selectionne les questions inférieures ou égales au level en cours
                         // var a = _.clone( _.where(global_questions, {"level" : this.level, "success" : 0}) );
                         var next = [];
@@ -799,7 +797,7 @@
                             }
                         }
                         // si pas assez de question on fait une concatenation du level supérieur ou inférieur
-                        a = a.concat(next);
+                        a = _.union(a, next);
                         console.log('concat without ', a);
                         // si le level suivant + le level en cours a moins de 17 questions non validées on concat le level inférieur
                         if(a.length < this.totalQuestion) {
@@ -817,8 +815,7 @@
                             }
                         }
                         // on réitére la concatenation car on c'est plus simple...
-                        a = a.concat(prev);
-                        console.log('concat without prev ', a);
+                        a = _.union(a, prev);
 
                         // _.where(global_questions, {"level" : "<=" + this.level});
                         // on observe les questions en cours
