@@ -92,23 +92,23 @@
                         -->
                     </div>
                     <div class="flap_quiz">
-                        <div class="splitflap" id="flap_0" data-line="0">{{ questions[0].question }}</div>
-                        <div class="splitflap" id="flap_1" data-line="1">{{ questions[1].question }}</div>
-                        <div class="splitflap" id="flap_2" data-line="2">{{ questions[2].question }}</div>
-                        <div class="splitflap" id="flap_3" data-line="3">{{ questions[3].question }}</div>
-                        <div class="splitflap" id="flap_4" data-line="4">{{ questions[4].question }}</div>
-                        <div class="splitflap" id="flap_5" data-line="5">{{ questions[5].question }}</div>
-                        <div class="splitflap" id="flap_6" data-line="6">{{ questions[6].question }}</div>
-                        <div class="splitflap" id="flap_7" data-line="7">{{ questions[7].question }}</div>
-                        <div class="splitflap" id="flap_8" data-line="8">{{ questions[8].question }}</div>
-                        <div class="splitflap" id="flap_9" data-line="9">{{ questions[9].question }}</div>
-                        <div class="splitflap" id="flap_10" data-line="10">{{ questions[10].question }}</div>
-                        <div class="splitflap" id="flap_11" data-line="11">{{ questions[11].question }}</div>
-                        <div class="splitflap" id="flap_12" data-line="12">{{ questions[12].question }}</div>
-                        <div class="splitflap" id="flap_13" data-line="13">{{ questions[13].question }}</div>
-                        <div class="splitflap" id="flap_14" data-line="14">{{ questions[14].question }}</div>
-                        <div class="splitflap" id="flap_15" data-line="15">{{ questions[15].question }}</div>
-                        <div class="splitflap" id="flap_16" data-line="16">{{ questions[16].question }}</div>
+                        <div class="splitflap" id="flap_0" data-line="0" v-if="questions[0].question">{{ questions[0].question }}</div>
+                        <div class="splitflap" id="flap_1" data-line="1" v-if="questions[1].question">{{ questions[1].question }}</div>
+                        <div class="splitflap" id="flap_2" data-line="2" v-if="questions[2].question">{{ questions[2].question }}</div>
+                        <div class="splitflap" id="flap_3" data-line="3" v-if="questions[3].question">{{ questions[3].question }}</div>
+                        <div class="splitflap" id="flap_4" data-line="4" v-if="questions[4].question">{{ questions[4].question }}</div>
+                        <div class="splitflap" id="flap_5" data-line="5" v-if="questions[5].question">{{ questions[5].question }}</div>
+                        <div class="splitflap" id="flap_6" data-line="6" v-if="questions[6].question">{{ questions[6].question }}</div>
+                        <div class="splitflap" id="flap_7" data-line="7" v-if="questions[7].question">{{ questions[7].question }}</div>
+                        <div class="splitflap" id="flap_8" data-line="8" v-if="questions[8].question">{{ questions[8].question }}</div>
+                        <div class="splitflap" id="flap_9" data-line="9" v-if="questions[9].question">{{ questions[9].question }}</div>
+                        <div class="splitflap" id="flap_10" data-line="10" v-if="questions[10].question">{{ questions[10].question }}</div>
+                        <div class="splitflap" id="flap_11" data-line="11" v-if="questions[11].question">{{ questions[11].question }}</div>
+                        <div class="splitflap" id="flap_12" data-line="12" v-if="questions[12].question">{{ questions[12].question }}</div>
+                        <div class="splitflap" id="flap_13" data-line="13" v-if="questions[13].question">{{ questions[13].question }}</div>
+                        <div class="splitflap" id="flap_14" data-line="14" v-if="questions[14].question">{{ questions[14].question }}</div>
+                        <div class="splitflap" id="flap_15" data-line="15" v-if="questions[15].question">{{ questions[15].question }}</div>
+                        <div class="splitflap" id="flap_16" data-line="16" v-if="questions[16].question">{{ questions[16].question }}</div>
                         <!--<div class="splitflap" id="flap_17" data-line="17">{{ questions[17].question }}</div>
                         <div class="splitflap" id="flap_18" data-line="18">{{ questions[18].question }}</div>
                         <div class="splitflap" id="flap_19" data-line="19">{{ questions[19].question }}</div>-->
@@ -398,18 +398,16 @@
 
                         console.log('init_flaps_END');
                     },
-                    startGlobalChrono: function() {
+                    startGlobalChrono: function () {
                         if(this.settings.chronolap){
                             //console.log(this.settings.chronolapduration);
                         }
                     },
-                    settingFlap:function(index) {
+                    settingFlap: function (index) {
                         var value = this.questions[index].question,
                             self = this,
                             space = " ";
 
-                        console.log('BEFORE CONFIG VALUE ', this.questions[index]);
-                        
                         value = this.configValue(this.questions[index].id, value);
                         //(value.length < this.maxChar)? value += space.repeat(this.maxChar - value.length) : value = value.substring(0, this.maxChar);
                         $("#flap_"+index)
@@ -459,7 +457,7 @@
                                 }
                             });
                     },
-                    clockUpdate: function() {
+                    clockUpdate: function () {
                         if(this.settings.chronolap) {
                             var totremaining = this.startingDate + this.remainingTime,
                                 now = new Date().getTime(),
@@ -474,9 +472,7 @@
                                 this.datetime = str_pad_left(diffHours, '0', 2) +' : '+ str_pad_left(diffMins, '0', 2);                                
                             }
                             if(now >= totremaining) {
-                                
                                 this.socket.emit("njoy", {"status":"KILL_OMX"});
-
                                 vm.settings.chronolap = false;
                                 this.datetime = '00:00';
                                 this.chronoEnded = true;
@@ -497,7 +493,7 @@
                             }
                         }
                     },
-                    setFinalScore : function(score) {
+                    setFinalScore : function (score) {
                         var finalScoreText = "Bravo, vous avez fait décoller :";
                         finalScoreText = (' ').repeat( ((this.maxChar - finalScoreText.length)/2) + 3 ) + finalScoreText + (' ').repeat( ((this.maxChar - finalScoreText.length)/2) - 3 );
                         
@@ -562,7 +558,7 @@
                         }
                         this.setScoreFlap(0);
                     },
-                    setScoreFlap : function(index) {
+                    setScoreFlap : function (index) {
                         $("#flap_"+index).splitFlap('splitflap').animate();
                         setTimeout($.proxy(function() {
                             if(index < 16) {
@@ -571,12 +567,8 @@
                         }, this), 500);
 
                     },
-                    getFinalScoreLine : function(line, score) {
-                        console.log(line);
+                    getFinalScoreLine : function (line, score) {
                         var scoreArray = score.toString().split('');
-                        console.log("scoreArray[0] ::: ", scoreArray[0]);
-                        console.log("LINE ::: ", line);
-                        console.log("asciNumbers[0] ::: ", asciNumbers[parseInt(scoreArray[0])]);
                         var strLine = (' ').repeat(19);
                             strLine+= asciNumbers[parseInt(scoreArray[0])][line];
                             strLine+= (' ').repeat(3);

@@ -91,9 +91,7 @@ var app_tools = {
     },
     setAppId : function(appid){
         app.selected_tool = app.selected_app.apps[parseInt(appid)];
-
         $('.column.components').html(app_tools.component_template(app.selected_tool));
-        
         // ON s'assure de bien supprimer les sous componsant des apps precedentes 
         delete self.subcomponent_template;
         $('.column.components .subcomponent').html('');
@@ -101,10 +99,6 @@ var app_tools = {
         // SI ON A UNE CLASS JAVASCRIPT SPECIFIQUE ON LA CHARGE ICI 
         if(typeof app.selected_tool.javascripts !== "undefined"){
             for(var j=0; j<app.selected_tool.javascripts.length; j++){
-                console.log(app.selected_tool.javascripts[j]);
-
-                console.log("ALREADY LOADED ? ", $('script[src="'+app.selected_tool.javascripts[j]+'"]').length);
-
                 if($('script[src="'+app.selected_tool.javascripts[j]+'"]').length === 0){
                     var scriptElement = document.createElement('script');
                     scriptElement.src = app.selected_tool.javascripts[j];

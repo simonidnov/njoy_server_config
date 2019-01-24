@@ -79,11 +79,17 @@ var ui = {
         }});
         ui.popin_callBack(e);
     },
-    openTeam : function(){
-      $('.teams').addClass('opened');
-      $('.teams .cross_button').off('click').on('click', $.proxy(function(){
-        this.closeTeam();
-      },this));
+    openSettings : function() {
+        $('.settings').addClass('opened');
+        $('.settings .cross_button').off('click').on('click', $.proxy(function(){
+            this.closeTeam();
+        },this));
+    },
+    openTeam : function() {
+        $('.teams').addClass('opened');
+        $('.teams .cross_button').off('click').on('click', $.proxy(function(){
+            this.closeTeam();
+        },this));
         $('#add_team').off('click').on('click', function(e){
             e.preventDefault();
             if($('#team_name').val() === ""){
@@ -171,9 +177,15 @@ var ui = {
     },
     setListeners: function() {
         $('[data-navigate]').off(ui.event).on(ui.event, function(event) {
-            if($(this).attr('data-navigate') === "/team"){
-              ui.openTeam();
-              return false;
+            switch($(this).attr('data-navigate')) {
+                case '/team':
+                    ui.openTeam();
+                    return false;
+                    break;
+                case '/settings':
+                    ui.openSettings();
+                    return false;
+                    break;
             }
             if(typeof $(this).attr('data-direction') !== "undefined"){
                 ui.direction = $(this).attr('data-direction');
@@ -432,12 +444,13 @@ var ui = {
                     $('[data-navigate="'+ui.descriptor.header.nav_left[i].link+'"]').attr('data-direction', ui.descriptor.header.nav_left[i].direction);
                 }
             }
-            for(var i=0; i<ui.descriptor.header.nav_right.length; i++){
-                if($('.right_nav').length === 0){
-                    $('header').append('<div class="right_nav"></div>');
-                }else{
-                    $('header .right_nav').html('');
-                }
+            if($('.right_nav').length === 0){
+                $('header').append('<div class="right_nav"></div>');
+            }else{
+                $('header .right_nav').html('');
+            }
+            for(var i=0; i<ui.descriptor.header.nav_right.length; i++) {
+                console.log('ADD BUTTON RIGHT NAV ? ', ui.descriptor.header.nav_right);
                 $('header .right_nav').append('<div class="head_button" data-navigate="'+ui.descriptor.header.nav_right[i].link+'"><div class="icon" style="background-image:url(img/'+ui.descriptor.header.nav_right[i].icon+'.svg);"></div><span>'+ui.descriptor.header.nav_right[i].label+'</span></div>');
                 if(typeof ui.descriptor.header.nav_right[i].direction !== "undefined"){
                     $('[data-navigate="'+ui.descriptor.header.nav_right[i].link+'"]').attr('data-direction', ui.descriptor.header.nav_right[i].direction);

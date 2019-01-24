@@ -1,6 +1,16 @@
 <div class="boardingpass">
     <link rel="stylesheet" type="text/css" href="pages/boardingpass/css/boardingpass.css">
     <% if(questions.length > 0){ %>
+        <div class="options">
+            <div class="icon play" id="play_pause_button">
+                <img src="img/pause_icon.svg"/>
+                <span>Mettre en pause</span>
+            </div>
+            <div class="icon stop" id="quit_video_button">
+                <img src="img/stop_icon.svg"/>
+                <span>Fin du jeu</span>
+            </div>
+        </div>
         <h3>Liste des destinations en cours</h3>
         <ul class="destinations">
             <% for(var q=0; q<questions.length; q++) { %>
@@ -36,15 +46,15 @@
                 <li id="linechronocheck">Activer le temps par question<div class="radio_ui" data-checked="false" id="activechronoline"></div></li>
             </ul>
             <div class="line" id="linechrono" style="display:none;">
-                <label for="chronotime">Durée d'une question MM:ss: </label>
-                <input name="chronotime" id="chronoline" type="time" value="10:00" max="60:00" min="05:00"/>
+                <label for="chronoline">Durée d'une question MM:ss: </label>
+                <input name="chronoline" id="chronoline" type="time" value="10:00" max="60:00" min="05:00"/>
             </div>
             <ul class="task_list">
                 <li id="globalchronocheck">Activer un chrono global<div class="radio_ui" data-checked="true" id="activechronoline"></div></li>
             </ul>
             <div class="line" id="globalchrono" style="display:none;">
                 <label for="chronotime">Durée de l'animation HH:mm: </label>
-                <input name="chronotime" id="chronotime" type="time" value="03:00"/>
+                <input name="chronotime" id="chronotime" type="time" value="01:30"/>
             </div>
             <button class="classic_button" data-bpaction="start">Lancer l'animation</button>
         </div>

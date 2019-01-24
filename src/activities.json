@@ -13,6 +13,7 @@
       "br":"",
       "bl":"",
       "bc":"",
+      "has_team":false,
       "desc":"Crazy show TV, Les enfants participent à divers activités directement inspirées d'un show TV",
       "datas":{},
       "prerecquise":[
@@ -1195,6 +1196,7 @@
       "redirect":"/boardingpass",
       "desc":"Plongé dans l'univers d'un aéroport, les enfants doivent venir en aide à Swen notre bagagiste surchargé !",
       "datas":{},
+      "has_team":false,
       "template":"boardingpass",
       "prerecquise":[
         {

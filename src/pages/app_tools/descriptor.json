@@ -7,9 +7,7 @@
     "nav_left":[
       {"label":"", "link":"/app_dashboard", "icon":"back", "direction":"back"}
     ],
-    "nav_right":[
-      {"label":"", "link":"/team", "icon":"team_icon"}
-    ],
+    "nav_right":[],
     "tab_bar______":[
       {"label":"link 1", "link":"/link", "icon":""},
       {"label":"link 2", "link":"/link", "icon":""},
