@@ -507,6 +507,7 @@
 
                             if (this.statusGame === 'played') {
                                 var addTime = this.played - this.paused;
+                                console.log('ADD TIME ', addTime);
                                 this.statusGame = '';
                             }
 
@@ -518,7 +519,7 @@
                                 diffSecs = Math.floor((diff - (diffHours * (1000 * 60 * 60)) - (diffMins * (1000 * 60))) / 1000); 
                             
                             if (typeof addTime !== 'undefined') {
-                                totremaining + addTime;
+                                totremaining += addTime;
                             }
 
                             if(diffHours === 0 && diffMins < 10) {
@@ -647,14 +648,15 @@
                             }
                             if(this.chronosValue[index] === 0) {
                                 clearInterval(this.chronos[index]);
-                                //lorsqu'un chronos se termine on rafraichis la ligne
-                                //console.log(this.questions[index].id);
+                                // lorsqu'un chronos se termine on rafraichis la ligne
+                                // console.log(this.questions[index].id);
+                                // OUI REFRESHED EST INCREMENTE
                                 _.where(global_questions, {id:this.questions[index].id})[0].refreshed++;
                                 this.displayLine(index, "", null, 1);
                             }
                             //if(index === 1){
-                                //.log(this.chronosValue[index]);
-                                //console.log($('#flap_chronos_'+index));
+                                // console.log(this.chronosValue[index]);
+                                // console.log($('#flap_chronos_'+index));
                                 
                                 var minutes = Math.floor(this.chronosValue[index] / 60);
                                 var seconds = this.chronosValue[index] - minutes * 60;
@@ -680,7 +682,7 @@
                                         speed:          0,
                                         speedVariation: 0,
                                         autoplay:   true,
-                                        text:       finalTime,
+                                        text:     finalTime,
                                         textInit: finalTime
                                     });
                                 
