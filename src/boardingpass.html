@@ -273,6 +273,11 @@
                                 this.socket.emit('boardingpass', {status:"played"});
                                 break;
                             case 'getQuestions':
+                                // KILL CURRENT UPDATES
+                                
+                                // KILL SOUND 
+                                this.socket.emit("njoy", {"status":"KILL_OMX"});
+
                                 this.settings = datas.settings;
                                 // ON CREE UN RANDOM DE QUESTIONS SELON LE LEVEL ENVOYE
 
@@ -463,11 +468,11 @@
                                 text:           value,
                                 textInit:       space.repeat(this.maxChar),
                                 onComplete: function () {
-                                    if(self.settings.chronoline){
+                                    if (self.settings.chronoline) {
                                         var splitval = self.settings.chronolineduration.split(':');
                                         self.delay = (parseInt(splitval[0]) * 60) + parseInt(splitval[1]);
                                         self.startChronos(index);
-                                    }else{
+                                    } else {
                                         self.chronos.forEach(function(element, index) {
                                             clearInterval(self.chronos[index]);
                                         });
@@ -506,20 +511,20 @@
 
                             if (this.statusGame === 'played') {
                                 var addTime = this.played - this.paused;
-                                console.log('ADD TIME ', addTime);
                                 this.statusGame = '';
                             }
 
-                            var totremaining = this.startingDate + this.remainingTime,
-                                now = new Date().getTime(),
+                            var totremaining = this.startingDate + this.remainingTime;
+                            if (typeof addTime !== 'undefined') {
+                                totremaining += addTime;
+                            }
+                            var now = new Date().getTime(),
                                 diff = Math.abs(totremaining - now),
                                 diffHours = Math.floor(diff / (1000 * 60 * 60)),
                                 diffMins = Math.floor((diff - (diffHours * (1000 * 60 * 60))) / (1000 * 60)); 
                                 diffSecs = Math.floor((diff - (diffHours * (1000 * 60 * 60)) - (diffMins * (1000 * 60))) / 1000); 
                             
-                            if (typeof addTime !== 'undefined') {
-                                totremaining += addTime;
-                            }
+                            
 
                             if(diffHours === 0 && diffMins < 10) {
                                 this.datetime = str_pad_left(diffMins, '0', 2) +' : '+ str_pad_left(diffSecs, '0', 2);
@@ -742,7 +747,7 @@
 
                         value = this.questions[id].question;  
                         
-                        console.log('BEFORE CONFIG VALUE DISPLAY LINE ', this.questions[id]);
+                        // console.log('BEFORE CONFIG VALUE DISPLAY LINE ', this.questions[id]);
 
                         value = this.configValue(this.questions[id].id, value);
                         clearInterval(this.chronos[id]);

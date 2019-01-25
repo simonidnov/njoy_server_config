@@ -150,7 +150,7 @@ boardingpass.set_events = function() {
                         {"label":"Annuler", "class":"success"}
                     ]
                 }, function(e){
-                    if(parseInt(e) === 0){
+                    if(parseInt(e) === 0) {
                         app.socket.emit('boardingpass', {"status":"updateLine", "id":ID, "line":LINE, "value":QUESTION.answer, "question":QUESTION});
                         event.preventDefault();
                         return false;
