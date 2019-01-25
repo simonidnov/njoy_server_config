@@ -47,6 +47,12 @@
 
             </div>
             <div class="screener">
+                <div class="pausedStatus" v-if="statusGame === 'paused'">
+                    <div class="centered_icon">
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
                 <div class="flap_content" v-if="questions">
                     <div class="header">
                         <div class="panelTitle">
@@ -195,6 +201,9 @@
                     ratio:.4,
                     maxChar:70,
                     delay:600,
+                    statusGame: '',
+                    paused: '',
+                    played: '',
                     chronos:[],
                     chronosValue:[],
                     boarding: true,
@@ -252,6 +261,18 @@
                         /* GESTION DE CAS SPECIFIQUES */
                         // SAMPLE CALL EMIT : vm.socket.emit('boardingpass', {status:"updateLine", value:"BONJOUR TOUT LE MONDE", line:4})
                         switch(datas.status){
+                            case 'pause':
+                                this.pauseChronos();
+                                this.socket.emit('boardingpass', {status:"paused"});
+                                break;
+                            case 'end':
+                                this.endGame();
+                                this.socket.emit('boardingpass', {status:"ended"});
+                                break;
+                            case 'play':
+                                this.playChronos();
+                                this.socket.emit('boardingpass', {status:"played"});
+                                break;
                             case 'getQuestions':
                                 this.settings = datas.settings;
                                 // ON CREE UN RANDOM DE QUESTIONS SELON LE LEVEL ENVOYE
@@ -365,6 +386,25 @@
                         // TweenMax.to($('.winplane'), 2, {x:window.outerWidth, y:-100, rotation:-45});
                         // $('#winplane').addClass('playMotion');
                     },
+                    pauseChronos : function () {
+                        this.paused = new Date().getTime();
+                        this.statusGame = 'paused';
+                    },
+                    playChronos : function () {
+                        if(this.settedFlap < this.questions.length) {
+                            this.settingFlap(this.settedFlap);
+                        }
+                        this.played = new Date().getTime();
+                        this.statusGame = 'played';
+                    },
+                    endGame : function () {
+                        this.socket.emit("njoy", {"status":"KILL_OMX"});
+                        this.settings.chronolap = false;
+                        this.datetime = '00:00';
+                        this.chronoEnded = true;
+                        this.statusGame = 'ended';
+                        this.setFinalScore(this.score);
+                    },
                     init_flaps : function() {
                         var ratio = this.ratio,
                             self = this,
@@ -408,6 +448,7 @@
                             self = this,
                             space = " ";
 
+                        this.settedFlap = index;
                         value = this.configValue(this.questions[index].id, value);
                         //(value.length < this.maxChar)? value += space.repeat(this.maxChar - value.length) : value = value.substring(0, this.maxChar);
                         $("#flap_"+index)
@@ -451,7 +492,9 @@
                                     if(index < self.questions.length-1){
                                         index++;
                                         if(!self.boarding){
-                                            self.settingFlap(index);
+                                            if(self.statusGame !== "paused"){
+                                                self.settingFlap(index);
+                                            }
                                         }
                                     }
                                 }
@@ -459,6 +502,14 @@
                     },
                     clockUpdate: function () {
                         if(this.settings.chronolap) {
+                            // Si le jeu est en pause on update pas
+                            if (this.statusGame === 'paused') return false;
+
+                            if (this.statusGame === 'played') {
+                                var addTime = this.played - this.paused;
+                                this.statusGame = '';
+                            }
+
                             var totremaining = this.startingDate + this.remainingTime,
                                 now = new Date().getTime(),
                                 diff = Math.abs(totremaining - now),
@@ -466,6 +517,10 @@
                                 diffMins = Math.floor((diff - (diffHours * (1000 * 60 * 60))) / (1000 * 60)); 
                                 diffSecs = Math.floor((diff - (diffHours * (1000 * 60 * 60)) - (diffMins * (1000 * 60))) / 1000); 
                             
+                            if (typeof addTime !== 'undefined') {
+                                totremaining + addTime;
+                            }
+
                             if(diffHours === 0 && diffMins < 10) {
                                 this.datetime = str_pad_left(diffMins, '0', 2) +' : '+ str_pad_left(diffSecs, '0', 2);
                             }else {
@@ -565,7 +620,6 @@
                                 this.setScoreFlap(index+1);
                             }
                         }, this), 500);
-
                     },
                     getFinalScoreLine : function (line, score) {
                         var scoreArray = score.toString().split('');
@@ -582,6 +636,9 @@
                         if(typeof this.chronos[index] !== "undefined") {
                             clearInterval(this.chronos[index]);
                         }
+                        // SI ON EST EN PAUSE ON NE FAIS RIEN
+                        if (this.statusGame === 'paused') return false;
+
                         //this.chronos[index] = setInterval(function(){   
                             if(typeof this.chronosValue[index] === "undefined") {
                                 this.chronosValue[index] = this.delay;
@@ -703,7 +760,7 @@
                                     if(self.settings.chronoline) {
                                         var splitval = self.settings.chronolineduration.split(':');
                                         self.delay = (parseInt(splitval[0]) * 60) + parseInt(splitval[1]);
-                                        self.startChronos(index);
+                                        self.startChronos(id);
                                     } else {
                                         self.chronos.forEach(function(element, index) {
                                             clearInterval(self.chronos[index]);
@@ -964,12 +1021,41 @@
             ];
         </script>
 
-
-
-        
-
         <style>
-            
+            .pausedStatus {
+                position: absolute;
+                width:100%;
+                height:100%;
+                top:0;
+                left:0;
+                z-index: 99;
+            }
+            .pausedStatus .centered_icon {
+                width: 500px;
+                height: 500px;
+                position: absolute;
+                background: rgba(0,0,0,.7);
+                border-radius: 250px;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+            }
+            .pausedStatus .centered_icon span {
+                width: 50px;
+                height: 250px;
+                position: absolute;
+                top:0;
+                bottom:0;
+                left:280px;
+                background: #FFF;
+                border-radius: 4px;
+                margin:auto;
+            }
+            .pausedStatus .centered_icon span:nth-child(1){
+                left:160px;
+            }
         </style>
     </body>
 </html>

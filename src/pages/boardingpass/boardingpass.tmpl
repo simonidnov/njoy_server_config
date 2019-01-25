@@ -2,11 +2,15 @@
     <link rel="stylesheet" type="text/css" href="pages/boardingpass/css/boardingpass.css">
     <% if(questions.length > 0){ %>
         <div class="options">
-            <div class="icon play" id="play_pause_button">
+            <div class="icon play" id="pauseButton" data-bpaction="pause" id="play_pause_button">
                 <img src="img/pause_icon.svg"/>
                 <span>Mettre en pause</span>
             </div>
-            <div class="icon stop" id="quit_video_button">
+            <div class="icon play" id="playButton" data-bpaction="play" id="play_pause_button" style="display:none;">
+                <img src="img/play_icon.svg"/>
+                <span>Sortie de pause</span>
+            </div>
+            <div class="icon stop" data-bpaction="end" id="quit_video_button">
                 <img src="img/stop_icon.svg"/>
                 <span>Fin du jeu</span>
             </div>
