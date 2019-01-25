@@ -512,20 +512,16 @@
                             if (this.statusGame === 'played') {
                                 var addTime = this.played - this.paused;
                                 this.statusGame = '';
+                                this.remainingTime += addTime;
                             }
-
-                            var totremaining = this.startingDate + this.remainingTime;
-                            if (typeof addTime !== 'undefined') {
-                                totremaining += addTime;
-                            }
-                            var now = new Date().getTime(),
+                            var totremaining = this.startingDate + this.remainingTime,
+                                now = new Date().getTime(),
                                 diff = Math.abs(totremaining - now),
                                 diffHours = Math.floor(diff / (1000 * 60 * 60)),
                                 diffMins = Math.floor((diff - (diffHours * (1000 * 60 * 60))) / (1000 * 60)); 
                                 diffSecs = Math.floor((diff - (diffHours * (1000 * 60 * 60)) - (diffMins * (1000 * 60))) / 1000); 
                             
                             
-
                             if(diffHours === 0 && diffMins < 10) {
                                 this.datetime = str_pad_left(diffMins, '0', 2) +' : '+ str_pad_left(diffSecs, '0', 2);
                             }else {
