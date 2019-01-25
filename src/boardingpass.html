@@ -267,7 +267,6 @@
                                 break;
                             case 'end':
                                 this.endGame();
-                                this.socket.emit('boardingpass', {status:"ended"});
                                 break;
                             case 'play':
                                 this.playChronos();
@@ -550,15 +549,20 @@
                         }
                     },
                     setFinalScore : function (score) {
+                        score = score.toString();
+                        score = str_pad_left(score, '0', 3);
+
+                        this.socket.emit('boardingpass', {status:"ended", finalScore: score});
+
                         var finalScoreText = "Bravo, vous avez fait décoller :";
                         finalScoreText = (' ').repeat( ((this.maxChar - finalScoreText.length)/2) + 3 ) + finalScoreText + (' ').repeat( ((this.maxChar - finalScoreText.length)/2) - 3 );
                         
                         var lastLine = "avions";
                         lastLine = (' ').repeat( ((this.maxChar - lastLine.length)/2) + 3 ) + lastLine + (' ').repeat( ((this.maxChar - lastLine.length)/2) - 3 );
                         
-                        score = score.toString();
-                        score = str_pad_left(score,'0',3);
+                        
                         $('#boardingpass').removeClass('decollage');
+                        
                         var lines = [
                             {question:(' ').repeat(this.maxChar)},
                             {question:(' ').repeat(this.maxChar)},
@@ -579,6 +583,7 @@
                             {question:(' ').repeat(this.maxChar)},
                             {question:(' ').repeat(this.maxChar)}
                         ];
+                        
                         this.questions = lines;
                         for(var index = 0; index < 17; index++){
                             $("#flap_"+index)

@@ -95,6 +95,9 @@ boardingpass.init = function(){
                 break;
             case 'ended':
                 // GAME FINISHED
+                this.questions = [];
+                console.log('DATAS e = ', e);
+                $('.column.components .subcomponent').html(this.subcomponent_template({"status": "ended", "score": e.score}));
                 break;
         }
     }.bind(this);
