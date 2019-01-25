@@ -9,6 +9,9 @@
     padding-top: 15px;
     text-align: center;
 }
+.boardingpass .endGame {
+    padding:50px;
+}
 .boardingpass .options .icon {
     display: inline-flex;
     padding-left: 0px;

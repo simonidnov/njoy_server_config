@@ -1,7 +1,12 @@
 <div class="boardingpass">
     <link rel="stylesheet" type="text/css" href="pages/boardingpass/css/boardingpass.css">
     <% if(typeof status !== "undefined" && status === "ended") { %>
-        <div class="endGame">Jeu terminé score : <%= score %></div>
+        <div class="endGame">
+            Jeu terminé<br/>
+            <% if(typeof score !== "undefined") { %>
+                score : <%= score %>
+            <% } %>
+        </div>
     <% } else { %>
         <% if(questions.length > 0){ %>
             <div class="options">
