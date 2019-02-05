@@ -561,8 +561,9 @@
                         var lastLine = "avions";
                         lastLine = (' ').repeat( ((this.maxChar - lastLine.length)/2) + 3 ) + lastLine + (' ').repeat( ((this.maxChar - lastLine.length)/2) - 3 );
                         
-                        
-                        $('#boardingpass').removeClass('decollage');
+                        setTimeout(() => {
+                            $('#boardingpass').removeClass('decollage');
+                        }, 2000);
                         
                         var lines = [
                             {question:(' ').repeat(this.maxChar)},
