@@ -28,8 +28,7 @@ var express = require('express'),
       omxDelay = 500;
 
 /* VIDEO INSTANCE */
-//var omx = require('./modules/omx-interface/index.js'),
-var omx = require('omx-interface'),
+var omx = require('./modules/omx-interface/index.js'),
     omx_options = {
         audioOutput:'local',
         blackBackground:true,
