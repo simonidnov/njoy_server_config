@@ -20,7 +20,8 @@ html, body{
 .boardingpass{
     width:200%;
     height:100%;
-    transition:transform 1s;
+    /* transition:transform 1s;*/
+	transition: transform 1s linear;
     background-image: url(/pages/boardingpass/images/background.jpg);
     background-size: cover;
     background-position: center center;
@@ -57,6 +58,7 @@ html, body{
 }
 .boardingpass.decollage{
     transform:translateX(-50%);
+    -webkit-transform: translateX(-50%);
 }
 
 .boardingpass .airportPanel{
