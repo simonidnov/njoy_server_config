@@ -325,7 +325,7 @@
                                 $('#boardingpass').addClass('decollage');
                                 setTimeout($.proxy(function(){
                                     this.init_flaps();
-                                }, this), 1500);
+                                }, this), 2500);
                                 break;
                             case 'sendQuestions':
                                 // DE CE COTE ON NE FAIT RIEN CAR NOUS VENONS DE RENVOYER LES QUESTIONS A L APP
@@ -373,7 +373,7 @@
                         $('#boardingpass').addClass('decollage');
                         setTimeout(function(){
                             $('#boardingpass').removeClass('decollage');
-                        }, 200);
+                        }, 1000);
                     },
                     winMotion : function() {
                         /*
