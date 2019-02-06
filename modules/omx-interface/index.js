@@ -364,7 +364,7 @@ var open = function (path, options) {
 	cache.path.value = path;
 	cache.path.valid = true;
 
-	args.push('"'+path+'"');
+	args.push(path);
 
 	if (['hdmi','local','both'].indexOf(settings.audioOutput) != -1) {
 		args.push('-o');
@@ -410,7 +410,7 @@ var open = function (path, options) {
 	args.push('org.mpris.MediaPlayer2.omxplayer');
 	console.log(command+' '+args.join(' ')+' < omxpipe');
   	// exec(command+' '+args.join(' ')+' < omxpipe',function(error, stdout, stderr) {
-	exec('omxplayer ' + path + ' -o local', (error, stdout, stderr) => {
+	exec('omxplayer ' + args.join(' '), (error, stdout, stderr) => {
 		update_duration();
 		setTimeout( function() {
 			checkProgressHandler();
