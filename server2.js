@@ -261,6 +261,7 @@ io.on('connection', function(socket) {
                 }
                 break;
             case 'MUSIC_LOOP':
+                console.log('MUSIC LOOP');
                 omx.quit();
                 setTimeout(function(){
                   audio_is_playing = false;
