@@ -386,7 +386,7 @@ var open = function (path, options) {
 	if (settings.disableGhostbox === true) { //defaults to  false
 		args.push('--no-ghost-box');
 	}
-
+	console.log('HAS LOOP ', settings.loop);
 	if (settings.loop === true) { // defaults to false
 		args.push('--loop');
 	}
