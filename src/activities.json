@@ -1251,6 +1251,50 @@
           ]
         }
       ]
+    },
+    {
+      "label":"Labofolies",
+      "version":"1.0.2",
+      "thumb":"ressources/labofolies/app_icon.png",
+      "background":"ressources/labofolies/app_icon.png",
+      "redirect":"/labofolies",
+      "desc":"Un virus qui rend les gens fou s'est répendu, les enfants sont notre dernier recours pour élaborer un vaccin.",
+      "datas":{},
+      "has_team":false,
+      "template":"labofolies",
+      "prerecquise":[
+        {
+          "label":"Préparer les ustenciles", "checked":false
+        },
+        {
+          "label":"déterminer les équipes", "checked":false
+        },
+        {
+          "label":"répartir les cartes", "checked":false
+        },
+        {
+          "label":"Installer l'écran principal", "checked":false
+        }
+      ],
+      "introduction":{"video":"ressources/boarding_pass/videos/labofolies-intro.mp4", "size":"0 0 1920 1080", "audio":""},
+      "final":{"video":"ressources/boarding_pass/videos/labofolies-conclusion.mp4", "size":"0 0 1920 1080", "audio":""},
+      "tools":[],
+      "apps":[
+        {
+          "label":"hello",
+          "desc":"description de hello.",
+          "form":[],
+          "javascripts":[
+            "pages/labofolies/labofolies.js"
+          ],
+          "component_template":"pages/labofolies/labofolies.tmpl",
+          "actions":[
+            {"type":"javascript", "class":"labofolies", "function":"init"}
+          ],
+          "datas":{},
+          "menu":[]
+        }
+      ]
     }
   ]
 }
