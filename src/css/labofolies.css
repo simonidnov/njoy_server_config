@@ -1,9 +1,70 @@
-.labofolies {
-
+html, body{
+    width:100%;
+    height:100%;
+    overflow: hidden;
+    padding:0;
+    margin: 0;
 }
-
+.labofolies {
+    background-color:#CCC;
+    widows: 100%;
+    height:100%;
+}
+.labofolies .screener {
+    width:100%;
+    height:100%;
+}
+.labofolies .background,
+.labofolies .middle,
+.labofolies .scoring,
+.labofolies .foreground{
+    width:100%;
+    height:100%;
+    position: absolute;
+    top: 0;
+    left:0;
+}
+.labofolies .foreground{
+    z-index: 9;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: auto 100%;
+    background-position: top right;
+    background-image: url(../pages/labofolies/images/SVG/foreground.svg);
+} 
+.labofolies .middle{
+    z-index: 7;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: auto 100%;
+    background-position: top right;
+    background-image: url(../pages/labofolies/images/SVG/middle.svg);
+} 
+.labofolies .background{
+    z-index: 6;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: auto 100%;
+    background-position: top right;
+    background-image: url(../pages/labofolies/images/SVG/background.svg);
+} 
+.labofolies .scoring {
+    z-index: 8;
+    left: 0;
+    width: 38%;
+    right: 0;
+    margin: auto;
+    bottom: 5%;
+    height: 30%;
+    top: auto;
+}
 svg{
     background-color: rgba(255,255,255,0);
+    width: 100%;
+    height: auto;
 }
 .scoring {
     display: inline-flex !important;
@@ -13,6 +74,7 @@ svg{
     display: inline !important;
 }
 iframe{
-    width: 150px !important;
-    height:300px !important;
+    width: 100% !important;
+    height:100% !important;
+    overflow: hidden;
 }

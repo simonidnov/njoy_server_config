@@ -17,26 +17,28 @@
         <script src="pages/labofolies/motions/SnapSVGAnimator/js/SnapSVGAnimator.min.js"></script>
     </head>
     <body>
-        <div id="labofolies" class="boardingpass decollage">
+        <div id="labofolies" class="labofolies decollage">
             <div class="screener">
-                <h1>LABOFOLIES</h1>
-                <div classs="scoring">
+                <div class="background"></div>
+                <div class="scoring">
                     <div class="score">
-                        <iframe src="pages/labofolies/motions/blue.html"></iframe>
+                        <iframe id="score1" src="pages/labofolies/motions/blue.html"></iframe>
                     </div>
                     <div class="score">
-                        <iframe src="pages/labofolies/motions/orange.html"></iframe>
+                        <iframe id="score2" src="pages/labofolies/motions/orange.html"></iframe>
                     </div>
                     <div class="score">
-                        <iframe src="pages/labofolies/motions/pink.html"></iframe>
+                        <iframe id="score3" src="pages/labofolies/motions/pink.html"></iframe>
                     </div>
                     <div class="score">
-                        <iframe src="pages/labofolies/motions/green.html"></iframe>
+                        <iframe id="score4" src="pages/labofolies/motions/green.html"></iframe>
                     </div>
                     <div class="score">
-                        <iframe src="pages/labofolies/motions/red.html"></iframe>
+                        <iframe id="score5" src="pages/labofolies/motions/red.html"></iframe>
                     </div>
                 </div>
+                <div class="middle"></div>
+                <div class="foreground"></div>
             </div>
         </div>
         <script>
@@ -64,7 +66,7 @@
                     height: 300,
                     AJAX_req: null
                 },
-                created: function() {
+                created: async function() {
                     this.socket.on('error', function(e) {
                         console.log('error socket');
                     });
@@ -97,8 +99,12 @@
                                 break;
                         }
                     }.bind(this));
-
-                    // this.preload();
+                    setTimeout(new Proxy(() => {
+                        for(i=0; i < window.document.getElementsByTagName('iframe').length; i++) {
+                            var id = window.document.getElementsByTagName('iframe')[i].getAttribute('id');
+                            this.applyIframeCss(id);
+                        }
+                    }, this), 500);
                 },
                 computed: {
                     setClass: function() {
@@ -109,6 +115,14 @@
                     }
                 },
                 methods: {
+                    applyIframeCss: function(id) {
+                        console.log('apply css to ', id);
+                        var cssLink = document.createElement("link");
+                        cssLink.href = "/css/labofolies.css"; 
+                        cssLink.rel = "stylesheet"; 
+                        cssLink.type = "text/css";
+                        window.frames[id].contentDocument.head.appendChild(cssLink);
+                    },
                     preload: function() {
                         for(var i=0; i<this.jsonfiles.length; i++) {
                             this.loadMotion(this.sourceUrl + '/' + this.jsonfiles[i], i);
