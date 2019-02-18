@@ -1,0 +1,18 @@
+.labofolies {
+
+}
+
+svg{
+    background-color: rgba(255,255,255,0);
+}
+.scoring {
+    display: inline-flex !important;
+    width:100%;
+}
+.score {
+    display: inline !important;
+}
+iframe{
+    width: 150px !important;
+    height:300px !important;
+}

@@ -62,16 +62,19 @@ if(typeof omx.quit() === "undefined") {
 
 module.exports = router;
 app.use(express.static('./src'));
-app.get('/receptor', function(req, res){
+app.get('/receptor', function(req, res) {
   res.sendFile('njoy/src/receptor.html', { root: path.join(__dirname, '../')});
 });
-app.get('/crazy_show', function(req, res){
+app.get('/crazy_show', function(req, res) {
   res.sendFile('njoy/src/crazy_show.html', { root: path.join(__dirname, '../')});
 });
-app.get('/boardingpass', function(req, res){
+app.get('/boardingpass', function(req, res) {
   res.sendFile('njoy/src/boardingpass.html', { root: path.join(__dirname, '../')});
 });
-app.get('/', function(req, res){
+app.get('/labofolies', function(req, res) {
+  res.sendFile('njoy/src/labofolies.html', { root: path.join(__dirname, '../')});
+});
+app.get('/', function(req, res) {
   res.sendFile('njoy/src/index.html', { root: path.join(__dirname, '../')});
 });
 
@@ -85,6 +88,9 @@ io.on('connection', function(socket) {
     socket.on('boardingpass', function(datas) {
         io.emit('boardingpass', datas);
     });
+    socket.on('labofolies', function(datas) {
+        io.emit('labofolies', datas);
+    });
     socket.on('njoy', function(datas) {
         
         users_activities.push(datas);
@@ -92,7 +98,6 @@ io.on('connection', function(socket) {
         var stat = {},
             call = "njoy";
         
-        console.log("datas.status ::::::: ", datas.status);
         switch(datas.status){
             case 'chrono_start':
               omx.quit();

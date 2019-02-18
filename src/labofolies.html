@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <meta http-equiv="Access-Control-Allow-Origin" content="*">
+        <title>NJOY</title>
+        <link rel="stylesheet" type="text/css" href="css/app.css">
+        <link rel="stylesheet" type="text/css" href="css/labofolies.css">
+        <meta http-equiv="Access-Control-Allow-Origin" content="*">
+        <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="node_modules/underscore/underscore-min.js"></script>
+        <script type="text/javascript" src="js/socket.io/socket.io.js"></script>
+        <script src="node_modules/vue/dist/vue.min.js"></script>
+        <script src="pages/labofolies/motions/SnapSVGAnimator/js/vendor/snap.svg/snap.svg-min.js"></script>
+        <script src="pages/labofolies/motions/SnapSVGAnimator/js/SnapSVGAnimator.min.js"></script>
+    </head>
+    <body>
+        <div id="labofolies" class="boardingpass decollage">
+            <div class="screener">
+                <h1>LABOFOLIES</h1>
+                <div classs="scoring">
+                    <div class="score">
+                        <iframe src="pages/labofolies/motions/blue.html"></iframe>
+                    </div>
+                    <div class="score">
+                        <iframe src="pages/labofolies/motions/orange.html"></iframe>
+                    </div>
+                    <div class="score">
+                        <iframe src="pages/labofolies/motions/pink.html"></iframe>
+                    </div>
+                    <div class="score">
+                        <iframe src="pages/labofolies/motions/green.html"></iframe>
+                    </div>
+                    <div class="score">
+                        <iframe src="pages/labofolies/motions/red.html"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var vm = new Vue({
+                el: '#labofolies',
+                data: {
+                    activities: [],
+                    message: 'LABOFOLIESS',
+                    sinfos: {
+                        datas: {
+                            teams: []
+                        }
+                    },
+                    socket: io(window.location.origin, {transports: ['websocket', 'xhr-polling']}),
+                    jsonfiles: [
+                        "orange.json",
+                        "green.json",
+                        "pink.json",
+                        "blue.json"
+                    ],
+                    motions: [],
+                    sourceUrl: 'pages/labofolies/motions',
+                    fps: 30,
+                    width: 150,
+                    height: 300,
+                    AJAX_req: null
+                },
+                created: function() {
+                    this.socket.on('error', function(e) {
+                        console.log('error socket');
+                    });
+                    this.socket.on('connect_failed', function(e) {
+                        console.log("connect_failed");
+                    });
+                    this.socket.on('connect', function(e) {
+                        console.log("socket_connected");
+                    });
+                    this.socket.on('redirect', function(datas){
+                        console.log('datas redirect ', datas);
+                        window.location.href = datas.url;
+                    });
+                    this.socket.on('labofolies', function(datas) {
+                        /* GESTION DE CAS SPECIFIQUES */
+                        // SAMPLE CALL EMIT : vm.socket.emit('boardingpass', {status:"updateLine", value:"BONJOUR TOUT LE MONDE", line:4})
+                        switch(datas.status){
+                            case 'score':
+                                // update teams scores
+                                this.socket.emit('labofolies', {status:"scored"});
+                                break;
+                            case 'team':
+                                // Set teams length colors and default scores
+                                this.socket.emit('labofolies', {status:"teamsed"});
+                                break;
+                            case 'end':
+                                this.socket.emit("labofolies", {status:"ended"});
+                                break;
+                            default:
+                                break;
+                        }
+                    }.bind(this));
+
+                    // this.preload();
+                },
+                computed: {
+                    setClass: function() {
+                        return {
+                            unknow: false,
+                            selected: true
+                        }
+                    }
+                },
+                methods: {
+                    preload: function() {
+                        for(var i=0; i<this.jsonfiles.length; i++) {
+                            this.loadMotion(this.sourceUrl + '/' + this.jsonfiles[i], i);
+                        }
+                    },
+                    loadMotion: function(url, index) {
+                        console.log('LOAD MOTION ', url);
+                        // load snap motion by name
+                        AJAX_req = new XMLHttpRequest();
+                        AJAX_req.open("GET", url, true);
+                        AJAX_req.setRequestHeader("Content-type", "application/json");
+                        
+                        AJAX_req.onreadystatechange = this.handle_AJAX_Complete;
+                        AJAX_req.send();
+                    },
+                    handle_AJAX_Complete() {
+                        console.log('COMPLETE');
+                        if( AJAX_req.readyState == 4 && AJAX_req.status == 200 )
+                        {
+                            json = JSON.parse(AJAX_req.responseText);
+                            console.log('JSON ', json);
+                            this.motions.push(new SVGAnim(
+                                        json,
+                                        this.width,
+                                        this.height,
+                                        this.fps
+                                        ));
+                            window.document.getElementById('MOTION1') = new SVGAnim(
+                                        json,
+                                        this.width,
+                                        this.height,
+                                        this.fps
+                                        );
+                        }
+                    },
+                    playMotion: function(name) {
+                        // play preloaded motion by id name
+                    }
+                }
+            });
+            window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+            function step(timestamp) {
+                // ticker remote update app state when its possible only
+                requestAnimationFrame(step);
+            }
+
+            requestAnimationFrame(step);
+            function str_pad_left(string, pad, length) {
+                return (new Array(length+1).join(pad)+string).slice(-length);
+            }
+        </script>
+        <style>
+            
+        </style>
+    </body>
+</html>
