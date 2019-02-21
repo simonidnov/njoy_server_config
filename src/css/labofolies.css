@@ -14,53 +14,145 @@ html, body{
     width:100%;
     height:100%;
 }
+.labofolies .area {
+    width: 38%;
+    height: 49%;
+    left: 30%;
+    top: 13%;
+    margin: auto;
+    border: 1px solid red;
+    position: absolute;
+}
+.labofolies .poster {
+    width: 20%;
+    height: 49%;
+    left: 75%;
+    top: 8%;
+    margin: auto;
+    background: #FFF;
+    position: absolute;
+    background-image: url(/pages/labofolies/images/1x/logo_labofolies.png);
+    background-size: 80% auto;
+    background-position: center 10%;
+    background-repeat: no-repeat;
+}
+.labofolies .background .logo {
+    background-image: url(/pages/labofolies/images/1x/logo_labofolies.png);
+    width:800px;
+    height:800px;
+    position: absolute;
+    left:0;
+    right:0;
+    margin:auto;
+    top:10%;
+}
 .labofolies .background,
 .labofolies .middle,
 .labofolies .scoring,
+.labofolies .light,
 .labofolies .foreground{
-    width:100%;
+    width:300%;
     height:100%;
     position: absolute;
     top: 0;
     left:0;
+    background-size: auto 100%;
+    background-position: top left;
+    transition: transform 1s;
+}
+.labofolies .scoring {
+    width:100% !important;
+    left:100% !important;
 }
 .labofolies .foreground{
     z-index: 9;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-size: auto 100%;
-    background-position: top right;
     background-image: url(../pages/labofolies/images/SVG/foreground.svg);
 } 
 .labofolies .middle{
     z-index: 7;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-size: auto 100%;
-    background-position: top right;
     background-image: url(../pages/labofolies/images/SVG/middle.svg);
 } 
 .labofolies .background{
     z-index: 6;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-size: auto 100%;
-    background-position: top right;
     background-image: url(../pages/labofolies/images/SVG/background.svg);
+} 
+.labofolies .light{
+    z-index: 6;
+    background-image: url(../pages/labofolies/images/SVG/light.svg);
 } 
 .labofolies .scoring {
     z-index: 8;
     left: 0;
-    width: 38%;
+    width: 100%;
+    bottom: 0%;
+    height: 100%;
+    top: auto;
+    position: absolute;
+}
+.labofolies .scoring .inner {
+    width:40%;
     right: 0;
+    left: 0;
     margin: auto;
     bottom: 5%;
     height: 30%;
     top: auto;
+    position: absolute;
+    display: inline-flex;
 }
+.labofolies .mouse_content{
+    position: absolute;
+    bottom:6%;
+    width:320px;
+    height:320px;
+    left:2%;
+}
+.labofolies .oscilloscope_content{
+    position: absolute;
+    bottom:6%;
+    width:300px;
+    height:230px;
+    left:72%;
+}
+.labofolies .screener .screen {
+    display: inline-block;
+    width:100vw;
+    height:100%;
+    position: relative;
+}
+/* LABORATORY POSITION SCREEN */
+.labofolies.laboratory .background {
+    transform:translateX(-100vw);
+}
+.labofolies.laboratory .light {
+    transform:translateX(-100vw);
+}
+.labofolies.laboratory .middle {
+    transform:translateX(-100vw);
+}
+.labofolies.laboratory .scoring {
+    transform:translateX(-100vw);
+}
+.labofolies.laboratory .foreground {
+    transform:translateX(-100vw);
+}
+/* END POSITION SCREEN */
+.labofolies.synthetisation .background {
+    transform:translateX(-173vw);
+}
+.labofolies.synthetisation .light {
+    transform:translateX(-200vw);
+}
+.labofolies.synthetisation .middle {
+    transform:translateX(-200vw);
+}
+.labofolies.synthetisation .scoring {
+    transform:translateX(-200vw);
+}
+.labofolies.synthetisation .foreground {
+    transform:translateX(-200vw);
+}
+
 svg{
     background-color: rgba(255,255,255,0);
     width: 100%;

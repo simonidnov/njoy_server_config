@@ -973,7 +973,6 @@
             }
           ]
         },
-
         {
           "label":"Blind Test",
           "desc":"Faire 2 équipes de part et d'autre du présentoire. buzzer au milieu. Quizz musical. Nom de l'artiste et titre de la chanson",
@@ -1108,7 +1107,7 @@
             }
           ]
         },
-          {
+        {
           "label":"Chef d'Orchestre",
           "desc":"pas encore de description",
           "background":"ressources/crazyshow/jingles/chefdorchestre.svg",
@@ -1276,23 +1275,93 @@
           "label":"Installer l'écran principal", "checked":false
         }
       ],
-      "introduction":{"video":"ressources/boarding_pass/videos/labofolies-intro.mp4", "size":"0 0 1920 1080", "audio":""},
+      "introduction":{"video":"ressources/boarding_pass/videos/labofolies-intro.mp4", "size":"0 0 1920 1080", "audio":"", "pix":"URL_DU_SPLASH"},
       "final":{"video":"ressources/boarding_pass/videos/labofolies-conclusion.mp4", "size":"0 0 1920 1080", "audio":""},
       "tools":[],
       "apps":[
         {
-          "label":"hello",
-          "desc":"description de hello.",
+          "label":"Équipe et scores",
+          "desc":"Activer les équipes et gérer les scores",
           "form":[],
           "javascripts":[
             "pages/labofolies/labofolies.js"
           ],
           "component_template":"pages/labofolies/labofolies.tmpl",
-          "actions":[
+          "actions": [
             {"type":"javascript", "class":"labofolies", "function":"init"}
           ],
-          "datas":{},
-          "menu":[]
+          "datas":{"screener":"settings"},
+          "menu": []
+        },
+        {
+          "label": "Vidéos",
+          "desc": "Liste des vidéos du professeur à diffuser.",
+          "datas": {
+            "screener": "video"
+          },
+          "menu": [
+            {
+              "label": "Clips vidéos",
+              "desc": "des clips vidéos à reconstituer en AIR BAND",
+              "components": {
+                "playlist_video": [
+                    {"label":"LETSDANCE", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"},
+                    {"label":"OGV", "desc":"", "datas":{}, "file":"ressources/jeux/letsdance/Anim12.ogv"},
+                    {"label":"TRANSPARENTE", "desc":"", "datas":{}, "file":"ressources/crazyshow/assets_video/CRAZY_SHOW_TRSP.mp4"}
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "label": "Expériences",
+          "desc": "Liste des expériences et énigmes à diffuser",
+          "javascripts":[
+            "pages/labofolies/labofolies.js"
+          ],
+          "component_template": "pages/labofolies/labofolies.tmpl",
+          "actions": [
+            {"type":"javascript", "class":"labofolies", "function":"init"}
+          ],
+          "datas":{"screener": "expériences"},
+          "menu": [
+            {
+              "label": "Enigmes",
+              "desc": "Liste des énigmes sonores et appels téléphoniques",
+              "components": {
+                "playlist_video": [
+                  {"label":"musique de fond", "desc":"", "datas":{}, "file":"ressources/jeux/abcstory/musique.mp3"}
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "label": "Scanner",
+          "desc": "Scanner une carte pour attribuer des points à une équipe.",
+          "javascripts":[
+            "pages/labofolies/labofolies.js",
+            "pages/labofolies/js/JSmol.lite.nojq.js"
+          ],
+          "component_template": "pages/labofolies/labofolies.tmpl",
+          "actions": [
+            {"type":"javascript", "class":"labofolies", "function":"init"}
+          ],
+          "datas":{"screener": "scanner"},
+          "menu": []
+        },
+        {
+          "label": "Synthétisation",
+          "desc": "Synthétiser le vaccin écran de fin avant conclusion.",
+          "javascripts": [
+            "pages/labofolies/labofolies.js"
+          ],
+          "component_template": "pages/labofolies/labofolies.tmpl",
+          "actions": [
+            {"type":"javascript", "class":"labofolies", "function":"init"}
+          ],
+          "datas":{"screener": "synthetisation"},
+          "menu": []
         }
       ]
     }

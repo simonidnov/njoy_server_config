@@ -38,7 +38,6 @@ var app_tools = {
             $('[data-appid]').on(ui.event, function() {
                 self.setAppId($(this).attr('data-appid'));
             });
-
             $( "#components_scroll" ).scroll(function() {
 		    	clearTimeout( $.data( this, "scrollCheck" ) );
     			$.data( this, "scrollCheck", setTimeout(function() {
@@ -97,22 +96,22 @@ var app_tools = {
         $('.column.components .subcomponent').html('');
 
         // SI ON A UNE CLASS JAVASCRIPT SPECIFIQUE ON LA CHARGE ICI 
-        if(typeof app.selected_tool.javascripts !== "undefined"){
-            for(var j=0; j<app.selected_tool.javascripts.length; j++){
-                if($('script[src="'+app.selected_tool.javascripts[j]+'"]').length === 0){
+        if (typeof app.selected_tool.javascripts !== "undefined") {
+            for (var j=0; j<app.selected_tool.javascripts.length; j++) {
+                if ($('script[src="'+app.selected_tool.javascripts[j]+'"]').length === 0) {
                     var scriptElement = document.createElement('script');
                     scriptElement.src = app.selected_tool.javascripts[j];
                     document.body.appendChild(scriptElement);    
                 }
-
-                // LORSQUE LE JS EST CHARGÉ on regarde si il y a des actions à executer sur le dom 
-                setTimeout(function(){
+                
+                // LORSQUE LE JS EST CHARGÉ on regarde si il y a des actions à executer sur le dom
+                setTimeout(function () {
                     if(typeof app.selected_tool.actions !== "undefined"){
                         for(var a=0; a<app.selected_tool.actions.length; a++){
                             var action = app.selected_tool.actions[a];
                             switch(action.type){
                                 case 'javascript':
-                                    window[action.class][action.function]();
+                                    window[action.class][action.function](app.selected_tool.datas);
                                     break;
                                 default:
                                     break;

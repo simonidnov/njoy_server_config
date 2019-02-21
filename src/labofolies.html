@@ -19,23 +19,32 @@
     <body>
         <div id="labofolies" class="labofolies decollage">
             <div class="screener">
-                <div class="background"></div>
+                <div class="background">
+                    <div class="screen">
+                        <div class="logo"></div>
+                    </div>
+                    <div class="screen">
+                        <div class="area"></div>
+                        <div class="poster"></div>
+                    </div>
+                    <div class="screen">
+
+                    </div>
+                </div>
+                <div class="light"></div>
                 <div class="scoring">
-                    <div class="score">
-                        <iframe id="score1" src="pages/labofolies/motions/blue.html"></iframe>
+                    <div class="mouse_content">
+                        <iframe id="mouse" src="pages/labofolies/motions/mouse.html" width="320" height="320"></iframe>
                     </div>
-                    <div class="score">
-                        <iframe id="score2" src="pages/labofolies/motions/orange.html"></iframe>
+                    <div class="oscilloscope_content">
+                        <iframe id="oscilloscope" src="pages/labofolies/motions/oscilloscope.html" width="320" height="320"></iframe>
                     </div>
-                    <div class="score">
-                        <iframe id="score3" src="pages/labofolies/motions/pink.html"></iframe>
+                    <div class="inner">
+                        <div class="score" v-for="(team, index) in status.teams">
+                            <iframe :id="'score' + index" :src="'pages/labofolies/motions/' + team.label + '.html'" :style="{visibility: ((team.isActive)? 'visible' : 'hidden') }"></iframe>
+                        </div>
                     </div>
-                    <div class="score">
-                        <iframe id="score4" src="pages/labofolies/motions/green.html"></iframe>
-                    </div>
-                    <div class="score">
-                        <iframe id="score5" src="pages/labofolies/motions/red.html"></iframe>
-                    </div>
+                    
                 </div>
                 <div class="middle"></div>
                 <div class="foreground"></div>
@@ -47,10 +56,14 @@
                 data: {
                     activities: [],
                     message: 'LABOFOLIESS',
-                    sinfos: {
-                        datas: {
-                            teams: []
-                        }
+                    status: {
+                        teams:[
+                            {label:'blue'},
+                            {label:'orange'},
+                            {label:'pink'},
+                            {label:'green'},
+                            {label:'red'}
+                        ]
                     },
                     socket: io(window.location.origin, {transports: ['websocket', 'xhr-polling']}),
                     jsonfiles: [
@@ -81,10 +94,12 @@
                         window.location.href = datas.url;
                     });
                     this.socket.on('labofolies', function(datas) {
+                        console.log('RECEIVE DATAS LABOFOLIES ', datas);
                         /* GESTION DE CAS SPECIFIQUES */
                         // SAMPLE CALL EMIT : vm.socket.emit('boardingpass', {status:"updateLine", value:"BONJOUR TOUT LE MONDE", line:4})
-                        switch(datas.status){
-                            case 'score':
+                        /* 
+                        switch(datas.screener){
+                            case 'laboratory':
                                 // update teams scores
                                 this.socket.emit('labofolies', {status:"scored"});
                                 break;
@@ -98,16 +113,25 @@
                             default:
                                 break;
                         }
+                        */
+                        vm.status = datas;
+                        $('#labofolies').removeClass('default');
+                        $('#labofolies').removeClass('laboratory');
+                        $('#labofolies').removeClass('synthetisation');
+                        $('#labofolies').addClass(datas.screener);
+                        for(var i=0; i<vm.status.teams.length; i++){
+                            vm.updateScore(i, vm.status.teams[i].score);
+                        }
                     }.bind(this));
                     setTimeout(new Proxy(() => {
                         for(i=0; i < window.document.getElementsByTagName('iframe').length; i++) {
                             var id = window.document.getElementsByTagName('iframe')[i].getAttribute('id');
-                            this.applyIframeCss(id);
+                            this.applyIframeCss(id, i);
                         }
-                    }, this), 500);
+                    }, this), 1500);
                 },
                 computed: {
-                    setClass: function() {
+                    setClass: function () {
                         return {
                             unknow: false,
                             selected: true
@@ -115,13 +139,58 @@
                     }
                 },
                 methods: {
-                    applyIframeCss: function(id) {
-                        console.log('apply css to ', id);
+                    updateScore: function (teamId, score) {
+                        // on selectionne la jauge dans l'iframe de la team, soit le premier clip du mask
+                        var jauge = window
+                                    .frames[$($('.score')[teamId]).find('iframe').attr('id')]
+                                    .contentDocument.body.getElementsByClassName('maskGroup')[0]
+                                    .getElementsByClassName('movieclip')[0];
+
+                        var height = 230;
+                        /*
+                        $(window
+                                    .frames[$($('.score')[teamId]).find('iframe').attr('id')]
+                                    .contentDocument.body.getElementsByTagName('svg')[0]).height();
+                        */
+                        var percent = Math.round(score * height) / 100;
+
+                        // on change sa position en fonction du score
+                        var transform = $(jauge).attr('transform'),
+                            transformSplitted = transform.split(','),
+                            lastAttr = transformSplitted[transformSplitted.length - 1];
+
+                        var updated = transform.replace(lastAttr, (height - percent)+')');
+
+                        jauge.setAttribute('transform', updated);
+                    },
+                    applyIframeCss: function(name, id) {
                         var cssLink = document.createElement("link");
                         cssLink.href = "/css/labofolies.css"; 
                         cssLink.rel = "stylesheet"; 
                         cssLink.type = "text/css";
-                        window.frames[id].contentDocument.head.appendChild(cssLink);
+                        window.frames[name].contentDocument.head.appendChild(cssLink);
+                        if (typeof window.frames[id].window.comp !== "undefined") {
+                            if (typeof window.frames[id].window.comp.mc !== "undefined") {
+                                window.frames[id].window.comp.mc.loops = false;
+                            }else{
+                                /* HOTFIX iframe script not loaded */
+                                setTimeout(new Proxy(() => {
+                                    for(i=0; i < window.document.getElementsByTagName('iframe').length; i++) {
+                                        var id = window.document.getElementsByTagName('iframe')[i].getAttribute('id');
+                                        this.applyIframeCss(id, i);
+                                    }
+                                }, this), 500);
+                            }
+                        }else{
+                            /* HOTFIX iframe not loaded */
+                            setTimeout(new Proxy(() => {
+                                for(i=0; i < window.document.getElementsByTagName('iframe').length; i++) {
+                                    var id = window.document.getElementsByTagName('iframe')[i].getAttribute('id');
+                                    this.applyIframeCss(id, i);
+                                }
+                            }, this), 500);
+                        }
+                        //.comp.mc.loops = false;
                     },
                     preload: function() {
                         for(var i=0; i<this.jsonfiles.length; i++) {

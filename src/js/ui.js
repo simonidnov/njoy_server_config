@@ -132,10 +132,10 @@ var ui = {
             $('#team_name').val('');
         });
     },
-    closeTeam : function(){
+    closeTeam: function () {
       $('.teams').removeClass('opened');
     },
-    set_teams : function(){
+    set_teams: function () {
         $('#team_list').html('');
         if(typeof app.teams === "undefined"){
             return false;
@@ -175,7 +175,7 @@ var ui = {
             });
         });
     },
-    setListeners: function() {
+    setListeners: function () {
         $('[data-navigate]').off(ui.event).on(ui.event, function(event) {
             switch($(this).attr('data-navigate')) {
                 case '/team':
@@ -197,8 +197,8 @@ var ui = {
             event.preventDefault();
             return false;
         });
-        $('[data-action]').off(ui.event).on(ui.event, function(){
-            switch($(this).attr('data-action')){
+        $('[data-action]').off(ui.event).on(ui.event, function () {
+            switch ($(this).attr('data-action')) {
                 case 'drawing':
                     app.socket.emit("njoy", {status:"drawer"});
                     break;
@@ -296,7 +296,7 @@ var ui = {
             //app.socket.emit("njoy", {"status":"video", "file":"ressources/1703_NJOY_ANIM_LOGO_FB.mp4"});
         });
     },
-    navigate: function(url) {
+    navigate: function (url) {
         /*var uri = url.split('/')[0];
         if(URIError === "app_dashboard"){
             app.selected_app = app.activities.activities[url.split('/')[1]];
@@ -333,14 +333,14 @@ var ui = {
             break;
         }*/
     },
-    load_dependencies: function() {
+    load_dependencies: function () {
         //alert(this.page_params.page);
         (this.page_params.page === "") ? this.page_params.page = "default": this.page_params.page = this.page_params.page;
         /* get descriptor */
-        $.getJSON('pages/' + this.page_params.page + '/descriptor.json', function(e) {
+        $.getJSON('pages/' + this.page_params.page + '/descriptor.json', function (e) {
             ui.descriptor = JSON.parse(JSON.stringify(e));
             /* load content template */
-            $.get('pages/' + ui.page_params.page + '/' + ui.descriptor.content.uri, function(e) {
+            $.get('pages/' + ui.page_params.page + '/' + ui.descriptor.content.uri, function (e) {
                 $('body').append('<div class="blocker"></div>');
                 ui.templates[ui.page_params.page] = _.template(e);
                 /* TODO create transitions */
@@ -361,23 +361,23 @@ var ui = {
                 }
                 /* load js class and dependencies */
                 for (var j = 0; j < ui.descriptor.dependencies.js.length; j++) {
-                    $.getScript('pages/' + ui.page_params.page + '/' + ui.descriptor.dependencies.js[j], function(e) {
+                    $.getScript('pages/' + ui.page_params.page + '/' + ui.descriptor.dependencies.js[j], function (e) {
                     });
                 }
                 /* load default page class then init there */
-                $.getScript('pages/' + (ui.page_params.page) + '/' + (ui.descriptor.class) + '.js', function(e) {
-                    if($('body main.app .screen').length > 2){
-                        for(var i=0; i<$('body main.app .screen').length-1; i++){
+                $.getScript('pages/' + (ui.page_params.page) + '/' + (ui.descriptor.class) + '.js', function (e) {
+                    if ($('body main.app .screen').length > 2) {
+                        for (var i=0; i<$('body main.app .screen').length-1; i++) {
                             $('body main.app .screen').eq(i).remove();
                         }
                     }
                     if ($('body main.app .screen').length > 1) {
-                        if(ui.direction === "back"){
+                        if (ui.direction === "back") {
                             TweenMax.to($('body main.app .screen').first(), .5, {
                                 left: '100%'
                             });
                             TweenMax.set($('body main.app .screen').last(), {left:"-100%"});
-                        }else{
+                        } else {
                             TweenMax.to($('body main.app .screen').first(), .5, {
                                 left: '-100%'
                             });
@@ -418,7 +418,7 @@ var ui = {
             });
         });
     },
-    display_error: function(datas) {
+    display_error: function (datas) {
         $('.ui_layer').append(ui.templates.notification(datas));
         $('.cross_close').off(ui.event).on(ui.event, function() {
             $(this).parent().remove();
@@ -427,7 +427,7 @@ var ui = {
             $('.notification').remove();
         }})
     },
-    setParams: function(url) {
+    setParams: function (url) {
         url = url.replace('/', '').split('/');
         this.page_params.page = url[0];
         this.page_params.params = {};
@@ -435,7 +435,7 @@ var ui = {
             this.page_params.params[url[i]] = url[i + 1];
         }
     },
-    init_navbar: function() {
+    init_navbar: function () {
         if(typeof ui.descriptor.header.nav_left !== "undefined"){
             $('header .left_nav').remove();
             for(var i=0; i<ui.descriptor.header.nav_left.length; i++){
@@ -491,7 +491,7 @@ var ui = {
             }, this));
         }
     },
-    init_scroll_view: function() {
+    init_scroll_view: function () {
         $('.screen').css({'height':window.innerHeight-$('header').height(), "overflow":"hidden"});
         $('.screen .wrapper').css({'height':"100%", 'width':"100%", "overflow":"hidden"});
         $('.screen .wrapper .scroller').css({'display':"block", "width":"100%"});
@@ -506,12 +506,12 @@ var ui = {
             }
         }*/
     },
-    open_wifi_settings : function(){
+    open_wifi_settings : function () {
         if (window.cordova && window.cordova.plugins.settings) {
             console.log('openNativeSettingsTest is active');
             window.cordova.plugins.settings.open(
                 "wifi",
-                function() {
+                function () {
                     console.log('opened settings');
                 },
                 function () {
@@ -522,50 +522,50 @@ var ui = {
             console.log('openNativeSettingsTest is not active!');
         }
     },
-    check_wifi : function() {
-        if(typeof navigator.connection !== "undefined") {
-            if(navigator.connection.type !== "wifi") {
+    check_wifi : function () {
+        if (typeof navigator.connection !== "undefined") {
+            if (navigator.connection.type !== "wifi") {
                 ui.popin({
                     "illus":"img/logout_illus.svg",
                     "title":"WIFI",
-                    "message":"Pour utiliser l'application vous devez activer la WIFI et vous connecter sur le réseau NJOY avec le mot de passe njoynjoy.",
+                    "message":"Pour utiliser l'application vous devez activer le WIFI et vous connecter sur le réseau NJOY avec le mot de passe njoynjoy.",
                     "buttons":[
                         {
-                            "label": "Activer la WIFI", 
+                            "label": "Activer le WIFI",
                             "class": "error"
                         }
                     ]
-                }, function(e) {
+                }, function (e) {
                     ui.open_wifi_settings();
                 });
             }
         }
     },
-    reboot_server : function(){
+    reboot_server : function () {
         app.socket.emit("njoy", {"status":"reboot"});
     },
-    battery_low : function(){
-        ui.popin({
+    battery_low : function () {
+        ui.popin ({
             "illus":"img/energy.svg",
             "title":"BATTERIE",
             "message":"Attention votre batterie est bientôt vide, veuillez brancher votre appareil.",
             "buttons":[
                 {"label":"J'ai compris", class:"success"}
             ]
-        }, function(e){
+        }, function (e) {
         });
     },
-    open_webview : function(){
+    open_webview : function () {
         if (cordova && cordova.InAppBrowser) {
             cordova.InAppBrowser.open(url, target, options);
-        }else{
-            ui.popin({
+        } else {
+            ui.popin ({
                 "title":"INFOS",
                 "message":"Nous avons un problème avec le chargement de ce contenu, veuillez contacter NJOY pour en savoir plus.",
                 "buttons":[
                     {"label":"J'ai compris", class:"success"}
                 ]
-            }, function(e){
+            }, function (e) {
             });
         }
     }

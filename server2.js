@@ -79,19 +79,19 @@ app.get('/', function(req, res) {
 });
 
 io.on('connection', function(socket) {
-    socket.on('disconnect', function() {
+    socket.on('disconnect', function () {
         console.log('user disconnected');
     });
-    socket.on('redirect', function(datas) {
+    socket.on('redirect', function (datas) {
         io.emit('redirect', datas);
     });
-    socket.on('boardingpass', function(datas) {
+    socket.on('boardingpass', function (datas) {
         io.emit('boardingpass', datas);
     });
-    socket.on('labofolies', function(datas) {
+    socket.on('labofolies', function (datas) {
         io.emit('labofolies', datas);
     });
-    socket.on('njoy', function(datas) {
+    socket.on('njoy', function (datas) {
         
         users_activities.push(datas);
         datas = addParams(datas);
