@@ -103,7 +103,6 @@ var app_tools = {
                     scriptElement.src = app.selected_tool.javascripts[j];
                     document.body.appendChild(scriptElement);    
                 }
-                
                 // LORSQUE LE JS EST CHARGÉ on regarde si il y a des actions à executer sur le dom
                 setTimeout(function () {
                     if(typeof app.selected_tool.actions !== "undefined"){
@@ -121,7 +120,6 @@ var app_tools = {
                 }.bind(this), 200);
             }
         }
-        
         
         $('#components_scroll').scrollTop(0);
 
