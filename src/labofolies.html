@@ -187,7 +187,7 @@
                     clock();
                 }, this), 1000);
                 var clock = function () {
-                    if (vm.date) {
+                    if (vm && vm.date) {
                         document.getElementById('secs').style.transform = 'rotate(' + ((360 / 60) * new Date(vm.date).getSeconds()) + 'deg)';
                         document.getElementById('mins').style.transform = 'rotate(' + ((360 / 60) * new Date(vm.date).getMinutes()) + 'deg)';
                         document.getElementById('hours').style.transform = 'rotate(' + ((720 / 24) * new Date(vm.date).getHours()) + 'deg)';
