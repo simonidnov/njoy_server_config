@@ -1,19 +1,23 @@
-html, body{
-    width:100%;
-    height:100%;
+html,
+body {
+    width: 100%;
+    height: 100%;
     overflow: hidden;
-    padding:0;
+    padding: 0;
     margin: 0;
 }
+
 .labofolies {
-    background-color:#CCC;
+    background-color: #CCC;
     widows: 100%;
-    height:100%;
+    height: 100%;
 }
+
 .labofolies .screener {
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
 }
+
 .labofolies .area {
     width: 38%;
     height: 49%;
@@ -23,6 +27,7 @@ html, body{
     border: 1px solid red;
     position: absolute;
 }
+
 .labofolies .poster {
     width: 20%;
     height: 49%;
@@ -36,50 +41,59 @@ html, body{
     background-position: center 10%;
     background-repeat: no-repeat;
 }
+
 .labofolies .background .logo {
     background-image: url(/pages/labofolies/images/1x/logo_labofolies.png);
-    width:800px;
-    height:800px;
+    width: 800px;
+    height: 800px;
     position: absolute;
-    left:0;
-    right:0;
-    margin:auto;
-    top:10%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 10%;
 }
+
 .labofolies .background,
 .labofolies .middle,
 .labofolies .scoring,
 .labofolies .light,
-.labofolies .foreground{
-    width:300%;
-    height:100%;
+.labofolies .foreground {
+    width: 300%;
+    height: 100%;
     position: absolute;
     top: 0;
-    left:0;
+    left: 0;
     background-size: auto 100%;
     background-position: top left;
     transition: transform 1s;
+    display: inline-flex;
 }
+
 .labofolies .scoring {
-    width:100% !important;
-    left:100% !important;
+    width: 100% !important;
+    left: 100% !important;
 }
-.labofolies .foreground{
+
+.labofolies .foreground {
     z-index: 9;
     background-image: url(../pages/labofolies/images/SVG/foreground.svg);
-} 
-.labofolies .middle{
+}
+
+.labofolies .middle {
     z-index: 7;
     background-image: url(../pages/labofolies/images/SVG/middle.svg);
-} 
-.labofolies .background{
+}
+
+.labofolies .background {
     z-index: 6;
     background-image: url(../pages/labofolies/images/SVG/background.svg);
-} 
-.labofolies .light{
+}
+
+.labofolies .light {
     z-index: 6;
     background-image: url(../pages/labofolies/images/SVG/light.svg);
-} 
+}
+
 .labofolies .scoring {
     z-index: 8;
     left: 0;
@@ -89,8 +103,9 @@ html, body{
     top: auto;
     position: absolute;
 }
+
 .labofolies .scoring .inner {
-    width:40%;
+    width: 40%;
     right: 0;
     left: 0;
     margin: auto;
@@ -100,73 +115,284 @@ html, body{
     position: absolute;
     display: inline-flex;
 }
-.labofolies .mouse_content{
+
+.labofolies .mouse_content {
     position: absolute;
-    bottom:6%;
-    width:320px;
-    height:320px;
-    left:2%;
-}
-.labofolies .oscilloscope_content{
-    position: absolute;
-    bottom:6%;
-    width:300px;
-    height:230px;
-    left:72%;
-}
-.labofolies .screener .screen {
-    display: inline-block;
-    width:100vw;
-    height:100%;
-    position: relative;
-}
-/* LABORATORY POSITION SCREEN */
-.labofolies.laboratory .background {
-    transform:translateX(-100vw);
-}
-.labofolies.laboratory .light {
-    transform:translateX(-100vw);
-}
-.labofolies.laboratory .middle {
-    transform:translateX(-100vw);
-}
-.labofolies.laboratory .scoring {
-    transform:translateX(-100vw);
-}
-.labofolies.laboratory .foreground {
-    transform:translateX(-100vw);
-}
-/* END POSITION SCREEN */
-.labofolies.synthetisation .background {
-    transform:translateX(-173vw);
-}
-.labofolies.synthetisation .light {
-    transform:translateX(-200vw);
-}
-.labofolies.synthetisation .middle {
-    transform:translateX(-200vw);
-}
-.labofolies.synthetisation .scoring {
-    transform:translateX(-200vw);
-}
-.labofolies.synthetisation .foreground {
-    transform:translateX(-200vw);
+    bottom: 6%;
+    width: 320px;
+    height: 320px;
+    left: 2%;
 }
 
-svg{
-    background-color: rgba(255,255,255,0);
+.labofolies .oscilloscope_content {
+    position: absolute;
+    bottom: 6%;
+    width: 300px;
+    height: 230px;
+    left: 72%;
+}
+
+.labofolies .screener .screen {
+    display: inline-block;
+    width: 100vw;
+    height: 100%;
+    position: relative;
+}
+
+/* LABORATORY POSITION SCREEN */
+.labofolies.laboratory .background {
+    transform: translateX(-100vw);
+}
+
+.labofolies.laboratory .light {
+    transform: translateX(-100vw);
+}
+
+.labofolies.laboratory .middle {
+    transform: translateX(-100vw);
+}
+
+.labofolies.laboratory .scoring {
+    transform: translateX(-100vw);
+}
+
+.labofolies.laboratory .foreground {
+    transform: translateX(-100vw);
+}
+
+/* END POSITION SCREEN */
+.labofolies.synthetisation .background {
+    transform: translateX(-173vw);
+}
+
+.labofolies.synthetisation .light {
+    transform: translateX(-200vw);
+}
+
+.labofolies.synthetisation .middle {
+    transform: translateX(-200vw);
+}
+
+.labofolies.synthetisation .scoring {
+    transform: translateX(-200vw);
+}
+
+.labofolies.synthetisation .foreground {
+    transform: translateX(-200vw);
+}
+
+svg {
+    background-color: rgba(255, 255, 255, 0);
     width: 100%;
     height: auto;
 }
+
 .scoring {
     display: inline-flex !important;
-    width:100%;
+    width: 100%;
 }
+
 .score {
     display: inline !important;
 }
-iframe{
+
+iframe {
     width: 100% !important;
-    height:100% !important;
+    height: 100% !important;
     overflow: hidden;
+}
+
+.labofolies .horloge {
+    width: 205px;
+    height: 205px;
+    position: absolute;
+    top: 30px;
+    left: 160px;
+    background-image: url(../pages/labofolies/images/SVG/horloge.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.labofolies .horloge .hour {
+    height: 40px;
+    width: 10px;
+    position: absolute;
+    transform-origin: 5px 38px;
+    top: 62px;
+    left: 95px;
+    background-color: #002F69;
+    transform: rotate(0deg);
+    border-radius: 5px;
+}
+
+.labofolies .horloge .min {
+    height: 60px;
+    width: 10px;
+    position: absolute;
+    transform-origin: 5px 58px;
+    top: 40px;
+    left: 95px;
+    background-color: #002F69;
+    transform: rotate(0deg);
+    border-radius: 5px;
+}
+
+.labofolies .horloge .sec {
+    height: 60px;
+    width: 4px;
+    position: absolute;
+    transform-origin: 2px 58px;
+    top: 40px;
+    left: 95px;
+    background-color: coral;
+    transform: rotate(0deg);
+    border-radius: 5px;
+}
+
+
+.labofolies .jauge {
+    width: 140px;
+    height: 140px;
+    position: absolute;
+    top: 410px;
+    left: 1520px;
+    background-image: url(../pages/labofolies/images/SVG/jauge.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.labofolies .jauge .center {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    border: 3px solid #002F69;
+    background: #F88645;
+    top: 58px;
+    left: 58px;
+    position: absolute;
+}
+
+.labofolies .jauge .aiguille {
+    width: 10px;
+    height: 40px;
+    transform-origin: 5px 40px;
+    top: 30px;
+    background: #002F69;
+    position: absolute;
+    left: 65px;
+    border-radius: 5px;
+    margin: auto;
+    transition: all .2s linear;
+}
+
+.labofolies .baloon_content {
+    width: 150px;
+    height: 200px;
+    position: absolute;
+    top: 330px;
+    left: 205px;
+}
+
+.labofolies .chauffe_content {
+    width: 100px;
+    height: 200px;
+    position: absolute;
+    top: 770px;
+    left: 242px;
+}
+
+.labofolies .balloon_content {
+    width: 231px;
+    height: 281px;
+    position: absolute;
+    top: 330px;
+    left: 122px;
+}
+
+.labofolies .goutter {
+    position: absolute;
+    left: 849px;
+    top: 460px;
+    width: 15px;
+    height: 230px;
+}
+
+.labofolies .goutter2 {
+    position: absolute;
+    left: 999px;
+    top: 310px;
+    width: 15px;
+    height: 590px;
+}
+
+.labofolies .goutter2 .goutte,
+.labofolies .goutter .goutte {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    background: #92dbac;
+    border: 3px solid #012e69;
+    top: 0px;
+    position: absolute;
+    -webkit-animation: goutting .4s infinite ease-in;
+    /* Safari 4+ */
+    -moz-animation: goutting .4s infinite ease-in;
+    /* Fx 5+ */
+    -o-animation: goutting .4s infinite ease-in;
+    /* Opera 12+ */
+    animation: goutting .4s infinite ease-in;
+    /* IE 10+, Fx 29+ */
+}
+
+.labofolies .goutter2 .goutte {
+    animation-delay: 2s;
+    background: #e1526e;
+    -webkit-animation: goutting 1s infinite ease-in;
+    /* Safari 4+ */
+    -moz-animation: goutting 1s infinite ease-in;
+    /* Fx 5+ */
+    -o-animation: goutting 1s infinite ease-in;
+    /* Opera 12+ */
+    animation: goutting 1s infinite ease-in;
+}
+
+@-webkit-keyframes goutting {
+    0% {
+        top: 0%;
+    }
+
+    100% {
+        top: 100%;
+    }
+}
+
+@-moz-keyframes goutting {
+    0% {
+        top: 0%;
+    }
+
+    100% {
+        top: 100%;
+    }
+}
+
+@-o-keyframes goutting {
+    0% {
+        top: 0%;
+    }
+
+    100% {
+        top: 100%;
+    }
+}
+
+@keyframes goutting {
+    0% {
+        top: 0%;
+    }
+
+    100% {
+        top: 100%;
+    }
 }

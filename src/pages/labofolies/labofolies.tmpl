@@ -9,7 +9,7 @@
         <% for (var t=0; t<teams.length; t++) { %>
             <div class="team" id="team<%= t %>" data-team="<%= t %>">
                 <div class="jauge">
-                    <iframe id="<%= teams[t].label %>" onload="labofolies.setIframes()" src="<%= app.ip %>pages/labofolies/motions/<%= teams[t].label %>.html" width="50"></iframe>
+                    <iframe id="<%= teams[t].label %>" onload="labofolies.setIframes()" src="<%= app.ip %>/pages/labofolies/motions/<%= teams[t].label %>.html" width="50"></iframe>
                 </div>
                 <div class="score <% if(teams[t].isActive) { %> active <% } %>" data-team="<%= t %>">
                     <div class="less" data-team="<%= t %>">-</div>
@@ -29,15 +29,23 @@
         </div>
     <% } else if (screener === "scanner") { %>
         <div class="scanner">
-            <h3>Scanner !</h3>
-            <p>
-                Lorsqu'une équipe résoud une énigme, elle obtient une carte de la couleur correspondante.<br/>
-                Cliquez sur Scanner une carte ci-dessous pour que l'équipe découvre la molécule cachée dans la carte de jeu !<br/>
-                Une fois la carte scannée, la molécule utile à la synthétisation du cérome apparapîtra automatiquement sur le tableau du laboratoire<br/>
-                et la jeuge de l'équipe se verra attribué 10 points supplémentaires !<br>
-            </p>
-            <div class="classic_button success centered" id="openScan">Scanner une carte</div>
-
+            <h3>Sélectionner l'équipe</h3>
+            <div class="team_selector">
+                <p>Cliquez sur la fiole correspondante à l'équipe</p>
+                <ul id="team_picker">
+                    <% for (var t=0; t<teams.length; t++) { %>
+                        <% if(teams[t].isActive) { %>
+                            <li id="team<%= t %>" data-team="<%= t %>">
+                                <div class="jauge">
+                                    <iframe id="<%= teams[t].label %>" onload="labofolies.setIframes()" src="<%= app.ip %>/pages/labofolies/motions/<%= teams[t].label %>.html" width="50"></iframe>
+                                </div>
+                                <span><%= teams[t].label %></span>
+                            </li>
+                        <% } %>
+                    <% } %>
+                </ul>
+            </div>
+            <div class="classic_button success centered disabled" id="openScan">Scanner une carte</div>
         </div>
     <% } else if (screener === "synthetisation") { %>
         <div class="scanner">
