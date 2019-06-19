@@ -41,15 +41,15 @@
             <div class="light"></div>
             <div class="scoring">
                 <div class="mouse_content">
-                    <iframe id="mouse" src="pages/labofolies/motions/mouse.html" width="320" height="320"></iframe>
+                    <iframe id="mouse" src="/pages/labofolies/motions/mouse.html" width="320" height="320"></iframe>
                 </div>
                 <div class="oscilloscope_content">
-                    <iframe id="oscilloscope" src="pages/labofolies/motions/oscilloscope.html" width="320"
+                    <iframe id="oscilloscope" src="/pages/labofolies/motions/oscilloscope.html" width="320"
                         height="320"></iframe>
                 </div>
                 <div class="inner">
                     <div class="score" v-for="(team, index) in status.teams">
-                        <iframe :id="'score' + index" :src="'pages/labofolies/motions/' + team.label + '.html'"
+                        <iframe :id="'score' + index" :src="'/pages/labofolies/motions/' + team.label + '.html'"
                             :style="{visibility: ((team.isActive)? 'visible' : 'hidden') }"></iframe>
                     </div>
                 </div>
@@ -72,11 +72,11 @@
                 </div>
                 <div class="screen">
                     <div class="balloon_content">
-                        <iframe id="balloon" src="pages/labofolies/motions/balloon.html" width="320"
+                        <iframe id="balloon" src="/pages/labofolies/motions/balloon.html" width="320"
                             height="320"></iframe>
                     </div>
                     <div class="chauffe_content">
-                        <iframe id="balloon_1" src="pages/labofolies/motions/balloon_1.html" width="320"
+                        <iframe id="balloon_1" src="/pages/labofolies/motions/balloon_1.html" width="320"
                             height="320"></iframe>
                     </div>
                     <div class="goutter">
