@@ -184,6 +184,7 @@
 
                 /* CLOCK */
                 setInterval(new Proxy(() => {
+                    console.log('clock');
                     clock();
                 }, this), 1000);
                 var clock = function () {
@@ -193,7 +194,7 @@
                         document.getElementById('hours').style.transform = 'rotate(' + ((720 / 24) * new Date(vm.date).getHours()) + 'deg)';
                     }
                 }
-                clock();
+                // clock();
             },
             computed: {
                 setClass: function () {
