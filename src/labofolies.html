@@ -187,9 +187,9 @@
                     clock();
                 }, this), 1000);
                 var clock = function () {
-                    document.getElementById('secs').style.transform = 'rotate(' + ((360 / 60) * new Date(vm.Date).getSeconds()) + 'deg)';
-                    document.getElementById('mins').style.transform = 'rotate(' + ((360 / 60) * new Date(vm.Date).getMinutes()) + 'deg)';
-                    document.getElementById('hours').style.transform = 'rotate(' + ((720 / 24) * new Date(vm.Date).getHours()) + 'deg)';
+                    document.getElementById('secs').style.transform = 'rotate(' + ((360 / 60) * new Date(vm.date).getSeconds()) + 'deg)';
+                    document.getElementById('mins').style.transform = 'rotate(' + ((360 / 60) * new Date(vm.date).getMinutes()) + 'deg)';
+                    document.getElementById('hours').style.transform = 'rotate(' + ((720 / 24) * new Date(vm.date).getHours()) + 'deg)';
                 }
                 clock();
             },
