@@ -184,12 +184,13 @@
 
                 /* CLOCK */
                 setInterval(new Proxy(() => {
-                    clock();
+                    if (vm) {
+                        vm.date += 1000;
+                        clock();
+                    }
                 }, this), 1000);
                 var clock = function () {
-                    console.log('clock ', vm);
                     if (vm) {
-                        console.log('set clock');
                         document.getElementById('secs').style.transform = 'rotate(' + ((360 / 60) * new Date(vm.date).getSeconds()) + 'deg)';
                         document.getElementById('mins').style.transform = 'rotate(' + ((360 / 60) * new Date(vm.date).getMinutes()) + 'deg)';
                         document.getElementById('hours').style.transform = 'rotate(' + ((720 / 24) * new Date(vm.date).getHours()) + 'deg)';
