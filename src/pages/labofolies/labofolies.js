@@ -6,10 +6,49 @@ var labofolies_status = {
     { id: 3, label: "green", score: 0, molecules: [], isActive: false },
     { id: 4, label: "red", score: 0, molecules: [], isActive: false }
   ],
+  display: '/ressources/labofolies/displays/default.png',
   currentTeamScan: null,
   screener: 'default',
   date: new Date().getTime()
 };
+var removeLink = function (evt) {
+  console.log(evt.target);
+  // $(evt.target).remove();
+  evt.target.parentNode.removeChild(evt.target);
+}
+var createQRcodes = function (data) {
+  setTimeout(async function () {
+    var target = document.getElementById('qrcodes');
+    for (i = 0; i < data.length; i++) {
+      console.log('log element : ', data[i]);
+      delete data[i].description;
+      var url = "http://10.3.141.85:4000/api/barcode?text=" + data[i].formula + "&bcid=qrcode&textxalign=center&scale=1&width=500&height=500&contentType=download&showborder=false&borderleft=1&borderright=1&bordertop=1&borderbottom=1&guardwhitespace=false";
+      var myHeaders = new Headers();
+
+      await fetch(url, {
+        method: 'GET',
+        headers: myHeaders,
+        mode: 'cors',
+        cache: 'default'
+      }).then(async function (response) {
+        var myBlob = await response.blob();
+        var objURL = await URL.createObjectURL(myBlob);
+        target.innerHTML += '<a class="toremove" href="' + objURL + '" download="' + data[i].formula + '.png"><img src="' + objURL + '"/></a>';
+        // target.innerHTML += '<a href="' + response + '" download="' + data[i].formula + '.png"><img name="' + data[i].formula + '.png" alt="' + data[i].formula + '" src="' + url + '"></a><br/>';
+        $('.toremove').off('click').on('click', function (evt) {
+          $(this).remove();
+        });
+        /* await response.blob().then(function (myBlob) {
+          console.log('myBlob ', myBlob);
+          var objectURL = URL.createObjectURL(myBlob);
+          // myImage.src = objectURL;
+          console.log('objectURL ', objectURL);
+        }); */
+
+      });
+    };
+  }, 3000);
+}
 function labofolies(datas) {
   console.log('labofolies WILL BE LOAD PLEASE WAIT...');
   console.log('WE RECEIVED DATAS FROM ACTIVITIES => ', datas);
@@ -17,6 +56,9 @@ function labofolies(datas) {
 labofolies.init = function (datas) {
   $.get(app.ip + '/ressources/labofolies/molecules.json', function (data, status) {
     labofolies.molecules = data;
+    labofolies_status.molecules = data;
+    // uncomment to generate QR images in pages for download tell to simon to run the toolkit api before
+    // createQRcodes(data);
   }.bind(this));
   this.setState();
   this.datas = datas;
@@ -189,8 +231,8 @@ labofolies.openScanner = function () {
     cordova.plugins.barcodeScanner.scan(
       function (result) {
         if (typeof result !== "undefined" && result !== null && result !== '') {
-          var code = JSON.parse(result.text)[0];
-          if (typeof code === 'undefined' || labofolies.currentTeamScan === null || typeof code.molecule === 'undefined') {
+          var code = result.text;
+          if (typeof code === 'undefined' || labofolies.currentTeamScan === null) {
             ui.popin({
               "title": "ERREUR DE QRCODE",
               "message": "Le format de ce QRCODE n'est pas reconnu, impossible de charger la molecule.",
@@ -204,22 +246,22 @@ labofolies.openScanner = function () {
               }
             });
           } else {
-            code.team = labofolies.currentTeamScan;
+            var team = labofolies.currentTeamScan;
             labofolies.currentTeamScan = null;
 
             var already = false;
-            var MOLECULE = _.where(labofolies.molecules, { folder: code.molecule })[0];
+            var MOLECULE = _.where(labofolies.molecules, { formula: code })[0];
             // On check si l'équipe n'a pas déjà scanné cette molécule avant d'attribuer les points
-            if (_.where(labofolies_status.teams[code.team].molecules, { folder: code.molecule }).length === 0) {
-              labofolies_status.teams[code.team].molecules.push(MOLECULE);
+            if (_.where(labofolies_status.teams[team].molecules, { formula: code }).length === 0) {
+              labofolies_status.teams[team].molecules.push(MOLECULE);
               // on attribu 10 points à l'équipe en question
-              labofolies_status.teams[code.team].score += 10;
+              labofolies_status.teams[team].score += 10;
             } else {
               already = true;
               // ATTENTION  CETTE EQUIPE A DEJA LA MOLECULE, IL FAUT SCANNER UNE AUTRE CARTE SI CE N EST PAS DE LA GRUGE
               ui.popin({
                 "title": "Déjà scanné",
-                "message": "L'équipe " + labofolies_status.teams[code.team].label + " a déjà scanné cette carte et obtenu les points, pour lui attribuer des points veuiillez lui attribuer une autre carte à scanner...",
+                "message": "L'équipe " + labofolies_status.teams[team].label + " a déjà scanné cette carte et obtenu les points, pour lui attribuer des points veuiillez lui attribuer une autre carte à scanner...",
                 "buttons": [
                   { "label": "OK", "class": "success" },
                   { "label": "C'est de la triche", "class": "error" }
@@ -232,7 +274,7 @@ labofolies.openScanner = function () {
               });
             }
             // On set le display pour afficher sur le tableau côté PI
-            labofolies_status.display = app.ip + "/ressources/labofolies/molecules/" + code.molecule + "/" + code.molecule + ".png";
+            labofolies_status.display = app.ip + "/ressources/labofolies/displays/" + code + ".png";
             // On sauvegarde l'état de l'application
             labofolies.saveState();
             // on envois le status de l'appli au PI avec une nouvelle date et surtout le nouveau display sauvegardé

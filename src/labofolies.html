@@ -31,7 +31,7 @@
                         <div class="hour" id="hours"></div>
                         <div class="sec" id="secs"></div>
                     </div>
-                    <div class="area"></div>
+                    <div class="area" id="displays"></div>
                     <div class="poster"></div>
                 </div>
                 <div class="screen">
@@ -135,6 +135,10 @@
                 this.socket.on('labofolies', function (datas) {
                     if (typeof datas.date !== 'undefined') {
                         vm.date = datas.date;
+                    }
+                    if (typeof datas.display !== 'undefined') {
+                        console.log('SETUP DISPLAY TABLE');
+                        document.getElementById('displays').style.backgroundImage = 'url(' + datas.display + ')';
                     }
                     console.log('RECEIVE DATAS LABOFOLIES ', datas);
                     /* GESTION DE CAS SPECIFIQUES */
