@@ -53,7 +53,6 @@
                             :style="{visibility: ((team.isActive)? 'visible' : 'hidden') }"></iframe>
                     </div>
                 </div>
-
             </div>
             <div class="middle">
                 <div class="screen"></div>
@@ -93,6 +92,7 @@
         var vm = new Vue({
             el: '#labofolies',
             data: {
+                date: new Date().getTime(),
                 activities: [],
                 message: 'LABOFOLIESS',
                 status: {
@@ -133,6 +133,9 @@
                     window.location.href = datas.url;
                 });
                 this.socket.on('labofolies', function (datas) {
+                    if (typeof datas.date !== 'undefined') {
+                        vm.date = datas.date;
+                    }
                     console.log('RECEIVE DATAS LABOFOLIES ', datas);
                     /* GESTION DE CAS SPECIFIQUES */
                     // SAMPLE CALL EMIT : vm.socket.emit('boardingpass', {status:"updateLine", value:"BONJOUR TOUT LE MONDE", line:4})
@@ -184,9 +187,9 @@
                     clock();
                 }, this), 1000);
                 var clock = function () {
-                    document.getElementById('secs').style.transform = 'rotate(' + ((360 / 60) * new Date().getSeconds()) + 'deg)';
-                    document.getElementById('mins').style.transform = 'rotate(' + ((360 / 60) * new Date().getMinutes()) + 'deg)';
-                    document.getElementById('hours').style.transform = 'rotate(' + ((720 / 24) * new Date().getHours()) + 'deg)';
+                    document.getElementById('secs').style.transform = 'rotate(' + ((360 / 60) * new Date(vm.Date).getSeconds()) + 'deg)';
+                    document.getElementById('mins').style.transform = 'rotate(' + ((360 / 60) * new Date(vm.Date).getMinutes()) + 'deg)';
+                    document.getElementById('hours').style.transform = 'rotate(' + ((720 / 24) * new Date(vm.Date).getHours()) + 'deg)';
                 }
                 clock();
             },
