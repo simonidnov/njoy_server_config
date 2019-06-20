@@ -137,8 +137,14 @@
                         vm.date = datas.date;
                     }
                     if (typeof datas.display !== 'undefined') {
+                        // NOTE the display is finally just the forlder name to link audio and picture white board
                         console.log('SETUP DISPLAY TABLE ', datas.display);
-                        document.getElementById('displays').style.backgroundImage = 'url(' + datas.display + ')';
+                        document.getElementById('displays').style.backgroundImage = 'url(/ressources/labofolies/displays/' + datas.display + '.png)';
+                        // play audio voice file 
+                        vm.socket.emit("njoy", {
+                            file: "/ressources/labofolies/molecules_voices/" + datas.display + ".mp3",
+                            status: "FX"
+                        });
                     }
                     console.log('RECEIVE DATAS LABOFOLIES ', datas);
                     /* GESTION DE CAS SPECIFIQUES */
