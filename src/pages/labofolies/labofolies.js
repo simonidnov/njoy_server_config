@@ -197,7 +197,7 @@ labofolies.set_events = function () {
   });
   $('#openScan').off('click').on('click', function () {
     console.log('openScan');
-    if (labofolies.currentTeamScan === null) {
+    if (labofolies_status.currentTeamScan === null) {
       // ERROR YOU NEED TO SELECT A TEAM
       ui.popin({
         "title": "Sélectionner une équipe",
@@ -221,10 +221,13 @@ labofolies.set_events = function () {
   $('#team_picker li').off('click').on('click', function () {
     $('#team_picker li').removeClass('selected');
     $(this).addClass('selected');
-    labofolies.currentTeamScan = $(this).attr('id');
+    labofolies_status.currentTeamScan = parseInt($(this).attr('id').replace('team', ''));
   });
 }
 labofolies.openScanner = function () {
+  var team = labofolies_status.currentTeamScan;
+  labofolies_status.currentTeamScan = null;
+  console.log('open scanner ', team);
   $('.labofolies_scan').addClass('opened');
   /* OPEN SCAN BARCODE ON MOBILE ONLY */
   if (typeof cordova !== "undefined") {
@@ -232,7 +235,7 @@ labofolies.openScanner = function () {
       function (result) {
         if (typeof result !== "undefined" && result !== null && result !== '') {
           var code = result.text;
-          if (typeof code === 'undefined' || labofolies.currentTeamScan === null) {
+          if (typeof code === 'undefined' || team === null) {
             ui.popin({
               "title": "ERREUR DE QRCODE",
               "message": "Le format de ce QRCODE n'est pas reconnu, impossible de charger la molecule.",
@@ -246,12 +249,15 @@ labofolies.openScanner = function () {
               }
             });
           } else {
-            var team = labofolies.currentTeamScan;
-            labofolies.currentTeamScan = null;
+            // var team = labofolies_status.currentTeamScan;
+
 
             var already = false;
             var MOLECULE = _.where(labofolies.molecules, { formula: code })[0];
             // On check si l'équipe n'a pas déjà scanné cette molécule avant d'attribuer les points
+            if (typeof labofolies_status.teams[team].molecules === 'undefined') {
+              labofolies_status.teams[team].molecules = [];
+            }
             if (_.where(labofolies_status.teams[team].molecules, { formula: code }).length === 0) {
               labofolies_status.teams[team].molecules.push(MOLECULE);
               // on attribu 10 points à l'équipe en question
