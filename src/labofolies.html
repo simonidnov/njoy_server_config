@@ -147,25 +147,7 @@
                         });
                     }
                     console.log('RECEIVE DATAS LABOFOLIES ', datas);
-                    /* GESTION DE CAS SPECIFIQUES */
-                    // SAMPLE CALL EMIT : vm.socket.emit('boardingpass', {status:"updateLine", value:"BONJOUR TOUT LE MONDE", line:4})
-                    /* 
-                    switch(datas.screener){
-                        case 'laboratory':
-                            // update teams scores
-                            this.socket.emit('labofolies', {status:"scored"});
-                            break;
-                        case 'team':
-                            // Set teams length colors and default scores
-                            this.socket.emit('labofolies', {status:"teamsed"});
-                            break;
-                        case 'end':
-                            this.socket.emit("labofolies", {status:"ended"});
-                            break;
-                        default:
-                            break;
-                    }
-                    */
+
                     vm.status = datas;
                     $('#labofolies').removeClass('default');
                     $('#labofolies').removeClass('laboratory');
@@ -185,6 +167,7 @@
 
                 }.bind(this));
 
+                // TODO : bug patch on applyiframecss start here
                 setTimeout(new Proxy(() => {
                     for (i = 0; i < window.document.getElementsByTagName('iframe').length; i++) {
                         var id = window.document.getElementsByTagName('iframe')[i].getAttribute('id');
@@ -206,7 +189,6 @@
                         document.getElementById('hours').style.transform = 'rotate(' + ((720 / 24) * new Date(vm.date).getHours()) + 'deg)';
                     }
                 }
-                // clock();
             },
             computed: {
                 setClass: function () {
