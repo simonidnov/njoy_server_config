@@ -106,11 +106,12 @@ labofolies.setIframes = function () {
   }
 }
 labofolies.setIframe = function (name, id) {
-  var cssLink = document.createElement("link");
-  cssLink.href = app.ip + "/pages/labofolies/css/labofolies.css";
-  cssLink.rel = "stylesheet";
-  cssLink.type = "text/css";
+
   if (typeof window.frames[name] !== "undefined") {
+    var cssLink = document.createElement("link");
+    cssLink.href = "/pages/labofolies/css/labofolies.css";
+    cssLink.rel = "stylesheet";
+    cssLink.type = "text/css";
     window.frames[name].contentDocument.head.appendChild(cssLink);
   }
   if (typeof window.frames[id].window.comp !== "undefined") {

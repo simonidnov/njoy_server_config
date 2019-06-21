@@ -242,11 +242,18 @@
                     jauge.setAttribute('transform', updated);
                 },
                 applyIframeCss: function (name, id) {
-                    var cssLink = document.createElement("link");
+                    if (typeof window.frames[name] !== "undefined") {
+                        var cssLink = document.createElement("link");
+                        cssLink.href = "/css/labofolies.css";
+                        cssLink.rel = "stylesheet";
+                        cssLink.type = "text/css";
+                        window.frames[name].contentDocument.head.appendChild(cssLink);
+                    }
+                    /* var cssLink = document.createElement("link");
                     cssLink.href = "/css/labofolies.css";
                     cssLink.rel = "stylesheet";
                     cssLink.type = "text/css";
-                    window.frames[name].contentDocument.head.appendChild(cssLink);
+                    window.frames[name].contentDocument.head.appendChild(cssLink); */
                     if (typeof window.frames[id].window.comp !== "undefined") {
                         if (typeof window.frames[id].window.comp.mc !== "undefined") {
                             window.frames[id].window.comp.mc.loops = false;
