@@ -136,7 +136,7 @@
                     if (typeof datas.date !== 'undefined') {
                         vm.date = datas.date;
                     }
-                    if (typeof datas.display !== 'undefined') {
+                    if (typeof datas.display !== 'undefined' && datas.display !== "default") {
                         // NOTE the display is finally just the forlder name to link audio and picture white board
                         console.log('SETUP DISPLAY TABLE ', datas.display);
                         document.getElementById('displays').style.backgroundImage = 'url(/ressources/labofolies/displays/' + datas.display + '.png)';
