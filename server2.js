@@ -381,13 +381,13 @@ io.on('connection', function (socket) {
   });
 });
 http.listen(port, function () {
+  // omx.init_remote({ port: 8080 });
   cp.exec("/home/pi/njoy/startchromium.sh", function (error, stdout, stderr) {
     if (error !== null) {
       console.log("exec errror: " + error);
     }
     console.log('startchromium called ', error, stdout, stderr);
   });
-  omx.init_remote({ port: 8080 });
 });
 var login = function (datas) {
   if (typeof users === "undefined") { users = []; };
