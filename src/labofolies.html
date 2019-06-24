@@ -225,13 +225,15 @@
                 },
                 applyIframeCss: function (name, id) {
                     console.log('applyIframeCss => ', applyIframeCss);
-                    /* if (typeof window.frames[name] !== "undefined") {
+                    if (typeof window.frames[name] !== "undefined") {
                         var cssLink = document.createElement("link");
                         cssLink.href = "/css/labofolies.css";
                         cssLink.rel = "stylesheet";
                         cssLink.type = "text/css";
                         window.frames[name].contentDocument.head.appendChild(cssLink);
-                    } */
+                    } else {
+                        return false;
+                    }
                     /* var cssLink = document.createElement("link");
                     cssLink.href = "/css/labofolies.css";
                     cssLink.rel = "stylesheet";
