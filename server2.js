@@ -49,7 +49,6 @@ var omx = require('./modules/omx-interface/index.js'),
     disableOnScreenDisplay: true,
     loop: true
   };
-omx.init_remote({ port: 8080 });
 
 if (typeof omx.quit() === "undefined") {
   console.log('------------------- OMX NOT DEFINED ------------------- ');
@@ -387,6 +386,7 @@ http.listen(port, function () {
       console.log("exec errror: " + error);
     }
   });
+  omx.init_remote({ port: 8080 });
 });
 var login = function (datas) {
   if (typeof users === "undefined") { users = []; };
