@@ -1,7 +1,6 @@
 #!/bin/bash
 #sleep 10
 killall chromium-browser
-sleep 2
 
 sudo rngd -o /dev/random -r /dev/urandom
 
