@@ -385,6 +385,7 @@ http.listen(port, function () {
     if (error !== null) {
       console.log("exec errror: " + error);
     }
+    console.log('startchromium called ', error, stdout, stderr);
   });
   omx.init_remote({ port: 8080 });
 });
