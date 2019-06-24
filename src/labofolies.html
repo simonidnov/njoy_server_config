@@ -224,13 +224,14 @@
                     jauge.setAttribute('transform', updated);
                 },
                 applyIframeCss: function (name, id) {
-                    if (typeof window.frames[name] !== "undefined") {
+                    console.log('applyIframeCss => ', applyIframeCss);
+                    /* if (typeof window.frames[name] !== "undefined") {
                         var cssLink = document.createElement("link");
                         cssLink.href = "/css/labofolies.css";
                         cssLink.rel = "stylesheet";
                         cssLink.type = "text/css";
                         window.frames[name].contentDocument.head.appendChild(cssLink);
-                    }
+                    } */
                     /* var cssLink = document.createElement("link");
                     cssLink.href = "/css/labofolies.css";
                     cssLink.rel = "stylesheet";
@@ -241,21 +242,21 @@
                             window.frames[id].window.comp.mc.loops = false;
                         } else {
                             /* HOTFIX iframe script not loaded */
-                            setTimeout(new Proxy(() => {
-                                for (i = 0; i < window.document.getElementsByTagName('iframe').length; i++) {
-                                    var id = window.document.getElementsByTagName('iframe')[i].getAttribute('id');
-                                    this.applyIframeCss(id, i);
-                                }
-                            }, this), 500);
+                            /*  setTimeout(new Proxy(() => {
+                                 for (i = 0; i < window.document.getElementsByTagName('iframe').length; i++) {
+                                     var id = window.document.getElementsByTagName('iframe')[i].getAttribute('id');
+                                     this.applyIframeCss(id, i);
+                                 }
+                             }, this), 500); */
                         }
                     } else {
                         /* HOTFIX iframe not loaded */
-                        setTimeout(new Proxy(() => {
+                        /* setTimeout(new Proxy(() => {
                             for (i = 0; i < window.document.getElementsByTagName('iframe').length; i++) {
                                 var id = window.document.getElementsByTagName('iframe')[i].getAttribute('id');
                                 this.applyIframeCss(id, i);
                             }
-                        }, this), 500);
+                        }, this), 500); */
                     }
                     //.comp.mc.loops = false;
                 },
