@@ -11,4 +11,4 @@ mkdir server
 cd server
 git init
 git clone https://github.com/simonidnov/njoy_server_config.git
-node server.js
+sh startnode.sh

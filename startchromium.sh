@@ -1,6 +1,7 @@
 #!/bin/bash
 #sleep 10
 killall chromium-browser
+sleep 2
 export DISPLAY=:0
 # IMPOTANT SIMON : --ignore-gpu-blacklist is disabled for perf new update pi chromium
 #chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disable-session-crashed-bubble --incognito --kiosk --start-maximized http://10.3.141.1:3000/receptor
