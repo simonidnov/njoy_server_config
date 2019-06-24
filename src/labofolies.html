@@ -2,314 +2,311 @@
 <html>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, user-scalable=no">
-    <meta http-equiv="Access-Control-Allow-Origin" content="*">
-    <title>NJOY</title>
-    <link rel="stylesheet" type="text/css" href="css/app.css">
-    <link rel="stylesheet" type="text/css" href="css/labofolies.css">
-    <meta http-equiv="Access-Control-Allow-Origin" content="*">
-    <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="node_modules/underscore/underscore-min.js"></script>
-    <script type="text/javascript" src="js/socket.io/socket.io.js"></script>
-    <script src="node_modules/vue/dist/vue.min.js"></script>
-    <script src="pages/labofolies/motions/SnapSVGAnimator/js/vendor/snap.svg/snap.svg-min.js"></script>
-    <script src="pages/labofolies/motions/SnapSVGAnimator/js/SnapSVGAnimator.min.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <meta http-equiv="Access-Control-Allow-Origin" content="*">
+  <title>NJOY</title>
+  <link rel="stylesheet" type="text/css" href="css/app.css">
+  <link rel="stylesheet" type="text/css" href="css/labofolies.css">
+  <meta http-equiv="Access-Control-Allow-Origin" content="*">
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="node_modules/underscore/underscore-min.js"></script>
+  <script type="text/javascript" src="js/socket.io/socket.io.js"></script>
+  <script src="node_modules/vue/dist/vue.min.js"></script>
+  <script src="pages/labofolies/motions/SnapSVGAnimator/js/vendor/snap.svg/snap.svg-min.js"></script>
+  <script src="pages/labofolies/motions/SnapSVGAnimator/js/SnapSVGAnimator.min.js"></script>
 </head>
 
 <body>
-    <div id="labofolies" class="labofolies decollage">
-        <div class="screener">
-            <div class="background">
-                <div class="screen">
-                    <div class="logo"></div>
-                </div>
-                <div class="screen">
-                    <div class="horloge">
-                        <div class="min" id="mins"></div>
-                        <div class="hour" id="hours"></div>
-                        <div class="sec" id="secs"></div>
-                    </div>
-                    <div class="area" id="displays"></div>
-                    <div class="poster"></div>
-                </div>
-                <div class="screen">
+  <div id="labofolies" class="labofolies decollage">
+    <div class="screener">
+      <div class="background">
+        <div class="screen">
+          <div class="logo"></div>
+        </div>
+        <div class="screen">
+          <div class="horloge">
+            <div class="min" id="mins"></div>
+            <div class="hour" id="hours"></div>
+            <div class="sec" id="secs"></div>
+          </div>
+          <div class="area" id="displays"></div>
+          <div class="poster"></div>
+        </div>
+        <div class="screen">
 
-                </div>
-            </div>
-            <div class="light"></div>
-            <div class="scoring">
-                <!-- <div class="mouse_content">
+        </div>
+      </div>
+      <div class="light"></div>
+      <div class="scoring">
+        <!-- <div class="mouse_content">
                     <iframe id="mouse" src="/pages/labofolies/motions/mouse.html" width="320" height="320"></iframe>
                 </div> -->
-                <div class="oscilloscope_content">
-                    <iframe id="oscilloscope" src="/pages/labofolies/motions/oscilloscope.html" width="320"
-                        height="320"></iframe>
-                </div>
-                <div class="inner">
-                    <div class="score" v-for="(team, index) in status.teams">
-                        <iframe :id="'score' + index" :src="'/pages/labofolies/motions/' + team.label + '.html'"
-                            :style="{visibility: ((team.isActive)? 'visible' : 'hidden') }"></iframe>
-                    </div>
-                </div>
-            </div>
-            <div class="middle">
-                <div class="screen"></div>
-                <div class="screen">
-                    <div class="jauge">
-                        <div class="aiguille" id="jauger"></div>
-                        <div class="center"></div>
-                    </div>
-                </div>
-                <div class="screen">
-                </div>
-            </div>
-            <div class="foreground">
-                <div class="screen"></div>
-                <div class="screen">
-                </div>
-                <div class="screen">
-                    <div class="balloon_content">
-                        <iframe id="balloon" src="/pages/labofolies/motions/balloon.html" width="320"
-                            height="320"></iframe>
-                    </div>
-                    <div class="chauffe_content">
-                        <iframe id="balloon_1" src="/pages/labofolies/motions/balloon_1.html" width="320"
-                            height="320"></iframe>
-                    </div>
-                    <div class="goutter">
-                        <div class="goutte"></div>
-                    </div>
-                    <div class="goutter2">
-                        <div class="goutte"></div>
-                    </div>
-                </div>
-            </div>
+        <div class="oscilloscope_content">
+          <iframe id="oscilloscope" src="/pages/labofolies/motions/oscilloscope.html" width="320" height="320"></iframe>
         </div>
+        <div class="inner">
+          <div class="score" v-for="(team, index) in status.teams">
+            <iframe :id="'score' + index" :src="'/pages/labofolies/motions/' + team.label + '.html'"
+              :style="{visibility: ((team.isActive)? 'visible' : 'hidden') }"></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="middle">
+        <div class="screen"></div>
+        <div class="screen">
+          <div class="jauge">
+            <div class="aiguille" id="jauger"></div>
+            <div class="center"></div>
+          </div>
+        </div>
+        <div class="screen">
+        </div>
+      </div>
+      <div class="foreground">
+        <div class="screen"></div>
+        <div class="screen">
+        </div>
+        <div class="screen">
+          <div class="balloon_content">
+            <iframe id="balloon" src="/pages/labofolies/motions/balloon.html" width="320" height="320"></iframe>
+          </div>
+          <div class="chauffe_content">
+            <iframe id="balloon_1" src="/pages/labofolies/motions/balloon_1.html" width="320" height="320"></iframe>
+          </div>
+          <div class="goutter">
+            <div class="goutte"></div>
+          </div>
+          <div class="goutter2">
+            <div class="goutte"></div>
+          </div>
+        </div>
+      </div>
     </div>
-    <script>
-        var vm = new Vue({
-            el: '#labofolies',
-            data: {
-                date: new Date().getTime(),
-                activities: [],
-                message: 'LABOFOLIESS',
-                status: {
-                    teams: [
-                        { label: 'blue' },
-                        { label: 'orange' },
-                        { label: 'pink' },
-                        { label: 'green' },
-                        { label: 'red' }
-                    ]
-                },
-                socket: io(window.location.origin, { transports: ['websocket', 'xhr-polling'] }),
-                jsonfiles: [
-                    "orange.json",
-                    "green.json",
-                    "pink.json",
-                    "blue.json"
-                ],
-                motions: [],
-                sourceUrl: 'pages/labofolies/motions',
-                fps: 30,
-                width: 150,
-                height: 300,
-                AJAX_req: null
-            },
-            created: async function () {
-                this.socket.on('error', function (e) {
-                    console.log('error socket');
-                });
-                this.socket.on('connect_failed', function (e) {
-                    console.log("connect_failed");
-                });
-                this.socket.on('connect', function (e) {
-                    console.log("socket_connected");
-                });
-                this.socket.on('redirect', function (datas) {
-                    console.log('datas redirect ', datas);
-                    window.location.href = datas.url;
-                });
-                this.socket.on('labofolies', function (datas) {
-                    if (typeof datas.date !== 'undefined') {
-                        vm.date = datas.date;
-                    }
-                    if (typeof datas.display !== 'undefined' && datas.display !== "default") {
-                        // NOTE the display is finally just the forlder name to link audio and picture white board
-                        console.log('SETUP DISPLAY TABLE ', datas.display);
-                        document.getElementById('displays').style.backgroundImage = 'url(/ressources/labofolies/displays/' + datas.display + '.png)';
-                        // play audio voice file
-                    }
-                    console.log('RECEIVE DATAS LABOFOLIES ', datas);
-
-                    vm.status = datas;
-                    $('#labofolies').removeClass('default');
-                    $('#labofolies').removeClass('laboratory');
-                    $('#labofolies').removeClass('synthetisation');
-                    $('#labofolies').addClass(datas.screener);
-                    vm.status.total = 0;
-                    vm.status.actives = 0;
-                    for (var i = 0; i < vm.status.teams.length; i++) {
-                        vm.updateScore(i, vm.status.teams[i].score);
-                        vm.status.total += parseInt(vm.status.teams[i].score);
-                        if (vm.status.teams[i].isActive) vm.status.actives++;
-                    }
-                    rotation = (360 / (vm.status.actives * 100)) * vm.status.total;
-
-                    var jauger = document.getElementById('jauger');
-                    jauger.style.transform = 'rotate(' + (90 + rotation) + 'deg)';
-
-                }.bind(this));
-
-                // TODO : bug patch on applyiframecss start here
-                setTimeout(new Proxy(() => {
-                    for (i = 0; i < window.document.getElementsByTagName('iframe').length; i++) {
-                        var id = window.document.getElementsByTagName('iframe')[i].getAttribute('id');
-                        this.applyIframeCss(id, i);
-                    }
-                }, this), 1500);
-
-                /* CLOCK */
-                setInterval(new Proxy(() => {
-                    if (vm) {
-                        vm.date += 1000;
-                        clock();
-                    }
-                }, this), 1000);
-                var clock = function () {
-                    if (vm) {
-                        document.getElementById('secs').style.transform = 'rotate(' + ((360 / 60) * new Date(vm.date).getSeconds()) + 'deg)';
-                        document.getElementById('mins').style.transform = 'rotate(' + ((360 / 60) * new Date(vm.date).getMinutes()) + 'deg)';
-                        document.getElementById('hours').style.transform = 'rotate(' + ((720 / 24) * new Date(vm.date).getHours()) + 'deg)';
-                    }
-                }
-            },
-            computed: {
-                setClass: function () {
-                    return {
-                        unknow: false,
-                        selected: true
-                    }
-                }
-            },
-            methods: {
-                updateScore: function (teamId, score) {
-                    // on selectionne la jauge dans l'iframe de la team, soit le premier clip du mask
-                    var jauge = window
-                        .frames[$($('.score')[teamId]).find('iframe').attr('id')]
-                        .contentDocument.body.getElementsByClassName('maskGroup')[0]
-                        .getElementsByClassName('movieclip')[0];
-
-                    var height = 230;
-                    /*
-                    $(window
-                                .frames[$($('.score')[teamId]).find('iframe').attr('id')]
-                                .contentDocument.body.getElementsByTagName('svg')[0]).height();
-                    */
-                    var percent = Math.round(score * height) / 100;
-
-                    // on change sa position en fonction du score
-                    var transform = $(jauge).attr('transform'),
-                        transformSplitted = transform.split(','),
-                        lastAttr = transformSplitted[transformSplitted.length - 1];
-
-                    var updated = transform.replace(lastAttr, (height - percent) + ')');
-
-                    jauge.setAttribute('transform', updated);
-                },
-                applyIframeCss: function (name, id) {
-                    if (typeof window.frames[name] !== "undefined") {
-                        var cssLink = document.createElement("link");
-                        cssLink.href = "/css/labofolies.css";
-                        cssLink.rel = "stylesheet";
-                        cssLink.type = "text/css";
-                        window.frames[name].contentDocument.head.appendChild(cssLink);
-                    } else {
-                        return false;
-                    }
-                    /* var cssLink = document.createElement("link");
-                    cssLink.href = "/css/labofolies.css";
-                    cssLink.rel = "stylesheet";
-                    cssLink.type = "text/css";
-                    window.frames[name].contentDocument.head.appendChild(cssLink); */
-                    if (typeof window.frames[id].window.comp !== "undefined") {
-                        if (typeof window.frames[id].window.comp.mc !== "undefined") {
-                            window.frames[id].window.comp.mc.loops = false;
-                        } else {
-                            /* HOTFIX iframe script not loaded */
-                            /*  setTimeout(new Proxy(() => {
-                                 for (i = 0; i < window.document.getElementsByTagName('iframe').length; i++) {
-                                     var id = window.document.getElementsByTagName('iframe')[i].getAttribute('id');
-                                     this.applyIframeCss(id, i);
-                                 }
-                             }, this), 500); */
-                        }
-                    } else {
-                        /* HOTFIX iframe not loaded */
-                        /* setTimeout(new Proxy(() => {
-                            for (i = 0; i < window.document.getElementsByTagName('iframe').length; i++) {
-                                var id = window.document.getElementsByTagName('iframe')[i].getAttribute('id');
-                                this.applyIframeCss(id, i);
-                            }
-                        }, this), 500); */
-                    }
-                    //.comp.mc.loops = false;
-                },
-                preload: function () {
-                    for (var i = 0; i < this.jsonfiles.length; i++) {
-                        this.loadMotion(this.sourceUrl + '/' + this.jsonfiles[i], i);
-                    }
-                },
-                loadMotion: function (url, index) {
-                    console.log('LOAD MOTION ', url);
-                    // load snap motion by name
-                    AJAX_req = new XMLHttpRequest();
-                    AJAX_req.open("GET", url, true);
-                    AJAX_req.setRequestHeader("Content-type", "application/json");
-
-                    AJAX_req.onreadystatechange = this.handle_AJAX_Complete;
-                    AJAX_req.send();
-                },
-                handle_AJAX_Complete() {
-                    console.log('COMPLETE');
-                    if (AJAX_req.readyState == 4 && AJAX_req.status == 200) {
-                        json = JSON.parse(AJAX_req.responseText);
-                        console.log('JSON ', json);
-                        this.motions.push(new SVGAnim(
-                            json,
-                            this.width,
-                            this.height,
-                            this.fps
-                        ));
-                        window.document.getElementById('MOTION1') = new SVGAnim(
-                            json,
-                            this.width,
-                            this.height,
-                            this.fps
-                        );
-                    }
-                },
-                playMotion: function (name) {
-                    // play preloaded motion by id name
-                }
-            }
+  </div>
+  <script>
+    var vm = new Vue({
+      el: '#labofolies',
+      data: {
+        date: new Date().getTime(),
+        activities: [],
+        message: 'LABOFOLIESS',
+        status: {
+          teams: [
+            { label: 'blue' },
+            { label: 'orange' },
+            { label: 'pink' },
+            { label: 'green' },
+            { label: 'red' }
+          ]
+        },
+        socket: io(window.location.origin, { transports: ['websocket', 'xhr-polling'] }),
+        jsonfiles: [
+          "orange.json",
+          "green.json",
+          "pink.json",
+          "blue.json"
+        ],
+        motions: [],
+        sourceUrl: 'pages/labofolies/motions',
+        fps: 30,
+        width: 150,
+        height: 300,
+        AJAX_req: null
+      },
+      created: async function () {
+        this.socket.on('error', function (e) {
+          console.log('error socket');
         });
-        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-        function step(timestamp) {
-            // ticker remote update app state when its possible only
-            requestAnimationFrame(step);
-        }
+        this.socket.on('connect_failed', function (e) {
+          console.log("connect_failed");
+        });
+        this.socket.on('connect', function (e) {
+          console.log("socket_connected");
+        });
+        this.socket.on('redirect', function (datas) {
+          console.log('datas redirect ', datas);
+          window.location.href = datas.url;
+        });
+        this.socket.on('labofolies', function (datas) {
+          if (typeof datas.date !== 'undefined') {
+            vm.date = datas.date;
+          }
+          if (typeof datas.display !== 'undefined' && datas.display !== "default") {
+            // NOTE the display is finally just the forlder name to link audio and picture white board
+            console.log('SETUP DISPLAY TABLE ', datas.display);
+            document.getElementById('displays').style.backgroundImage = 'url(/ressources/labofolies/displays/' + datas.display + '.png)';
+            // play audio voice file
+          }
+          console.log('RECEIVE DATAS LABOFOLIES ', datas);
 
-        requestAnimationFrame(step);
-        function str_pad_left(string, pad, length) {
-            return (new Array(length + 1).join(pad) + string).slice(-length);
-        }
-    </script>
-    <style>
+          vm.status = datas;
+          $('#labofolies').removeClass('default');
+          $('#labofolies').removeClass('laboratory');
+          $('#labofolies').removeClass('synthetisation');
+          $('#labofolies').addClass(datas.screener);
+          vm.status.total = 0;
+          vm.status.actives = 0;
+          for (var i = 0; i < vm.status.teams.length; i++) {
+            vm.updateScore(i, vm.status.teams[i].score);
+            vm.status.total += parseInt(vm.status.teams[i].score);
+            if (vm.status.teams[i].isActive) vm.status.actives++;
+          }
+          rotation = (360 / (vm.status.actives * 100)) * vm.status.total;
 
-    </style>
+          var jauger = document.getElementById('jauger');
+          jauger.style.transform = 'rotate(' + (90 + rotation) + 'deg)';
+
+        }.bind(this));
+
+        // TODO : bug patch on applyiframecss start here
+        setTimeout(new Proxy(() => {
+          for (i = 0; i < window.document.getElementsByTagName('iframe').length; i++) {
+            var id = window.document.getElementsByTagName('iframe')[i].getAttribute('id');
+            this.applyIframeCss(id, i);
+          }
+        }, this), 1500);
+
+        /* CLOCK */
+        setInterval(new Proxy(() => {
+          if (vm) {
+            vm.date += 1000;
+            clock();
+          }
+        }, this), 1000);
+        var clock = function () {
+          if (vm) {
+            document.getElementById('secs').style.transform = 'rotate(' + ((360 / 60) * new Date(vm.date).getSeconds()) + 'deg)';
+            document.getElementById('mins').style.transform = 'rotate(' + ((360 / 60) * new Date(vm.date).getMinutes()) + 'deg)';
+            document.getElementById('hours').style.transform = 'rotate(' + ((720 / 24) * new Date(vm.date).getHours()) + 'deg)';
+          }
+        }
+      },
+      computed: {
+        setClass: function () {
+          return {
+            unknow: false,
+            selected: true
+          }
+        }
+      },
+      methods: {
+        updateScore: function (teamId, score) {
+          // on selectionne la jauge dans l'iframe de la team, soit le premier clip du mask
+          var jauge = window
+            .frames[$($('.score')[teamId]).find('iframe').attr('id')]
+            .contentDocument.body.getElementsByClassName('maskGroup')[0]
+            .getElementsByClassName('movieclip')[0];
+
+          var height = 230;
+          /*
+          $(window
+                      .frames[$($('.score')[teamId]).find('iframe').attr('id')]
+                      .contentDocument.body.getElementsByTagName('svg')[0]).height();
+          */
+          var percent = Math.round(score * height) / 100;
+
+          // on change sa position en fonction du score
+          var transform = $(jauge).attr('transform'),
+            transformSplitted = transform.split(','),
+            lastAttr = transformSplitted[transformSplitted.length - 1];
+
+          var updated = transform.replace(lastAttr, (height - percent) + ')');
+
+          jauge.setAttribute('transform', updated);
+        },
+        applyIframeCss: function (name, id) {
+          if (typeof window.frames[name] !== "undefined") {
+            var cssLink = document.createElement("link");
+            cssLink.href = "/css/labofolies.css";
+            cssLink.rel = "stylesheet";
+            cssLink.type = "text/css";
+            window.frames[name].contentDocument.head.appendChild(cssLink);
+          } else {
+            return false;
+          }
+          /* var cssLink = document.createElement("link");
+          cssLink.href = "/css/labofolies.css";
+          cssLink.rel = "stylesheet";
+          cssLink.type = "text/css";
+          window.frames[name].contentDocument.head.appendChild(cssLink); */
+          if (typeof window.frames[id].window.comp !== "undefined") {
+            if (typeof window.frames[id].window.comp.mc !== "undefined") {
+              window.frames[id].window.comp.mc.loops = false;
+            } else {
+              /* HOTFIX iframe script not loaded */
+              setTimeout(new Proxy(() => {
+                for (i = 0; i < window.document.getElementsByTagName('iframe').length; i++) {
+                  var id = window.document.getElementsByTagName('iframe')[i].getAttribute('id');
+                  this.applyIframeCss(id, i);
+                }
+              }, this), 500);
+            }
+          } else {
+            /* HOTFIX iframe not loaded */
+            setTimeout(new Proxy(() => {
+              for (i = 0; i < window.document.getElementsByTagName('iframe').length; i++) {
+                var id = window.document.getElementsByTagName('iframe')[i].getAttribute('id');
+                this.applyIframeCss(id, i);
+              }
+            }, this), 500);
+          }
+          //.comp.mc.loops = false;
+        },
+        preload: function () {
+          for (var i = 0; i < this.jsonfiles.length; i++) {
+            // this.loadMotion(this.sourceUrl + '/' + this.jsonfiles[i], i);
+          }
+        },
+        loadMotion: function (url, index) {
+          console.log('LOAD MOTION ', url);
+          // load snap motion by name
+          AJAX_req = new XMLHttpRequest();
+          AJAX_req.open("GET", url, true);
+          AJAX_req.setRequestHeader("Content-type", "application/json");
+
+          AJAX_req.onreadystatechange = this.handle_AJAX_Complete;
+          AJAX_req.send();
+        },
+        handle_AJAX_Complete() {
+          console.log('COMPLETE');
+          if (AJAX_req.readyState == 4 && AJAX_req.status == 200) {
+            json = JSON.parse(AJAX_req.responseText);
+            console.log('JSON ', json);
+            this.motions.push(new SVGAnim(
+              json,
+              this.width,
+              this.height,
+              this.fps
+            ));
+            window.document.getElementById('MOTION1') = new SVGAnim(
+              json,
+              this.width,
+              this.height,
+              this.fps
+            );
+          }
+        },
+        playMotion: function (name) {
+          // play preloaded motion by id name
+        }
+      }
+    });
+    window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+    function step(timestamp) {
+      // ticker remote update app state when its possible only
+      requestAnimationFrame(step);
+    }
+
+    requestAnimationFrame(step);
+    function str_pad_left(string, pad, length) {
+      return (new Array(length + 1).join(pad) + string).slice(-length);
+    }
+  </script>
+  <style>
+
+  </style>
 </body>
 
 </html>
