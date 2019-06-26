@@ -88,7 +88,7 @@ body {
 
 .labofolies .background {
     z-index: 6;
-    background-image: url(../pages/labofolies/images/SVG/background.svg);
+    background-image: url(../pages/labofolies/images/background.png);
 }
 
 .labofolies .light {
