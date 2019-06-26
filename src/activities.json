@@ -3080,36 +3080,30 @@
               "label": "Liste des appels",
               "desc": "Liste des appels téléphoniques et indices sonores du professeur.",
               "components": {
-                "playlist_audio": [
+                "playlist_video": [
                   {
                     "label": "Énigme 1",
                     "desc": "Appel pour la première énigme",
                     "datas": {},
-                    "file": "ressources/labofolies/audio/professeur/1_Appel_vocal_du_professeur.mp3"
+                    "file": "ressources/labofolies/call_professor/Appel_01.mp4"
                   },
                   {
-                    "label": "Appel 2-1",
+                    "label": "Appel 2",
                     "desc": "Appel pour la deuxième énigme",
                     "datas": {},
-                    "file": "ressources/labofolies/audio/professeur/2_1_Appel_vocal_du_professeur.mp3"
-                  },
-                  {
-                    "label": "Appel 2-2",
-                    "desc": "Appel pour la deuxième énigme",
-                    "datas": {},
-                    "file": "ressources/labofolies/audio/professeur/2_2_Appel_vocal_du_professeur_question.mp3"
+                    "file": "ressources/labofolies/call_professor/Appel_02.mp4"
                   },
                   {
                     "label": "Appel 3",
-                    "desc": "Appel pour la troisième énigme",
+                    "desc": "Appel pour la deuxième énigme",
                     "datas": {},
-                    "file": "ressources/labofolies/audio/professeur/3_Appel_vocal_du_professeur.mp3"
+                    "file": "ressources/labofolies/call_professor/Appel_03.mp4"
                   },
                   {
                     "label": "Appel 4",
-                    "desc": "Appel pour la quatrième énigme",
+                    "desc": "Appel pour la troisième énigme",
                     "datas": {},
-                    "file": "ressources/labofolies/audio/professeur/4_Appel_vocal_du_professeur.mp3"
+                    "file": "ressources/labofolies/call_professor/Appel_04.mp4"
                   }
                 ]
               }
