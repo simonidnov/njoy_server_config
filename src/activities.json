@@ -3070,13 +3070,6 @@
             "pages/labofolies/labofolies.js"
           ],
           "component_template": "pages/labofolies/labofolies.tmpl",
-          "actions": [
-            {
-              "type": "javascript",
-              "class": "labofolies",
-              "function": "init"
-            }
-          ],
           "datas": {
             "screener": "experiences"
           },

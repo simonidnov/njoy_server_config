@@ -40,9 +40,9 @@
       </div>
       <div class="light"></div>
       <div class="scoring">
-        <div class="mouse_content">
+        <!-- <div class="mouse_content">
           <iframe id="mouse" src="/pages/labofolies/motions/mouse.html" width="320" height="320"></iframe>
-        </div>
+        </div> -->
         <div class="oscilloscope_content">
           <iframe id="oscilloscope" src="/pages/labofolies/motions/oscilloscope.html" width="320" height="320"></iframe>
         </div>
@@ -132,7 +132,7 @@
           if (typeof datas.date !== 'undefined') {
             vm.date = datas.date;
           }
-          if (typeof datas.display !== 'undefined' && datas.display !== "default") {
+          if (typeof datas.display !== 'undefined') {
             // NOTE the display is finally just the forlder name to link audio and picture white board
             document.getElementById('displays').style.backgroundImage = 'url(/ressources/labofolies/displays/' + datas.display + '.png)';
             // play audio voice file
