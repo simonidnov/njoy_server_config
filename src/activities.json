@@ -2984,7 +2984,24 @@
         "audio": "",
         "pix": "URL_DU_SPLASH_GROUND_IF_AUDIO_IS_DEFINED"
       },
-      "tools": [],
+      "tools": [
+        {
+          "label": "Ambiance",
+          "desc": "Des musiques d'ambiance selon les humeurs pour combler les vides.",
+          "playlist": [
+            {
+              "label": "Vegedream",
+              "file": "ressources/crazyshow/blindtest/2018/12_Vegedream_Ramenez-la-coupe-a-la-maison.mp3",
+              "type": "audio"
+            },
+            {
+              "label": "Ray Charles",
+              "file": "ressources/audio/ambiance/1.mp3",
+              "type": "audio"
+            }
+          ]
+        }
+      ],
       "apps": [
         {
           "label": "Équipe et scores",
@@ -3056,7 +3073,7 @@
             }
           ],
           "datas": {
-            "screener": "expériences"
+            "screener": "experiences"
           },
           "menu": [
             {
