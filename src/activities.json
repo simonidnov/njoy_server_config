@@ -3024,7 +3024,7 @@
             }
           ],
           "datas": {
-            "screener": "settings"
+            "screener": "laboratory"
           },
           "menu": []
         },
@@ -3032,7 +3032,7 @@
           "label": "États de folie",
           "desc": "Les trois stades de folie du professeur",
           "datas": {
-            "screener": "video"
+            "screener": "laboratory"
           },
           "menu": [
             {
@@ -3078,7 +3078,7 @@
             }
           ],
           "datas": {
-            "screener": "experiences"
+            "screener": "laboratory"
           },
           "menu": [
             {
