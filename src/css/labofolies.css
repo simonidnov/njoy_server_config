@@ -67,8 +67,10 @@ body {
     left: 0;
     background-size: auto 100%;
     background-position: top left;
-    transition: transform 1s;
+    transform: translateZ(0);
+    transition: transform 1s linear;
     display: inline-flex;
+    will-change: transform;
 }
 
 .labofolies .scoring {
@@ -88,7 +90,7 @@ body {
 
 .labofolies .background {
     z-index: 6;
-    background-image: url(../pages/labofolies/images/background.png);
+    background-image: url(../pages/labofolies/images/SVG/background.svg);
 }
 
 .labofolies .light {
