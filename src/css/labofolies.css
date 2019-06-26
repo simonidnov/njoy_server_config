@@ -95,7 +95,7 @@ body {
 
 .labofolies .light {
     z-index: 6;
-    background-image: url(../pages/labofolies/images/SVG/light.svg);
+    /* background-image: url(../pages/labofolies/images/SVG/light.svg); */
 }
 
 .labofolies .scoring {
