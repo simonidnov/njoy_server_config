@@ -126,7 +126,6 @@
           console.log("socket_connected");
         });
         this.socket.on('redirect', function (datas) {
-          console.log('datas redirect ', datas);
           window.location.href = datas.url;
         });
         this.socket.on('labofolies', function (datas) {
@@ -154,10 +153,8 @@
             if (vm.status.teams[i].isActive) vm.status.actives++;
           }
           rotation = (360 / (vm.status.actives * 100)) * vm.status.total;
-
           var jauger = document.getElementById('jauger');
           jauger.style.transform = 'rotate(' + (90 + rotation) + 'deg)';
-
         }.bind(this));
 
         // TODO : bug patch on applyiframecss start here
@@ -200,11 +197,7 @@
             .getElementsByClassName('movieclip')[0];
 
           var height = 230;
-          /*
-          $(window
-                      .frames[$($('.score')[teamId]).find('iframe').attr('id')]
-                      .contentDocument.body.getElementsByTagName('svg')[0]).height();
-          */
+
           var percent = Math.round(score * height) / 100;
 
           // on change sa position en fonction du score

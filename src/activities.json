@@ -2991,17 +2991,17 @@
           "playlist": [
             {
               "label": "Groove Grove",
-              "file": "ressources/labofolies/background_music/Groove_Grove.mp3",
+              "file": "ressources/labofolies/audio/background_music/Groove_Grove.mp3",
               "type": "audio"
             },
             {
               "label": "Professor Umlaut",
-              "file": "ressources/labofolies/background_music/Professor_Umlaut.mp3",
+              "file": "ressources/labofolies/audio/background_music/Professor_Umlaut.mp3",
               "type": "audio"
             },
             {
               "label": "The big beat 80s",
-              "file": "ressources/labofolies/background_music/The_Big_Beat_80s.mp3",
+              "file": "ressources/labofolies/audio/background_music/The_Big_Beat_80s.mp3",
               "type": "audio"
             }
           ]
