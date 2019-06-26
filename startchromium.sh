@@ -7,8 +7,9 @@ sudo rngd -o /dev/random -r /dev/urandom
 export DISPLAY=:0
 # IMPOTANT SIMON : --ignore-gpu-blacklist is disabled for perf new update pi chromium
 # chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disable-session-crashed-bubble --incognito --kiosk --start-maximized http://10.3.141.1:3000/receptor
-# chromium-browser --noerrdialogs --disable-infobars --disable-session-crashed-bubble --incognito --kiosk --start-maximized http://10.3.141.1:3000/receptor
-epiphany-browser -a --profile ~/.config http://10.3.141.1:3000/receptor
+chromium-browser --noerrdialogs --ignore-gpu-blacklist --disable-infobars --disable-session-crashed-bubble --incognito --kiosk --start-maximized http://10.3.141.1:3000/receptor
+# epiphany is bullshit ?
+# epiphany-browser -a --profile ~/.config http://10.3.141.1:3000/receptor
 
 #chromium-browser --noerrdialogs --disable-infobars --disable-session-crashed-bubble --incognito --kiosk --start-maximized http://10.3.141.1:3000/receptor
 
