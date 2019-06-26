@@ -2990,13 +2990,18 @@
           "desc": "Des musiques d'ambiance selon les humeurs pour combler les vides.",
           "playlist": [
             {
-              "label": "Vegedream",
-              "file": "ressources/crazyshow/blindtest/2018/12_Vegedream_Ramenez-la-coupe-a-la-maison.mp3",
+              "label": "Groove Grove",
+              "file": "ressources/labofolies/background_music/Groove_Grove.mp3",
               "type": "audio"
             },
             {
-              "label": "Ray Charles",
-              "file": "ressources/audio/ambiance/1.mp3",
+              "label": "Professor Umlaut",
+              "file": "ressources/labofolies/background_music/Professor_Umlaut.mp3",
+              "type": "audio"
+            },
+            {
+              "label": "The big beat 80s",
+              "file": "ressources/labofolies/background_music/The_Big_Beat_80s.mp3",
               "type": "audio"
             }
           ]
