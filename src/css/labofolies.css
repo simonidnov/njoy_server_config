@@ -90,12 +90,12 @@ body {
 
 .labofolies .background {
     z-index: 6;
-    /* background-image: url(../pages/labofolies/images/SVG/background.svg); */
+    background-image: url(../pages/labofolies/images/SVG/background.svg);
 }
 
 .labofolies .light {
     z-index: 6;
-    /* background-image: url(../pages/labofolies/images/SVG/light.svg); */
+    background-image: url(../pages/labofolies/images/SVG/light.svg);
 }
 
 .labofolies .scoring {
