@@ -26,8 +26,6 @@
     "iscroll": "^5.2.0",
     "jquery": "^3.2.1",
     "jquery-lazyload": "^1.9.7",
-    "material-design-icons": "^3.0.1",
-    "materialize-css": "^0.98.2",
     "socket.io": "^1.7.3",
     "underscore": "^1.8.3",
     "uuid": "^3.0.1",
