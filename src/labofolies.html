@@ -162,12 +162,12 @@
           }
         }, this), 1500);
         /* CLOCK */
-        /* setInterval(new Proxy(() => {
+        setInterval(new Proxy(() => {
           if (vm) {
             vm.date += 1000;
             clock();
           }
-        }, this), 1000); */
+        }, this), 1000);
         var clock = function () {
           if (vm) {
             document.getElementById('secs').style.transform = 'rotate(' + ((360 / 60) * new Date(vm.date).getSeconds()) + 'deg)';
