@@ -3,7 +3,7 @@
 </div>
 <div class="labofolies">
     <div id="qrcodes"></div>
-    <link rel="stylesheet" type="text/css" href="/pages/labofolies/css/labofolies.css">
+    <link rel="stylesheet" type="text/css" href="pages/labofolies/css/labofolies.css">
     <% if (screener === "settings") { %>
         <div class="team_picker">
         <% for (var t=0; t<teams.length; t++) { %>
@@ -25,7 +25,9 @@
                 </div>
             </div>
         <% } %>
-        <div class="classic_button success centered" id="gotTolabo">Aller au laboratoire</div>
+            <br/>
+            <br/>
+            <div class="classic_button success centered" id="gotTolabo">Aller au laboratoire</div>
         </div>
     <% } else if (screener === "scanner") { %>
         <div class="scanner">
@@ -45,6 +47,7 @@
                     <% } %>
                 </ul>
             </div>
+            <br/>
             <div class="classic_button success centered disabled" id="openScan">Scanner une carte</div>
         </div>
     <% } else if (screener === "synthetisation") { %>
@@ -57,6 +60,7 @@
                 Si ce n'est pas le cas, vous pouvez lancer la synthétisation faute de temps<br>
                 Nous suggérons de passer par l'écran de gestion des équipes pour attibuer les points manquants si besoin avant la synthétisation.<br>
             </p>
+            <br/>
             <div class="classic_button success centered" id="synthetisation">Synthétiser le reméde</div>
         </div>
     <% } %>

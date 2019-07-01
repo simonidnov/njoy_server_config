@@ -6,7 +6,7 @@ var labofolies_status = {
     { id: 3, label: "green", score: 0, molecules: [], isActive: false },
     { id: 4, label: "red", score: 0, molecules: [], isActive: false }
   ],
-  display: '/ressources/labofolies/displays/default.png',
+  display: 'default',
   currentTeamScan: null,
   screener: 'default',
   date: new Date().getTime()
@@ -20,7 +20,6 @@ var createQRcodes = function (data) {
   setTimeout(async function () {
     var target = document.getElementById('qrcodes');
     for (i = 0; i < data.length; i++) {
-      console.log('log element : ', data[i]);
       delete data[i].description;
       var url = "http://10.3.141.85:4000/api/barcode?text=" + data[i].formula + "&bcid=qrcode&textxalign=center&scale=1&width=500&height=500&contentType=download&showborder=false&borderleft=1&borderright=1&bordertop=1&borderbottom=1&guardwhitespace=false";
       var myHeaders = new Headers();
@@ -106,12 +105,11 @@ labofolies.setIframes = function () {
   }
 }
 labofolies.setIframe = function (name, id) {
-
-  if (typeof window.frames[name] !== "undefined") {
-    var cssLink = document.createElement("link");
-    cssLink.href = "/pages/labofolies/css/labofolies.css";
-    cssLink.rel = "stylesheet";
-    cssLink.type = "text/css";
+  var cssLink = document.createElement("link");
+  cssLink.href = app.ip + "/pages/labofolies/css/labofolies.css";
+  cssLink.rel = "stylesheet";
+  cssLink.type = "text/css";
+  if (typeof window.frames[name] !== "undefined" && window.frames[name].contentDocument !== "undefined") {
     window.frames[name].contentDocument.head.appendChild(cssLink);
   }
   if (typeof window.frames[id].window.comp !== "undefined") {
@@ -185,20 +183,29 @@ labofolies.set_events = function () {
   });
   $('#gotTolabo').off('click').on('click', function (e) {
     // set screener laboratory then emmit labofolies_status
+    labofolies_status.display = 'default';
     labofolies_status.screener = 'laboratory';
-    labofolies.saveState();
-    labofolies_status.date = new Date().getTime();
-    app.socket.emit('labofolies', labofolies_status);
+    setTimeout(function () {
+      labofolies.saveState();
+    }, 1000);
+    // labofolies_status.date = new Date().getTime();
+    // app.socket.emit('labofolies', labofolies_status);
   });
   $('#synthetisation').off('click').on('click', function (e) {
     // set screener laboratory then emmit labofolies_status
     labofolies_status.screener = 'synthetisation';
-    labofolies_status.date = new Date().getTime();
-    app.socket.emit('labofolies', labofolies_status);
+    // labofolies_status.date = new Date().getTime();
+    labofolies.saveState();
+    // app.socket.emit('labofolies', labofolies_status);
+    setTimeout(function () {
+      app.socket.emit("njoy", {
+        file: "/ressources/labofolies/video/labofolies_synthetisation.mp4",
+        status: "video"
+      });
+    }, 1500);
   });
   $('#openScan').off('click').on('click', function () {
-    console.log('openScan');
-    if (labofolies_status.currentTeamScan === null) {
+    if (labofolies_status.currentTeamScan === null || $('#openScan').hasClass('disabled')) {
       // ERROR YOU NEED TO SELECT A TEAM
       ui.popin({
         "title": "Sélectionner une équipe",
@@ -221,14 +228,21 @@ labofolies.set_events = function () {
   });
   $('#team_picker li').off('click').on('click', function () {
     $('#team_picker li').removeClass('selected');
-    $(this).addClass('selected');
-    labofolies_status.currentTeamScan = parseInt($(this).attr('id').replace('team', ''));
+    if (!$(this).hasClass('selected')) {
+      $(this).addClass('selected');
+      $('#openScan').removeClass('disabled');
+      labofolies_status.currentTeamScan = parseInt($(this).attr('id').replace('team', ''));
+    } else {
+      $(this).removeClass('selected');
+      $('#openScan').addClass('disabled');
+      labofolies_status.currentTeamScan = null;
+    }
   });
 }
 labofolies.openScanner = function () {
   var team = labofolies_status.currentTeamScan;
-  labofolies_status.currentTeamScan = null;
-  console.log('open scanner ', team);
+  // labofolies_status.currentTeamScan = null;
+  // console.log('open scanner ', team);
   $('.labofolies_scan').addClass('opened');
   /* OPEN SCAN BARCODE ON MOBILE ONLY */
   if (typeof cordova !== "undefined") {
@@ -252,9 +266,9 @@ labofolies.openScanner = function () {
           } else {
             // var team = labofolies_status.currentTeamScan;
 
-
+            // console.log('SEARCH MOLECULE CODE => ', code);
             var already = false;
-            var MOLECULE = _.where(labofolies.molecules, { formula: code })[0];
+            var MOLECULE = _.where(JSON.parse(labofolies_status.molecules), { formula: code })[0];
             // On check si l'équipe n'a pas déjà scanné cette molécule avant d'attribuer les points
             if (typeof labofolies_status.teams[team].molecules === 'undefined') {
               labofolies_status.teams[team].molecules = [];
@@ -280,14 +294,23 @@ labofolies.openScanner = function () {
                 }
               });
             }
+            // alert(MOLECULE.folder);
             // On set le display pour afficher sur le tableau côté PI
-            labofolies_status.display = app.ip + "/ressources/labofolies/displays/" + code + ".png";
+            labofolies_status.display = MOLECULE.folder;// app.ip + "/ressources/labofolies/molecules/" + code + ".png";
             // On sauvegarde l'état de l'application
             labofolies.saveState();
             // on envois le status de l'appli au PI avec une nouvelle date et surtout le nouveau display sauvegardé
-            app.socket.emit('labofolies', labofolies_status);
+            // app.socket.emit('labofolies', labofolies_status);
+            // play audio file
+            app.socket.emit("njoy", {
+              file: "/ressources/labofolies/molecules_voices/" + MOLECULE.folder + ".mp3",
+              status: "FX"
+            });
             // On set la config du MOL sur le target display qui est 
-            labofolies.configJMOL(code.molecule, MOLECULE, already);
+            setTimeout(function () {
+              labofolies_status.display = "default";
+              labofolies.configJMOL(MOLECULE.folder, MOLECULE, already);
+            }, 1000);
           }
         } else {
           ui.popin({
@@ -354,6 +377,13 @@ labofolies.update_jauge = function (teamName, teamId, score) {
     .contentDocument.body.getElementsByClassName('maskGroup')[0]
     .getElementsByClassName('movieclip')[0];
 
+  if (typeof window.frames[teamName + '_big'] !== 'undefined') {
+    var jaugeBig = window
+      .frames[teamName + '_big']
+      .contentDocument.body.getElementsByClassName('maskGroup')[0]
+      .getElementsByClassName('movieclip')[0];
+  }
+
   var height = $(window
     .frames[teamName]
     .contentDocument.body.getElementsByTagName('svg')[0]).height();
@@ -367,17 +397,26 @@ labofolies.update_jauge = function (teamName, teamId, score) {
   var updated = transform.replace(lastAttr, (height - percent) + ')');
 
   jauge.setAttribute('transform', updated);
+  if (jaugeBig) {
+    jaugeBig.setAttribute('transform', updated);
+  }
 }
 labofolies.saveState = function () {
-  window.localStorage.setItem('labofolies', JSON.stringify(labofolies_status));
   labofolies_status.date = new Date().getTime();
   app.socket.emit('labofolies', labofolies_status);
+  /* labofolies_status.screener = "default";
+  labofolies_status.display = "default"; */
+  window.localStorage.setItem('labofolies', JSON.stringify(labofolies_status));
 }
 labofolies.setState = function () {
   var saved = window.localStorage.getItem('labofolies');
   if (typeof saved !== 'undefined' && saved !== '' && saved !== null) {
     labofolies_status = JSON.parse(saved);
+    labofolies_status.display = 'default';
+    labofolies_status.screener = 'laboratory';
   }
+  // labofolies_status.screener = "default";
+  // labofolies_status.display = "default";
   labofolies_status.date = new Date().getTime();
   app.socket.emit('labofolies', labofolies_status);
 }
@@ -390,13 +429,13 @@ labofolies.configJMOL = function (mol, MOLECULE, already) {
   // labofolies.molecules IS PRELOADED ON INIT
   // labofolies/molecules.json
 
-  var myMolInfos = _.where(labofolies.molecules, { folder: mol })[0];
+  var myMolInfos = MOLECULE;
   ; (function () {
     Info = {
       width: window.innerWidth / 2,
       height: window.innerHeight,
       debug: false,
-      color: "0xC0C0C0",
+      color: "0xc8d4ea",
       addSelectionOptions: true,
       // serverURL: "https://chemapps.stolaf.edu/jmol/jsmol/php/jsmol.php",
       use: "HTML5",
@@ -417,11 +456,20 @@ labofolies.configJMOL = function (mol, MOLECULE, already) {
     }
   })();
   var myMol = Jmol.getTMApplet("jmol", Info);
+  console.log(myMol);
+  var temp = '<div class="left">' + myMol._code + '</div>';
+  temp += '<div class="right">';
+  temp += '<div class="logo_labofolies"></div>';
+  temp += '<h1>' + myMolInfos.name + '</h1>';
+  temp += '<p>' + myMolInfos.description + '</p>';
+  temp += '<div class="formulae">' + myMolInfos.formula + '</div>';
+  temp += '</div>';
+  temp += '<div class="points"><iframe id="' + labofolies_status.teams[labofolies_status.currentTeamScan].label + '_big" onload="labofolies.setIframes()" src="' + app.ip + '/pages/labofolies/motions/' + labofolies_status.teams[labofolies_status.currentTeamScan].label + '.html"></iframe></div>';
 
-  $('.labofolies_scan').html('<div class="left">' + myMol._code + '</div><div class="right"><h1>' + myMolInfos.name + '</h1><p>' + myMolInfos.description + '</p><div class="formulae">' + myMolInfos.formula + '</div></div>');
-  if (!already) {
-    $('.labofolies_scan').append('<div class="points">10</div>');
-  }
+  $('.labofolies_scan').html(temp);
+  // if (!already) {
+  // TODO : add points motion with jauger !
+  // }v
   /* $('.labofolies_scan .left').html(myMol._code);
   $('.labofolies_scan .right h1').html(myMolInfos.name);
   $('.labofolies_scan .right .formula').html(myMolInfos.formula);
