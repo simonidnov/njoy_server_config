@@ -68,7 +68,8 @@ body {
     background-size: auto 100%;
     background-position: top left;
     transform: translateZ(0);
-    transition: transform 1s linear;
+    will-change: transform;
+    transition: transform .5s ease-in-out;
     display: inline-flex;
     will-change: transform;
 }
