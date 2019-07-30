@@ -265,6 +265,21 @@ iframe {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
+    animation: secousse 0.7s ease infinite;
+}
+
+@keyframes secousse {
+    from {
+        transform: skewX(0deg) skewY(0deg) rotate(0deg)
+    }
+
+    50% {
+        transform: skewX(-4deg) skewY(4deg) rotate(-5deg)
+    }
+
+    to {
+        transform: skewX(0deg) skewY(0deg) rotate(0deg)
+    }
 }
 
 .labofolies .jauge .center {
