@@ -3130,6 +3130,7 @@
         },
         {
           "label": "Vaccin",
+          "class": "green",
           "desc": "Envoyer le vaccin au professeur.",
           "javascripts": [
             "pages/labofolies/labofolies.js"

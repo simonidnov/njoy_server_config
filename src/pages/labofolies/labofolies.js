@@ -12,8 +12,6 @@ var labofolies_status = {
   date: new Date().getTime()
 };
 var removeLink = function (evt) {
-  console.log(evt.target);
-  // $(evt.target).remove();
   evt.target.parentNode.removeChild(evt.target);
 }
 var createQRcodes = function (data) {

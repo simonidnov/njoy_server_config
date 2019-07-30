@@ -26,6 +26,13 @@
     cursor: pointer;
 }
 
+.app_tools .tools_list li.green,
+.app_tools .tools_list li.green p {
+    background-color: #78A955;
+    border-bottom: unset;
+    color: white;
+}
+
 .app_tools .tools_list li:hover {
     background: #FFF;
     opacity: .8;
