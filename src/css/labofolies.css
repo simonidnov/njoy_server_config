@@ -270,15 +270,19 @@ iframe {
 
 @keyframes secousse {
     from {
-        transform: skewX(0deg) skewY(0deg) rotate(0deg)
+        transform: skewX(0deg) skewY(0deg) rotate(0deg);
     }
 
-    50% {
-        transform: skewX(-4deg) skewY(4deg) rotate(-5deg)
+    25% {
+        transform: skewX(-14deg) skewY(14deg) rotate(-6deg);
+    }
+
+    75% {
+        transform: skewX(14deg) skewY(-14deg) rotate(6deg);
     }
 
     to {
-        transform: skewX(0deg) skewY(0deg) rotate(0deg)
+        transform: skewX(0deg) skewY(0deg) rotate(0deg);
     }
 }
 
