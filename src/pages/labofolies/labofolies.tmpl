@@ -8,7 +8,7 @@
         <div class="team_picker">
         <% for (var t=0; t<teams.length; t++) { %>
             <div class="team" id="team<%= t %>" data-team="<%= t %>">
-                <div class="jauge">
+                <div class="jauge" id="jaugeprogress">
                     <iframe id="<%= teams[t].label %>" onload="labofolies.setIframes()" src="<%= app.ip %>/pages/labofolies/motions/<%= teams[t].label %>.html" width="50"></iframe>
                 </div>
                 <div class="score <% if(teams[t].isActive) { %> active <% } %>" data-team="<%= t %>">

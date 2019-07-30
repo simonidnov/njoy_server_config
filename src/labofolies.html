@@ -153,6 +153,24 @@
           var jauger = document.getElementById('jauger');
           jauger.style.transform = 'rotate(' + (90 + rotation) + 'deg)';
 
+          var tot = (360 / (vm.status.actives * 100)) * vm.status.total;
+          if (tot < 10) {
+            $('#jaugeprogress').removeClass('light');
+            $('#jaugeprogress').removeClass('medium');
+            $('#jaugeprogress').removeClass('hard');
+          } else if (tot > 10 && tot < 50) {
+            $('#jaugeprogress').removeClass('medium');
+            $('#jaugeprogress').removeClass('hard');
+            $('#jaugeprogress').addClass('light');
+          } else if (tot > 50 && tot < 70) {
+            $('#jaugeprogress').removeClass('light');
+            $('#jaugeprogress').removeClass('hard');
+            $('#jaugeprogress').addClass('medium');
+          } else if (tot > 70) {
+            $('#jaugeprogress').removeClass('light');
+            $('#jaugeprogress').removeClass('medium');
+            $('#jaugeprogress').addClass('hard');
+          }
         }.bind(this));
         // TODO : bug patch on applyiframecss start here
         setTimeout(new Proxy(() => {
