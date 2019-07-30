@@ -281,55 +281,59 @@ iframe {
 
 @keyframes secousselight {
     from {
-        transform: skewX(0deg) skewY(0deg) rotate(0deg) scaleX(0) scaleY(0);
+        transform: skewX(0deg) skewY(0deg) rotate(0deg) scaleX(1) scaleY(1);
     }
 
     25% {
-        transform: skewX(-10deg) skewY(10deg) rotate(-6deg);
+        transform: skewX(-8deg) skewY(8deg) rotate(-3deg);
     }
 
     75% {
-        transform: skewX(10deg) skewY(-10deg) rotate(6deg);
+        transform: skewX(8deg) skewY(-8deg) rotate(3deg);
     }
 
     to {
-        transform: skewX(0deg) skewY(0deg) rotate(0deg) scaleX(0) scaleY(0);
+        transform: skewX(0deg) skewY(0deg) rotate(0deg) scaleX(1) scaleY(1);
     }
 }
 
 @keyframes secoussemedium {
     from {
-        transform: skewX(0deg) skewY(0deg) rotate(0deg) scaleX(0) scaleY(0);
+        transform: skewX(0deg) skewY(0deg) rotate(0deg) scaleX(1) scaleY(1);
     }
 
     25% {
-        transform: skewX(-14deg) skewY(14deg) rotate(-6deg);
+        transform: skewX(-12deg) skewY(12deg) rotate(-6deg);
     }
 
     75% {
-        transform: skewX(14deg) skewY(-14deg) rotate(6deg);
+        transform: skewX(12deg) skewY(-12deg) rotate(6deg);
     }
 
     to {
-        transform: skewX(0deg) skewY(0deg) rotate(0deg) scaleX(0) scaleY(0);
+        transform: skewX(0deg) skewY(0deg) rotate(0deg) scaleX(1) scaleY(1);
     }
 }
 
 @keyframes secoussehard {
     from {
-        transform: skewX(0deg) skewY(0deg) rotate(0deg) scaleX(0) scaleY(0);
+        transform: skewX(0deg) skewY(0deg) rotate(0deg) scaleX(1) scaleY(1);
     }
 
     25% {
-        transform: skewX(-14deg) skewY(14deg) rotate(-6deg) scaleY(0) scaleX(1.1);
+        transform: skewX(-14deg) skewY(14deg) rotate(-6deg) scaleY(1) scaleX(1.1);
+    }
+
+    50% {
+        transform: skewX(-14deg) skewY(24deg) rotate(0deg) scaleY(1.2) scaleX(1.1);
     }
 
     75% {
-        transform: skewX(14deg) skewY(-14deg) rotate(6deg) scaleX(0) scaleY(1.1);
+        transform: skewX(14deg) skewY(-14deg) rotate(6deg) scaleX(1) scaleY(1.1);
     }
 
     to {
-        transform: skewX(0deg) skewY(0deg) rotate(0deg) scaleX(0) scaleY(0);
+        transform: skewX(0deg) skewY(0deg) rotate(0deg) scaleX(1) scaleY(1);
     }
 }
 
