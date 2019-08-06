@@ -62,19 +62,34 @@ if (typeof omx.quit() === "undefined") {
 module.exports = router;
 app.use(express.static('./src'));
 app.get('/receptor', function (req, res) {
-  res.sendFile('njoy/src/receptor.html', { root: path.join(__dirname, '../') });
+  res.sendFile('njoy/src/receptor.html', {
+    root: path.join(__dirname, '../')
+  });
 });
 app.get('/crazy_show', function (req, res) {
-  res.sendFile('njoy/src/crazy_show.html', { root: path.join(__dirname, '../') });
+  res.sendFile('njoy/src/crazy_show.html', {
+    root: path.join(__dirname, '../')
+  });
 });
 app.get('/boardingpass', function (req, res) {
-  res.sendFile('njoy/src/boardingpass.html', { root: path.join(__dirname, '../') });
+  res.sendFile('njoy/src/boardingpass.html', {
+    root: path.join(__dirname, '../')
+  });
 });
 app.get('/labofolies', function (req, res) {
-  res.sendFile('njoy/src/labofolies.html', { root: path.join(__dirname, '../') });
+  res.sendFile('njoy/src/labofolies.html', {
+    root: path.join(__dirname, '../')
+  });
+});
+app.get('/melanie', function (req, res) {
+  res.sendFile('njoy/src/melanie.html', {
+    root: path.join(__dirname, '../')
+  });
 });
 app.get('/', function (req, res) {
-  res.sendFile('njoy/src/index.html', { root: path.join(__dirname, '../') });
+  res.sendFile('njoy/src/index.html', {
+    root: path.join(__dirname, '../')
+  });
 });
 
 io.on('connection', function (socket) {
@@ -90,6 +105,9 @@ io.on('connection', function (socket) {
   socket.on('labofolies', function (datas) {
     io.emit('labofolies', datas);
   });
+  socket.on('melanie', function (datas) {
+    io.emit('melanie', datas);
+  });
   socket.on('njoy', function (datas) {
 
     users_activities.push(datas);
@@ -100,15 +118,23 @@ io.on('connection', function (socket) {
     switch (datas.status) {
       case 'chrono_start':
         omx.quit();
-        io.emit(call, { "status": "video_stopped" });
-        io.emit(call, { "status": "audio_stopped" });
+        io.emit(call, {
+          "status": "video_stopped"
+        });
+        io.emit(call, {
+          "status": "audio_stopped"
+        });
         omx.open(URI + "ressources/audio/attente_30s.mp3", omx_audio_options);
         omx.setVolume(app_volume);
         break;
       case 'chrono_stop':
         omx.quit();
-        io.emit(call, { "status": "video_stopped" });
-        io.emit(call, { "status": "audio_stopped" });
+        io.emit(call, {
+          "status": "video_stopped"
+        });
+        io.emit(call, {
+          "status": "audio_stopped"
+        });
         break;
       case 'FX':
         omx.open(URI + datas.file, omx_audio_options);
@@ -116,8 +142,7 @@ io.on('connection', function (socket) {
         break;
       case 'KILL_OMX':
         cp.exec("killall omxplayer.bin", function (error, stdout, stderr) {
-          if (error !== null) {
-          }
+          if (error !== null) {}
         });
         break;
       case 'KILL_FX':
@@ -125,8 +150,7 @@ io.on('connection', function (socket) {
         break;
       case 'reboot':
         cp.exec("/home/pi/njoy/startchromium.sh", function (error, stdout, stderr) {
-          if (error !== null) {
-          }
+          if (error !== null) {}
         });
       case 'success':
         break;
@@ -135,7 +159,11 @@ io.on('connection', function (socket) {
       case 'connect':
         stat = login(datas);
         datas = addParams(datas);
-        io.emit('njoy_' + datas.uuid, { "status": stat.status, "infos": stat, "datas": datas });
+        io.emit('njoy_' + datas.uuid, {
+          "status": stat.status,
+          "infos": stat,
+          "datas": datas
+        });
         call = 'njoy';
         break;
       case 'disconnect':
@@ -157,7 +185,9 @@ io.on('connection', function (socket) {
         datas.teams = teams;
         break;
       case 'new_team':
-        if (_.where(teams, { label: datas.new_team.label }).length > 0) {
+        if (_.where(teams, {
+            label: datas.new_team.label
+          }).length > 0) {
           stat.status = "error";
           datas.title = "teams";
           datas.message = "le nom de la team existe déjà";
@@ -186,8 +216,7 @@ io.on('connection', function (socket) {
       case 'video':
         //omx.quit();
         cp.exec("killall omxplayer.bin", function (error, stdout, stderr) {
-          if (error !== null) {
-          }
+          if (error !== null) {}
         });
 
         if (typeof video_is_playing !== "undefined") {
@@ -198,13 +227,21 @@ io.on('connection', function (socket) {
               clearTimeout(playerTimer);
               playerTimer = null;
             }
-            io.emit(call, { "status": "video_stopped" });
-            io.emit(call, { "status": "error", datas: { "title": "video", "message": "Une vidéo était en cours de lecture et vient d'être coupée." } });
+            io.emit(call, {
+              "status": "video_stopped"
+            });
+            io.emit(call, {
+              "status": "error",
+              datas: {
+                "title": "video",
+                "message": "Une vidéo était en cours de lecture et vient d'être coupée."
+              }
+            });
           } else {
             omx.quit();
             video_is_playing = false;
             setTimeout(function () {
-              cp.exec("export DISPLAY=:0", function (error, stdout, stderr) { });
+              cp.exec("export DISPLAY=:0", function (error, stdout, stderr) {});
               if (typeof datas.size !== "undefined") {
                 omx_options.sizes = datas.size;
               } else {
@@ -212,7 +249,11 @@ io.on('connection', function (socket) {
               }
               omx.open(URI + datas.file, omx_options);
               omx.setVolume(app_volume);
-              io.emit(call, { "status": "video_started", "duration": omx.getCurrentDuration(), "position": omx.getCurrentPosition() });
+              io.emit(call, {
+                "status": "video_started",
+                "duration": omx.getCurrentDuration(),
+                "position": omx.getCurrentPosition()
+              });
               resetProgressListener();
             }, 200);
           }
@@ -220,45 +261,72 @@ io.on('connection', function (socket) {
           omx.quit();
           video_is_playing = false;
           setTimeout(function () {
-            cp.exec("export DISPLAY=:0", function (error, stdout, stderr) { });
+            cp.exec("export DISPLAY=:0", function (error, stdout, stderr) {});
             omx.open(URI + datas.file, omx_options);
             omx.setVolume(app_volume);
-            io.emit(call, { "status": "video_started", "duration": omx.getCurrentDuration(), "position": omx.getCurrentPosition() });
+            io.emit(call, {
+              "status": "video_started",
+              "duration": omx.getCurrentDuration(),
+              "position": omx.getCurrentPosition()
+            });
             resetProgressListener();
           }, 200);
         }
         break;
       case 'pause_video':
         omx.pause();
-        io.emit(call, { "status": "video_pause", "is_running": null, "is_loaded": null });
+        io.emit(call, {
+          "status": "video_pause",
+          "is_running": null,
+          "is_loaded": null
+        });
         break;
       case 'resume_video':
         omx.play();
-        io.emit(call, { "status": "video_resume", "is_running": null, "is_loaded": null });
+        io.emit(call, {
+          "status": "video_resume",
+          "is_running": null,
+          "is_loaded": null
+        });
         break;
       case 'play_video':
         omx.play();
-        io.emit(call, { "status": "video_play", "is_running": null, "is_loaded": null });
+        io.emit(call, {
+          "status": "video_play",
+          "is_running": null,
+          "is_loaded": null
+        });
         break;
       case 'volume_video':
         omx.setVolume(datas.volume);
         app_volume = datas.volume;
-        io.emit(call, { "status": "video_volume", "volume": datas.volume });
+        io.emit(call, {
+          "status": "video_volume",
+          "volume": datas.volume
+        });
         break;
       case 'seek_video':
         is_on_seek = true;
         omx.seek(datas.seek);
-        io.emit(call, { "status": "video_seek", "seek": datas.seek });
+        io.emit(call, {
+          "status": "video_seek",
+          "seek": datas.seek
+        });
         is_on_seek = false;
         break;
       case 'position_video':
         omx.setPosition(datas.position);
-        io.emit(call, { "status": "video_position", "position": datas.position });
+        io.emit(call, {
+          "status": "video_position",
+          "position": datas.position
+        });
         break;
       case 'stop_video':
         omx.quit();
         video_is_playing = false;
-        io.emit(call, { "status": "video_stopped" });
+        io.emit(call, {
+          "status": "video_stopped"
+        });
         if (playerTimer !== null) {
           clearTimeout(playerTimer);
           playerTimer = null;
@@ -269,7 +337,7 @@ io.on('connection', function (socket) {
         omx.quit();
         setTimeout(function () {
           audio_is_playing = false;
-          cp.exec("export DISPLAY=:0", function (error, stdout, stderr) { });
+          cp.exec("export DISPLAY=:0", function (error, stdout, stderr) {});
           omx.open(URI + datas.file, omx_audio_loop_options);
           omx.setVolume(app_volume);
           // io.emit(call, {"status":"audio_started", "duration":omx.getCurrentDuration(), "position":omx.getCurrentPosition()});
@@ -285,16 +353,28 @@ io.on('connection', function (socket) {
               clearTimeout(playerTimer);
               playerTimer = null;
             }
-            io.emit(call, { "status": "audio_stopped" });
-            io.emit(call, { "status": "error", datas: { "title": "audio", "message": "Un mp3 était en cours de lecture et vient d'être coupée." } });
+            io.emit(call, {
+              "status": "audio_stopped"
+            });
+            io.emit(call, {
+              "status": "error",
+              datas: {
+                "title": "audio",
+                "message": "Un mp3 était en cours de lecture et vient d'être coupée."
+              }
+            });
           } else {
             omx.quit();
             setTimeout(function () {
               audio_is_playing = false;
-              cp.exec("export DISPLAY=:0", function (error, stdout, stderr) { });
+              cp.exec("export DISPLAY=:0", function (error, stdout, stderr) {});
               omx.open(URI + datas.file, omx_audio_options);
               omx.setVolume(app_volume);
-              io.emit(call, { "status": "audio_started", "duration": omx.getCurrentDuration(), "position": omx.getCurrentPosition() });
+              io.emit(call, {
+                "status": "audio_started",
+                "duration": omx.getCurrentDuration(),
+                "position": omx.getCurrentPosition()
+              });
               resetAudioProgressListener();
             }, 200);
           }
@@ -302,40 +382,65 @@ io.on('connection', function (socket) {
           omx.quit();
           setTimeout(function () {
             audio_is_playing = false;
-            cp.exec("export DISPLAY=:0", function (error, stdout, stderr) { });
+            cp.exec("export DISPLAY=:0", function (error, stdout, stderr) {});
             omx.open(URI + datas.file, omx_audio_options);
             omx.setVolume(app_volume);
-            io.emit(call, { "status": "audio_started", "duration": omx.getCurrentDuration(), "position": omx.getCurrentPosition() });
+            io.emit(call, {
+              "status": "audio_started",
+              "duration": omx.getCurrentDuration(),
+              "position": omx.getCurrentPosition()
+            });
             resetAudioProgressListener();
           }, 200);
         }
         break;
       case 'pause_audio':
         omx.pause();
-        io.emit(call, { "status": "audio_pause", "is_running": null, "is_loaded": null });
+        io.emit(call, {
+          "status": "audio_pause",
+          "is_running": null,
+          "is_loaded": null
+        });
         break;
       case 'resume_audio':
         omx.play();
-        io.emit(call, { "status": "audio_resume", "is_running": null, "is_loaded": null });
+        io.emit(call, {
+          "status": "audio_resume",
+          "is_running": null,
+          "is_loaded": null
+        });
         break;
       case 'play_audio':
         omx.play();
-        io.emit(call, { "status": "audio_play", "is_running": null, "is_loaded": null });
+        io.emit(call, {
+          "status": "audio_play",
+          "is_running": null,
+          "is_loaded": null
+        });
         break;
       case 'volume_audio':
         omx.setVolume(datas.volume);
         app_volume = datas.volume;
-        io.emit(call, { "status": "audio_volume", "volume": datas.volume });
+        io.emit(call, {
+          "status": "audio_volume",
+          "volume": datas.volume
+        });
         break;
       case 'seek_audio':
         is_on_seek = true;
         omx.seek(datas.seek);
-        io.emit(call, { "status": "audio_seek", "seek": datas.seek });
+        io.emit(call, {
+          "status": "audio_seek",
+          "seek": datas.seek
+        });
         is_on_seek = false;
         break;
       case 'position_audio':
         omx.setPosition(datas.position);
-        io.emit(call, { "status": "audio_position", "position": datas.position });
+        io.emit(call, {
+          "status": "audio_position",
+          "position": datas.position
+        });
         break;
       case 'stop_audio':
         omx.quit();
@@ -344,7 +449,9 @@ io.on('connection', function (socket) {
           clearTimeout(playerTimer);
           playerTimer = null;
         }
-        io.emit(call, { "status": "audio_stopped" });
+        io.emit(call, {
+          "status": "audio_stopped"
+        });
         break;
       case 'init_drawing':
         //omx.quit();
@@ -362,9 +469,13 @@ io.on('connection', function (socket) {
         break;
       default:
         if (typeof datas.status !== "undefined") {
-          stat = { "status": datas.status };
+          stat = {
+            "status": datas.status
+          };
         } else {
-          stat = { "status": "default" };
+          stat = {
+            "status": "default"
+          };
         }
         break;
     }
@@ -374,7 +485,11 @@ io.on('connection', function (socket) {
         playerTimer = null;
       }
     }
-    io.emit(call, { "status": stat.status, "infos": stat, "datas": datas });
+    io.emit(call, {
+      "status": stat.status,
+      "infos": stat,
+      "datas": datas
+    });
   });
   socket.on('chat message', function (msg) {
     io.emit('chat message', msg);
@@ -387,23 +502,46 @@ http.listen(port, function () {
     }
     console.log('startchromium called ', error, stdout, stderr);
   });
-  omx.init_remote({ port: 8080 });
+  omx.init_remote({
+    port: 8080
+  });
 });
 var login = function (datas) {
-  if (typeof users === "undefined") { users = []; };
-  if (_.where(users, { user_name: datas.user_name }).length > 0) {
-    return { "status": "login_error", "message": "need uniq pseudo" };
+  if (typeof users === "undefined") {
+    users = [];
+  };
+  if (_.where(users, {
+      user_name: datas.user_name
+    }).length > 0) {
+    return {
+      "status": "login_error",
+      "message": "need uniq pseudo"
+    };
   }
-  users.push({ "user_name": datas.user_name, "uuid": datas.uuid });
-  if (_.where(users, { regis: "true" }).length === 0) {
+  users.push({
+    "user_name": datas.user_name,
+    "uuid": datas.uuid
+  });
+  if (_.where(users, {
+      regis: "true"
+    }).length === 0) {
     users[users.length - 1].regis = "true";
   }
-  return { "status": "login_success", "message": "success login", "users": users };
+  return {
+    "status": "login_success",
+    "message": "success login",
+    "users": users
+  };
 }
 var logout = function (datas) {
   require('underscore');
-  users = _.without(users, _.findWhere(users, { uuid: datas.uuid }));
-  return { "status": "logout_success", "message": "success lougout" };
+  users = _.without(users, _.findWhere(users, {
+    uuid: datas.uuid
+  }));
+  return {
+    "status": "logout_success",
+    "message": "success lougout"
+  };
 }
 
 var addParams = function (datas) {
@@ -445,11 +583,16 @@ function getRandomColor() {
 }
 
 function stop_video() {
-  io.emit("njoy", { "status": "stop_video" });
+  io.emit("njoy", {
+    "status": "stop_video"
+  });
   omx.quit();
   video_is_playing = false;
-  io.emit("njoy", { "status": "video_stopped" });
+  io.emit("njoy", {
+    "status": "video_stopped"
+  });
 }
+
 function resetProgressListener() {
   video_is_playing = true;
   omx.onProgress(function (track) { //subscribe for track updates (every second while not paused for now)
@@ -461,6 +604,7 @@ function resetProgressListener() {
     }, 100);
   });
 }
+
 function sendOmxStatus() {
   if (video_is_playing) {
     var vid_status = {
@@ -470,12 +614,15 @@ function sendOmxStatus() {
       "volume": omx.getCurrentVolume()
     };
     if (omx.getCurrentPosition() > 0 && omx.getCurrentPosition() + 1 >= omx.getCurrentDuration()) {
-      io.emit("njoy", { "status": "stop_video" });
+      io.emit("njoy", {
+        "status": "stop_video"
+      });
     } else {
       io.emit("njoy", vid_status);
     }
   }
 }
+
 function check_end_omx() {
   omx.quit();
   audio_is_playing = false;
@@ -485,6 +632,7 @@ function check_end_omx() {
     playerTimer = null;
   }
 }
+
 function resetAudioProgressListener() {
   console.log('resetAudioProgressListener');
   audio_is_playing = true;
@@ -495,6 +643,7 @@ function resetAudioProgressListener() {
     // }
   });
 }
+
 function sendOmxAudioStatus() {
   console.log('sendOmxAudioStatus');
   if (audio_is_playing) {
@@ -506,7 +655,9 @@ function sendOmxAudioStatus() {
         "volume": omx.getCurrentVolume()
       };
       if (omx.getCurrentPosition() > 0 && omx.getCurrentPosition() >= omx.getCurrentDuration()) {
-        io.emit("njoy", { "status": "stop_audio" });
+        io.emit("njoy", {
+          "status": "stop_audio"
+        });
       } else {
         io.emit("njoy", audio_status);
       }

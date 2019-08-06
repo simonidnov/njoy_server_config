@@ -1,10 +1,39 @@
 var labofolies_status = {
-  teams: [
-    { id: 0, label: "blue", score: 0, molecules: [], isActive: false },
-    { id: 1, label: "orange", score: 0, molecules: [], isActive: false },
-    { id: 2, label: "pink", score: 0, molecules: [], isActive: false },
-    { id: 3, label: "green", score: 0, molecules: [], isActive: false },
-    { id: 4, label: "red", score: 0, molecules: [], isActive: false }
+  teams: [{
+      id: 0,
+      label: "blue",
+      score: 0,
+      molecules: [],
+      isActive: false
+    },
+    {
+      id: 1,
+      label: "orange",
+      score: 0,
+      molecules: [],
+      isActive: false
+    },
+    {
+      id: 2,
+      label: "pink",
+      score: 0,
+      molecules: [],
+      isActive: false
+    },
+    {
+      id: 3,
+      label: "green",
+      score: 0,
+      molecules: [],
+      isActive: false
+    },
+    {
+      id: 4,
+      label: "red",
+      score: 0,
+      molecules: [],
+      isActive: false
+    }
   ],
   display: 'default',
   currentTeamScan: null,
@@ -46,6 +75,7 @@ var createQRcodes = function (data) {
     };
   }, 3000);
 }
+
 function labofolies(datas) {
   console.log('labofolies WILL BE LOAD PLEASE WAIT...');
   console.log('WE RECEIVED DATAS FROM ACTIVITIES => ', datas);
@@ -144,9 +174,14 @@ labofolies.set_events = function () {
     ui.popin({
       "title": "Attention",
       "message": "Si vous revenez en arrière, la partie sera terminée, êtes-vous sure de vouloir continuer ?",
-      "buttons": [
-        { "label": "Oui", "class": "error" },
-        { "label": "Non", "class": "success" }
+      "buttons": [{
+          "label": "Oui",
+          "class": "error"
+        },
+        {
+          "label": "Non",
+          "class": "success"
+        }
       ]
     }, (e) => {
       if (parseInt(e) === 0) {
@@ -208,9 +243,10 @@ labofolies.set_events = function () {
       ui.popin({
         "title": "Sélectionner une équipe",
         "message": "Pour valider un scan, vous devez sélectionner l'équipe à laquelle nous allons attribuer des points !",
-        "buttons": [
-          { "label": "J'ai compris", "class": "success" }
-        ]
+        "buttons": [{
+          "label": "J'ai compris",
+          "class": "success"
+        }]
       }, (e) => {
         if (parseInt(e) === 0) {
           event.preventDefault();
@@ -252,9 +288,10 @@ labofolies.openScanner = function () {
             ui.popin({
               "title": "ERREUR DE QRCODE",
               "message": "Le format de ce QRCODE n'est pas reconnu, impossible de charger la molecule.",
-              "buttons": [
-                { "label": "j'ai compris", "class": "error" }
-              ]
+              "buttons": [{
+                "label": "j'ai compris",
+                "class": "error"
+              }]
             }, (e) => {
               if (parseInt(e) === 0) {
                 event.preventDefault();
@@ -266,12 +303,16 @@ labofolies.openScanner = function () {
 
             // console.log('SEARCH MOLECULE CODE => ', code);
             var already = false;
-            var MOLECULE = _.where(JSON.parse(labofolies_status.molecules), { formula: code })[0];
+            var MOLECULE = _.where(JSON.parse(labofolies_status.molecules), {
+              formula: code
+            })[0];
             // On check si l'équipe n'a pas déjà scanné cette molécule avant d'attribuer les points
             if (typeof labofolies_status.teams[team].molecules === 'undefined') {
               labofolies_status.teams[team].molecules = [];
             }
-            if (_.where(labofolies_status.teams[team].molecules, { formula: code }).length === 0) {
+            if (_.where(labofolies_status.teams[team].molecules, {
+                formula: code
+              }).length === 0) {
               labofolies_status.teams[team].molecules.push(MOLECULE);
               // on attribu 10 points à l'équipe en question
               labofolies_status.teams[team].score += 10;
@@ -281,9 +322,14 @@ labofolies.openScanner = function () {
               ui.popin({
                 "title": "Déjà scanné",
                 "message": "L'équipe " + labofolies_status.teams[team].label + " a déjà scanné cette carte et obtenu les points, pour lui attribuer des points veuiillez lui attribuer une autre carte à scanner...",
-                "buttons": [
-                  { "label": "OK", "class": "success" },
-                  { "label": "C'est de la triche", "class": "error" }
+                "buttons": [{
+                    "label": "OK",
+                    "class": "success"
+                  },
+                  {
+                    "label": "C'est de la triche",
+                    "class": "error"
+                  }
                 ]
               }, (e) => {
                 if (parseInt(e) === 0) {
@@ -294,7 +340,7 @@ labofolies.openScanner = function () {
             }
             // alert(MOLECULE.folder);
             // On set le display pour afficher sur le tableau côté PI
-            labofolies_status.display = MOLECULE.folder;// app.ip + "/ressources/labofolies/molecules/" + code + ".png";
+            labofolies_status.display = MOLECULE.folder; // app.ip + "/ressources/labofolies/molecules/" + code + ".png";
             // On sauvegarde l'état de l'application
             labofolies.saveState();
             // on envois le status de l'appli au PI avec une nouvelle date et surtout le nouveau display sauvegardé
@@ -314,9 +360,10 @@ labofolies.openScanner = function () {
           ui.popin({
             "title": "ERREUR DE QRCODE",
             "message": "Le QrCode que vous avez scanné n'est pas reconnu.",
-            "buttons": [
-              { "label": "j'ai compris", "class": "error" }
-            ]
+            "buttons": [{
+              "label": "j'ai compris",
+              "class": "error"
+            }]
           }, (e) => {
             if (parseInt(e) === 0) {
               event.preventDefault();
@@ -329,9 +376,10 @@ labofolies.openScanner = function () {
         ui.popin({
           "title": "ERREUR DE SCAN",
           "message": "Nous ne parvenons pas à scanner la carte, si le problème perciste, veuillez attribuer les points manuellement via l'écran équipes et scores.<br>Nous en sommes désolé et tâcherons d'en savoir plus pour la prochaine mise à jour.",
-          "buttons": [
-            { "label": "j'ai compris", "class": "error" }
-          ]
+          "buttons": [{
+            "label": "j'ai compris",
+            "class": "error"
+          }]
         }, (e) => {
           if (parseInt(e) === 0) {
             event.preventDefault();
@@ -345,9 +393,10 @@ labofolies.openScanner = function () {
     ui.popin({
       "title": "Aïe",
       "message": "Le scanner de QR code ne fonctionne pas :-|<br> impossible de scanner les Qrcodes, vous devez entrer le code dans le formulaire manuellement...",
-      "buttons": [
-        { "label": "j'ai compris", "class": "error" }
-      ]
+      "buttons": [{
+        "label": "j'ai compris",
+        "class": "error"
+      }]
     }, (e) => {
       if (parseInt(e) === 0) {
         event.preventDefault();
@@ -358,12 +407,18 @@ labofolies.openScanner = function () {
 }
 labofolies.closeScanner = function () {
   $('.labofolies_scan').removeClass('opened');
-  setTimeout(function () { $('.labofolies_scan .content').html(''); }, 1500);
+  setTimeout(function () {
+    $('.labofolies_scan .content').html('');
+  }, 1500);
 }
 labofolies.update_scores = function () {
   for (var t = 0; t < labofolies_status.teams.length; t++) {
-    if (labofolies_status.teams[t].score < 0) { labofolies_status.teams[t].score = 0; };
-    if (labofolies_status.teams[t].score > 100) { labofolies_status.teams[t].score = 100; };
+    if (labofolies_status.teams[t].score < 0) {
+      labofolies_status.teams[t].score = 0;
+    };
+    if (labofolies_status.teams[t].score > 100) {
+      labofolies_status.teams[t].score = 100;
+    };
     $('#team' + t).find('input')[0].value = labofolies_status.teams[t].score;
     this.update_jauge(labofolies_status.teams[t].label, t, labofolies_status.teams[t].score);
   }
@@ -427,8 +482,8 @@ labofolies.configJMOL = function (mol, MOLECULE, already) {
   // labofolies.molecules IS PRELOADED ON INIT
   // labofolies/molecules.json
 
-  var myMolInfos = MOLECULE;
-  ; (function () {
+  var myMolInfos = MOLECULE;;
+  (function () {
     Info = {
       width: window.innerWidth / 2,
       height: window.innerHeight,
@@ -473,6 +528,7 @@ labofolies.configJMOL = function (mol, MOLECULE, already) {
   $('.labofolies_scan .right .formula').html(myMolInfos.formula);
   $('.labofolies_scan .right p').html(myMolInfos.description); */
 }
+
 function str_pad_left(string, pad, length) {
   return (new Array(length + 1).join(pad) + string).slice(-length);
 }

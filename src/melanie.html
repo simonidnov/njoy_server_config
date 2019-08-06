@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <title>NJOY</title>
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/melanie.css"> -->
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="js/socket.io/socket.io.js"></script>
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="melanie">
+        <h1>melanie</h1>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#melanie',
+            data: {
+                activities: [],
+                socket: io(window.location.origin, {
+                    transports: ['websocket', 'xhr-polling']
+                })
+            },
+            created: async function () {
+                console.log('created');
+                this.socket.on('error', function (e) {
+                    console.log('error socket');
+                });
+                this.socket.on('connect_failed', function (e) {
+                    console.log("connect_failed");
+                });
+                this.socket.on('connect', function (e) {
+                    console.log("socket_connected");
+                });
+                this.socket.on('redirect', function (data) {
+                    window.location.href = datas.url;
+                });
+                console.log('listen melanie');
+                this.socket.on('melanie', function (data) {
+                    console.log(data);
+                });
+            },
+            methods: {
+                update: function (str) {
+                    console.log(str);
+                }
+            }
+        });
+    </script>
+</body>

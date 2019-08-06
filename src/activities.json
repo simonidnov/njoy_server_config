@@ -1,6 +1,5 @@
 {
-  "activities": [
-    {
+  "activities": [{
       "label": "Crazy Show",
       "version": "2.0.1",
       "app_name": "crazy_show",
@@ -16,12 +15,10 @@
       "has_team": false,
       "desc": "Crazy show TV, Les enfants participent à divers activités directement inspirées d'un show TV",
       "datas": {},
-      "prerecquise": [
-        {
-          "label": "Lancer l'écran d'accueil",
-          "checked": false
-        }
-      ],
+      "prerecquise": [{
+        "label": "Lancer l'écran d'accueil",
+        "checked": false
+      }],
       "introduction": {
         "video": "ressources/crazyshow/jingles/intro_crazy_show.mp4",
         "size": "0 0 1920 1080",
@@ -34,12 +31,10 @@
         "audio": "",
         "pix": "ressources/crazy_show_logo.svg"
       },
-      "tools": [
-        {
+      "tools": [{
           "label": "Émotions",
           "desc": "Court samples audio pour rythmer les évènements, à lancer à tout instant !",
-          "playlist": [
-            {
+          "playlist": [{
               "label": "Applaudir",
               "file": "ressources/audio/applau.mp3",
               "type": "FX",
@@ -94,8 +89,7 @@
         {
           "label": "Ambiance",
           "desc": "Des musiques d'ambiance selon les humeurs pour combler les vides.",
-          "playlist": [
-            {
+          "playlist": [{
               "label": "Vegedream",
               "file": "ressources/crazyshow/blindtest/2018/12_Vegedream_Ramenez-la-coupe-a-la-maison.mp3",
               "type": "audio"
@@ -155,8 +149,7 @@
         {
           "label": "Ambiance Noël",
           "desc": "Des musiques d'ambiance de Noël pour combler les vides.",
-          "playlist": [
-            {
+          "playlist": [{
               "label": "Bobby Helms : Jingle Bell Rock",
               "file": "ressources/audio/ambiance_noel/1_Bobby-Helms_Jingle-Bell-Rock.mp3",
               "type": "audio"
@@ -179,8 +172,7 @@
           ]
         }
       ],
-      "apps": [
-        {
+      "apps": [{
           "label": "Photomime",
           "desc": "Jeu de mime. Affichage des photos à l'écran. 1 enfant mime ce qu'il voit. 2 enfants dos à l'écran doivent trouver le mime",
           "background": "ressources/crazyshow/jingles/photomime.svg",
@@ -197,13 +189,11 @@
             "event": null,
             "params": null
           },
-          "menu": [
-            {
+          "menu": [{
               "label": "Maternel",
               "desc": "Mimes pour les 3-6 ans",
               "components": {
-                "galery": [
-                  {
+                "galery": [{
                     "file": "ressources/crazyshow/Photomime/robots.jpg",
                     "desc": "",
                     "label": "Robot",
@@ -336,8 +326,7 @@
               "label": "Primaires",
               "desc": "Mimes pour les 6-10 ans",
               "components": {
-                "galery": [
-                  {
+                "galery": [{
                     "file": "ressources/crazyshow/Photomime/banane.jpg",
                     "desc": "",
                     "label": "Banane",
@@ -491,8 +480,7 @@
               "label": "Ados",
               "desc": "Mimes pour les 12-16 ans",
               "components": {
-                "galery": [
-                  {
+                "galery": [{
                     "file": "ressources/crazyshow/Photomime/chevalier.jpg",
                     "desc": "",
                     "label": "Chevalier",
@@ -653,8 +641,7 @@
               "label": "Adultes",
               "desc": "Mimes pour les 18+",
               "components": {
-                "galery": [
-                  {
+                "galery": [{
                     "file": "ressources/crazyshow/Photomime/tracteur.jpg",
                     "desc": "",
                     "label": "Tracteur",
@@ -773,8 +760,7 @@
               "label": "Noël",
               "desc": "Mimes spéciales Noël",
               "components": {
-                "galery": [
-                  {
+                "galery": [{
                     "file": "ressources/crazyshow/Photomime/cheminee.jpg",
                     "desc": "",
                     "label": "Cheminée",
@@ -900,8 +886,7 @@
               "label": "Halloween",
               "desc": "Mimes spéciales Halloween",
               "components": {
-                "galery": [
-                  {
+                "galery": [{
                     "file": "ressources/crazyshow/Photomime/araignee.jpg",
                     "desc": "",
                     "label": "Araignée",
@@ -1022,13 +1007,11 @@
             "params": null,
             "display_cover": true
           },
-          "menu": [
-            {
+          "menu": [{
               "label": "4-6 ans",
               "desc": "Sélectionnez le sujet à faire deviner en dessin.",
               "components": {
-                "galery": [
-                  {
+                "galery": [{
                     "label": "Maison",
                     "desc": "Dessine une maison",
                     "datas": {},
@@ -1085,8 +1068,7 @@
               "label": "6-9 ans",
               "desc": "Sélectionnez le sujet à faire deviner en dessin.",
               "components": {
-                "galery": [
-                  {
+                "galery": [{
                     "label": "Voiture",
                     "desc": "Dessine une voiture",
                     "datas": {},
@@ -1143,8 +1125,7 @@
               "label": "9-12+",
               "desc": "Sélectionnez le sujet à faire deviner en dessin.",
               "components": {
-                "galery": [
-                  {
+                "galery": [{
                     "label": "Machine à laver",
                     "desc": "Dessine une machine à laver",
                     "datas": {},
@@ -1201,8 +1182,7 @@
               "label": "Adultes (expressions)",
               "desc": "Sélectionnez le sujet à faire deviner en dessin.",
               "components": {
-                "galery": [
-                  {
+                "galery": [{
                     "label": "Les yeux plus gros que le ventre",
                     "desc": "Dessine l'expression 'Les yeux plus gros que le ventre'",
                     "datas": {},
@@ -1275,22 +1255,18 @@
             "params": null,
             "display_cover": true
           },
-          "menu": [
-            {
-              "label": "Musiques d'ambiance",
-              "desc": "choisissez d'une musique d'ambiance pour l'activité",
-              "components": {
-                "playlist_audio": [
-                  {
-                    "label": "musique de fond",
-                    "desc": "",
-                    "datas": {},
-                    "file": "ressources/jeux/abcstory/musique.mp3"
-                  }
-                ]
-              }
+          "menu": [{
+            "label": "Musiques d'ambiance",
+            "desc": "choisissez d'une musique d'ambiance pour l'activité",
+            "components": {
+              "playlist_audio": [{
+                "label": "musique de fond",
+                "desc": "",
+                "datas": {},
+                "file": "ressources/jeux/abcstory/musique.mp3"
+              }]
             }
-          ]
+          }]
         },
         {
           "label": "Juste Prix",
@@ -1310,13 +1286,11 @@
             "params": null,
             "display_cover": true
           },
-          "menu": [
-            {
+          "menu": [{
               "label": "Série 1",
               "desc": "série de produits 1, devinez le prix",
               "components": {
-                "galery": [
-                  {
+                "galery": [{
                     "label": "PSP",
                     "desc": "",
                     "datas": {
@@ -1503,8 +1477,7 @@
               "label": "Série 2",
               "desc": "série de produits 2, devinez le prix",
               "components": {
-                "galery": [
-                  {
+                "galery": [{
                     "label": "image 0",
                     "desc": "",
                     "datas": {
@@ -1625,13 +1598,11 @@
             "event": null,
             "params": null
           },
-          "menu": [
-            {
+          "menu": [{
               "label": "Clips vidéos",
               "desc": "des clips vidéos à reconstituer en AIR BAND",
               "components": {
-                "playlist_video": [
-                  {
+                "playlist_video": [{
                     "label": "AIRBAND",
                     "desc": "",
                     "datas": {},
@@ -1650,8 +1621,7 @@
               "label": "Playlist Audio",
               "desc": "Reconstituer avec juste une musique",
               "components": {
-                "playlist_audio": [
-                  {
+                "playlist_audio": [{
                     "label": "AUDIO 1",
                     "desc": "",
                     "datas": {},
@@ -1685,13 +1655,11 @@
             "event": null,
             "params": null
           },
-          "menu": [
-            {
+          "menu": [{
               "label": "Clips vidéos",
               "desc": "des clips vidéos LETS DANCE",
               "components": {
-                "playlist_video": [
-                  {
+                "playlist_video": [{
                     "label": "Video 1",
                     "desc": "",
                     "datas": {},
@@ -1716,8 +1684,7 @@
               "label": "Playlist audio",
               "desc": "des sons LETS DANCE",
               "components": {
-                "playlist_audio": [
-                  {
+                "playlist_audio": [{
                     "label": "Halloween",
                     "desc": "",
                     "datas": {},
@@ -1757,13 +1724,11 @@
             "event": null,
             "params": null
           },
-          "menu": [
-            {
+          "menu": [{
               "label": "6-10 ans",
               "desc": "Des questions pour les plus jeunes de 6 à 10 ans",
               "components": {
-                "golden_family": [
-                  {
+                "golden_family": [{
                     "label": "En voiture",
                     "desc": "Que répètent souvent les enfants lors d'un voyage ?",
                     "datas": {
@@ -1878,8 +1843,7 @@
               "label": "10-12 ans",
               "desc": "Des questions pour les 6 à 8 ans",
               "components": {
-                "golden_family": [
-                  {
+                "golden_family": [{
                     "label": "La vie de tous les jours",
                     "desc": "Qu’est-ce qu’on ouvre et referme souvent dans la journée ?",
                     "datas": {
@@ -1991,116 +1955,113 @@
             "event": null,
             "params": null
           },
-          "menu": [
-            {
-              "label": "CHABADA",
-              "desc": "Trouver des chansons contenant le mot affiché",
-              "components": {
-                "word_component": [
-                  {
-                    "label": "Amour / aimer",
-                    "desc": "Trouver des chansons qui contiennent le mot Soleil",
-                    "datas": {
-                      "chrono": 20,
-                      "display": "screen",
-                      "display_response": "regis",
-                      "type": "word_component"
-                    }
-                  },
-                  {
-                    "label": "Une couleur",
-                    "desc": "Trouver des chansons qui contiennent le mot Soleil",
-                    "datas": {
-                      "chrono": 20,
-                      "display": "screen",
-                      "display_response": "regis",
-                      "type": "word_component"
-                    }
-                  },
-                  {
-                    "label": "Tête",
-                    "desc": "Trouver des chansons qui contiennent le mot Soleil",
-                    "datas": {
-                      "chrono": 20,
-                      "display": "screen",
-                      "display_response": "regis",
-                      "type": "word_component"
-                    }
-                  },
-                  {
-                    "label": "Danse / danser",
-                    "desc": "Trouver des chansons qui contiennent le mot Soleil",
-                    "datas": {
-                      "chrono": 20,
-                      "display": "screen",
-                      "display_response": "regis",
-                      "type": "word_component"
-                    }
-                  },
-                  {
-                    "label": "Un prénom de garçon",
-                    "desc": "Trouver des chansons qui contiennent le mot Soleil",
-                    "datas": {
-                      "chrono": 20,
-                      "display": "screen",
-                      "display_response": "regis",
-                      "type": "word_component"
-                    }
-                  },
-                  {
-                    "label": "Un prénom de fille",
-                    "desc": "Trouver des chansons qui contiennent le mot Soleil",
-                    "datas": {
-                      "chrono": 20,
-                      "display": "screen",
-                      "display_response": "regis",
-                      "type": "word_component"
-                    }
-                  },
-                  {
-                    "label": "Jour",
-                    "desc": "Trouver des chansons qui contiennent le mot Soleil",
-                    "datas": {
-                      "chrono": 20,
-                      "display": "screen",
-                      "display_response": "regis",
-                      "type": "word_component"
-                    }
-                  },
-                  {
-                    "label": "Nuit",
-                    "desc": "Trouver des chansons qui contiennent le mot Soleil",
-                    "datas": {
-                      "chrono": 20,
-                      "display": "screen",
-                      "display_response": "regis",
-                      "type": "word_component"
-                    }
-                  },
-                  {
-                    "label": "Beau / belle",
-                    "desc": "Trouver des chansons qui contiennent le mot Soleil",
-                    "datas": {
-                      "chrono": 20,
-                      "display": "screen",
-                      "display_response": "regis",
-                      "type": "word_component"
-                    }
-                  },
-                  {
-                    "label": "Un animal",
-                    "desc": "Trouver des chansons qui contiennent le mot Soleil",
-                    "datas": {
-                      "chrono": 20,
-                      "display": "screen",
-                      "display_response": "regis",
-                      "type": "word_component"
-                    }
+          "menu": [{
+            "label": "CHABADA",
+            "desc": "Trouver des chansons contenant le mot affiché",
+            "components": {
+              "word_component": [{
+                  "label": "Amour / aimer",
+                  "desc": "Trouver des chansons qui contiennent le mot Soleil",
+                  "datas": {
+                    "chrono": 20,
+                    "display": "screen",
+                    "display_response": "regis",
+                    "type": "word_component"
                   }
-                ]
-              }
+                },
+                {
+                  "label": "Une couleur",
+                  "desc": "Trouver des chansons qui contiennent le mot Soleil",
+                  "datas": {
+                    "chrono": 20,
+                    "display": "screen",
+                    "display_response": "regis",
+                    "type": "word_component"
+                  }
+                },
+                {
+                  "label": "Tête",
+                  "desc": "Trouver des chansons qui contiennent le mot Soleil",
+                  "datas": {
+                    "chrono": 20,
+                    "display": "screen",
+                    "display_response": "regis",
+                    "type": "word_component"
+                  }
+                },
+                {
+                  "label": "Danse / danser",
+                  "desc": "Trouver des chansons qui contiennent le mot Soleil",
+                  "datas": {
+                    "chrono": 20,
+                    "display": "screen",
+                    "display_response": "regis",
+                    "type": "word_component"
+                  }
+                },
+                {
+                  "label": "Un prénom de garçon",
+                  "desc": "Trouver des chansons qui contiennent le mot Soleil",
+                  "datas": {
+                    "chrono": 20,
+                    "display": "screen",
+                    "display_response": "regis",
+                    "type": "word_component"
+                  }
+                },
+                {
+                  "label": "Un prénom de fille",
+                  "desc": "Trouver des chansons qui contiennent le mot Soleil",
+                  "datas": {
+                    "chrono": 20,
+                    "display": "screen",
+                    "display_response": "regis",
+                    "type": "word_component"
+                  }
+                },
+                {
+                  "label": "Jour",
+                  "desc": "Trouver des chansons qui contiennent le mot Soleil",
+                  "datas": {
+                    "chrono": 20,
+                    "display": "screen",
+                    "display_response": "regis",
+                    "type": "word_component"
+                  }
+                },
+                {
+                  "label": "Nuit",
+                  "desc": "Trouver des chansons qui contiennent le mot Soleil",
+                  "datas": {
+                    "chrono": 20,
+                    "display": "screen",
+                    "display_response": "regis",
+                    "type": "word_component"
+                  }
+                },
+                {
+                  "label": "Beau / belle",
+                  "desc": "Trouver des chansons qui contiennent le mot Soleil",
+                  "datas": {
+                    "chrono": 20,
+                    "display": "screen",
+                    "display_response": "regis",
+                    "type": "word_component"
+                  }
+                },
+                {
+                  "label": "Un animal",
+                  "desc": "Trouver des chansons qui contiennent le mot Soleil",
+                  "datas": {
+                    "chrono": 20,
+                    "display": "screen",
+                    "display_response": "regis",
+                    "type": "word_component"
+                  }
+                }
+              ]
             }
-          ]
+          }]
         },
         {
           "label": "Stop and Go",
@@ -2119,13 +2080,11 @@
             "event": null,
             "params": null
           },
-          "menu": [
-            {
+          "menu": [{
               "label": "Serie normale",
               "desc": "karaoke",
               "components": {
-                "playlist_video": [
-                  {
+                "playlist_video": [{
                     "label": "Christophe Mae : On s'attache",
                     "desc": "",
                     "datas": {},
@@ -2216,14 +2175,12 @@
               "label": "Serie divers",
               "desc": "karaoke",
               "components": {
-                "playlist_video": [
-                  {
-                    "label": "Libérée , délivrée",
-                    "desc": "",
-                    "datas": {},
-                    "file": "ressources/crazyshow/stopandgo/SERIE_DIVERS/1_Libere-delivre.mp4"
-                  }
-                ]
+                "playlist_video": [{
+                  "label": "Libérée , délivrée",
+                  "desc": "",
+                  "datas": {},
+                  "file": "ressources/crazyshow/stopandgo/SERIE_DIVERS/1_Libere-delivre.mp4"
+                }]
               }
             }
           ]
@@ -2245,13 +2202,11 @@
             "event": null,
             "params": null
           },
-          "menu": [
-            {
+          "menu": [{
               "label": "2017-2018",
               "desc": "Musiques",
               "components": {
-                "playlist_audio": [
-                  {
+                "playlist_audio": [{
                     "label": "Big Flo & Oli : Dommage",
                     "desc": "",
                     "datas": {},
@@ -2330,8 +2285,7 @@
               "label": "Dessins animés",
               "desc": "Musiques",
               "components": {
-                "playlist_audio": [
-                  {
+                "playlist_audio": [{
                     "label": "Le Livre de la Jungle : Il en faut peu pour être heureux",
                     "desc": "",
                     "datas": {},
@@ -2416,8 +2370,7 @@
               "label": "SERIE 1 2015",
               "desc": "Musiques",
               "components": {
-                "playlist_audio": [
-                  {
+                "playlist_audio": [{
                     "label": "Avicii : Addicted to you",
                     "desc": "",
                     "datas": {},
@@ -2514,8 +2467,7 @@
               "label": "SERIE 2 2015",
               "desc": "Musiques",
               "components": {
-                "playlist_audio": [
-                  {
+                "playlist_audio": [{
                     "label": "Black-M : On se fait du mal",
                     "desc": "",
                     "datas": {},
@@ -2576,8 +2528,7 @@
               "label": "SERIE 3 2015",
               "desc": "Musiques",
               "components": {
-                "playlist_audio": [
-                  {
+                "playlist_audio": [{
                     "label": "Clean Bandit ft Jess Glynne : Rather be",
                     "desc": "",
                     "datas": {},
@@ -2650,8 +2601,7 @@
               "label": "SERIE 4 2015",
               "desc": "Musiques",
               "components": {
-                "playlist_audio": [
-                  {
+                "playlist_audio": [{
                     "label": "Amel Bent : Ma philosophie",
                     "desc": "",
                     "datas": {},
@@ -2739,34 +2689,31 @@
             "event": null,
             "params": null
           },
-          "menu": [
-            {
-              "label": "Clips vidéos",
-              "desc": "des clips vidéos à reconstituer en AIR BAND",
-              "components": {
-                "playlist_video": [
-                  {
-                    "label": "LETSDANCE",
-                    "desc": "",
-                    "datas": {},
-                    "file": "ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"
-                  },
-                  {
-                    "label": "OGV",
-                    "desc": "",
-                    "datas": {},
-                    "file": "ressources/jeux/letsdance/Anim12.ogv"
-                  },
-                  {
-                    "label": "TRANSPARENTE",
-                    "desc": "",
-                    "datas": {},
-                    "file": "ressources/crazyshow/assets_video/CRAZY_SHOW_TRSP.mp4"
-                  }
-                ]
-              }
+          "menu": [{
+            "label": "Clips vidéos",
+            "desc": "des clips vidéos à reconstituer en AIR BAND",
+            "components": {
+              "playlist_video": [{
+                  "label": "LETSDANCE",
+                  "desc": "",
+                  "datas": {},
+                  "file": "ressources/jeux/letsdance/1703_NJOY_ANIM_LOGO_02.mp4"
+                },
+                {
+                  "label": "OGV",
+                  "desc": "",
+                  "datas": {},
+                  "file": "ressources/jeux/letsdance/Anim12.ogv"
+                },
+                {
+                  "label": "TRANSPARENTE",
+                  "desc": "",
+                  "datas": {},
+                  "file": "ressources/crazyshow/assets_video/CRAZY_SHOW_TRSP.mp4"
+                }
+              ]
             }
-          ]
+          }]
         },
         {
           "label": "Tour en Folie",
@@ -2785,34 +2732,31 @@
             "event": null,
             "params": null
           },
-          "menu": [
-            {
-              "label": "Clips vidéos",
-              "desc": "des clips vidéos à reconstituer en AIR BAND",
-              "components": {
-                "playlist_video": [
-                  {
-                    "label": "Exemple",
-                    "desc": "",
-                    "datas": {},
-                    "file": "ressources/crazyshow/tourenfolie/tourenfolie.mp4"
-                  },
-                  {
-                    "label": "chronos 60",
-                    "desc": "",
-                    "datas": {},
-                    "file": "ressources/crazyshow/jingles/chronos_60.mp4"
-                  },
-                  {
-                    "label": "chronos 20",
-                    "desc": "",
-                    "datas": {},
-                    "file": "ressources/crazyshow/jingles/chronos_20.mp4"
-                  }
-                ]
-              }
+          "menu": [{
+            "label": "Clips vidéos",
+            "desc": "des clips vidéos à reconstituer en AIR BAND",
+            "components": {
+              "playlist_video": [{
+                  "label": "Exemple",
+                  "desc": "",
+                  "datas": {},
+                  "file": "ressources/crazyshow/tourenfolie/tourenfolie.mp4"
+                },
+                {
+                  "label": "chronos 60",
+                  "desc": "",
+                  "datas": {},
+                  "file": "ressources/crazyshow/jingles/chronos_60.mp4"
+                },
+                {
+                  "label": "chronos 20",
+                  "desc": "",
+                  "datas": {},
+                  "file": "ressources/crazyshow/jingles/chronos_20.mp4"
+                }
+              ]
             }
-          ]
+          }]
         },
         {
           "label": "Cintre d'esprit",
@@ -2831,34 +2775,31 @@
             "event": null,
             "params": null
           },
-          "menu": [
-            {
-              "label": "Clips vidéos",
-              "desc": "to complete",
-              "components": {
-                "playlist_video": [
-                  {
-                    "label": "Exemple",
-                    "desc": "",
-                    "datas": {},
-                    "file": "ressources/crazyshow/cintre_esprit/cintre_esprit.mp4"
-                  },
-                  {
-                    "label": "chronos 60",
-                    "desc": "",
-                    "datas": {},
-                    "file": "ressources/crazyshow/jingles/chronos_60.mp4"
-                  },
-                  {
-                    "label": "chronos 20",
-                    "desc": "",
-                    "datas": {},
-                    "file": "ressources/crazyshow/jingles/chronos_20.mp4"
-                  }
-                ]
-              }
+          "menu": [{
+            "label": "Clips vidéos",
+            "desc": "to complete",
+            "components": {
+              "playlist_video": [{
+                  "label": "Exemple",
+                  "desc": "",
+                  "datas": {},
+                  "file": "ressources/crazyshow/cintre_esprit/cintre_esprit.mp4"
+                },
+                {
+                  "label": "chronos 60",
+                  "desc": "",
+                  "datas": {},
+                  "file": "ressources/crazyshow/jingles/chronos_60.mp4"
+                },
+                {
+                  "label": "chronos 20",
+                  "desc": "",
+                  "datas": {},
+                  "file": "ressources/crazyshow/jingles/chronos_20.mp4"
+                }
+              ]
             }
-          ]
+          }]
         }
       ]
     },
@@ -2872,8 +2813,7 @@
       "datas": {},
       "has_team": false,
       "template": "boardingpass",
-      "prerecquise": [
-        {
+      "prerecquise": [{
           "label": "Installer les totems",
           "checked": false
         },
@@ -2893,70 +2833,63 @@
         "audio": ""
       },
       "tools": [],
-      "apps": [
-        {
-          "label": "Afficher le panneau",
-          "desc": "Configurer et afficher les destinations.",
-          "form": [
-            {
-              "input": "number",
-              "default": "30",
-              "dataset": "timer",
-              "label": "durée du chrono"
-            }
-          ],
-          "javascripts": [
-            "pages/boardingpass/boardingpass.js"
-          ],
-          "component_template": "pages/boardingpass/boardingpass.tmpl",
-          "actions": [
-            {
-              "type": "javascript",
-              "class": "boardingpass",
-              "function": "init"
-            }
-          ],
-          "datas": {},
-          "menu": [
-            {
-              "label": "Pilote Stagiaire",
-              "desc": "Trouver des destinations plus faciles",
-              "components": {
-                "boarding": {
-                  "mode": "random",
-                  "level": "easy",
-                  "number": "10",
-                  "questions": []
-                }
-              }
-            },
-            {
-              "label": "Co-pilote",
-              "desc": "Trouver des destinations niveau intermédiaire",
-              "components": {
-                "boarding": {
-                  "mode": "random",
-                  "level": "meidum",
-                  "number": "12",
-                  "questions": []
-                }
-              }
-            },
-            {
-              "label": "Pilote confirmé",
-              "desc": "Trouver des destinations plus difficiles avec plus d'indices ?",
-              "components": {
-                "boarding": {
-                  "mode": "random",
-                  "level": "hard",
-                  "number": "15",
-                  "questions": []
-                }
+      "apps": [{
+        "label": "Afficher le panneau",
+        "desc": "Configurer et afficher les destinations.",
+        "form": [{
+          "input": "number",
+          "default": "30",
+          "dataset": "timer",
+          "label": "durée du chrono"
+        }],
+        "javascripts": [
+          "pages/boardingpass/boardingpass.js"
+        ],
+        "component_template": "pages/boardingpass/boardingpass.tmpl",
+        "actions": [{
+          "type": "javascript",
+          "class": "boardingpass",
+          "function": "init"
+        }],
+        "datas": {},
+        "menu": [{
+            "label": "Pilote Stagiaire",
+            "desc": "Trouver des destinations plus faciles",
+            "components": {
+              "boarding": {
+                "mode": "random",
+                "level": "easy",
+                "number": "10",
+                "questions": []
               }
             }
-          ]
-        }
-      ]
+          },
+          {
+            "label": "Co-pilote",
+            "desc": "Trouver des destinations niveau intermédiaire",
+            "components": {
+              "boarding": {
+                "mode": "random",
+                "level": "meidum",
+                "number": "12",
+                "questions": []
+              }
+            }
+          },
+          {
+            "label": "Pilote confirmé",
+            "desc": "Trouver des destinations plus difficiles avec plus d'indices ?",
+            "components": {
+              "boarding": {
+                "mode": "random",
+                "level": "hard",
+                "number": "15",
+                "questions": []
+              }
+            }
+          }
+        ]
+      }]
     },
     {
       "label": "Labofolies",
@@ -2968,8 +2901,7 @@
       "datas": {},
       "has_team": false,
       "template": "labofolies",
-      "prerecquise": [
-        {
+      "prerecquise": [{
           "label": "Préparer les ustenciles",
           "checked": false
         },
@@ -2984,31 +2916,27 @@
         "audio": "",
         "pix": "URL_DU_SPLASH_GROUND_IF_AUDIO_IS_DEFINED"
       },
-      "tools": [
-        {
-          "label": "Ambiance",
-          "desc": "Des musiques d'ambiance selon les humeurs pour combler les vides.",
-          "playlist": [
-            {
-              "label": "Groove Grove",
-              "file": "ressources/labofolies/audio/background_music/Groove_Grove.mp3",
-              "type": "audio"
-            },
-            {
-              "label": "Professor Umlaut",
-              "file": "ressources/labofolies/audio/background_music/Professor_Umlaut.mp3",
-              "type": "audio"
-            },
-            {
-              "label": "The big beat 80s",
-              "file": "ressources/labofolies/audio/background_music/The_Big_Beat_80s.mp3",
-              "type": "audio"
-            }
-          ]
-        }
-      ],
-      "apps": [
-        {
+      "tools": [{
+        "label": "Ambiance",
+        "desc": "Des musiques d'ambiance selon les humeurs pour combler les vides.",
+        "playlist": [{
+            "label": "Groove Grove",
+            "file": "ressources/labofolies/audio/background_music/Groove_Grove.mp3",
+            "type": "audio"
+          },
+          {
+            "label": "Professor Umlaut",
+            "file": "ressources/labofolies/audio/background_music/Professor_Umlaut.mp3",
+            "type": "audio"
+          },
+          {
+            "label": "The big beat 80s",
+            "file": "ressources/labofolies/audio/background_music/The_Big_Beat_80s.mp3",
+            "type": "audio"
+          }
+        ]
+      }],
+      "apps": [{
           "label": "Équipe et scores",
           "desc": "Activer les équipes et gérer les scores",
           "form": [],
@@ -3016,13 +2944,11 @@
             "pages/labofolies/labofolies.js"
           ],
           "component_template": "pages/labofolies/labofolies.tmpl",
-          "actions": [
-            {
-              "type": "javascript",
-              "class": "labofolies",
-              "function": "init"
-            }
-          ],
+          "actions": [{
+            "type": "javascript",
+            "class": "labofolies",
+            "function": "init"
+          }],
           "datas": {
             "screener": "settings"
           },
@@ -3034,34 +2960,31 @@
           "datas": {
             "screener": "video"
           },
-          "menu": [
-            {
-              "label": "",
-              "desc": "Avant de lancer une vidéo, annoncez aux enfants que nous allons prendre des nouvelles du professeur.",
-              "components": {
-                "playlist_video": [
-                  {
-                    "label": "État de folie 1",
-                    "desc": "",
-                    "datas": {},
-                    "file": "ressources/labofolies/video/02_Video_etat_de_folie_01_v1.mp4"
-                  },
-                  {
-                    "label": "État de folie 2",
-                    "desc": "",
-                    "datas": {},
-                    "file": "ressources/labofolies/video/03_Video_etat_de_folie_02_v1.mp4"
-                  },
-                  {
-                    "label": "État de folie 3",
-                    "desc": "",
-                    "datas": {},
-                    "file": "ressources/labofolies/video/04_Video_etat_de_folie_03_v1.mp4"
-                  }
-                ]
-              }
+          "menu": [{
+            "label": "",
+            "desc": "Avant de lancer une vidéo, annoncez aux enfants que nous allons prendre des nouvelles du professeur.",
+            "components": {
+              "playlist_video": [{
+                  "label": "État de folie 1",
+                  "desc": "",
+                  "datas": {},
+                  "file": "ressources/labofolies/video/02_Video_etat_de_folie_01_v1.mp4"
+                },
+                {
+                  "label": "État de folie 2",
+                  "desc": "",
+                  "datas": {},
+                  "file": "ressources/labofolies/video/03_Video_etat_de_folie_02_v1.mp4"
+                },
+                {
+                  "label": "État de folie 3",
+                  "desc": "",
+                  "datas": {},
+                  "file": "ressources/labofolies/video/04_Video_etat_de_folie_03_v1.mp4"
+                }
+              ]
             }
-          ]
+          }]
         },
         {
           "label": "Appeler le professeur",
@@ -3073,40 +2996,37 @@
           "datas": {
             "screener": "experiences"
           },
-          "menu": [
-            {
-              "label": "Liste des appels",
-              "desc": "Liste des appels téléphoniques et indices sonores du professeur.",
-              "components": {
-                "playlist_video": [
-                  {
-                    "label": "Énigme 1",
-                    "desc": "Appel pour la première énigme",
-                    "datas": {},
-                    "file": "ressources/labofolies/call_professor/Appel_01.mp4"
-                  },
-                  {
-                    "label": "Appel 2",
-                    "desc": "Appel pour la deuxième énigme",
-                    "datas": {},
-                    "file": "ressources/labofolies/call_professor/Appel_02.mp4"
-                  },
-                  {
-                    "label": "Appel 3",
-                    "desc": "Appel pour la deuxième énigme",
-                    "datas": {},
-                    "file": "ressources/labofolies/call_professor/Appel_03.mp4"
-                  },
-                  {
-                    "label": "Appel 4",
-                    "desc": "Appel pour la troisième énigme",
-                    "datas": {},
-                    "file": "ressources/labofolies/call_professor/Appel_04.mp4"
-                  }
-                ]
-              }
+          "menu": [{
+            "label": "Liste des appels",
+            "desc": "Liste des appels téléphoniques et indices sonores du professeur.",
+            "components": {
+              "playlist_video": [{
+                  "label": "Énigme 1",
+                  "desc": "Appel pour la première énigme",
+                  "datas": {},
+                  "file": "ressources/labofolies/call_professor/Appel_01.mp4"
+                },
+                {
+                  "label": "Appel 2",
+                  "desc": "Appel pour la deuxième énigme",
+                  "datas": {},
+                  "file": "ressources/labofolies/call_professor/Appel_02.mp4"
+                },
+                {
+                  "label": "Appel 3",
+                  "desc": "Appel pour la deuxième énigme",
+                  "datas": {},
+                  "file": "ressources/labofolies/call_professor/Appel_03.mp4"
+                },
+                {
+                  "label": "Appel 4",
+                  "desc": "Appel pour la troisième énigme",
+                  "datas": {},
+                  "file": "ressources/labofolies/call_professor/Appel_04.mp4"
+                }
+              ]
             }
-          ]
+          }]
         },
         {
           "label": "Molécules",
@@ -3116,13 +3036,11 @@
             "pages/labofolies/js/JSmol.lite.nojq.js"
           ],
           "component_template": "pages/labofolies/labofolies.tmpl",
-          "actions": [
-            {
-              "type": "javascript",
-              "class": "labofolies",
-              "function": "init"
-            }
-          ],
+          "actions": [{
+            "type": "javascript",
+            "class": "labofolies",
+            "function": "init"
+          }],
           "datas": {
             "screener": "scanner"
           },
@@ -3136,13 +3054,11 @@
             "pages/labofolies/labofolies.js"
           ],
           "component_template": "pages/labofolies/labofolies.tmpl",
-          "actions": [
-            {
-              "type": "javascript",
-              "class": "labofolies",
-              "function": "init"
-            }
-          ],
+          "actions": [{
+            "type": "javascript",
+            "class": "labofolies",
+            "function": "init"
+          }],
           "datas": {
             "screener": "synthetisation"
           },
@@ -3160,67 +3076,53 @@
       "datas": {},
       "has_team": false,
       "template": "labofolies",
-      "prerecquise": [
-        {
-          "label": "Préparer les ustenciles",
-          "checked": false
-        },
-        {
-          "label": "Installer l'écran principal",
-          "checked": false
-        }
-      ],
+      "prerecquise": [{
+        "label": "test",
+        "checked": false
+      }],
       "introduction": {
         "video": "ressources/labofolies/video/01_Video_introduction_v1.mp4",
         "size": "0 0 1920 1080",
         "audio": "",
         "pix": "URL_DU_SPLASH_GROUND_IF_AUDIO_IS_DEFINED"
       },
-      "tools": [
-        {
-          "label": "Ambiance",
-          "desc": "Des musiques d'ambiance selon les humeurs pour combler les vides.",
-          "playlist": [
-            {
-              "label": "Groove Grove",
-              "file": "ressources/labofolies/audio/background_music/Groove_Grove.mp3",
-              "type": "audio"
-            },
-            {
-              "label": "Professor Umlaut",
-              "file": "ressources/labofolies/audio/background_music/Professor_Umlaut.mp3",
-              "type": "audio"
-            },
-            {
-              "label": "The big beat 80s",
-              "file": "ressources/labofolies/audio/background_music/The_Big_Beat_80s.mp3",
-              "type": "audio"
-            }
-          ]
-        }
-      ],
-      "apps": [
-        {
-          "label": "Équipe et scores",
-          "desc": "Activer les équipes et gérer les scores",
-          "form": [],
-          "javascripts": [
-            "pages/labofolies/melanie.js"
-          ],
-          "component_template": "pages/labofolies/melanie.tmpl",
-          "actions": [
-            {
-              "type": "javascript",
-              "class": "labofolies",
-              "function": "init"
-            }
-          ],
-          "datas": {
-            "screener": "settings"
+      "tools": [{
+        "label": "Ambiance",
+        "desc": "Des musiques d'ambiance selon les humeurs pour combler les vides.",
+        "playlist": [{
+            "label": "Groove Grove",
+            "file": "ressources/labofolies/audio/background_music/Groove_Grove.mp3",
+            "type": "audio"
           },
-          "menu": []
-        }
-      ]
+          {
+            "label": "Professor Umlaut",
+            "file": "ressources/labofolies/audio/background_music/Professor_Umlaut.mp3",
+            "type": "audio"
+          },
+          {
+            "label": "The big beat 80s",
+            "file": "ressources/labofolies/audio/background_music/The_Big_Beat_80s.mp3",
+            "type": "audio"
+          }
+        ]
+      }],
+      "apps": [{
+        "label": "Melanie",
+        "desc": "description.",
+        "javascripts": [
+          "pages/melanie/melanie.js"
+        ],
+        "component_template": "pages/melanie/melanie.tmpl",
+        "actions": [{
+          "type": "javascript",
+          "class": "melanie",
+          "function": "init"
+        }],
+        "datas": {
+          "screener": "scanner"
+        },
+        "menu": []
+      }]
     }
   ]
 }
