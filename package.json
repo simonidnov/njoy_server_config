@@ -23,7 +23,7 @@
   "dependencies": {
     "express": "^4.16.4",
     "gsap": "^2.0.2",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "kbm-robot": "0.0.4",
     "node-omxplayer": "^0.6.1",
     "omx-interface": "^1.2.2",
