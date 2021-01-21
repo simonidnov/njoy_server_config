@@ -26,7 +26,7 @@
     "iscroll": "^5.2.0",
     "jquery": "^3.2.1",
     "jquery-lazyload": "^1.9.7",
-    "socket.io": "^1.7.3",
+    "socket.io": "^2.4.0",
     "underscore": "^1.8.3",
     "uuid": "^3.0.1",
     "vue": "^2.5.17",
