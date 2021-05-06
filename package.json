@@ -29,7 +29,7 @@
     "omx-interface": "^1.2.2",
     "omx-manager": "^0.1.4",
     "socket.io": "^1.7.3",
-    "underscore": "^1.9.1",
+    "underscore": "^1.12.1",
     "underscore-express": "^1.0.1",
     "ws": "^3.3.3"
   }
